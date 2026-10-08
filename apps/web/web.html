@@ -3133,7 +3133,7 @@
 <body>
 
 <!-- HIGH-TECH SPLASH BOOT SEQUENCE -->
-<div id="splashScreen">
+<div id="splashScreen" style="display: none !important;">
     <div class="splash-emblem-wrap">
         <div class="splash-glow-ring"></div>
         <div class="splash-core-badge">
@@ -3334,26 +3334,26 @@
 </div>
 
 <!-- STUDIO ENGINEERING WORKSPACE -->
-<div id="studioView" style="display: none;">
+<div id="studioView" style="display: flex; flex-direction: column; width: 100%; height: 100vh;">
 <!-- UNIFIED TACTICAL COMMAND HEADER -->
 <header>
     <!-- Left: EV3 Classroom Home & Project Pill -->
     <div class="brand-section" style="gap: 10px;">
-        <button class="ev3-home-btn" type="button" onclick="AppRouter.showWelcome()" title="กลับหน้าแรก (Project Hub)">
+        <button class="ev3-home-btn" type="button" onclick="AppRouter.showWelcome()" title="หน้าแรก EV3 Project Hub">
             <svg width="18" height="18" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5"><path d="M3 9l9-7 9 7v11a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2z"/><polyline points="9 22 9 12 15 12 15 22"/></svg>
         </button>
         <div class="ev3-project-pill">
             <span style="font-size: 1rem;">🤖</span>
             <input type="text" id="ev3ProjectTitleInput" value="PT-BOT Mission 1" title="ชื่อโปรเจกต์ (คลิกเพื่อเปลี่ยนชื่อ)">
-            <span style="color: var(--lego-green); font-size: 0.65rem; font-weight: 800;">● บันทึกแล้ว</span>
+            <span style="color: #00a859; font-size: 0.72rem; font-weight: 800; background: #e6f9ee; padding: 2px 8px; border-radius: 9999px;">● บันทึกแล้ว</span>
         </div>
     </div>
 
     <!-- Center: Segmented Workspace Mode Switcher -->
     <div class="header-center-zone">
         <div class="mode-toggle" role="group" aria-label="Workspace mode">
-            <button id="mode1Btn" class="mode-btn active" type="button" aria-pressed="true" onclick="setMode(1)">01 · Field Design</button>
-            <button id="mode2Btn" class="mode-btn" type="button" aria-pressed="false" onclick="setMode(2)">02 · Plan Route</button>
+            <button id="mode1Btn" class="mode-btn active" type="button" aria-pressed="true" onclick="setMode(1)">01 · ออกแบบสนาม (Field)</button>
+            <button id="mode2Btn" class="mode-btn" type="button" aria-pressed="false" onclick="setMode(2)">02 · วางแผนเส้นทาง (Route)</button>
         </div>
     </div>
 
@@ -3371,15 +3371,15 @@
         </select>
 
         <!-- Primary Action Suite -->
-        <button class="btn-ui primary" type="button" onclick="autoCalculateMission()" title="Compute optimal smooth path [A]">⚡ Auto Path</button>
-        <button class="btn-ui accent" type="button" id="previewBtn" aria-pressed="false" onclick="togglePreview()" title="Simulate robot run [Space]">▶ Simulate</button>
-        <button class="btn-ui" type="button" id="quickUploadBtn" onclick="quickUploadMission()" title="0.5-Second Direct Flash to Robot NVS Flash">⚡ Quick Upload</button>
-        <button class="btn-ui" type="button" id="flashFirmwareBtn" onclick="openFlashModal()" title="1-Click High-Speed C++ Compile & Flash (921,600 baud)">🔨 Flash C++</button>
+        <button class="btn-ui primary" type="button" onclick="autoCalculateMission()" title="Compute optimal smooth path [A]">⚡ คำนวณเส้นทาง (Auto Path)</button>
+        <button class="btn-ui accent" type="button" id="previewBtn" aria-pressed="false" onclick="togglePreview()" title="Simulate robot run [Space]">▶ จำลองการวิ่ง (Simulate)</button>
+        <button class="btn-ui" type="button" id="quickUploadBtn" onclick="quickUploadMission()" title="0.5-Second Direct Flash to Robot NVS Flash">⚡ อัปโหลดด่วน (Quick Upload)</button>
+        <button class="btn-ui" type="button" id="flashFirmwareBtn" onclick="openFlashModal()" title="1-Click High-Speed C++ Compile & Flash (921,600 baud)">🔨 แฟลชบอร์ด (Flash C++)</button>
 
         <!-- Hardware Connect Button -->
         <button class="btn-ui" type="button" id="headerSerialBtn" onclick="toggleSerialConnection()" title="Connect to Robot via USB Serial">
             <span id="headerSerialDot" style="display:inline-block; width:7px; height:7px; border-radius:50%; background:#94a3b8; margin-right:4px;"></span>
-            <span id="headerSerialText">Connect Robot</span>
+            <span id="headerSerialText">เชื่อมต่อหุ่นยนต์ (Connect)</span>
         </button>
 
         <!-- Actions Dropdown -->
@@ -3435,26 +3435,26 @@
 
         <!-- Mode 1 Tools -->
         <div id="editorTools" role="group" aria-label="Field tools">
-            <div class="section-eyebrow" style="margin-top: 8px;"><span>PALETTE</span><span>TILES</span></div>
-            <h2 class="section-title">Ground & Goals</h2>
+            <div class="section-eyebrow" style="margin-top: 8px;"><span>GROUND & GOALS</span><span>พื้นสนาม & เป้าหมาย</span></div>
+            <h2 class="section-title">พื้นและจุดทำคะแนน</h2>
             <div class="tool-grid">
-                <button class="tool-item active" type="button" aria-pressed="true" onclick="setTool('empty', this)"><span class="swatch" style="background: #ffffff; border: 1px solid #cbd5e1;"></span>White floor</button>
-                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('line', this)"><span class="swatch" style="background: #ffffff; border: 3px solid #0f172a;"></span>Line border</button>
-                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('start', this)"><span class="swatch" style="background: var(--apple-green);"></span>Start zone</button>
-                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('checkpoint', this)"><span class="swatch" style="background: var(--apple-amber);"></span>Checkpoint</button>
-                <button class="tool-item" type="button" aria-label="Drop zone tool" title="Click an existing drop zone to rotate direction." aria-pressed="false" onclick="setTool('drop_n', this)"><span class="swatch" style="background: linear-gradient(to bottom, #2563eb 50%, #ffffff 50%); border: 1px solid #1e293b;"></span>Drop zone</button>
-                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('finish', this)"><span class="swatch" style="background: var(--apple-red);"></span>Finish zone</button>
+                <button class="tool-item active" type="button" aria-pressed="true" onclick="setTool('empty', this)"><span class="swatch" style="background: #ffffff; border: 1px solid #cbd5e1;"></span>⚪ พื้นขาว (White)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('line', this)"><span class="swatch" style="background: #ffffff; border: 3px solid #0f172a;"></span>⬛ เส้นขอบดำ 20mm</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('start', this)"><span class="swatch" style="background: var(--apple-green);"></span>🚩 จุดปล่อยตัว (Start)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('checkpoint', this)"><span class="swatch" style="background: var(--apple-amber);"></span>📍 เช็คพอยต์ (15 แต้ม)</button>
+                <button class="tool-item" type="button" aria-label="Drop zone tool" title="คลิกซ้ำบนช่องสนามเพื่อหมุนทิศเหนือ/ใต้/ออก/ตก" aria-pressed="false" onclick="setTool('drop_n', this)"><span class="swatch" style="background: linear-gradient(to bottom, #2563eb 50%, #ffffff 50%); border: 1px solid #1e293b;"></span>📦 วางกล่อง (15 แต้ม ↻)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('finish', this)"><span class="swatch" style="background: var(--apple-red);"></span>🏁 จุดสิ้นสุด (10 แต้ม)</button>
             </div>
 
-            <div class="section-eyebrow" style="margin-top: 12px;"><span>HAZARDS</span><span>6 OBSTACLES</span></div>
-            <h2 class="section-title">Field Obstacles</h2>
+            <div class="section-eyebrow" style="margin-top: 14px;"><span>OBSTACLES</span><span>สิ่งกีดขวางระดับกลาง</span></div>
+            <h2 class="section-title">สิ่งกีดขวางการแข่งขัน</h2>
             <div class="tool-grid">
-                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('blackhole', this)"><span class="swatch" style="background: #090a0f;"></span>Black Hole</button>
-                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('bump', this)"><span class="swatch" style="background: #ea580c;"></span>Speed Bumps</button>
-                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('bridge', this)"><span class="swatch" style="background: #2563eb;"></span>Bridge</button>
-                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('seesaw', this)"><span class="swatch" style="background: #ca8a04;"></span>Seesaw</button>
-                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('tunnel', this)"><span class="swatch" style="background: #475569;"></span>Tunnel</button>
-                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('bomb', this)"><span class="swatch" style="background: #ef4444;"></span>Bomb</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('bump', this)" title="คลิกซ้ำบนช่องเพื่อหมุน แนวนอน ↔ หรือ แนวตั้ง ↕ (หุ่นยนต์ต้องเบารถ)"><span class="swatch" style="background: #ea580c;"></span>🥢 ตะเกียบ (Chopstick ↻)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('bomb', this)" title="คลิกซ้ำบนช่องเพื่อเลือกลงมุมเส้นดำ 4 มุม (TL, TR, BR, BL)"><span class="swatch" style="background: #ef4444;"></span>💣 ระเบิดมุม (Bomb ↻)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('bridge', this)" title="คลิกซ้ำบนช่องเพื่อเปลี่ยนเป็น: ทางขึ้น ↗ / ยกระดับ ═ / ทางลง ↘"><span class="swatch" style="background: #2563eb;"></span>🌉 สะพาน 3 ระดับ (Bridge ↻)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('seesaw', this)" title="ไม้กระดก"><span class="swatch" style="background: #ca8a04;"></span>⚖️ ไม้กระดก (Seesaw)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('tunnel', this)" title="อุโมงค์ลอด"><span class="swatch" style="background: #475569;"></span>🚇 อุโมงค์ (Tunnel)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('blackhole', this)" title="หลุมดำ"><span class="swatch" style="background: #090a0f;"></span>🕳️ หลุมดำ (Void)</button>
             </div>
         </div>
 
@@ -3475,8 +3475,8 @@
 
         <!-- Footer Actions -->
         <div class="sidebar-footer">
-            <button class="btn-ui" type="button" onclick="resetPath()">Clear route</button>
-            <button class="btn-ui" type="button" style="color: var(--apple-red); border-color: rgba(239, 68, 68, 0.25);" onclick="clearField()">Clear field</button>
+            <button class="btn-ui" type="button" onclick="resetPath()">ล้างเส้นทาง (Clear Route)</button>
+            <button class="btn-ui" type="button" style="color: var(--apple-red); border-color: rgba(239, 68, 68, 0.25);" onclick="clearField()">ล้างสนามทั้งหมด (Clear Field)</button>
         </div>
     </aside>
 
@@ -3486,8 +3486,8 @@
         
         <!-- Viewport Zoom & Perspective Floating Bar -->
         <div class="viewport-toolbar" role="toolbar" aria-label="Arena Viewport Tools">
-            <button class="view-btn active" type="button" id="viewMode2DBtn" onclick="setArenaViewMode('2D')" title="2D Orthographic Grid">2D Grid</button>
-            <button class="view-btn" type="button" id="viewMode3DBtn" onclick="setArenaViewMode('3D')" title="3D Isometric Theater">3D Theater</button>
+            <button class="view-btn active" type="button" id="viewMode2DBtn" onclick="setArenaViewMode('2D')" title="2D Orthographic Grid">2D สนาม</button>
+            <button class="view-btn" type="button" id="viewMode3DBtn" onclick="setArenaViewMode('3D')" title="3D Isometric Theater">3D เสมือนจริง</button>
             <span id="sep3D" style="display:none; width: 1px; height: 14px; background: var(--border-glass); margin: 0 2px;"></span>
             <button class="view-btn" type="button" id="camPresetIsoBtn" onclick="set3DCameraPreset('iso')" title="Isometric Perspective" style="display:none;">Iso</button>
             <button class="view-btn" type="button" id="camPresetTopBtn" onclick="set3DCameraPreset('top')" title="Top-down 3D" style="display:none;">Top</button>
@@ -3582,9 +3582,9 @@
     <aside class="control-panel config-panel">
         <!-- Dual Tab Switcher -->
                 <div class="tab-nav-deck" role="tablist" aria-label="Right panel view selector">
-            <button class="deck-tab-btn active" type="button" role="tab" id="deckTab1Btn" aria-selected="true" onclick="switchRightDeck('INSPECTOR')">🎯 Mission & Waypoints</button>
-            <button class="deck-tab-btn" type="button" role="tab" id="deckTab2Btn" aria-selected="false" onclick="switchRightDeck('CODE')">⚡ Firmware Engine</button>
-            <button class="deck-tab-btn" type="button" role="tab" id="deckTab3Btn" aria-selected="false" onclick="switchRightDeck('SERIAL')">🔌 Live Robot Link</button>
+            <button class="deck-tab-btn active" type="button" role="tab" id="deckTab1Btn" aria-selected="true" onclick="switchRightDeck('INSPECTOR')">🎯 ปรับแต่งเส้นทาง (Inspector)</button>
+            <button class="deck-tab-btn" type="button" role="tab" id="deckTab2Btn" aria-selected="false" onclick="switchRightDeck('CODE')">⚡ โค้ด Arduino C++ (Code)</button>
+            <button class="deck-tab-btn" type="button" role="tab" id="deckTab3Btn" aria-selected="false" onclick="switchRightDeck('SERIAL')">🔌 EV3 Port View & เซนเซอร์</button>
         </div>
 
         <!-- TAB 1: WAYPOINT INSPECTOR & TIMELINE -->
@@ -7952,62 +7952,11 @@ async function executeFirmwareFlash() {
 // =============================================================================
 class AppRouter {
     static init() {
-        const skipLaunch = localStorage.getItem('ptbot_skip_welcome') === 'true';
-        const checkbox = document.getElementById('welcomeStartupCheckbox');
-        if (checkbox) checkbox.checked = !skipLaunch;
-
-        // Auto-detect USB COM port on welcome screen
-        AppRouter.detectHardwareStatus();
-
-        // Splash Sequence (~1.4s)
+        // Immediate launch into EV3 Classroom Studio Workspace (Zero Delay!)
         const splash = document.getElementById('splashScreen');
-        const fill = document.getElementById('splashFill');
-        const status = document.getElementById('splashStatus');
-
-        if (splash && fill && status) {
-            const steps = [
-                { p: 25, msg: 'LEGO Education PT-BOT Suite Ready' },
-                { p: 55, msg: 'SCANNING USB WEBSERIAL BUS...' },
-                { p: 85, msg: 'LOADING BFS TACTICAL SOLVER & 3D ASSETS...' },
-                { p: 100, msg: 'SYSTEM READY.' }
-            ];
-            let stepIdx = 0;
-
-            const timer = setInterval(() => { AppRouter.dismissSplash(skipLaunch); clearInterval(timer); return;
-                if (stepIdx < steps.length) {
-                    const s = steps[stepIdx];
-                    fill.style.width = `${s.p}%`;
-                    status.textContent = s.msg;
-                    stepIdx++;
-                } else {
-                    clearInterval(timer);
-                    setTimeout(() => {
-                        AppRouter.dismissSplash(skipLaunch);
-                    }, 240);
-                }
-            }, 300);
-
-            // Allow click or space to skip immediately
-            splash.onclick = () => {
-                clearInterval(timer);
-                AppRouter.dismissSplash(skipLaunch);
-            };
-
-            const keyHandler = (e) => {
-                if (e.code === 'Space' || e.key === 'Escape' || e.key === 'Enter') {
-                    clearInterval(timer);
-                    document.removeEventListener('keydown', keyHandler);
-                    AppRouter.dismissSplash(skipLaunch);
-                }
-            };
-            document.addEventListener('keydown', keyHandler, { once: true });
-        } else {
-            if (skipLaunch) {
-                AppRouter.showStudio();
-            } else {
-                AppRouter.showWelcome();
-            }
-        }
+        if (splash) splash.style.display = 'none';
+        AppRouter.showStudio();
+        AppRouter.detectHardwareStatus();
     }
 
     static dismissSplash(skipLaunch) {
