@@ -1,0 +1,2633 @@
+<!DOCTYPE html>
+<html lang="th" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Rescue Command · PT-BOT Tactical Mission Suite</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <style>
+        /* ==========================================================================
+           APPLE GLASSMORPHISM DESIGN SYSTEM & TOKEN ARCHITECTURE
+           Crafted to UI/UX Pro Max standards: Translucent surfaces, physical depth,
+           continuous curvature, refined typography, and purposeful micro-interactions.
+           ========================================================================== */
+        :root {
+            /* Apple Studio Glass (Light Mode - Elegant Neutral / Off-White Foundation) */
+            --bg-base: #f5f6fa;
+            --bg-canvas: #f8f9fc;
+            --glass-chrome: rgba(255, 255, 255, 0.76);
+            --glass-surface: rgba(255, 255, 255, 0.68);
+            --glass-card: rgba(255, 255, 255, 0.82);
+            --glass-card-hover: rgba(255, 255, 255, 0.96);
+            --glass-raised: #ffffff;
+            --glass-inset: rgba(0, 0, 0, 0.03);
+            --glass-blur: 24px;
+            --glass-saturate: 180%;
+
+            --border-glass: rgba(0, 0, 0, 0.07);
+            --border-subtle: rgba(0, 0, 0, 0.04);
+            --border-active: #0071e3;
+            --border-specular: rgba(255, 255, 255, 0.95);
+
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.03);
+            --shadow-sm: 0 2px 8px -1px rgba(0, 0, 0, 0.04), 0 1px 3px rgba(0, 0, 0, 0.02);
+            --shadow-md: 0 6px 20px -2px rgba(0, 0, 0, 0.06), 0 2px 6px -1px rgba(0, 0, 0, 0.02);
+            --shadow-lg: 0 16px 40px -4px rgba(0, 0, 0, 0.09), 0 4px 12px -2px rgba(0, 0, 0, 0.03);
+            --shadow-pedestal: 0 24px 60px -12px rgba(0, 0, 0, 0.12), 0 6px 18px -2px rgba(0, 0, 0, 0.04);
+            --shadow-specular: inset 0 1px 0 0 rgba(255, 255, 255, 0.9);
+
+            --text-primary: #1d1d1f;
+            --text-secondary: #515154;
+            --text-muted: #86868b;
+            --text-quaternary: #aeaeb2;
+
+            /* Apple System Semantic Palette */
+            --apple-blue: #0071e3;
+            --apple-blue-hover: #0077ed;
+            --apple-blue-subtle: rgba(0, 113, 227, 0.08);
+            --apple-amber: #f59e0b;
+            --apple-amber-subtle: rgba(245, 158, 11, 0.1);
+            --apple-green: #34c759;
+            --apple-green-subtle: rgba(52, 199, 89, 0.1);
+            --apple-red: #ff3b30;
+            --apple-red-subtle: rgba(255, 59, 48, 0.1);
+            --apple-purple: #af52de;
+            --apple-cyan: #30b0c7;
+
+            /* Legacy compatibility bindings */
+            --telemetry: var(--apple-blue);
+            --caution: var(--apple-amber);
+            --signal-green: var(--apple-green);
+            --signal-red: var(--apple-red);
+            --signal-purple: var(--apple-purple);
+            --obsidian: #0f1117;
+
+            /* Dimension & Grid Tokens */
+            --cell-size: 80px;
+            --cell-line: 8px;
+            --cell-accent-line: 4px;
+            --marker-size: 22px;
+            --focus-ring: 0 0 0 3px rgba(0, 113, 227, 0.35);
+
+            --radius-xs: 6px;
+            --radius-sm: 10px;
+            --radius-md: 14px;
+            --radius-lg: 18px;
+            --radius-xl: 22px;
+            --radius-pill: 9999px;
+
+            --ease-apple: cubic-bezier(0.16, 1, 0.3, 1);
+            --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Display", "SF Pro Text", "Inter", -system-ui, sans-serif;
+            --font-mono: "SF Mono", "JetBrains Mono", Menlo, Consolas, monospace;
+        }
+
+        [data-theme="dark"] {
+            /* Apple Pro Glass (Dark Mode - Space Black / VisionOS Studio) */
+            --bg-base: #0a0c10;
+            --bg-canvas: #0f1219;
+            --glass-chrome: rgba(18, 22, 32, 0.78);
+            --glass-surface: rgba(22, 27, 40, 0.65);
+            --glass-card: rgba(28, 34, 50, 0.75);
+            --glass-card-hover: rgba(35, 43, 64, 0.9);
+            --glass-raised: #1c2333;
+            --glass-inset: rgba(0, 0, 0, 0.3);
+
+            --border-glass: rgba(255, 255, 255, 0.08);
+            --border-subtle: rgba(255, 255, 255, 0.04);
+            --border-active: #0a84ff;
+            --border-specular: rgba(255, 255, 255, 0.14);
+
+            --shadow-xs: 0 1px 2px rgba(0, 0, 0, 0.3);
+            --shadow-sm: 0 3px 10px rgba(0, 0, 0, 0.35);
+            --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.45);
+            --shadow-lg: 0 20px 48px rgba(0, 0, 0, 0.6);
+            --shadow-pedestal: 0 28px 70px rgba(0, 0, 0, 0.7);
+            --shadow-specular: inset 0 1px 0 0 rgba(255, 255, 255, 0.12);
+
+            --text-primary: #f5f5f7;
+            --text-secondary: #a1a1a6;
+            --text-muted: #6e6e73;
+            --text-quaternary: #48484a;
+
+            --apple-blue: #0a84ff;
+            --apple-blue-hover: #409cff;
+            --apple-blue-subtle: rgba(10, 132, 255, 0.15);
+            --apple-amber: #ff9f0a;
+            --apple-amber-subtle: rgba(255, 159, 10, 0.15);
+            --apple-green: #30d158;
+            --apple-green-subtle: rgba(48, 209, 88, 0.15);
+            --apple-red: #ff453a;
+            --apple-red-subtle: rgba(255, 69, 58, 0.15);
+            --apple-purple: #bf5af2;
+            --apple-cyan: #40c8e0;
+
+            --telemetry: var(--apple-blue);
+            --caution: var(--apple-amber);
+            --signal-green: var(--apple-green);
+            --signal-red: var(--apple-red);
+            --signal-purple: var(--apple-purple);
+            --obsidian: #06080b;
+        }
+
+        /* --- GLOBAL RESET & BASE STYLES --- */
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+        }
+
+        body {
+            font-family: var(--font-sans);
+            background-color: var(--bg-base);
+            color: var(--text-primary);
+            height: 100vh;
+            height: 100dvh;
+            display: flex;
+            flex-direction: column;
+            overflow: hidden;
+            position: relative;
+            -webkit-font-smoothing: antialiased;
+            -moz-osx-font-smoothing: grayscale;
+            transition: background-color 0.3s ease, color 0.3s ease;
+        }
+
+        /* Optical ambient backdrop lighting */
+        body::before {
+            content: '';
+            position: fixed;
+            inset: 0;
+            pointer-events: none;
+            z-index: 0;
+            background: 
+                radial-gradient(circle at 10% 12%, rgba(0, 113, 227, 0.08) 0%, transparent 40%),
+                radial-gradient(circle at 90% 16%, rgba(245, 158, 11, 0.07) 0%, transparent 35%),
+                radial-gradient(circle at 50% 92%, rgba(52, 199, 89, 0.06) 0%, transparent 45%);
+            transition: opacity 0.4s ease;
+        }
+
+        [data-theme="dark"] body::before {
+            background: 
+                radial-gradient(circle at 10% 12%, rgba(10, 132, 255, 0.12) 0%, transparent 45%),
+                radial-gradient(circle at 90% 16%, rgba(255, 159, 10, 0.09) 0%, transparent 40%),
+                radial-gradient(circle at 50% 92%, rgba(48, 209, 88, 0.08) 0%, transparent 50%);
+        }
+
+        /* --- NAVIGATION HEADER (APPLE CHROME GLASS) --- */
+        header {
+            position: relative;
+            z-index: 100;
+            flex: 0 0 auto;
+            background: var(--glass-chrome);
+            backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+            border-bottom: 1px solid var(--border-glass);
+            box-shadow: var(--shadow-sm), var(--shadow-specular);
+            padding: 8px clamp(16px, 2.5vw, 28px);
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            gap: 16px;
+            transition: background-color 0.3s ease, border-color 0.3s ease;
+        }
+
+        .brand {
+            display: flex;
+            align-items: center;
+            gap: 12px;
+            min-width: 0;
+        }
+
+        .brand-icon {
+            width: 36px;
+            height: 36px;
+            border-radius: var(--radius-sm);
+            background: linear-gradient(135deg, #0071e3 0%, #0051a8 100%);
+            box-shadow: 0 4px 12px rgba(0, 113, 227, 0.28), inset 0 1px 0 rgba(255, 255, 255, 0.4);
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-weight: 800;
+            font-size: 0.88rem;
+            letter-spacing: -0.04em;
+            flex-shrink: 0;
+        }
+
+        .brand-text-container {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .brand-title-row {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .brand h1 {
+            font-family: var(--font-sans);
+            font-size: 1.05rem;
+            font-weight: 700;
+            letter-spacing: -0.025em;
+            color: var(--text-primary);
+            line-height: 1.2;
+        }
+
+        .status-pill {
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            font-family: var(--font-mono);
+            font-size: 0.65rem;
+            font-weight: 600;
+            color: var(--apple-green);
+            background: var(--apple-green-subtle);
+            border: 1px solid rgba(52, 199, 89, 0.25);
+            padding: 2px 8px;
+            border-radius: var(--radius-pill);
+        }
+
+        .status-dot {
+            width: 6px;
+            height: 6px;
+            border-radius: 50%;
+            background: var(--apple-green);
+            box-shadow: 0 0 6px var(--apple-green);
+        }
+
+        .brand-subtitle-row {
+            display: flex;
+            align-items: center;
+            gap: 6px;
+        }
+
+        .brand-badge {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            font-weight: 600;
+            color: var(--text-secondary);
+            background: var(--glass-inset);
+            border: 1px solid var(--border-subtle);
+            padding: 1px 6px;
+            border-radius: var(--radius-xs);
+        }
+
+        .brand-subtext {
+            font-size: 0.64rem;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            font-weight: 500;
+            text-transform: uppercase;
+        }
+
+        /* Apple Segmented Control */
+        .mode-toggle {
+            display: inline-flex;
+            background: var(--glass-inset);
+            border: 1px solid var(--border-glass);
+            padding: 3px;
+            border-radius: var(--radius-sm);
+            gap: 2px;
+            position: relative;
+        }
+
+        .mode-btn {
+            font-family: var(--font-sans);
+            font-size: 0.76rem;
+            font-weight: 600;
+            padding: 6px 14px;
+            border-radius: calc(var(--radius-sm) - 3px);
+            border: none;
+            background: transparent;
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s var(--ease-apple);
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            user-select: none;
+        }
+
+        .mode-btn:hover {
+            color: var(--text-primary);
+        }
+
+        .mode-btn.active {
+            background: var(--glass-raised);
+            color: var(--text-primary);
+            box-shadow: 0 2px 8px rgba(0, 0, 0, 0.08), 0 0.5px 1.5px rgba(0, 0, 0, 0.04);
+        }
+
+        /* Action Buttons */
+        .nav-actions {
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            flex-wrap: wrap;
+        }
+
+        .tech-btn {
+            font-family: var(--font-sans);
+            font-size: 0.74rem;
+            font-weight: 600;
+            padding: 7px 13px;
+            border-radius: var(--radius-sm);
+            border: 1px solid var(--border-glass);
+            background: var(--glass-card);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            color: var(--text-primary);
+            cursor: pointer;
+            transition: all 0.2s var(--ease-apple);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 6px;
+            box-shadow: var(--shadow-xs), var(--shadow-specular);
+            text-decoration: none;
+            user-select: none;
+            min-height: 36px;
+        }
+
+        .tech-btn:hover {
+            background: var(--glass-card-hover);
+            border-color: rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-sm), var(--shadow-specular);
+            transform: translateY(-1px);
+        }
+
+        .tech-btn:active {
+            transform: scale(0.97);
+            box-shadow: var(--shadow-xs);
+        }
+
+        .tech-btn.primary {
+            background: var(--apple-blue);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 14px rgba(0, 113, 227, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        .tech-btn.primary:hover {
+            background: var(--apple-blue-hover);
+            box-shadow: 0 6px 18px rgba(0, 113, 227, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.35);
+        }
+
+        .tech-btn.accent {
+            background: var(--apple-amber);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 4px 14px rgba(245, 158, 11, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.25);
+        }
+
+        .tech-btn.accent:hover {
+            background: #d97706;
+            box-shadow: 0 6px 18px rgba(245, 158, 11, 0.4);
+        }
+
+        .tech-btn.is-running {
+            background: var(--apple-red) !important;
+            color: #ffffff !important;
+            border-color: transparent !important;
+            box-shadow: 0 4px 14px rgba(255, 59, 48, 0.35) !important;
+        }
+
+        /* Apple Theme Toggle Button */
+        .theme-toggle-btn {
+            width: 36px;
+            height: 36px;
+            padding: 0;
+            border-radius: var(--radius-sm);
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            background: var(--glass-card);
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            cursor: pointer;
+            transition: all 0.2s var(--ease-apple);
+            box-shadow: var(--shadow-xs);
+        }
+
+        .theme-toggle-btn:hover {
+            background: var(--glass-card-hover);
+            color: var(--text-primary);
+            transform: translateY(-1px);
+        }
+
+        .theme-toggle-btn svg {
+            width: 17px;
+            height: 17px;
+            fill: none;
+            stroke: currentColor;
+            stroke-width: 2;
+            stroke-linecap: round;
+            stroke-linejoin: round;
+        }
+
+        /* --- FLOATING TELEMETRY HUD RIBBON (APPLE BENTO STRIP) --- */
+        .telemetry-hud {
+            position: relative;
+            z-index: 90;
+            flex: 0 0 auto;
+            background: var(--glass-surface);
+            backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+            -webkit-backdrop-filter: blur(var(--glass-blur)) saturate(var(--glass-saturate));
+            border-bottom: 1px solid var(--border-glass);
+            padding: 8px clamp(16px, 2.5vw, 28px);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 16px;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .hud-group {
+            display: flex;
+            align-items: center;
+            gap: 16px;
+            min-width: 0;
+        }
+
+        .hud-stat {
+            display: flex;
+            flex-direction: column;
+            gap: 2px;
+        }
+
+        .hud-stat-label {
+            font-size: 0.64rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+        }
+
+        .hud-stat-val {
+            font-family: var(--font-mono);
+            font-size: 0.92rem;
+            font-weight: 700;
+            color: var(--apple-blue);
+            font-variant-numeric: tabular-nums;
+            display: flex;
+            align-items: center;
+            gap: 5px;
+            line-height: 1.2;
+        }
+
+        .hud-stat-val.score {
+            color: var(--apple-amber);
+        }
+
+        .hud-stat-val.time {
+            color: var(--apple-green);
+        }
+
+        .hud-divider {
+            width: 1px;
+            height: 24px;
+            background: var(--border-glass);
+        }
+
+        .hud-select {
+            font-family: var(--font-sans);
+            font-size: 0.74rem;
+            font-weight: 600;
+            padding: 6px 28px 6px 10px;
+            background: var(--glass-card);
+            color: var(--text-primary);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-sm);
+            outline: none;
+            cursor: pointer;
+            transition: all 0.2s var(--ease-apple);
+            appearance: none;
+            background-image: url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='12' height='12' viewBox='0 0 24 24' fill='none' stroke='%2386868b' stroke-width='2.5' stroke-linecap='round' stroke-linejoin='round'%3E%3Cpath d='m6 9 6 6 6-6'/%3E%3C/svg%3E");
+            background-repeat: no-repeat;
+            background-position: right 8px center;
+            box-shadow: var(--shadow-xs);
+            min-height: 36px;
+        }
+
+        .hud-select:hover {
+            border-color: rgba(0, 0, 0, 0.15);
+            background-color: var(--glass-card-hover);
+        }
+
+        .hud-select:focus-visible {
+            border-color: var(--apple-blue);
+            box-shadow: var(--focus-ring);
+        }
+
+        /* --- MAIN THREE-COLUMN WORKSPACE --- */
+        main {
+            display: grid;
+            grid-template-columns: 290px 1fr 360px;
+            flex: 1;
+            overflow: hidden;
+            position: relative;
+            z-index: 10;
+        }
+
+        .control-panel {
+            background: var(--glass-surface);
+            backdrop-filter: blur(20px);
+            -webkit-backdrop-filter: blur(20px);
+            padding: 16px;
+            display: flex;
+            flex-direction: column;
+            overflow-y: auto;
+            border-right: 1px solid var(--border-glass);
+            gap: 12px;
+        }
+
+        .config-panel {
+            border-right: none;
+            border-left: 1px solid var(--border-glass);
+        }
+
+        .panel-eyebrow {
+            font-family: var(--font-mono);
+            font-size: 0.62rem;
+            font-weight: 700;
+            color: var(--apple-blue);
+            letter-spacing: 0.06em;
+            text-transform: uppercase;
+            display: flex;
+            justify-content: space-between;
+            margin-bottom: 2px;
+        }
+
+        .panel-title {
+            font-size: 0.95rem;
+            font-weight: 700;
+            letter-spacing: -0.015em;
+            color: var(--text-primary);
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border-glass);
+            margin-bottom: 8px;
+        }
+
+        .panel-title h2, h2.panel-title {
+            margin: 0;
+            font: inherit;
+            font-weight: 700;
+            color: inherit;
+        }
+
+        /* --- THEATER ARENA MATRIX & AXES --- */
+        .mission-theater {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            position: relative;
+            padding: 24px;
+            overflow: auto;
+            background: transparent;
+        }
+
+        .theater-viewport {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            position: relative;
+            max-width: 100%;
+        }
+
+        .axis-horizontal {
+            display: grid;
+            margin-left: 32px;
+            height: 22px;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            text-align: center;
+            line-height: 22px;
+            font-weight: 600;
+            margin-bottom: 6px;
+            user-select: none;
+        }
+
+        .theater-body {
+            display: flex;
+            align-items: flex-start;
+            max-width: 100%;
+        }
+
+        .axis-vertical {
+            display: grid;
+            width: 28px;
+            margin-right: 4px;
+            margin-top: 8px;
+            font-family: var(--font-mono);
+            font-size: 0.68rem;
+            color: var(--text-muted);
+            text-align: right;
+            font-weight: 600;
+            user-select: none;
+        }
+
+        .axis-vertical span {
+            display: flex;
+            align-items: center;
+            justify-content: flex-end;
+            height: var(--cell-size);
+            padding-right: 6px;
+        }
+
+        /* Apple Glass Pedestal for the Competition Arena */
+        .arena-frame {
+            position: relative;
+            background: #ffffff;
+            border: 10px solid #202632;
+            border-radius: var(--radius-lg);
+            box-shadow: var(--shadow-pedestal), 0 0 0 1px var(--border-glass);
+            transition: box-shadow 0.3s ease;
+            user-select: none;
+        }
+
+        [data-theme="dark"] .arena-frame {
+            border-color: #1a202c;
+            box-shadow: 0 30px 70px rgba(0, 0, 0, 0.8), 0 0 0 1px rgba(255, 255, 255, 0.1);
+        }
+
+        .grid-matrix {
+            display: grid;
+            grid-template-columns: repeat(8, var(--cell-size));
+            grid-template-rows: repeat(4, var(--cell-size));
+            gap: 1px;
+            background: #cbd5e1;
+        }
+
+        [data-theme="dark"] .grid-matrix {
+            background: #334155;
+        }
+
+        /* Individual Tiles */
+        .tile {
+            width: var(--cell-size);
+            height: var(--cell-size);
+            background: #ffffff;
+            cursor: crosshair;
+            position: relative;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            overflow: hidden;
+            user-select: none;
+            border: none;
+            padding: 0;
+            appearance: none;
+            color: #0f172a;
+            font: inherit;
+            transition: background 0.15s ease, box-shadow 0.15s ease;
+        }
+
+        .tile:hover {
+            background-color: #f1f5f9;
+            box-shadow: inset 0 0 0 2px rgba(0, 113, 227, 0.45);
+        }
+
+        .tile:focus-visible {
+            position: relative;
+            z-index: 5;
+            outline: 3px solid var(--apple-blue);
+            outline-offset: -3px;
+        }
+
+        /* 20mm Scaled Black Borders */
+        .tile.line_top { border-top: var(--cell-line) solid #000 !important; }
+        .tile.line_bottom { border-bottom: var(--cell-line) solid #000 !important; }
+        .tile.line_left { border-left: var(--cell-line) solid #000 !important; }
+        .tile.line_right { border-right: var(--cell-line) solid #000 !important; }
+        .tile.line_top_bottom { border-top: var(--cell-line) solid #000 !important; border-bottom: var(--cell-line) solid #000 !important; }
+        .tile.line_left_right { border-left: var(--cell-line) solid #000 !important; border-right: var(--cell-line) solid #000 !important; }
+        .tile.line_bottom_right { border-bottom: var(--cell-line) solid #000 !important; border-right: var(--cell-line) solid #000 !important; }
+        .tile.line_bottom_left { border-bottom: var(--cell-line) solid #000 !important; border-left: var(--cell-line) solid #000 !important; }
+        .tile.line_top_right { border-top: var(--cell-line) solid #000 !important; border-right: var(--cell-line) solid #000 !important; }
+        .tile.line_top_left { border-top: var(--cell-line) solid #000 !important; border-left: var(--cell-line) solid #000 !important; }
+        .tile.line_surround { border: var(--cell-line) solid #000 !important; }
+
+        /* Start, Finish & Checkpoint */
+        .tile.start {
+            background: #f0fdf4;
+            border: var(--cell-accent-line) solid var(--apple-green) !important;
+        }
+        .tile.start::after {
+            content: 'START';
+            font-family: var(--font-mono);
+            font-size: 8px;
+            font-weight: 800;
+            color: #ffffff;
+            background: var(--apple-green);
+            padding: 2px 5px;
+            border-radius: var(--radius-xs);
+            box-shadow: 0 2px 6px rgba(52, 199, 89, 0.4);
+        }
+
+        .tile.finish {
+            background: #fef2f2;
+            border: var(--cell-accent-line) solid var(--apple-red) !important;
+        }
+        .tile.finish::after {
+            content: 'FINISH';
+            font-family: var(--font-mono);
+            font-size: 8px;
+            font-weight: 800;
+            color: #ffffff;
+            background: var(--apple-red);
+            padding: 2px 5px;
+            border-radius: var(--radius-xs);
+            box-shadow: 0 2px 6px rgba(255, 59, 48, 0.4);
+        }
+
+        .tile.checkpoint {
+            background: #fffbeb;
+            border: 3px solid var(--apple-amber);
+        }
+        .tile.checkpoint::after {
+            content: 'CHECK';
+            font-family: var(--font-mono);
+            font-size: 8px;
+            font-weight: 800;
+            color: #78350f;
+            background: #fde68a;
+            border: 1px solid #f59e0b;
+            padding: 2px 5px;
+            border-radius: var(--radius-xs);
+        }
+
+        /* Drop Zones (4 Directions) */
+        .tile.drop_n { background: linear-gradient(to bottom, #3b82f6 50%, #ffffff 50%); border-top: var(--cell-line) solid #000 !important; border-left: var(--cell-line) solid #000 !important; border-right: var(--cell-line) solid #000 !important; }
+        .tile.drop_e { background: linear-gradient(to left, #3b82f6 50%, #ffffff 50%); border-top: var(--cell-line) solid #000 !important; border-right: var(--cell-line) solid #000 !important; border-bottom: var(--cell-line) solid #000 !important; }
+        .tile.drop_s { background: linear-gradient(to top, #3b82f6 50%, #ffffff 50%); border-bottom: var(--cell-line) solid #000 !important; border-left: var(--cell-line) solid #000 !important; border-right: var(--cell-line) solid #000 !important; }
+        .tile.drop_w { background: linear-gradient(to right, #3b82f6 50%, #ffffff 50%); border-top: var(--cell-line) solid #000 !important; border-left: var(--cell-line) solid #000 !important; border-bottom: var(--cell-line) solid #000 !important; }
+        .tile[class*="drop_"]::after {
+            content: 'DROP';
+            font-family: var(--font-mono);
+            font-size: 8px;
+            font-weight: 800;
+            color: #ffffff;
+            background: #1d4ed8;
+            padding: 2px 5px;
+            border-radius: var(--radius-xs);
+            z-index: 2;
+            box-shadow: 0 2px 6px rgba(29, 78, 216, 0.4);
+        }
+
+        /* Competition 6 Obstacles */
+        .tile.blackhole {
+            background: #090a0f !important;
+            border: none !important;
+        }
+        .tile.blackhole::after {
+            content: 'หลุมดำ';
+            font-family: var(--font-mono);
+            font-size: 9px;
+            font-weight: 700;
+            color: var(--apple-red);
+        }
+
+        .tile.bridge {
+            background: linear-gradient(135deg, #2563eb 0%, #1d4ed8 100%);
+            opacity: 0.95;
+        }
+        .tile.bridge::before {
+            content: 'สะพาน 50mm';
+            font-family: var(--font-mono);
+            font-size: 8px;
+            font-weight: 700;
+            color: #ffffff;
+        }
+
+        .tile.bump {
+            background: #ffffff;
+            background-image: repeating-linear-gradient(0deg, #f97316, #f97316 4px, transparent 4px, transparent 11px);
+        }
+        .tile.bump::after {
+            content: 'ลูกระนาด';
+            font-family: var(--font-mono);
+            font-size: 8px;
+            font-weight: 800;
+            color: #c2410c;
+            background: rgba(255, 255, 255, 0.9);
+            padding: 1px 4px;
+            border-radius: var(--radius-xs);
+        }
+
+        .tile.seesaw {
+            background: linear-gradient(135deg, #eab308 0%, #ca8a04 100%);
+            opacity: 0.95;
+        }
+        .tile.seesaw::after {
+            content: 'ไม้กระดก';
+            font-family: var(--font-mono);
+            font-size: 8px;
+            font-weight: 800;
+            color: #422006;
+            background: #ffffff;
+            padding: 1px 4px;
+            border-radius: var(--radius-xs);
+        }
+
+        .tile.tunnel {
+            background: #334155;
+        }
+        .tile.tunnel::after {
+            content: 'อุโมงค์';
+            font-family: var(--font-mono);
+            font-size: 8px;
+            font-weight: 800;
+            color: #ffffff;
+        }
+
+        .tile.bomb {
+            background: #ffffff;
+        }
+        .tile.bomb::after {
+            content: '💣 ระเบิด';
+            font-family: var(--font-mono);
+            font-size: 8px;
+            font-weight: 800;
+            color: var(--apple-red);
+            border: 1px solid var(--apple-red);
+            padding: 1px 4px;
+            border-radius: var(--radius-xs);
+            background: #fff5f5;
+        }
+
+        /* Path Overlays & Waypoints */
+        #pathOverlay {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 640px;
+            height: 323px;
+            pointer-events: none;
+            z-index: 10;
+        }
+
+        .node-marker {
+            width: var(--marker-size);
+            height: var(--marker-size);
+            background: var(--apple-blue);
+            border: 2px solid #ffffff;
+            border-radius: 50%;
+            position: absolute;
+            transform: translate(-50%, -50%);
+            z-index: 20;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            color: #ffffff;
+            font-family: var(--font-mono);
+            font-size: 0.58rem;
+            font-weight: 800;
+            box-shadow: 0 2px 10px rgba(0, 113, 227, 0.45);
+            pointer-events: auto;
+            cursor: pointer;
+            transition: all 0.2s var(--ease-apple);
+        }
+
+        .node-marker:hover {
+            transform: translate(-50%, -50%) scale(1.18);
+            box-shadow: 0 4px 16px rgba(0, 113, 227, 0.6);
+        }
+
+        .node-marker.active {
+            background: var(--apple-amber);
+            border-color: #ffffff;
+            box-shadow: 0 0 0 3px rgba(245, 158, 11, 0.35), 0 4px 18px rgba(245, 158, 11, 0.6);
+            transform: translate(-50%, -50%) scale(1.25);
+            color: #ffffff;
+        }
+
+        /* Robot Puck Preview */
+        #robotPreview {
+            width: 42px;
+            height: 42px;
+            background: linear-gradient(135deg, #f59e0b 0%, #d97706 100%);
+            border: 2px solid #ffffff;
+            border-radius: var(--radius-sm);
+            position: absolute;
+            z-index: 30;
+            transform: translate(-50%, -50%);
+            display: none;
+            box-shadow: 0 8px 24px rgba(245, 158, 11, 0.45);
+            pointer-events: none;
+        }
+
+        #robotPreview::after {
+            content: '';
+            position: absolute;
+            top: -9px;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 0;
+            height: 0;
+            border-left: 7px solid transparent;
+            border-right: 7px solid transparent;
+            border-bottom: 11px solid #0071e3;
+            filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.2));
+        }
+
+        /* --- LEFT SIDEBAR: FIELD TOOLS (APPLE PALETTE) --- */
+        .tool-category {
+            font-size: 0.64rem;
+            font-weight: 700;
+            color: var(--text-muted);
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            margin: 10px 0 6px;
+        }
+
+        .tool-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 7px;
+        }
+
+        .tool-item {
+            background: var(--glass-card);
+            border: 1px solid var(--border-glass);
+            padding: 8px 10px;
+            border-radius: var(--radius-sm);
+            cursor: pointer;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            color: var(--text-primary);
+            transition: all 0.18s var(--ease-apple);
+            user-select: none;
+            box-shadow: var(--shadow-xs);
+            min-height: 42px;
+            text-align: left;
+        }
+
+        .tool-item:hover {
+            background: var(--glass-card-hover);
+            border-color: rgba(0, 0, 0, 0.12);
+            box-shadow: var(--shadow-sm);
+            transform: translateY(-1px);
+        }
+
+        .tool-item:active {
+            transform: scale(0.97);
+        }
+
+        .tool-item.active {
+            background: var(--apple-blue-subtle);
+            border-color: var(--apple-blue);
+            color: var(--apple-blue);
+            box-shadow: 0 0 0 1px var(--apple-blue), 0 2px 8px rgba(0, 113, 227, 0.2);
+        }
+
+        .swatch {
+            width: 14px;
+            height: 14px;
+            border-radius: 4px;
+            flex-shrink: 0;
+            box-shadow: 0 1px 3px rgba(0, 0, 0, 0.15);
+        }
+
+        /* Config Cards */
+        .config-card {
+            background: var(--glass-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 14px;
+            box-shadow: var(--shadow-xs), var(--shadow-specular);
+        }
+
+        .input-group {
+            margin-bottom: 10px;
+        }
+
+        .input-group label {
+            display: block;
+            font-size: 0.64rem;
+            font-weight: 600;
+            color: var(--text-muted);
+            letter-spacing: 0.04em;
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        select, input[type="number"], input[type="range"] {
+            width: 100%;
+            background: var(--glass-card);
+            border: 1px solid var(--border-glass);
+            color: var(--text-primary);
+            padding: 7px 10px;
+            border-radius: var(--radius-sm);
+            outline: none;
+            font-family: var(--font-sans);
+            font-size: 0.76rem;
+            transition: all 0.2s var(--ease-apple);
+            box-shadow: inset 0 1px 2px rgba(0, 0, 0, 0.03);
+            min-height: 38px;
+        }
+
+        select:focus, input:focus {
+            border-color: var(--apple-blue);
+            box-shadow: var(--focus-ring);
+        }
+
+        /* Apple Range Slider */
+        input[type="range"] {
+            min-height: 24px;
+            padding: 0;
+            accent-color: var(--apple-blue);
+            background: transparent;
+            cursor: pointer;
+        }
+
+        .range-readout {
+            display: flex;
+            justify-content: space-between;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            font-weight: 700;
+            color: var(--apple-blue);
+            margin-top: 4px;
+        }
+
+        /* Stepper Navigation */
+        .node-stepper {
+            display: flex;
+            gap: 6px;
+            align-items: center;
+        }
+
+        .step-btn {
+            background: var(--glass-card);
+            border: 1px solid var(--border-glass);
+            color: var(--text-primary);
+            font-size: 0.72rem;
+            font-weight: 700;
+            padding: 5px 10px;
+            border-radius: var(--radius-xs);
+            cursor: pointer;
+            transition: all 0.15s var(--ease-apple);
+            min-width: 32px;
+            min-height: 32px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .step-btn:hover {
+            background: var(--glass-card-hover);
+            border-color: rgba(0, 0, 0, 0.15);
+            transform: translateY(-1px);
+        }
+
+        .step-btn:active {
+            transform: scale(0.96);
+        }
+
+        /* Empty State */
+        .empty-state {
+            margin: 0;
+            padding: 16px;
+            border: 1px dashed var(--border-glass);
+            border-radius: var(--radius-sm);
+            color: var(--text-muted);
+            font-size: 0.76rem;
+            line-height: 1.5;
+            text-align: center;
+        }
+
+        /* --- RIGHT SIDEBAR: ARDUINO TERMINAL (XCODE / MACOS WINDOW) --- */
+        .code-tabs {
+            display: flex;
+            gap: 4px;
+            margin-bottom: 8px;
+            overflow-x: auto;
+            padding-bottom: 2px;
+        }
+
+        .code-tab-btn {
+            background: var(--glass-card);
+            border: 1px solid var(--border-glass);
+            color: var(--text-secondary);
+            font-family: var(--font-sans);
+            font-size: 0.7rem;
+            font-weight: 600;
+            padding: 5px 11px;
+            border-radius: var(--radius-xs);
+            cursor: pointer;
+            transition: all 0.15s var(--ease-apple);
+            white-space: nowrap;
+        }
+
+        .code-tab-btn:hover {
+            color: var(--text-primary);
+            background: var(--glass-card-hover);
+        }
+
+        .code-tab-btn.active {
+            background: var(--apple-blue);
+            color: #ffffff;
+            border-color: transparent;
+            box-shadow: 0 2px 8px rgba(0, 113, 227, 0.3);
+        }
+
+        /* Mac Window Frame Terminal */
+        .terminal-container {
+            background: #11141c;
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 42px 14px 14px;
+            position: relative;
+            flex: 1 1 auto;
+            display: flex;
+            flex-direction: column;
+            min-height: 240px;
+            box-shadow: var(--shadow-md), inset 0 1px 0 rgba(255, 255, 255, 0.08);
+            overflow: hidden;
+        }
+
+        /* macOS Traffic Light Buttons */
+        .terminal-container::before {
+            content: '';
+            position: absolute;
+            top: 14px;
+            left: 14px;
+            width: 10px;
+            height: 10px;
+            border-radius: 50%;
+            background: #ff5f56;
+            box-shadow: 16px 0 0 #ffbd2e, 32px 0 0 #27c93f;
+        }
+
+        .terminal-actions {
+            position: absolute;
+            top: 8px;
+            right: 10px;
+            display: flex;
+            gap: 6px;
+        }
+
+        .copy-btn, .download-btn {
+            font-family: var(--font-sans);
+            font-size: 0.68rem;
+            font-weight: 600;
+            padding: 4px 9px;
+            border-radius: var(--radius-xs);
+            cursor: pointer;
+            transition: all 0.15s var(--ease-apple);
+            border: 1px solid rgba(255, 255, 255, 0.12);
+        }
+
+        .copy-btn {
+            background: var(--apple-blue);
+            color: #ffffff;
+            border-color: transparent;
+        }
+
+        .copy-btn:hover {
+            background: var(--apple-blue-hover);
+            transform: translateY(-1px);
+        }
+
+        .download-btn {
+            background: rgba(255, 255, 255, 0.08);
+            color: #e2e8f0;
+        }
+
+        .download-btn:hover {
+            background: rgba(255, 255, 255, 0.15);
+            color: #ffffff;
+            transform: translateY(-1px);
+        }
+
+        pre {
+            margin: 0;
+            color: #7dd3fc;
+            font-family: var(--font-mono);
+            font-size: 0.72rem;
+            line-height: 1.55;
+            overflow: auto;
+            white-space: pre-wrap;
+            font-variant-numeric: tabular-nums;
+            flex: 1;
+        }
+
+        .sidebar-footer {
+            margin-top: auto;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+            padding-top: 10px;
+        }
+
+        /* --- LINE STYLE MODAL (APPLE CONTEXT POPOVER) --- */
+        #lineStyleModal {
+            position: fixed;
+            display: none;
+            background: var(--glass-raised);
+            backdrop-filter: blur(24px);
+            -webkit-backdrop-filter: blur(24px);
+            border: 1px solid var(--border-glass);
+            padding: 10px;
+            border-radius: var(--radius-md);
+            box-shadow: var(--shadow-lg), 0 0 0 1px rgba(0, 0, 0, 0.05);
+            gap: 8px;
+            z-index: 200;
+            grid-template-columns: repeat(4, 44px);
+            width: fit-content;
+        }
+
+        .line-icon {
+            width: 42px !important;
+            height: 42px !important;
+            padding: 0;
+            border-radius: var(--radius-xs);
+            cursor: pointer;
+            position: relative;
+            background: #ffffff;
+            border: 1px solid var(--border-glass);
+            transition: all 0.15s var(--ease-apple);
+        }
+
+        .line-icon:hover {
+            border-color: var(--apple-blue);
+            transform: scale(1.06);
+            box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+        }
+
+        .line-icon::after {
+            content: '';
+            position: absolute;
+            display: block;
+            background: #1e293b;
+        }
+
+        .line-icon.line_top::after { top: 4px; left: 4px; right: 4px; height: 5px; }
+        .line-icon.line_bottom::after { bottom: 4px; left: 4px; right: 4px; height: 5px; }
+        .line-icon.line_left::after { top: 4px; bottom: 4px; left: 4px; width: 5px; }
+        .line-icon.line_right::after { top: 4px; bottom: 4px; right: 4px; width: 5px; }
+        .line-icon.line_top_bottom::after { top: 4px; bottom: 4px; left: 4px; right: 4px; background: linear-gradient(#1e293b 0 5px, transparent 5px calc(100% - 5px), #1e293b calc(100% - 5px)); }
+        .line-icon.line_left_right::after { top: 4px; bottom: 4px; left: 4px; right: 4px; background: linear-gradient(90deg, #1e293b 0 5px, transparent 5px calc(100% - 5px), #1e293b calc(100% - 5px)); }
+        .line-icon.line_top_left::after { inset: 4px; background: linear-gradient(#1e293b 0 5px, transparent 5px), linear-gradient(90deg, #1e293b 0 5px, transparent 5px); }
+        .line-icon.line_top_right::after { inset: 4px; background: linear-gradient(#1e293b 0 5px, transparent 5px), linear-gradient(270deg, #1e293b 0 5px, transparent 5px); }
+        .line-icon.line_bottom_left::after { inset: 4px; background: linear-gradient(0deg, #1e293b 0 5px, transparent 5px), linear-gradient(90deg, #1e293b 0 5px, transparent 5px); }
+        .line-icon.line_bottom_right::after { inset: 4px; background: linear-gradient(0deg, #1e293b 0 5px, transparent 5px), linear-gradient(270deg, #1e293b 0 5px, transparent 5px); }
+        .line-icon.line_surround::after { inset: 4px; border: 5px solid #1e293b; background: transparent; }
+
+        .sr-only {
+            position: absolute;
+            width: 1px;
+            height: 1px;
+            padding: 0;
+            margin: -1px;
+            overflow: hidden;
+            clip: rect(0, 0, 0, 0);
+            white-space: nowrap;
+            border: 0;
+        }
+
+        /* --- RESPONSIVE WORKSPACE & BREAKPOINTS --- */
+        @media (max-width: 1180px) {
+            body { height: auto; min-height: 100dvh; overflow-y: auto; }
+            header { flex-wrap: wrap; }
+            .nav-actions { margin-left: auto; }
+            .telemetry-hud { flex-wrap: wrap; }
+            main {
+                grid-template-columns: 260px 1fr;
+                grid-template-rows: auto auto;
+            }
+            .mission-theater { grid-column: 2; grid-row: 1; min-height: 500px; }
+            .control-panel:not(.config-panel) { grid-column: 1; grid-row: 1; }
+            .config-panel {
+                grid-column: 1 / -1;
+                grid-row: 2;
+                display: grid;
+                grid-template-columns: minmax(0, 0.85fr) minmax(0, 1.15fr);
+                gap: 16px;
+                border-top: 1px solid var(--border-glass);
+                border-left: none;
+            }
+        }
+
+        @media (max-width: 820px) {
+            .nav-actions { width: 100%; justify-content: flex-start; }
+            .telemetry-hud { display: grid; grid-template-columns: 1fr; gap: 12px; }
+            main { display: flex; flex-direction: column; }
+            .mission-theater { order: 0; min-height: 380px; }
+            .control-panel:not(.config-panel) { order: 1; }
+            .config-panel { order: 2; display: flex; flex-direction: column; }
+        }
+
+        @media (max-width: 560px) {
+            header { padding: 12px; }
+            .mode-toggle { width: 100%; }
+            .mode-btn { flex: 1; justify-content: center; }
+            .nav-actions { display: grid; grid-template-columns: 1fr 1fr; gap: 6px; }
+            .nav-actions .tech-btn { width: 100%; }
+        }
+
+        @media (prefers-reduced-motion: reduce) {
+            *, *::before, *::after {
+                scroll-behavior: auto !important;
+                animation-duration: 0.01ms !important;
+                transition-duration: 0.01ms !important;
+            }
+        }
+    </style>
+</head>
+<body>
+
+<header>
+    <div class="brand">
+        <div class="brand-icon">PT</div>
+        <div class="brand-text-container">
+            <div class="brand-title-row">
+                <h1>RESCUE COMMAND</h1>
+                <span class="status-pill"><span class="status-dot"></span>SYS: READY</span>
+            </div>
+            <div class="brand-subtitle-row">
+                <span class="brand-badge">ATOM VX v7.2</span>
+                <span class="brand-subtext">Tactical Mission Suite</span>
+            </div>
+        </div>
+    </div>
+    <div class="mode-toggle" role="group" aria-label="Workspace mode">
+        <button id="mode1Btn" class="mode-btn active" type="button" aria-pressed="true" onclick="setMode(1)">01 · Field design</button>
+        <button id="mode2Btn" class="mode-btn" type="button" aria-pressed="false" onclick="setMode(2)">02 · Plan route</button>
+    </div>
+    <div class="nav-actions">
+        <button class="tech-btn primary" type="button" onclick="loadSampleOfficialField()">Load preset</button>
+        <button class="tech-btn" type="button" onclick="exportMissionJSON()">Export JSON</button>
+        <button class="tech-btn" type="button" onclick="triggerImportJSON()">Import JSON</button>
+        <input type="file" id="jsonImportInput" accept=".json,application/json" aria-label="Choose mission JSON file" onchange="importMissionJSON(event)" style="display:none;">
+        <button class="tech-btn" type="button" onclick="saveProject()">Save project</button>
+        <button class="theme-toggle-btn" type="button" id="themeToggleBtn" onclick="toggleTheme()" aria-label="Toggle Light/Dark Theme" title="Toggle Theme">
+            <svg id="themeIcon" viewBox="0 0 24 24"><path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.707-.707M6.343 6.343l-.707-.707m12.728 0-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/></svg>
+        </button>
+    </div>
+</header>
+
+<!-- TOP TELEMETRY HUD RIBBON -->
+<div class="telemetry-hud" role="region" aria-label="Mission summary and controls">
+    <div class="hud-group">
+        <div class="hud-stat">
+            <span class="hud-stat-label">Mission Score</span>
+            <span id="hudScore" class="hud-stat-val score" aria-live="polite">100 / 100 PTS</span>
+        </div>
+        <div class="hud-divider"></div>
+        <div class="hud-stat">
+            <span class="hud-stat-label">Est. Runtime</span>
+            <span id="hudTime" class="hud-stat-val time" aria-live="polite">~24.2s / 180s</span>
+        </div>
+        <div class="hud-divider"></div>
+        <div class="hud-stat">
+            <span class="hud-stat-label">Trajectory</span>
+            <span id="hudSteps" class="hud-stat-val" aria-live="polite">30 Nodes</span>
+        </div>
+    </div>
+    <div class="hud-group">
+        <div class="hud-stat">
+            <label class="hud-stat-label" for="speedProfileSelect">Speed profile</label>
+            <select id="speedProfileSelect" class="hud-select" onchange="applySpeedProfile()">
+                <option value="FAST">High agility · 88% PWM</option>
+                <option value="STEADY">Steady run · 78% PWM</option>
+            </select>
+        </div>
+        <div class="hud-stat">
+            <label class="hud-stat-label" for="dropSystemSelect">Drop system</label>
+            <select id="dropSystemSelect" class="hud-select" onchange="generateCode()">
+                <option value="THREE_DROP">3 servos · S2 FL / S1 FR / S0 rear</option>
+                <option value="STANDARD">2 servos · S1 front / S0 rear</option>
+            </select>
+        </div>
+        <button class="tech-btn primary" type="button" onclick="autoCalculateMission()">⚡ Auto path</button>
+        <button class="tech-btn accent" type="button" id="previewBtn" aria-pressed="false" onclick="togglePreview()">▶ Simulate</button>
+    </div>
+</div>
+
+<main>
+    <!-- LEFT PANEL: Arena Tools & Setup -->
+    <aside class="control-panel">
+        <div class="panel-eyebrow"><span>ARENA_GEOMETRY</span><span>300x300mm TILES</span></div>
+        <h2 class="panel-title">Field dimensions</h2>
+        <div class="config-card" style="padding: 12px; margin-bottom: 8px;">
+            <div style="display: flex; gap: 8px; align-items: flex-end;">
+                <div class="input-group" style="margin-bottom: 0; flex: 1;">
+                    <label for="colsInput">Cols (X)</label>
+                    <input type="number" id="colsInput" value="8" min="2" max="15" aria-label="Columns (X)">
+                </div>
+                <div class="input-group" style="margin-bottom: 0; flex: 1;">
+                    <label for="rowsInput">Rows (Y)</label>
+                    <input type="number" id="rowsInput" value="4" min="2" max="15" aria-label="Rows (Y)">
+                </div>
+                <button class="tech-btn primary" type="button" style="padding: 7px 12px;" onclick="applyArenaResize()">Apply</button>
+            </div>
+        </div>
+
+        <h2 class="panel-title">Field tools</h2>
+        <div id="editorTools" role="group" aria-label="Field tools">
+            <div class="tool-category">Ground & Objectives</div>
+            <div class="tool-grid">
+                <button class="tool-item active" type="button" aria-pressed="true" onclick="setTool('empty', this)"><span class="swatch" style="background: #ffffff; border: 1px solid #cbd5e1;"></span>White floor</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('line', this)"><span class="swatch" style="background: #ffffff; border: 3px solid #0f172a;"></span>Line border</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('start', this)"><span class="swatch" style="background: var(--apple-green);"></span>Start zone</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('checkpoint', this)"><span class="swatch" style="background: var(--apple-amber);"></span>Checkpoint</button>
+                <button class="tool-item" type="button" aria-label="Drop zone tool. Click an existing drop zone to rotate its direction." title="Click an existing drop zone to rotate its direction." aria-pressed="false" onclick="setTool('drop_n', this)"><span class="swatch" style="background: linear-gradient(to bottom, #3b82f6 50%, #ffffff 50%); border: 1px solid #1e293b;"></span>Drop zone</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('finish', this)"><span class="swatch" style="background: var(--apple-red);"></span>Finish zone</button>
+            </div>
+
+            <div class="tool-category">Field Hazards (6 Obstacles)</div>
+            <div class="tool-grid">
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('blackhole', this)"><span class="swatch" style="background: #090a0f;"></span>หลุมดำ (Hole)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('bump', this)"><span class="swatch" style="background: #ea580c;"></span>ลูกระนาด (Bumps)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('bridge', this)"><span class="swatch" style="background: #2563eb;"></span>สะพาน (Bridge)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('seesaw', this)"><span class="swatch" style="background: #ca8a04;"></span>ไม้กระดก (Seesaw)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('tunnel', this)"><span class="swatch" style="background: #475569;"></span>อุโมงค์ (Tunnel)</button>
+                <button class="tool-item" type="button" aria-pressed="false" onclick="setTool('bomb', this)"><span class="swatch" style="background: #ef4444;"></span>ลูกระเบิด (Bomb)</button>
+            </div>
+        </div>
+
+        <div id="plannerInfo" style="display:none;">
+            <div class="tool-category">Route Automation</div>
+            <button class="tech-btn" type="button" style="width:100%; margin-bottom: 8px; background: var(--apple-purple); color: #ffffff; border: none;" onclick="autoCalculateMission()">⚡ Auto path solver</button>
+            <button class="tech-btn primary" type="button" style="width:100%; margin-bottom: 10px;" onclick="togglePreview()">▶ Simulate route</button>
+            <div style="font-size: 0.72rem; color: var(--text-secondary); line-height: 1.55; border: 1px solid var(--border-glass); padding: 10px; background: var(--glass-card); border-radius: var(--radius-sm);">
+                <b style="color: var(--apple-amber); font-family: var(--font-mono); font-size: 0.7rem;">[TACTICAL RULES]:</b><br>
+                • เลี้ยวแบบ <b>spinDegree(90)</b> อยู่กับที่เพื่อเลี่ยงเส้น 20mm<br>
+                • วิ่งตรงยาวด้วย <b>TIME_FLAT(n)</b> ต่อเนื่องไม่กระตุก<br>
+                • เข้าดรอปแล้วถอยหลัง <b>BB(...)</b> ทันที ไม่ติด 180°<br>
+                • CP (30) + 4 Drops (60) + Finish (10) = 100 แต้ม
+            </div>
+        </div>
+
+        <div class="sidebar-footer">
+            <button class="tech-btn" type="button" onclick="resetPath()">Clear route</button>
+            <button class="tech-btn" type="button" style="color: var(--apple-red); border-color: rgba(255, 59, 48, 0.2);" onclick="clearField()">Clear field</button>
+        </div>
+    </aside>
+
+    <!-- CENTER PANEL: Arena Visual Matrix with Coordinate Axes -->
+    <section class="mission-theater" aria-label="Mission field">
+        <h2 class="sr-only">Mission field</h2>
+        <div class="theater-viewport" role="group" aria-label="Editable mission field">
+            <div class="axis-horizontal" id="axisHorizontal"></div>
+            <div class="theater-body">
+                <div class="axis-vertical" id="axisVertical"></div>
+                <div class="arena-frame">
+                    <div id="fieldGrid" class="grid-matrix" role="grid" aria-label="Mission field grid"></div>
+                    <svg id="pathOverlay" aria-hidden="true">
+                        <path id="robotPath" d="" fill="none" stroke="var(--apple-blue)" stroke-width="4" stroke-dasharray="8,4" />
+                    </svg>
+                    <div id="nodeMarkers"></div>
+                    <div id="robotPreview"></div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Line Style Modal -->
+        <div id="lineStyleModal" role="dialog" aria-label="Choose line placement" aria-modal="false" style="position: fixed; display: none;">
+            <button class="line-icon line_top" type="button" aria-label="Top border" title="Top border" onclick="applyLineStyle('line_top')"></button>
+            <button class="line-icon line_bottom" type="button" aria-label="Bottom border" title="Bottom border" onclick="applyLineStyle('line_bottom')"></button>
+            <button class="line-icon line_left" type="button" aria-label="Left border" title="Left border" onclick="applyLineStyle('line_left')"></button>
+            <button class="line-icon line_right" type="button" aria-label="Right border" title="Right border" onclick="applyLineStyle('line_right')"></button>
+            <button class="line-icon line_top_bottom" type="button" aria-label="Top and bottom borders" title="Top and bottom borders" onclick="applyLineStyle('line_top_bottom')"></button>
+            <button class="line-icon line_left_right" type="button" aria-label="Left and right borders" title="Left and right borders" onclick="applyLineStyle('line_left_right')"></button>
+            <button class="line-icon line_top_left" type="button" aria-label="Top and left borders" title="Top and left borders" onclick="applyLineStyle('line_top_left')"></button>
+            <button class="line-icon line_top_right" type="button" aria-label="Top and right borders" title="Top and right borders" onclick="applyLineStyle('line_top_right')"></button>
+            <button class="line-icon line_bottom_left" type="button" aria-label="Bottom and left borders" title="Bottom and left borders" onclick="applyLineStyle('line_bottom_left')"></button>
+            <button class="line-icon line_bottom_right" type="button" aria-label="Bottom and right borders" title="Bottom and right borders" onclick="applyLineStyle('line_bottom_right')"></button>
+            <button class="line-icon line_surround" type="button" aria-label="Surround tile with border" title="Surround tile" onclick="applyLineStyle('line_surround')"></button>
+        </div>
+    </section>
+
+    <!-- RIGHT PANEL: Waypoint Config & Generated Arduino C++ -->
+    <aside class="control-panel config-panel">
+      <section class="inspector-section" aria-labelledby="inspectorTitle">
+        <div class="panel-eyebrow"><span>WAYPOINT_INSPECTOR</span><span>TELEMETRY</span></div>
+        <div class="panel-title">
+            <h2 id="inspectorTitle">Waypoint settings</h2>
+            <div class="node-stepper">
+                <button class="step-btn" type="button" onclick="selectPrevNode()" aria-label="Previous waypoint">◀</button>
+                <button class="step-btn" type="button" onclick="selectNextNode()" aria-label="Next waypoint">▶</button>
+            </div>
+        </div>
+        <div id="nodeConfig" class="config-card">
+            <p id="nodeEmptyState" class="empty-state" hidden>Select a waypoint on the field to view its settings.</p>
+            <div id="nodeSettingsControls">
+                <div style="display: flex; justify-content: space-between; align-items: center; margin-bottom: 10px;">
+                    <div id="nodeIdDisplay" style="font-family: var(--font-mono); font-size: 1.2rem; color: var(--apple-amber); font-weight: 800;">#00</div>
+                    <button class="tech-btn" type="button" style="border-color: rgba(255, 59, 48, 0.3); color: var(--apple-red); padding: 4px 10px; font-size: 0.68rem;" onclick="deleteNode()">Delete waypoint</button>
+                </div>
+                <div class="input-group">
+                    <label for="fnSelect">Instruction</label>
+                    <select id="fnSelect" onchange="updateNodeData()">
+                        <option value="FF">FF (Forward PID Heading Lock)</option>
+                        <option value="BB">BB (Backward PID Heading Lock)</option>
+                        <option value="SetFront">SetFront (Square-off Line Align)</option>
+                        <option value="SetBack">SetBack (Square-off Rear Line)</option>
+                        <option value="spinL">spinDegree (-90)</option>
+                        <option value="spinR">spinDegree (90)</option>
+                        <option value="DropF">DropF (Front Drop S1)</option>
+                        <option value="DropFL">DropFL (Front Left S2)</option>
+                        <option value="DropFR">DropFR (Front Right S1)</option>
+                        <option value="DropB">DropB (Rear Drop S0)</option>
+                    </select>
+                </div>
+                <div id="paramControls">
+                    <div class="input-group">
+                        <label for="speedRange">Power output (0–100)</label>
+                        <input type="range" id="speedRange" min="0" max="100" value="80" oninput="updateNodeData()">
+                        <div class="range-readout"><span>LOW</span><output id="speedVal" for="speedRange">80</output><span>HIGH</span></div>
+                    </div>
+                    <div class="input-group" style="margin-bottom: 0;">
+                        <label for="timerInput">Execution window (ms)</label>
+                        <input type="number" id="timerInput" value="360" step="20" oninput="updateNodeData()">
+                    </div>
+                </div>
+            </div>
+        </div>
+      </section>
+
+      <section class="code-section" aria-labelledby="codeTitle" style="display: flex; flex-direction: column; flex: 1;">
+        <h2 class="panel-title" id="codeTitle">Arduino code</h2>
+        <div class="panel-eyebrow"><span>GENERATED OUTPUT</span><span>PT-BOT ATOM VX C++</span></div>
+        <div class="code-tabs" role="tablist" aria-label="Generated code sections">
+            <button class="code-tab-btn active" type="button" role="tab" aria-controls="cppOutput" aria-selected="true" id="tab_all" onclick="switchCodeTab('ALL')">Full route</button>
+            <button class="code-tab-btn" type="button" role="tab" aria-controls="cppOutput" aria-selected="false" id="tab_b1" onclick="switchCodeTab('BOX1')">Box 1</button>
+            <button class="code-tab-btn" type="button" role="tab" aria-controls="cppOutput" aria-selected="false" id="tab_b2" onclick="switchCodeTab('BOX2')">Box 2</button>
+            <button class="code-tab-btn" type="button" role="tab" aria-controls="cppOutput" aria-selected="false" id="tab_b3" onclick="switchCodeTab('BOX3')">Box 3</button>
+            <button class="code-tab-btn" type="button" role="tab" aria-controls="cppOutput" aria-selected="false" id="tab_b4" onclick="switchCodeTab('BOX4')">Box 4</button>
+            <button class="code-tab-btn" type="button" role="tab" aria-controls="cppOutput" aria-selected="false" id="tab_end" onclick="switchCodeTab('END')">Finish</button>
+        </div>
+        <div class="terminal-container" aria-label="Generated Arduino code">
+            <div class="terminal-actions">
+                <button class="download-btn" type="button" onclick="downloadInoFile()" title="Download .ino source file">.ino</button>
+                <button class="copy-btn" type="button" aria-label="Copy generated code" onclick="copyCode()">Copy code</button>
+            </div>
+            <pre id="cppOutput" role="tabpanel" aria-labelledby="tab_all" aria-live="off" tabindex="0">// กำลังคำนวณโค้ด...</pre>
+            <span id="copyStatus" class="sr-only" aria-live="polite"></span>
+        </div>
+      </section>
+    </aside>
+</main>
+
+<script>
+    // =========================================================================
+    // THEME SYSTEM (APPLE LIGHT GLASS / DARK GLASS)
+    // =========================================================================
+    function initTheme() {
+        const savedTheme = localStorage.getItem('ptbot_theme') || 'light';
+        document.documentElement.setAttribute('data-theme', savedTheme);
+        updateThemeIcon(savedTheme);
+    }
+
+    function toggleTheme() {
+        const current = document.documentElement.getAttribute('data-theme') || 'light';
+        const next = current === 'dark' ? 'light' : 'dark';
+        document.documentElement.setAttribute('data-theme', next);
+        localStorage.setItem('ptbot_theme', next);
+        updateThemeIcon(next);
+    }
+
+    function updateThemeIcon(theme) {
+        const icon = document.getElementById('themeIcon');
+        if (!icon) return;
+        if (theme === 'dark') {
+            // Moon icon
+            icon.innerHTML = '<path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/>';
+        } else {
+            // Sun icon
+            icon.innerHTML = '<path d="M12 3v1m0 16v1m9-9h-1M4 12H3m15.364 6.364-.707-.707M6.343 6.343l-.707-.707m12.728 0-.707.707M6.343 17.657l-.707.707M16 12a4 4 0 1 1-8 0 4 4 0 0 1 8 0z"/>';
+        }
+    }
+    initTheme();
+
+    // --- SYSTEM CONSTANTS & CONFIG ---
+    let CELL_SIZE_PX = 80;
+    const CELL_GAP_PX = 1;
+    let TILE_OFFSET_PX = CELL_SIZE_PX + CELL_GAP_PX;
+    let TILE_CENTER_PX = CELL_SIZE_PX / 2;
+
+    // Dynamic Speed Profile & Timing constants for PT-BOT Atom VX
+    let currentProfile = 'FAST';
+    let CRUISE_SPEED = 88;
+    let BASE_TIMER_MS = 360;    // 1 block flat (120ms ramp-up + 120ms cruise + 120ms ramp-down)
+    let CRUISE_TIMER_MS = 200;  // steady cruise per additional block
+    let BRIDGE_TIMER_MS = 520;  // Bridge incline 50mm
+    let BUMP_TIMER_MS = 620;    // Chopsticks bumps x7
+    let SEESAW_TIMER_MS = 680;  // Seesaw swing time
+    let TUNNEL_TIMER_MS = 200;  // Tunnel speed
+    let RECOIL_TIMER_MS = 160;  // Recoil after SetFront
+
+    function applySpeedProfile() {
+        const sel = document.getElementById('speedProfileSelect').value;
+        currentProfile = sel;
+        if (sel === 'FAST') {
+            CRUISE_SPEED = 88;
+            BASE_TIMER_MS = 360;
+            CRUISE_TIMER_MS = 200;
+            BRIDGE_TIMER_MS = 520;
+            BUMP_TIMER_MS = 620;
+            SEESAW_TIMER_MS = 680;
+            TUNNEL_TIMER_MS = 200;
+            RECOIL_TIMER_MS = 160;
+        } else {
+            CRUISE_SPEED = 78;
+            BASE_TIMER_MS = 420;
+            CRUISE_TIMER_MS = 240;
+            BRIDGE_TIMER_MS = 580;
+            BUMP_TIMER_MS = 680;
+            SEESAW_TIMER_MS = 750;
+            TUNNEL_TIMER_MS = 240;
+            RECOIL_TIMER_MS = 180;
+        }
+        if (pathNodes.length > 0) {
+            autoCalculateMission();
+        } else {
+            generateCode();
+        }
+    }
+
+    // --- STATE ---
+    let currentMode = 1;
+    let selectedTool = 'empty';
+    let COLS = 8, ROWS = 4;
+    let gridData = Array(COLS * ROWS).fill(null).map((_, i) => ({ index: i, type: 'empty' }));
+    let pathNodes = [];
+    let selectedNodeIdx = null;
+    let isAnimating = false;
+    let animTimeout = null;
+    let activeCodeTab = 'ALL';
+    let codeSnippets = {};
+
+    // --- INITIALIZATION ---
+    const TILE_NAMES = {
+        empty: 'White floor', line: 'Line border', line_top: 'Top border', line_bottom: 'Bottom border',
+        line_left: 'Left border', line_right: 'Right border', line_top_bottom: 'Top and bottom borders',
+        line_left_right: 'Left and right borders', line_bottom_right: 'Bottom and right borders',
+        line_bottom_left: 'Bottom and left borders', line_top_right: 'Top and right borders',
+        line_top_left: 'Top and left borders', line_surround: 'Surrounded by line', start: 'Start zone',
+        finish: 'Finish zone', checkpoint: 'Checkpoint', drop_n: 'Drop zone facing north',
+        drop_e: 'Drop zone facing east', drop_s: 'Drop zone facing south', drop_w: 'Drop zone facing west',
+        blackhole: 'หลุมดำ', bump: 'ลูกระนาด', bridge: 'สะพาน', seesaw: 'ไม้กระดก', tunnel: 'อุโมงค์', bomb: 'ลูกระเบิด'
+    };
+
+    function initGrid(focusIdx = null) {
+        const gridEl = document.getElementById('fieldGrid');
+        gridEl.setAttribute('aria-rowcount', ROWS);
+        gridEl.setAttribute('aria-colcount', COLS);
+        gridEl.innerHTML = '';
+        gridData.forEach((data, i) => {
+            const cell = document.createElement('button');
+            const col = i % COLS;
+            const row = Math.floor(i / COLS);
+            cell.className = 'tile ' + data.type;
+            cell.type = 'button';
+            cell.setAttribute('role', 'gridcell');
+            cell.setAttribute('aria-rowindex', row + 1);
+            cell.setAttribute('aria-colindex', col + 1);
+            cell.setAttribute('aria-label', `X${col}, Y${row}: ${TILE_NAMES[data.type] || data.type}`);
+            cell.title = `X${col}, Y${row} · ${TILE_NAMES[data.type] || data.type}`;
+            cell.dataset.index = i;
+            cell.onclick = (e) => handleCellClick(i, cell, e);
+            cell.onkeydown = (e) => {
+                const moves = { ArrowUp: -COLS, ArrowDown: COLS, ArrowLeft: -1, ArrowRight: 1 };
+                if (!(e.key in moves)) return;
+                const next = i + moves[e.key];
+                const sameRow = e.key === 'ArrowLeft' || e.key === 'ArrowRight'
+                    ? Math.floor(next / COLS) === row
+                    : true;
+                if (next >= 0 && next < gridData.length && sameRow) {
+                    e.preventDefault();
+                    gridEl.querySelector(`[data-index="${next}"]`)?.focus();
+                }
+            };
+            gridEl.appendChild(cell);
+        });
+        if (focusIdx !== null) gridEl.querySelector(`[data-index="${focusIdx}"]`)?.focus({ preventScroll: true });
+        renderCoordinateAxes();
+        generateCode();
+        updateTelemetryHUD();
+    }
+
+    function setMode(m) {
+        currentMode = m;
+        stopPreview();
+        document.getElementById('mode1Btn').classList.toggle('active', m === 1);
+        document.getElementById('mode2Btn').classList.toggle('active', m === 2);
+        document.getElementById('mode1Btn').setAttribute('aria-pressed', String(m === 1));
+        document.getElementById('mode2Btn').setAttribute('aria-pressed', String(m === 2));
+        document.getElementById('editorTools').style.display = m === 1 ? 'block' : 'none';
+        document.getElementById('plannerInfo').style.display = m === 2 ? 'block' : 'none';
+        selectedNodeIdx = null;
+        updateConfigPanel();
+        renderPath();
+    }
+
+    function setTool(tool, el) {
+        selectedTool = tool;
+        document.querySelectorAll('.tool-item').forEach(i => {
+            i.classList.remove('active');
+            i.setAttribute('aria-pressed', 'false');
+        });
+        el.classList.add('active');
+        el.setAttribute('aria-pressed', 'true');
+    }
+
+    function handleCellClick(idx, el, e) {
+        if (isAnimating) stopPreview();
+        document.getElementById('lineStyleModal').style.display = 'none';
+
+        if (currentMode === 1) {
+            // Drop Zone Direction Cycling
+            if (gridData[idx].type && gridData[idx].type.startsWith('drop') && selectedTool.startsWith('drop')) {
+                const cur = gridData[idx].type;
+                let next = 'drop_n';
+                if (cur === 'drop_n') next = 'drop_e';
+                else if (cur === 'drop_e') next = 'drop_s';
+                else if (cur === 'drop_s') next = 'drop_w';
+                else if (cur === 'drop_w') next = 'drop_n';
+                gridData[idx].type = next;
+                initGrid(idx);
+                return;
+            }
+
+            // Quotas for current competition
+            if (selectedTool === 'checkpoint' && gridData.filter(d => d.type === 'checkpoint').length >= 2) return alert("MAX_CHECKPOINTS_REACHED (กติกาให้มี 2 จุด)");
+            if (selectedTool.startsWith('drop') && gridData.filter(d => d.type.startsWith('drop')).length >= 4) return alert("MAX_DROP_ZONES_REACHED (กติกาให้มี 4 จุด)");
+
+            if (selectedTool === 'line') { showLineStyleModal(el, idx); return; }
+            if (selectedTool === 'start') { gridData.forEach(d => { if(d.type === 'start') d.type = 'empty'; }); }
+            if (selectedTool === 'finish') { gridData.forEach(d => { if(d.type === 'finish') d.type = 'empty'; }); }
+
+            gridData[idx] = { index: idx, type: selectedTool };
+            initGrid(idx);
+        } else {
+            calculateAutoRouting(idx);
+        }
+    }
+
+    function showLineStyleModal(cell, idx) {
+        const modal = document.getElementById('lineStyleModal');
+        modal.style.display = 'grid'; 
+        const rect = cell.getBoundingClientRect();
+        const modalWidth = modal.offsetWidth;
+        const modalHeight = modal.offsetHeight;
+        modal.style.top = Math.max(8, Math.min(rect.bottom + 8, window.innerHeight - modalHeight - 8)) + 'px';
+        modal.style.left = Math.max(8, Math.min(rect.left, window.innerWidth - modalWidth - 8)) + 'px';
+        modal.dataset.idx = idx;
+        modal.dataset.returnFocus = idx;
+        modal.querySelector('.line-icon')?.focus();
+    }
+
+    function applyLineStyle(s) {
+        const idx = parseInt(document.getElementById('lineStyleModal').dataset.idx); 
+        gridData[idx].type = s; 
+        initGrid(idx);
+        document.getElementById('lineStyleModal').style.display = 'none';
+    }
+
+    // --- BFS ROUTING & WALL COLLISION ---
+    function calculateAutoRouting(targetIdx) {
+        targetIdx = parseInt(targetIdx);
+        if (pathNodes.length === 0) {
+            pathNodes.push({ cellIdx: targetIdx, fn: 'FF', speed: 80, timer: 0 });
+            renderPath(); updateConfigPanel(); return;
+        }
+
+        const startIdx = pathNodes[pathNodes.length - 1].cellIdx;
+        if (startIdx === targetIdx) return;
+
+        const hasValidPath = findShortestPathBFS(startIdx, targetIdx);
+        if (!hasValidPath) return alert("🚨 ROUTE_BLOCKED: เส้นทางติดกำแพงหนาหรือหลุมดำ!");
+
+        const x1 = startIdx % COLS, y1 = Math.floor(startIdx / COLS);
+        const x2 = targetIdx % COLS, y2 = Math.floor(targetIdx / COLS);
+        const distance = Math.abs(x2 - x1) + Math.abs(y2 - y1);
+        let calculatedTimer = BASE_TIMER_MS + (distance - 1) * CRUISE_TIMER_MS;
+
+        pathNodes.push({ cellIdx: targetIdx, fn: 'FF', speed: 80, timer: calculatedTimer });
+        selectedNodeIdx = pathNodes.length - 1;
+        renderPath(); updateConfigPanel();
+    }
+
+    function findShortestPathBFS(start, target) {
+        let queue = [[start]]; let visited = new Set([start]);
+        while (queue.length > 0) {
+            let path = queue.shift(); let current = path[path.length - 1];
+            if (current === target) return path;
+            for (let next of getValidNeighbors(current)) {
+                if (!visited.has(next)) { visited.add(next); queue.push([...path, next]); }
+            }
+        }
+        return null;
+    }
+
+    function getValidNeighbors(cell) {
+        let valid = []; let x = cell % COLS, y = Math.floor(cell / COLS);
+        const tile = gridData[cell].type;
+
+        const isWall = {
+            T: ['line_top', 'line_top_bottom', 'line_top_right', 'line_top_left', 'line_surround', 'drop_n', 'drop_w', 'drop_e'],
+            B: ['line_bottom', 'line_top_bottom', 'line_bottom_right', 'line_bottom_left', 'line_surround', 'drop_s', 'drop_w', 'drop_e'],
+            L: ['line_left', 'line_left_right', 'line_bottom_left', 'line_top_left', 'line_surround', 'drop_n', 'drop_s', 'drop_w'],
+            R: ['line_right', 'line_left_right', 'line_bottom_right', 'line_top_right', 'line_surround', 'drop_n', 'drop_s', 'drop_e']
+        };
+
+        if (y > 0 && !isWall.T.includes(tile) && !isWall.B.includes(gridData[cell-COLS].type) && gridData[cell-COLS].type !== 'blackhole') valid.push(cell - COLS);
+        if (y < ROWS - 1 && !isWall.B.includes(tile) && !isWall.T.includes(gridData[cell+COLS].type) && gridData[cell+COLS].type !== 'blackhole') valid.push(cell + COLS);
+        if (x > 0 && !isWall.L.includes(tile) && !isWall.R.includes(gridData[cell-1].type) && gridData[cell-1].type !== 'blackhole') valid.push(cell - 1);
+        if (x < COLS - 1 && !isWall.R.includes(tile) && !isWall.L.includes(gridData[cell+1].type) && gridData[cell+1].type !== 'blackhole') valid.push(cell + 1);
+        
+        return valid;
+    }
+
+    // --- AUTO PATH (AI_GEN) FOR CURRENT COMPETITION (100 PTS FULL MISSION - HIGH SPEED & SMOOTH) ---
+    function autoCalculateMission() {
+        let startNode = gridData.find(d => d.type === 'start');
+        if (!startNode) return alert("⚠️ MISSION_ABORT: ไม่พบจุด START บนสนาม กรุณาวางจุดเริ่มต้นก่อนครับ");
+        stopPreview();
+
+        let finishNode = gridData.find(d => d.type === 'finish');
+        let checkpoints = gridData.filter(d => d.type === 'checkpoint');
+        let drops = gridData.filter(d => d.type.startsWith('drop'));
+
+        if (checkpoints.length === 0 && drops.length === 0 && !finishNode) {
+            return alert("⚠️ MISSION_ABORT: ยังไม่มีจุดภารกิจ (Checkpoint / Drop / Finish) เลยครับ");
+        }
+
+        pathNodes = [];
+        let currentCellIdx = startNode.index;
+        pathNodes.push({ cellIdx: currentCellIdx, fn: 'FF', speed: CRUISE_SPEED, timer: BASE_TIMER_MS, dist: 1, terrain: 'flat', leg: 'START' });
+
+        // Goal sequencing: Checkpoints & Drops
+        let unvisited = [...checkpoints, ...drops];
+        let legCounter = 1;
+
+        while (unvisited.length > 0) {
+            let bestPath = null;
+            let bestTargetIdx = -1;
+            let minDistance = Infinity;
+
+            for (let i = 0; i < unvisited.length; i++) {
+                let path = findShortestPathBFS(currentCellIdx, unvisited[i].index);
+                if (path && path.length < minDistance) {
+                    minDistance = path.length;
+                    bestPath = path;
+                    bestTargetIdx = i;
+                }
+            }
+
+            if (!bestPath) return alert("🚨 ROUTE_ERROR: มีเป้าหมายบางจุดที่เข้าถึงไม่ได้ (ติดกำแพงหรือหลุมดำ)!");
+
+            let targetNode = unvisited[bestTargetIdx];
+            let isDropTarget = targetNode.type.startsWith('drop');
+
+            let segments = extractSmoothSegments(bestPath);
+            const currentLegName = legCounter <= 4 ? `BOX${legCounter}` : 'END';
+
+            for (let seg of segments) {
+                let t = BASE_TIMER_MS + (seg.tilesCount - 1) * CRUISE_TIMER_MS;
+                let spd = CRUISE_SPEED;
+                if (seg.terrain === 'bridge') { t = BRIDGE_TIMER_MS * seg.tilesCount; spd = 92; }
+                else if (seg.terrain === 'bump') { t = BUMP_TIMER_MS * seg.tilesCount; spd = 65; }
+                else if (seg.terrain === 'seesaw') { t = SEESAW_TIMER_MS * seg.tilesCount; spd = 75; }
+                else if (seg.terrain === 'tunnel') { t = TUNNEL_TIMER_MS * seg.tilesCount; spd = CRUISE_SPEED; }
+
+                pathNodes.push({
+                    cellIdx: seg.to,
+                    fn: 'FF',
+                    speed: spd,
+                    timer: t,
+                    dist: seg.tilesCount,
+                    terrain: seg.terrain,
+                    leg: currentLegName
+                });
+            }
+
+            // CRITICAL: เข้าจุดดรอปแล้ว ต้องถอยหลัง (BB) ออกมาที่ช่องทางหลักเสมอ ห้ามหมุน 180 ในช่องแคบ!
+            if (isDropTarget && bestPath.length >= 2) {
+                const retreatCell = bestPath[bestPath.length - 2];
+                pathNodes.push({
+                    cellIdx: retreatCell,
+                    fn: 'BB',
+                    speed: CRUISE_SPEED,
+                    timer: BASE_TIMER_MS,
+                    dist: 1,
+                    terrain: 'flat',
+                    leg: currentLegName,
+                    note: 'ถอยหลังออกจากช่องดรอปกลับสู่ทางหลัก'
+                });
+                currentCellIdx = retreatCell;
+                legCounter++;
+            } else {
+                currentCellIdx = targetNode.index;
+            }
+
+            unvisited.splice(bestTargetIdx, 1);
+        }
+
+        // Final leg to FINISH
+        if (finishNode) {
+            let path = findShortestPathBFS(currentCellIdx, finishNode.index);
+            if (path) {
+                let segments = extractSmoothSegments(path);
+                for (let seg of segments) {
+                    let t = BASE_TIMER_MS + (seg.tilesCount - 1) * CRUISE_TIMER_MS;
+                    let spd = CRUISE_SPEED;
+                    if (seg.terrain === 'bridge') { t = BRIDGE_TIMER_MS * seg.tilesCount; spd = 92; }
+                    else if (seg.terrain === 'bump') { t = BUMP_TIMER_MS * seg.tilesCount; spd = 65; }
+                    else if (seg.terrain === 'seesaw') { t = SEESAW_TIMER_MS * seg.tilesCount; spd = 75; }
+                    else if (seg.terrain === 'tunnel') { t = TUNNEL_TIMER_MS * seg.tilesCount; spd = CRUISE_SPEED; }
+
+                    pathNodes.push({
+                        cellIdx: seg.to,
+                        fn: 'FF',
+                        speed: spd,
+                        timer: t,
+                        dist: seg.tilesCount,
+                        terrain: seg.terrain,
+                        leg: 'END'
+                    });
+                }
+            }
+        }
+
+        selectedNodeIdx = pathNodes.length - 1;
+        renderPath();
+        updateConfigPanel();
+    }
+
+    function extractSmoothSegments(fullPath) {
+        if (fullPath.length < 2) return [];
+
+        const OBSTACLES = ['bump', 'bridge', 'seesaw', 'tunnel'];
+        let segments = [];
+        let currentDir = getPathDirection(fullPath[0], fullPath[1]);
+        let segStartIdx = fullPath[0];
+        let segTiles = [fullPath[0]];
+
+        for (let i = 1; i < fullPath.length; i++) {
+            const prevCell = fullPath[i-1];
+            const currCell = fullPath[i];
+            const dir = getPathDirection(prevCell, currCell);
+
+            const prevTileType = gridData[prevCell].type;
+            const currTileType = gridData[currCell].type;
+
+            const isObstacleCurr = OBSTACLES.includes(currTileType);
+            const isObstaclePrev = OBSTACLES.includes(prevTileType);
+            const isMissionEnd = currTileType.startsWith('drop') || currTileType === 'checkpoint' || currTileType === 'finish';
+
+            const isDirChange = (dir !== currentDir);
+            const isTerrainTransition = (isObstacleCurr !== isObstaclePrev) || (isObstacleCurr && currTileType !== prevTileType);
+            const isSpecialTarget = isMissionEnd && i === fullPath.length - 1;
+
+            if (isDirChange || isTerrainTransition || isSpecialTarget) {
+                segments.push({
+                    from: segStartIdx,
+                    to: prevCell,
+                    tilesCount: segTiles.length - 1,
+                    direction: currentDir,
+                    terrain: isObstaclePrev ? prevTileType : 'flat'
+                });
+
+                segStartIdx = prevCell;
+                segTiles = [prevCell, currCell];
+                currentDir = dir;
+            } else {
+                segTiles.push(currCell);
+            }
+        }
+
+        if (segTiles.length > 1) {
+            const lastTileType = gridData[fullPath[fullPath.length - 1]].type;
+            segments.push({
+                from: segStartIdx,
+                to: fullPath[fullPath.length - 1],
+                tilesCount: segTiles.length - 1,
+                direction: currentDir,
+                terrain: OBSTACLES.includes(lastTileType) ? lastTileType : 'flat'
+            });
+        }
+
+        return segments.filter(s => s.tilesCount > 0);
+    }
+
+    function getPathDirection(a, b) {
+        if (b === a + 1) return 'E';
+        if (b === a - 1) return 'W';
+        if (b === a + COLS) return 'S';
+        if (b === a - COLS) return 'N';
+        return null;
+    }
+
+    // --- ARDUINO CODE GENERATOR (C++ PT-BOT ATOM VX) ---
+    function generateCode() {
+        if (pathNodes.length < 2) {
+            document.getElementById('cppOutput').innerText = "// ปักหมุด Waypoint อย่างน้อย 2 จุด หรือกด AUTO PATH เพื่อสร้างโค้ด";
+            return;
+        }
+
+        const dropSystem = document.getElementById('dropSystemSelect').value;
+        const servoDrops = (dropSystem === "THREE_DROP" || dropSystem === "3DROP") 
+            ? ["DropFL()", "DropFR()", "DropB()", "DropFL()"]
+            : ["DropF()", "DropB()", "DropF()", "DropB()"];
+
+        const headerCode = `// =============================================================================\n` +
+            `// PT-BOT ATOM VX TACTICAL MISSION CODE (PHYSICS OPTIMIZED: ${currentProfile})\n` +
+            `// MCU: ESP-WROOM-32D | Motors: 4WD 16GA 570 RPM | Wheel: 43mm Silicone\n` +
+            `// Motion Profile: ${currentProfile === 'FAST' ? '🚀 High-Agility 88% PWM' : '🛡️ Steady-Run 78% PWM'}\n` +
+            `// Drop Configuration: ${dropSystem}\n` +
+            `// =============================================================================\n\n` +
+            `// === ตัวแปรเวลาหน้างาน (ปรับที่นี่ที่เดียว หน่วย: ms) ===\n` +
+            `int T_FLAT_BASE   = ${BASE_TIMER_MS};  // วิ่งพื้นราบ 1 ช่องเดี่ยว (รวมออกตัว 120ms + เบรก 120ms)\n` +
+            `int T_FLAT_CRUISE = ${CRUISE_TIMER_MS};  // เวลาต่อช่องที่เพิ่มขึ้นเมื่อวิ่ง Cruise ต่อเนื่อง (Smooth Motion)\n` +
+            `int T_BRIDGE      = ${BRIDGE_TIMER_MS};  // เวลาขึ้นสะพาน 50mm (รวมแรงต้านทางลาด 9.6 องศา)\n` +
+            `int T_BUMP        = ${BUMP_TIMER_MS};  // เวลาข้ามลูกระนาดตะเกียบ 7 ท่อน (ชดเชยล้อฟรี 18%)\n` +
+            `int T_SEESAW      = ${SEESAW_TIMER_MS};  // เวลาข้ามไม้กระดก (รวมจังหวะรอกระดานหมุนแตะพื้น)\n` +
+            `int T_TUNNEL      = ${TUNNEL_TIMER_MS};  // เวลาวิ่งในอุโมงค์ (ต่อช่อง Cruise ด้วย Gyro Lock)\n` +
+            `int T_RECOIL      = ${RECOIL_TIMER_MS};  // เวลาถอยตั้งหลักหลัง SetFront ชนเส้นดำ (ปลอดภัย 40mm)\n` +
+            `// =====================================================\n\n` +
+            `// Macro ฟิสิกส์ป้องกัน Overshoot จาก Ramp-up/Ramp-down\n` +
+            `#define TIME_FLAT(n) ( (n) == 1 ? T_FLAT_BASE : (T_FLAT_BASE + ((n) - 1) * T_FLAT_CRUISE) )\n\n`;
+
+        let fullBody = "";
+        let currentHeading = 0;
+        let dropCount = 0;
+
+        let legCommands = {
+            BOX1: [],
+            BOX2: [],
+            BOX3: [],
+            BOX4: [],
+            END: []
+        };
+
+        for (let i = 1; i < pathNodes.length; i++) {
+            const prev = pathNodes[i-1];
+            const curr = pathNodes[i];
+            const pX = prev.cellIdx % COLS, pY = Math.floor(prev.cellIdx / COLS);
+            const cX = curr.cellIdx % COLS, cY = Math.floor(curr.cellIdx / COLS);
+            const dist = curr.dist || (Math.abs(cX - pX) + Math.abs(cY - pY));
+            const targetTile = curr.terrain || gridData[curr.cellIdx].type;
+            const legKey = curr.leg || 'BOX1';
+
+            let stepLines = [];
+
+            if (curr.fn === 'BB') {
+                stepLines.push(`  BB(${curr.speed || CRUISE_SPEED}, TIME_FLAT(${dist})); // ถอยหลังออกจากช่องดรอปกลับสู่ทางหลัก`);
+            } else {
+                let targetHeading = currentHeading;
+                if (cX > pX) targetHeading = 90;
+                else if (cX < pX) targetHeading = -90;
+                else if (cY > pY) targetHeading = 180;
+                else if (cY < pY) targetHeading = 0;
+
+                let diff = targetHeading - currentHeading;
+                if (diff > 180) diff -= 360;
+                if (diff < -180) diff += 360;
+
+                if (diff !== 0) {
+                    stepLines.push(`  spinDegree(${diff}); // หมุน ${diff}° อยู่กับที่`);
+                    currentHeading = targetHeading;
+                }
+
+                let moveCmd = `FF(${curr.speed || CRUISE_SPEED}, TIME_FLAT(${dist}));`;
+                if (targetTile === 'bridge') moveCmd = `FF(92, ${dist > 1 ? `T_BRIDGE * ${dist}` : 'T_BRIDGE'}); // ขึ้นสะพาน 50mm`;
+                else if (targetTile === 'bump') moveCmd = `FF(65, ${dist > 1 ? `T_BUMP * ${dist}` : 'T_BUMP'}); // ข้ามลูกระนาด (ตะเกียบ 7 ท่อน)`;
+                else if (targetTile === 'seesaw') moveCmd = `FF(75, ${dist > 1 ? `T_SEESAW * ${dist}` : 'T_SEESAW'}); // ข้ามไม้กระดก`;
+                else if (targetTile === 'tunnel') moveCmd = `FF(${curr.speed || CRUISE_SPEED}, ${dist > 1 ? `T_TUNNEL * ${dist}` : 'T_TUNNEL'}); // วิ่งในอุโมงค์ (Gyro Lock)`;
+
+                if (curr.fn === 'SetFront') moveCmd = `SetFront(20, T_RECOIL);`;
+                else if (curr.fn === 'SetBack') moveCmd = `SetBack(20, T_RECOIL);`;
+
+                stepLines.push(`  ${moveCmd}`);
+
+                if (targetTile === 'bump' || targetTile === 'bridge' || targetTile === 'seesaw') {
+                    stepLines.push(`  SetFront(20, T_RECOIL); // ดึงระนาบขนานเส้นตัด Error สะสม`);
+                } else if (targetTile === 'checkpoint') {
+                    stepLines.push(`  // ผ่าน Checkpoint รับแต้ม (+15 pts)`);
+                } else if (targetTile.startsWith('drop') || gridData[curr.cellIdx].type.startsWith('drop')) {
+                    const dropCmd = servoDrops[dropCount % servoDrops.length];
+                    dropCount++;
+                    stepLines.push(`  SetFront(20, T_RECOIL); // ตั้งฉากก่อนดรอป`);
+                    stepLines.push(`  ${dropCmd}; // ปล่อยถุงยังชีพ (${dropCmd.slice(0, -2)})`);
+                } else if (targetTile === 'finish' || gridData[curr.cellIdx].type === 'finish') {
+                    stepLines.push(`  STOP(); // หยุดนิ่งที่จุด FINISH รับ 10 แต้ม`);
+                }
+            }
+
+            fullBody += stepLines.join('\n') + '\n';
+            if (legCommands[legKey]) {
+                legCommands[legKey].push(...stepLines);
+            }
+        }
+
+        codeSnippets = {
+            ALL: headerCode + `void runVisualRoute() {\n${fullBody}}\n\nvoid loop() {\n  Box1();\n  Box2();\n  Box3();\n  Box4();\n  Endmission();\n  while(1);\n}\n`,
+            BOX1: `void Box1() {\n  // ภารกิจปล่อยถุงยังชีพจุดที่ 1 (15 แต้ม)\n${(legCommands.BOX1.length > 0 ? legCommands.BOX1.join('\n') : '  // ผ่าน')}\n}\n`,
+            BOX2: `void Box2() {\n  // ภารกิจปล่อยถุงยังชีพจุดที่ 2 (15 แต้ม)\n${(legCommands.BOX2.length > 0 ? legCommands.BOX2.join('\n') : '  // ผ่าน')}\n}\n`,
+            BOX3: `void Box3() {\n  // ภารกิจปล่อยถุงยังชีพจุดที่ 3 (15 แต้ม)\n${(legCommands.BOX3.length > 0 ? legCommands.BOX3.join('\n') : '  // ผ่าน')}\n}\n`,
+            BOX4: `void Box4() {\n  // ภารกิจปล่อยถุงยังชีพจุดที่ 4 (15 แต้ม)\n${(legCommands.BOX4.length > 0 ? legCommands.BOX4.join('\n') : '  // ผ่าน')}\n}\n`,
+            END: `void Endmission() {\n  // กลับเข้าจุด FINISH จบการแข่งขัน (10 แต้ม)\n${(legCommands.END.length > 0 ? legCommands.END.join('\n') : '  STOP();')}\n}\n`
+        };
+
+        updateCodeDisplay();
+    }
+
+    function switchCodeTab(tab) {
+        activeCodeTab = tab;
+        document.querySelectorAll('.code-tab-btn').forEach(b => {
+            b.classList.remove('active');
+            b.setAttribute('aria-selected', 'false');
+        });
+        if (tab === 'ALL') document.getElementById('tab_all').classList.add('active');
+        if (tab === 'BOX1') document.getElementById('tab_b1').classList.add('active');
+        if (tab === 'BOX2') document.getElementById('tab_b2').classList.add('active');
+        if (tab === 'BOX3') document.getElementById('tab_b3').classList.add('active');
+        if (tab === 'BOX4') document.getElementById('tab_b4').classList.add('active');
+        if (tab === 'END') document.getElementById('tab_end').classList.add('active');
+        const selectedTabId = { ALL: 'tab_all', BOX1: 'tab_b1', BOX2: 'tab_b2', BOX3: 'tab_b3', BOX4: 'tab_b4', END: 'tab_end' }[tab];
+        document.getElementById(selectedTabId)?.setAttribute('aria-selected', 'true');
+        document.getElementById('cppOutput').setAttribute('aria-labelledby', selectedTabId);
+        updateCodeDisplay();
+    }
+
+    function updateCodeDisplay() {
+        document.getElementById('cppOutput').innerText = codeSnippets[activeCodeTab] || codeSnippets['ALL'] || "";
+    }
+
+    function copyCode() { 
+        const code = document.getElementById('cppOutput').innerText;
+        if (!code || code.startsWith("// ปักหมุด")) {
+            return alert("⚠️ NO_CODE_AVAILABLE: ยังไม่มีโค้ดสำหรับคัดลอก");
+        }
+        const copyBtn = document.querySelector('.copy-btn');
+        const announceCopied = () => {
+            document.getElementById('copyStatus').textContent = 'Generated code copied to clipboard.';
+            if (!copyBtn) return;
+            copyBtn.innerText = 'Copied';
+            copyBtn.setAttribute('aria-label', 'Code copied');
+            window.setTimeout(() => {
+                copyBtn.innerText = 'Copy code';
+                copyBtn.setAttribute('aria-label', 'Copy generated code');
+                document.getElementById('copyStatus').textContent = '';
+            }, 1600);
+        };
+        const fallbackCopy = () => {
+            const previousFocus = document.activeElement;
+            const temporaryField = document.createElement('textarea');
+            temporaryField.value = code;
+            temporaryField.setAttribute('aria-hidden', 'true');
+            temporaryField.style.position = 'fixed';
+            temporaryField.style.opacity = '0';
+            document.body.appendChild(temporaryField);
+            temporaryField.select();
+            const copied = document.execCommand('copy');
+            temporaryField.remove();
+            if (previousFocus instanceof HTMLElement) previousFocus.focus({ preventScroll: true });
+            if (!copied) throw new Error('Clipboard copy failed');
+        };
+
+        const clipboardWrite = navigator.clipboard?.writeText;
+        if (clipboardWrite) {
+            clipboardWrite.call(navigator.clipboard, code).then(announceCopied).catch(() => {
+                try { fallbackCopy(); announceCopied(); }
+                catch { alert('คัดลอกไม่ได้ในเบราว์เซอร์นี้ กรุณาเลือกโค้ดแล้วคัดลอกด้วยตนเอง'); }
+            });
+        } else {
+            try { fallbackCopy(); announceCopied(); }
+            catch { alert('คัดลอกไม่ได้ในเบราว์เซอร์นี้ กรุณาเลือกโค้ดแล้วคัดลอกด้วยตนเอง'); }
+        }
+    }
+
+    function downloadInoFile() {
+        const code = document.getElementById('cppOutput').innerText;
+        if (!code || code.startsWith("// ปักหมุด")) {
+            return alert("⚠️ NO_CODE_AVAILABLE: กรุณากด AUTO PATH หรือปักหมุด Waypoint ก่อนดาวน์โหลดโค้ด");
+        }
+        const blob = new Blob([code], { type: "text/plain;charset=utf-8" });
+        const url = URL.createObjectURL(blob);
+        const a = document.createElement('a');
+        a.href = url;
+        a.download = `PT_BOT_MISSION_${currentProfile}_${new Date().toISOString().slice(0,10)}.ino`;
+        document.body.appendChild(a);
+        a.click();
+        document.body.removeChild(a);
+        URL.revokeObjectURL(url);
+    }
+
+    // --- COORDINATE AXES RULER ---
+    function renderCoordinateAxes() {
+        const hAxis = document.getElementById('axisHorizontal');
+        const vAxis = document.getElementById('axisVertical');
+        if (!hAxis || !vAxis) return;
+
+        hAxis.innerHTML = '';
+        hAxis.style.display = 'grid';
+        hAxis.style.gridTemplateColumns = `repeat(${COLS}, ${CELL_SIZE_PX}px)`;
+        hAxis.style.gap = '1px';
+        hAxis.style.marginLeft = '32px';
+        hAxis.style.width = `${(COLS * CELL_SIZE_PX) + (COLS - 1) * CELL_GAP_PX}px`;
+
+        for (let c = 0; c < COLS; c++) {
+            const colLabel = document.createElement('span');
+            colLabel.innerText = `X${c.toString().padStart(2, '0')}`;
+            hAxis.appendChild(colLabel);
+        }
+
+        vAxis.innerHTML = '';
+        vAxis.style.display = 'grid';
+        vAxis.style.gridTemplateRows = `repeat(${ROWS}, ${CELL_SIZE_PX}px)`;
+        vAxis.style.gap = '1px';
+        vAxis.style.marginTop = '8px';
+
+        for (let r = 0; r < ROWS; r++) {
+            const rowLabel = document.createElement('span');
+            rowLabel.innerText = `Y${r.toString().padStart(2, '0')}`;
+            vAxis.appendChild(rowLabel);
+        }
+    }
+
+    function resizeArenaCanvas() {
+        const theater = document.querySelector('.mission-theater');
+        if (!theater || !theater.clientWidth || !COLS || !ROWS) return;
+
+        const theaterStyle = getComputedStyle(theater);
+        const horizontalPadding = parseFloat(theaterStyle.paddingLeft) + parseFloat(theaterStyle.paddingRight);
+        const verticalPadding = parseFloat(theaterStyle.paddingTop) + parseFloat(theaterStyle.paddingBottom);
+        const widthForGrid = theater.clientWidth - horizontalPadding - 32 - 20;
+        const heightForGrid = theater.clientHeight - verticalPadding - 48 - 20;
+        const widthTile = (widthForGrid - (COLS - 1) * CELL_GAP_PX) / COLS;
+        const heightTile = (heightForGrid - (ROWS - 1) * CELL_GAP_PX) / ROWS;
+        CELL_SIZE_PX = Math.max(28, Math.floor(Math.min(80, widthTile, heightTile)));
+        TILE_OFFSET_PX = CELL_SIZE_PX + CELL_GAP_PX;
+        TILE_CENTER_PX = CELL_SIZE_PX / 2;
+
+        document.documentElement.style.setProperty('--cell-size', `${CELL_SIZE_PX}px`);
+        document.documentElement.style.setProperty('--cell-line', `${Math.max(3, Math.round(CELL_SIZE_PX * 0.1))}px`);
+        document.documentElement.style.setProperty('--cell-accent-line', `${Math.max(2, Math.round(CELL_SIZE_PX * 0.05))}px`);
+        document.documentElement.style.setProperty('--marker-size', `${Math.max(14, Math.round(CELL_SIZE_PX * 0.28))}px`);
+
+        const gridWidth = COLS * CELL_SIZE_PX + (COLS - 1) * CELL_GAP_PX;
+        const gridHeight = ROWS * CELL_SIZE_PX + (ROWS - 1) * CELL_GAP_PX;
+        const gridEl = document.getElementById('fieldGrid');
+        const frameEl = document.querySelector('.arena-frame');
+        const overlayEl = document.getElementById('pathOverlay');
+        gridEl.style.gridTemplateColumns = `repeat(${COLS}, ${CELL_SIZE_PX}px)`;
+        gridEl.style.gridTemplateRows = `repeat(${ROWS}, ${CELL_SIZE_PX}px)`;
+        frameEl.style.width = `${gridWidth + 20}px`;
+        frameEl.style.height = `${gridHeight + 20}px`;
+        overlayEl.style.width = `${gridWidth}px`;
+        overlayEl.style.height = `${gridHeight}px`;
+        document.getElementById('robotPath').setAttribute('stroke-width', Math.max(2, Math.round(CELL_SIZE_PX * 0.05)));
+        const robotPreview = document.getElementById('robotPreview');
+        const robotSize = Math.max(22, Math.round(CELL_SIZE_PX * 0.52));
+        robotPreview.style.width = `${robotSize}px`;
+        robotPreview.style.height = `${robotSize}px`;
+
+        renderCoordinateAxes();
+        renderPath();
+    }
+
+    const arenaResizeObserver = new ResizeObserver(() => resizeArenaCanvas());
+    arenaResizeObserver.observe(document.querySelector('.mission-theater'));
+    window.addEventListener('resize', resizeArenaCanvas, { passive: true });
+    document.addEventListener('keydown', (event) => {
+        const modal = document.getElementById('lineStyleModal');
+        if (event.key === 'Escape' && modal.style.display !== 'none') {
+            modal.style.display = 'none';
+            const focusIdx = Number(modal.dataset.returnFocus);
+            document.querySelector(`#fieldGrid [data-index="${focusIdx}"]`)?.focus({ preventScroll: true });
+        }
+    });
+
+    // --- TELEMETRY HUD UPDATER ---
+    function updateTelemetryHUD() {
+        let score = 0;
+        let totalTimeMs = 0;
+        const visitedCheckpoints = new Set();
+        const visitedDrops = new Set();
+        let reachedFinish = false;
+
+        pathNodes.forEach((node, idx) => {
+            const tile = gridData[node.cellIdx];
+            if (!tile) return;
+            if (idx > 0 && node.timer) {
+                totalTimeMs += Number(node.timer) || 0;
+                if (node.fn === 'SetFront' || node.fn === 'SetBack') {
+                    totalTimeMs += 350;
+                }
+            }
+
+            if (tile.type === 'checkpoint') visitedCheckpoints.add(node.cellIdx);
+            if (tile.type.startsWith('drop')) visitedDrops.add(node.cellIdx);
+            if (tile.type === 'finish' && idx === pathNodes.length - 1) reachedFinish = true;
+        });
+
+        score += Math.min(visitedCheckpoints.size, 2) * 15;
+        score += Math.min(visitedDrops.size, 4) * 15;
+        if (reachedFinish) score += 10;
+
+        let currentHeading = 0;
+        for (let i = 1; i < pathNodes.length; i++) {
+            const prev = pathNodes[i-1], curr = pathNodes[i];
+            const pX = prev.cellIdx % COLS, pY = Math.floor(prev.cellIdx / COLS);
+            const cX = curr.cellIdx % COLS, cY = Math.floor(curr.cellIdx / COLS);
+            if (curr.fn !== 'BB') {
+                let targetHeading = currentHeading;
+                if (cX > pX) targetHeading = 90;
+                else if (cX < pX) targetHeading = -90;
+                else if (cY > pY) targetHeading = 180;
+                else if (cY < pY) targetHeading = 0;
+                let diff = targetHeading - currentHeading;
+                if (diff > 180) diff -= 360;
+                if (diff < -180) diff += 360;
+                if (diff !== 0) {
+                    totalTimeMs += Math.abs(diff) === 180 ? 450 : 250;
+                    currentHeading = targetHeading;
+                }
+            }
+        }
+
+        const hudScore = document.getElementById('hudScore');
+        const hudTime = document.getElementById('hudTime');
+        const hudSteps = document.getElementById('hudSteps');
+
+        if (hudScore) {
+            hudScore.innerText = `${score} / 100 PTS`;
+            hudScore.style.color = score === 100 ? 'var(--apple-amber)' : (score >= 50 ? 'var(--apple-blue)' : 'var(--text-secondary)');
+        }
+        if (hudTime) {
+            const sec = (totalTimeMs / 1000).toFixed(1);
+            hudTime.innerText = `~${sec}s / 180s`;
+            hudTime.style.color = totalTimeMs < 60000 ? 'var(--apple-green)' : (totalTimeMs < 120000 ? 'var(--apple-amber)' : 'var(--apple-red)');
+        }
+        if (hudSteps) {
+            hudSteps.innerText = `${pathNodes.length} Nodes`;
+        }
+    }
+
+    // --- STEPPER NAVIGATION ---
+    function selectPrevNode() {
+        if (pathNodes.length === 0) return;
+        if (selectedNodeIdx === null || selectedNodeIdx <= 0) {
+            selectedNodeIdx = pathNodes.length - 1;
+        } else {
+            selectedNodeIdx--;
+        }
+        updateConfigPanel();
+        renderPath();
+    }
+
+    function selectNextNode() {
+        if (pathNodes.length === 0) return;
+        if (selectedNodeIdx === null || selectedNodeIdx >= pathNodes.length - 1) {
+            selectedNodeIdx = 0;
+        } else {
+            selectedNodeIdx++;
+        }
+        updateConfigPanel();
+        renderPath();
+    }
+
+    // --- WAYPOINT RENDER & CONFIG ---
+    function renderPath(focusSelected = false) {
+        const container = document.getElementById('nodeMarkers'); 
+        const pathLine = document.getElementById('robotPath'); 
+        container.innerHTML = ''; 
+        let d = "";
+        pathNodes.forEach((node, i) => {
+            const x = (node.cellIdx % COLS) * TILE_OFFSET_PX + TILE_CENTER_PX; 
+            const y = Math.floor(node.cellIdx / COLS) * TILE_OFFSET_PX + TILE_CENTER_PX; 
+            d += (i === 0 ? 'M' : 'L') + `${x} ${y} `;
+            const marker = document.createElement('button');
+            const col = node.cellIdx % COLS;
+            const row = Math.floor(node.cellIdx / COLS);
+            marker.className = 'node-marker' + (selectedNodeIdx === i ? ' active' : ''); 
+            marker.type = 'button';
+            marker.setAttribute('aria-label', `Waypoint ${i + 1}, X${col}, Y${row}${selectedNodeIdx === i ? ', selected' : ''}`);
+            marker.setAttribute('aria-current', selectedNodeIdx === i ? 'step' : 'false');
+            marker.title = `Waypoint ${i + 1} · X${col}, Y${row}`;
+            marker.style.left = x + 'px'; 
+            marker.style.top = y + 'px'; 
+            marker.innerText = (i + 1).toString().padStart(2, '0');
+            marker.onclick = (e) => { e.stopPropagation(); selectedNodeIdx = i; updateConfigPanel(); renderPath(true); };
+            container.appendChild(marker);
+        });
+        pathLine.setAttribute('d', d);
+        if (focusSelected && selectedNodeIdx !== null) container.children[selectedNodeIdx]?.focus({ preventScroll: true });
+        generateCode();
+        updateTelemetryHUD();
+    }
+
+    function updateConfigPanel() {
+        const panel = document.getElementById('nodeConfig');
+        const emptyState = document.getElementById('nodeEmptyState');
+        const controls = document.getElementById('nodeSettingsControls');
+        if (selectedNodeIdx === null || !pathNodes[selectedNodeIdx]) {
+            panel.style.opacity = '1';
+            panel.style.pointerEvents = 'auto';
+            emptyState.hidden = false;
+            controls.hidden = true;
+            return;
+        }
+        panel.style.opacity = '1';
+        panel.style.pointerEvents = 'auto';
+        emptyState.hidden = true;
+        controls.hidden = false;
+        const node = pathNodes[selectedNodeIdx];
+        document.getElementById('nodeIdDisplay').innerText = '#' + (selectedNodeIdx + 1).toString().padStart(2, '0');
+        document.getElementById('fnSelect').value = node.fn;
+        document.getElementById('speedRange').value = node.speed;
+        document.getElementById('speedVal').innerText = node.speed;
+        document.getElementById('timerInput').value = node.timer;
+    }
+
+    function updateNodeData() {
+        if (selectedNodeIdx === null) return;
+        if (isAnimating) stopPreview();
+        const n = pathNodes[selectedNodeIdx];
+        n.fn = document.getElementById('fnSelect').value;
+        n.speed = parseInt(document.getElementById('speedRange').value) || 80;
+        n.timer = parseInt(document.getElementById('timerInput').value) || BASE_TIMER_MS;
+        document.getElementById('speedVal').innerText = n.speed;
+        generateCode();
+    }
+
+    function deleteNode() {
+        if (selectedNodeIdx === null) return;
+        stopPreview();
+        pathNodes.splice(selectedNodeIdx, 1); 
+        selectedNodeIdx = null; 
+        renderPath(); 
+        updateConfigPanel(); 
+        generateCode();
+    }
+
+    function resetPath() { stopPreview(); pathNodes = []; selectedNodeIdx = null; renderPath(); updateConfigPanel(); generateCode(); }
+    
+    function clearField() { 
+        if(confirm('FORMAT_ARENA: ล้างสนามทั้งหมดใช่หรือไม่?')) { 
+            gridData = Array(COLS * ROWS).fill(null).map((_, i) => ({ index: i, type: 'empty' })); 
+            resetPath(); 
+            initGrid(); 
+        } 
+    }
+
+    // --- ANIMATED SIMULATION ---
+    function togglePreview() { if (isAnimating) stopPreview(); else startPreview(); }
+    function startPreview() {
+        if (pathNodes.length < 2) return alert("ROUTE_MINIMUM_REQUIRED: ต้องมีอย่างน้อย 2 Waypoints เพื่อจำลองการวิ่ง");
+        isAnimating = true; 
+        document.getElementById('previewBtn').innerText = "⏹ Stop";
+        document.getElementById('previewBtn').classList.add('is-running');
+        document.getElementById('previewBtn').setAttribute('aria-pressed', 'true');
+        const bot = document.getElementById('robotPreview'); 
+        bot.style.display = 'block'; 
+        animateStep(0);
+    }
+    function stopPreview() {
+        isAnimating = false; 
+        clearTimeout(animTimeout); 
+        const previewBtn = document.getElementById('previewBtn');
+        previewBtn.innerText = '▶ Simulate';
+        previewBtn.classList.remove('is-running');
+        previewBtn.setAttribute('aria-pressed', 'false');
+        const bot = document.getElementById('robotPreview'); 
+        if (bot) bot.style.display = 'none';
+    }
+    function animateStep(idx) {
+        if (!isAnimating || idx >= pathNodes.length - 1) { animTimeout = setTimeout(stopPreview, 1000); return; }
+        const bot = document.getElementById('robotPreview'); 
+        const start = pathNodes[idx], end = pathNodes[idx+1];
+        
+        const x1 = (start.cellIdx % COLS) * TILE_OFFSET_PX + TILE_CENTER_PX; 
+        const y1 = Math.floor(start.cellIdx / COLS) * TILE_OFFSET_PX + TILE_CENTER_PX;
+        const x2 = (end.cellIdx % COLS) * TILE_OFFSET_PX + TILE_CENTER_PX; 
+        const y2 = Math.floor(end.cellIdx / COLS) * TILE_OFFSET_PX + TILE_CENTER_PX;
+        let angle = Math.atan2(y2-y1, x2-x1) * 180 / Math.PI + 90;
+        if (end.fn === 'BB') {
+            angle = (angle + 180) % 360;
+        }
+        
+        bot.style.transition = `transform 0.18s ease`; 
+        bot.style.left = x1 + 'px'; 
+        bot.style.top = y1 + 'px'; 
+        bot.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+        
+        const moveDuration = Math.max(end.timer || 300, 200);
+        animTimeout = setTimeout(() => { 
+            bot.style.transition = `top ${moveDuration}ms linear, left ${moveDuration}ms linear, transform 0.18s ease`; 
+            bot.style.left = x2 + 'px'; 
+            bot.style.top = y2 + 'px'; 
+            animTimeout = setTimeout(() => animateStep(idx + 1), moveDuration); 
+        }, 180);
+    }
+
+    // --- JSON PERSISTENCE & SAMPLE FIELD ---
+    function exportMissionJSON() {
+        const dataStr = "data:text/json;charset=utf-8," + encodeURIComponent(JSON.stringify({ gridData, pathNodes, COLS, ROWS }));
+        const downloadAnchor = document.createElement('a');
+        downloadAnchor.setAttribute("href", dataStr);
+        downloadAnchor.setAttribute("download", `ptbot_mission_${new Date().getTime()}.json`);
+        document.body.appendChild(downloadAnchor);
+        downloadAnchor.click(); downloadAnchor.remove();
+    }
+    function triggerImportJSON() { document.getElementById('jsonImportInput').click(); }
+    function importMissionJSON(event) {
+        const file = event.target.files[0];
+        if (!file) return;
+        const reader = new FileReader();
+        reader.onload = function(e) {
+            try {
+                const parsed = JSON.parse(e.target.result);
+                if (parsed.gridData && parsed.pathNodes) {
+                    stopPreview();
+                    gridData = parsed.gridData; pathNodes = parsed.pathNodes;
+                    if (parsed.COLS) COLS = parsed.COLS;
+                    if (parsed.ROWS) ROWS = parsed.ROWS;
+                    document.getElementById('colsInput').value = COLS;
+                    document.getElementById('rowsInput').value = ROWS;
+                    resizeArenaCanvas();
+                    initGrid(); renderPath(); updateConfigPanel();
+                    alert("✅ MISSION_IMPORT_SUCCESS: นำเข้าข้อมูลสนามสำเร็จ");
+                }
+            } catch(err) { alert("ไฟล์ JSON ไม่ถูกต้อง"); }
+        };
+        reader.readAsText(file);
+    }
+    function saveProject() { localStorage.setItem('ptbot_mission_v7', JSON.stringify({gridData, pathNodes, COLS, ROWS})); alert("✅ MISSION_COMMITTED: บันทึกข้อมูลสำเร็จ"); }
+
+    function loadSampleOfficialField(silent = false) {
+        stopPreview();
+        COLS = 8; ROWS = 4;
+        pathNodes = [];
+        selectedNodeIdx = null;
+        document.getElementById('colsInput').value = 8;
+        document.getElementById('rowsInput').value = 4;
+        gridData = Array(COLS * ROWS).fill(null).map((_, i) => ({ index: i, type: 'empty' }));
+
+        // พิกัดสนามการแข่งขันจริงตามรูปภาพ
+        gridData[1]  = { index: 1,  type: "checkpoint" };     // Check Point 1 (วงกลมเหลืองบนซ้าย)
+        gridData[2]  = { index: 2,  type: "tunnel" };         // อุโมงค์ (ช่องบน)
+        gridData[6]  = { index: 6,  type: "drop_n" };         // จุดปล่อยถุงยังชีพ สีแดง
+        gridData[7]  = { index: 7,  type: "finish" };         // จุด FINISH
+        gridData[9]  = { index: 9,  type: "line_bottom" };    // ขอบกั้นทางเข้าอุโมงค์
+        gridData[10] = { index: 10, type: "tunnel" };         // อุโมงค์ (ช่องล่าง)
+        gridData[11] = { index: 11, type: "line_surround" };  // โลโก้ PT Robotics (เกาะกลางห้ามผ่าน)
+        gridData[12] = { index: 12, type: "checkpoint" };     // Check Point 2 (วงกลมเหลืองกลางสนาม)
+        gridData[13] = { index: 13, type: "bump" };           // ลูกระนาด (ตะเกียบ 7 อัน)
+        gridData[16] = { index: 16, type: "bridge" };         // ทางลาดขึ้นเนิน
+        gridData[17] = { index: 17, type: "bridge" };         // สะพาน 50mm
+        gridData[18] = { index: 18, type: "drop_e" };         // จุดปล่อยถุงยังชีพ สีน้ำเงิน (บนเนิน)
+        gridData[20] = { index: 20, type: "seesaw" };         // ไม้กระดก
+        gridData[22] = { index: 22, type: "bomb" };           // จุดลูกระเบิด (บนเส้นดำ)
+        gridData[23] = { index: 23, type: "line_bottom" };    // เส้นกั้นหน้า START
+        gridData[24] = { index: 24, type: "drop_s" };         // จุดปล่อยถุงยังชีพ สีเขียว
+        gridData[25] = { index: 25, type: "drop_s" };         // จุดปล่อยถุงยังชีพ สีเหลือง
+        gridData[29] = { index: 29, type: "blackhole" };      // หลุมดำ
+        gridData[31] = { index: 31, type: "start" };          // จุดเริ่มต้น START (ล่างขวา)
+
+        resizeArenaCanvas();
+        initGrid();
+        autoCalculateMission();
+        if (!silent) {
+            alert("★ LOADED: โหลดสนามการแข่งขันจริงและคำนวณเส้นทาง High-Speed Smooth 100 คะแนนเต็มเรียบร้อยแล้ว!");
+        }
+    }
+
+    function applyArenaResize() {
+        const newCols = parseInt(document.getElementById('colsInput').value);
+        const newRows = parseInt(document.getElementById('rowsInput').value);
+        if (newCols < 2 || newRows < 2) return alert("ขั้นต่ำต้องเป็น 2x2 ครับ");
+        if (newCols > 15 || newRows > 15) return alert("สูงสุดไม่เกิน 15x15 ครับ");
+        if (!confirm(`ยืนยันการปรับขนาดสนามเป็น ${newCols}x${newRows} ใช่หรือไม่?`)) return;
+
+        stopPreview();
+        COLS = newCols; ROWS = newRows;
+        gridData = Array(COLS * ROWS).fill(null).map((_, i) => ({ index: i, type: 'empty' }));
+        pathNodes = []; selectedNodeIdx = null;
+
+        resizeArenaCanvas();
+        initGrid(); renderPath(); updateConfigPanel();
+    }
+
+    // Auto-load sample official field on start for immediate out-of-the-box readiness
+    loadSampleOfficialField(true);
+</script>
+</body>
+</html>
