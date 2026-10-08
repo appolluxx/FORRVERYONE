@@ -2,9 +2,12 @@
   "name": "ptbot-tactical-ide",
   "version": "1.0.0",
   "description": "PT-BOT Atom VX Tactical Mission Suite & Embedded IDE",
-  "main": "main.js",
+  "main": "apps/desktop/main.js",
   "scripts": {
-    "start": "electron ."
+    "start": "electron .",
+    "test": "node tools/testing/verify_project.js",
+    "solve": "node tools/cli/solve_cli.js",
+    "server": "node src/infrastructure/server/ide_server.js"
   },
   "keywords": [
     "robotics",

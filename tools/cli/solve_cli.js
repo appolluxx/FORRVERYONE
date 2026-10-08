@@ -234,7 +234,7 @@ class PathfindingEngine {
 }
 
 // Main execution
-const targetJson = process.argv[2] || path.join(__dirname, '..', 'data', 'official_field_mission.json');
+const targetJson = process.argv[2] || path.join(__dirname, '..', '..', 'data', 'arenas', 'official_field_mission.json');
 const gm = new GridManager();
 
 if (fs.existsSync(targetJson)) {

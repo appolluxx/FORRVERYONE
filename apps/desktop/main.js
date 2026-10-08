@@ -20,6 +20,7 @@ process.on('unhandledRejection', (reason, promise) => {
     console.error('[Main UnhandledRejection]', reason);
 });
 
+const ROOT_DIR = path.resolve(__dirname, '..', '..');
 const ARDUINO_CLI_PATH = 'C:\\Users\\john\\AppData\\Local\\Programs\\Arduino IDE\\resources\\app\\lib\\backend\\resources\\arduino-cli.exe';
 
 function createWindow() {
@@ -70,7 +71,7 @@ function createWindow() {
         }
     });
 
-    mainWindow.loadFile(path.join(__dirname, 'index.html'));
+    mainWindow.loadFile(path.join(ROOT_DIR, 'apps', 'web', 'index.html'));
 
     mainWindow.webContents.on('did-finish-load', () => {
         console.log('[PT-BOT IDE] Application UI initialized successfully.');
@@ -107,8 +108,8 @@ ipcMain.handle('flash-arduino-cli', async (event, { port, baud, sketchFolder }) 
         const targetPort = port || 'COM3';
         const uploadBaud = baud || '921600';
         const sketchDir = sketchFolder
-            ? path.join(__dirname, 'firmware', sketchFolder)
-            : path.join(__dirname, 'firmware', 'PT_BOT_Middle_3Drop_ATOM_VX');
+            ? path.join(ROOT_DIR, 'firmware', sketchFolder)
+            : path.join(ROOT_DIR, 'firmware', 'PT_BOT_Middle_3Drop_ATOM_VX');
 
         if (!fs.existsSync(ARDUINO_CLI_PATH)) {
             return resolve({ success: false, error: `arduino-cli.exe not found at: ${ARDUINO_CLI_PATH}` });
@@ -147,10 +148,10 @@ ipcMain.handle('flash-arduino-cli', async (event, { port, baud, sketchFolder }) 
     });
 });
 
-// 3. Native Save / Load mission files directly to data/ directory
+// 3. Native Save / Load mission files directly to data/arenas/ directory
 ipcMain.handle('save-mission-file', async (event, { filename, content }) => {
     try {
-        const targetPath = path.join(__dirname, 'data', path.basename(filename));
+        const targetPath = path.join(ROOT_DIR, 'data', 'arenas', path.basename(filename));
         fs.writeFileSync(targetPath, JSON.stringify(content, null, 2), 'utf8');
         return { success: true, path: targetPath };
     } catch (err) {
@@ -160,7 +161,8 @@ ipcMain.handle('save-mission-file', async (event, { filename, content }) => {
 
 ipcMain.handle('list-mission-files', async () => {
     try {
-        const files = fs.readdirSync(path.join(__dirname, 'data')).filter(f => f.endsWith('.json'));
+        const arenaDir = path.join(ROOT_DIR, 'data', 'arenas');
+        const files = fs.readdirSync(arenaDir).filter(f => f.endsWith('.json'));
         return { success: true, files };
     } catch (err) {
         return { success: false, files: [] };

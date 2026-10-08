@@ -12,7 +12,7 @@ const url = require('url');
 const { exec, spawn } = require('child_process');
 
 const PORT = 4848;
-const ROOT_DIR = path.resolve(__dirname);
+const ROOT_DIR = path.resolve(__dirname, '..', '..', '..');
 const ARDUINO_CLI_PATH = 'C:\\Users\\john\\AppData\\Local\\Programs\\Arduino IDE\\resources\\app\\lib\\backend\\resources\\arduino-cli.exe';
 
 const MIME_TYPES = {
@@ -90,7 +90,7 @@ const server = http.createServer(async (req, res) => {
 
     // GET /api/missions
     if (pathname === '/api/missions') {
-        const dataDir = path.join(ROOT_DIR, 'data');
+        const dataDir = path.join(ROOT_DIR, 'data', 'arenas');
         try {
             const files = fs.readdirSync(dataDir).filter(f => f.endsWith('.json'));
             res.writeHead(200, { 'Content-Type': 'application/json' });
@@ -111,7 +111,7 @@ const server = http.createServer(async (req, res) => {
                 const parsed = JSON.parse(body);
                 const filename = parsed.filename || 'official_field_mission.json';
                 const safeName = path.basename(filename);
-                const targetPath = path.join(ROOT_DIR, 'data', safeName);
+                const targetPath = path.join(ROOT_DIR, 'data', 'arenas', safeName);
                 fs.writeFileSync(targetPath, JSON.stringify(parsed.data, null, 2), 'utf8');
                 res.writeHead(200, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ success: true, path: targetPath }));
@@ -196,7 +196,14 @@ const server = http.createServer(async (req, res) => {
     // -------------------------------------------------------------------------
     // STATIC FILE SERVING
     // -------------------------------------------------------------------------
-    let filePath = path.join(ROOT_DIR, pathname === '/' ? 'index.html' : pathname);
+    let filePath;
+    if (pathname === '/' || pathname === '/index.html') {
+        filePath = path.join(ROOT_DIR, 'apps', 'web', 'index.html');
+    } else if (pathname === '/tactical_planner.html' || pathname === '/web.html') {
+        filePath = path.join(ROOT_DIR, 'apps', 'web', pathname.substring(1));
+    } else {
+        filePath = path.join(ROOT_DIR, pathname);
+    }
 
     // Security check: ensure path stays inside ROOT_DIR
     if (!filePath.startsWith(ROOT_DIR)) {

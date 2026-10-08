@@ -8,30 +8,40 @@
 const fs = require('fs');
 const path = require('path');
 
-const ROOT_DIR = path.resolve(__dirname, '..');
+const ROOT_DIR = path.resolve(__dirname, '..', '..');
 
 const REQUIRED_PATHS = [
-    'index.html',
-    'tactical_planner.html',
-    'web.html',
-    'docs/doc.md',
-    'docs/robot_competition_rules_intermediate.pdf',
-    'docs/PT-BOT_Atom_VX_Assembly_Guide.pdf',
-    'docs/PT-BOT_Atom_VX_User_Manual.pdf',
-    'data/official_field_mission.json',
-    'data/jaajaj.json',
-    'assets/images.jpg',
+    'apps/web/index.html',
+    'apps/web/tactical_planner.html',
+    'apps/web/web.html',
+    'apps/desktop/main.js',
+    'apps/desktop/launch_ide.bat',
+    'apps/desktop/Launch_IDE.vbs',
+    'src/infrastructure/server/ide_server.js',
+    'docs/architecture/tactical_playbook.md',
+    'docs/architecture/audit_adversarial_report.txt',
+    'docs/rules/robot_competition_rules_intermediate.pdf',
+    'docs/manuals/PT-BOT_Atom_VX_Assembly_Guide.pdf',
+    'docs/manuals/PT-BOT_Atom_VX_User_Manual.pdf',
+    'data/arenas/official_field_mission.json',
+    'data/arenas/jaajaj.json',
+    'data/arenas/normal.json',
+    'assets/lib/three.min.js',
+    'assets/lib/OrbitControls.js',
+    'assets/images/robot_chassis.jpg',
+    'assets/images/field_reference.jpg',
     'firmware/PT_BOT_Middle_3Drop_ATOM_VX/PT_BOT_Middle_3Drop_ATOM_VX.ino',
     'firmware/PT_BOT_Middle_ATOM_VX/PT_BOT_Middle_ATOM_VX.ino',
-    'ide_server.js',
-    'launch_ide.bat',
     'firmware/PT_BOT_Middle_3Drop_ATOM_VX/MissionRunner.ino',
     'firmware/PT_BOT_Middle_ATOM_VX/MissionRunner.ino',
-    'drivers/CP210x_Windows_Drivers/slabvcp.inf',
-    'archives/robot-intermediate-backup-20260922.zip'
+    'drivers/cp210x/slabvcp.inf',
+    'archives/backups/robot-intermediate-backup-20260922.zip',
+    'archives/legacy-ui/tactical_planner.html.backup',
+    'tools/cli/solve_cli.js',
+    'tools/testing/verify_project.js'
 ];
 
-console.log('=== VERIFYING PROJECT DIRECTORY STRUCTURE ===\n');
+console.log('=== VERIFYING CLEAN ARCHITECTURE DIRECTORY STRUCTURE ===\n');
 
 let missingCount = 0;
 REQUIRED_PATHS.forEach(relPath => {
@@ -44,8 +54,8 @@ REQUIRED_PATHS.forEach(relPath => {
     }
 });
 
-console.log('\n=== VERIFYING JSON DATASETS ===');
-['data/official_field_mission.json', 'data/jaajaj.json'].forEach(relPath => {
+console.log('\n=== VERIFYING JSON ARENA DATASETS ===');
+['data/arenas/official_field_mission.json', 'data/arenas/jaajaj.json', 'data/arenas/normal.json'].forEach(relPath => {
     try {
         const content = fs.readFileSync(path.join(ROOT_DIR, relPath), 'utf8');
         const parsed = JSON.parse(content);
