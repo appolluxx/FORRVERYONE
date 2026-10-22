@@ -2538,6 +2538,53 @@ class GridManager {
 // 4. PATHFINDING ENGINE (PURE GRAPH ALGORITHMS)
 // =============================================================================
 class PathfindingEngine {
+    static isLineOfSightTraversable(fromIdx, toIdx, gridManager) {
+        const x1 = gridManager.getCol(fromIdx);
+        const y1 = gridManager.getRow(fromIdx);
+        const x2 = gridManager.getCol(toIdx);
+        const y2 = gridManager.getRow(toIdx);
+
+        if (x1 !== x2 && y1 !== y2) return false; // Must be straight line
+
+        const dx = Math.sign(x2 - x1);
+        const dy = Math.sign(y2 - y1);
+        let currX = x1;
+        let currY = y1;
+
+        const { T, B, L, R } = Config.WALL_RULES;
+        const isHazard = (type) => type === 'blackhole' || type === 'bomb';
+
+        while (currX !== x2 || currY !== y2) {
+            const currentIdx = currY * gridManager.cols + currX;
+            const currentType = gridManager.getCell(currentIdx)?.type || 'empty';
+
+            const nextX = currX + dx;
+            const nextY = currY + dy;
+            const nextIdx = nextY * gridManager.cols + nextX;
+            const nextCell = gridManager.getCell(nextIdx);
+            if (!nextCell) return false;
+            const nextType = nextCell.type;
+
+            // Strictly check if intermediate tile or destination tile is a hazard
+            if (isHazard(nextType)) return false;
+
+            // Strictly check wall/border line collisions between adjacent tiles
+            if (dy === -1) {
+                if (T.includes(currentType) || B.includes(nextType)) return false;
+            } else if (dy === 1) {
+                if (B.includes(currentType) || T.includes(nextType)) return false;
+            } else if (dx === -1) {
+                if (L.includes(currentType) || R.includes(nextType)) return false;
+            } else if (dx === 1) {
+                if (R.includes(currentType) || L.includes(nextType)) return false;
+            }
+
+            currX = nextX;
+            currY = nextY;
+        }
+
+        return true;
+    }
     static findShortestPathBFS(startIdx, targetIdx, gridManager) {
         if (startIdx === targetIdx) return [startIdx];
         const queue = [[startIdx]];
