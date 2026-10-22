@@ -27,7 +27,7 @@
     { "index": 20, "type": "seesaw" },
     { "index": 21, "type": "empty" },
     { "index": 22, "type": "bomb" },
-    { "index": 23, "type": "line_bottom" },
+    { "index": 23, "type": "line_right" },
 
     { "index": 24, "type": "drop_s" },
     { "index": 25, "type": "drop_s" },

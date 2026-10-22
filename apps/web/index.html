@@ -630,6 +630,30 @@
             box-shadow: var(--shadow-xs);
         }
 
+        .physics-model-card {
+            background: var(--glass-card);
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-md);
+            padding: 10px;
+            box-shadow: var(--shadow-xs);
+        }
+
+        .physics-model-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 8px;
+        }
+
+        .physics-note {
+            margin-top: 8px;
+            color: var(--text-muted);
+            font-size: 0.66rem;
+            line-height: 1.45;
+        }
+
+        .physics-note.calibrated { color: var(--apple-green); }
+        .physics-note.warning { color: var(--apple-amber); }
+
         .dim-inputs {
             display: grid;
             grid-template-columns: 1fr 1fr auto;
@@ -820,6 +844,47 @@
             max-width: 100%;
             transition: transform 0.2s var(--ease-apple);
             transform-origin: center center;
+        }
+
+        .simulation-status {
+            position: absolute;
+            left: 50%;
+            bottom: 12px;
+            transform: translateX(-50%);
+            max-width: calc(100% - 24px);
+            padding: 7px 11px;
+            border: 1px solid var(--border-glass);
+            border-radius: var(--radius-pill);
+            background: var(--glass-raised);
+            box-shadow: var(--shadow-sm);
+            color: var(--text-secondary);
+            font-size: 0.66rem;
+            line-height: 1.35;
+            text-align: center;
+            z-index: 75;
+            pointer-events: none;
+        }
+
+        .simulation-status.warning {
+            color: #92400e;
+            border-color: rgba(245, 158, 11, 0.45);
+            background: rgba(255, 251, 235, 0.96);
+        }
+
+        .simulation-status.danger {
+            color: #991b1b;
+            border-color: rgba(239, 68, 68, 0.5);
+            background: rgba(254, 242, 242, 0.97);
+        }
+
+        [data-theme="dark"] .simulation-status.warning {
+            color: #fcd34d;
+            background: rgba(69, 45, 10, 0.96);
+        }
+
+        [data-theme="dark"] .simulation-status.danger {
+            color: #fca5a5;
+            background: rgba(69, 20, 20, 0.97);
         }
 
         .axis-horizontal {
@@ -1155,6 +1220,11 @@
             border-right: 7px solid transparent;
             border-bottom: 11px solid #0071e3;
             filter: drop-shadow(0 2px 4px rgba(0, 0, 0, 0.3));
+        }
+
+        #robotPreview.is-collision {
+            background: linear-gradient(135deg, #ef4444 0%, #b91c1c 100%);
+            box-shadow: 0 0 0 4px rgba(239, 68, 68, 0.25), 0 8px 24px rgba(239, 68, 68, 0.5);
         }
 
         /* --- RIGHT SIDEBAR (DUAL-TAB TELEMETRY & IDE) --- */
@@ -1682,15 +1752,15 @@
         <div class="telemetry-chips" role="region" aria-label="Mission live metrics">
             <div class="kpi-chip" title="Total score from Checkpoints, Drop zones, and Finish">
                 <span class="kpi-chip-label">Score</span>
-                <span id="hudScore" class="kpi-chip-val score">100 / 100 PTS</span>
+                <span id="hudScore" class="kpi-chip-val score">-- / 100 PTS</span>
             </div>
-            <div class="kpi-chip" title="Physics estimated mission completion runtime">
-                <span class="kpi-chip-label">Est. Time</span>
-                <span id="hudTime" class="kpi-chip-val time">~24.2s / 180s</span>
+            <div class="kpi-chip" title="Sum of firmware motion windows and turn estimates; line-sensor reacquisition is not included">
+                <span class="kpi-chip-label">Cmd Time</span>
+                <span id="hudTime" class="kpi-chip-val time">-- / 180s</span>
             </div>
             <div class="kpi-chip" title="Total waypoints in path">
                 <span class="kpi-chip-label">Nodes</span>
-                <span id="hudSteps" class="kpi-chip-val steps">30 Nodes</span>
+                <span id="hudSteps" class="kpi-chip-val steps">-- Nodes</span>
             </div>
         </div>
     </div>
@@ -1757,6 +1827,26 @@
                 <button class="btn-ui primary" type="button" style="height: 30px; padding: 0 10px;" onclick="applyArenaResize()">Apply</button>
             </div>
         </div>
+
+        <section class="physics-model-card" aria-labelledby="physicsModelTitle">
+            <div class="section-eyebrow"><span>DRIVE_MODEL</span><span>CALIBRATION</span></div>
+            <h2 id="physicsModelTitle" class="section-title">Physics calibration</h2>
+            <div class="physics-model-grid">
+                <div class="input-group" style="grid-column: 1 / -1;">
+                    <label for="physicsMaxSpeedInput">Measured 100% wheel speed (mm/s)</label>
+                    <input type="number" id="physicsMaxSpeedInput" min="100" max="1800" step="10" value="1283" onchange="updatePhysicsSettings(event)">
+                </div>
+                <div class="input-group">
+                    <label for="robotWidthInput">Robot width (mm)</label>
+                    <input type="number" id="robotWidthInput" min="50" max="200" step="1" value="200" onchange="updatePhysicsSettings(event)">
+                </div>
+                <div class="input-group">
+                    <label for="robotLengthInput">Robot length (mm)</label>
+                    <input type="number" id="robotLengthInput" min="50" max="200" step="1" value="200" onchange="updatePhysicsSettings(event)">
+                </div>
+            </div>
+            <p id="physicsCalibrationNote" class="physics-note warning" role="status">Uncalibrated no-load estimate. Enter the measured speed and actual robot envelope before relying on the preview.</p>
+        </section>
 
         <!-- Mode 1 Tools -->
         <div id="editorTools" role="group" aria-label="Field tools">
@@ -1832,6 +1922,7 @@
                 </div>
             </div>
         </div>
+        <div id="simulationStatus" class="simulation-status" role="status" aria-live="polite">Model uses a 300 mm tile, 43 mm wheel, and 570 RPM no-load motor estimate. Calibrate on the actual field.</div>
 
         <!-- Line Style Modal -->
         <div id="lineStyleModal" role="dialog" aria-label="Choose line placement" aria-modal="false" style="position: fixed; display: none;">
@@ -2132,6 +2223,24 @@ const Config = Object.freeze({
         SIM_COMPLETION_DELAY_MS: 1000
     }),
 
+    PHYSICS: Object.freeze({
+        FIELD_TILE_MM: 300,
+        BLACK_LINE_MM: 25,
+        WHEEL_DIAMETER_MM: 43,
+        MOTOR_RPM: 570,
+        MIN_DRIVE_PWM: 22,
+        RAMP_UP_MS: 120,
+        RAMP_DOWN_MS: 120,
+        BRAKE_PULSE_MS: 15,
+        BRAKE_PULSE_PWM: 10,
+        BRAKE_PULSE_HIGH_PWM: 18,
+        BRAKE_PULSE_THRESHOLD_PWM: 35,
+        INTEGRATION_STEP_MS: 10,
+        MAX_ROBOT_SIZE_MM: 200,
+        COLLISION_MARGIN_MM: 2,
+        STORAGE_KEY: 'ptbot_physics_v1'
+    }),
+
     SERVO_CONFIGS: Object.freeze({
         THREE_DROP: Object.freeze(['DropFL()', 'DropFR()', 'DropB()', 'DropFL()']),
         STANDARD: Object.freeze(['DropF()', 'DropB()', 'DropF()', 'DropB()'])
@@ -2342,7 +2451,7 @@ class GridManager {
         if (y > 0) {
             const neighborIdx = cellIdx - this.cols;
             const neighborType = this.cells[neighborIdx].type;
-            if (!T.includes(currentType) && !B.includes(neighborType) && neighborType !== 'blackhole') {
+            if (!T.includes(currentType) && !B.includes(neighborType) && neighborType !== 'blackhole' && neighborType !== 'bomb') {
                 valid.push(neighborIdx);
             }
         }
@@ -2350,7 +2459,7 @@ class GridManager {
         if (y < this.rows - 1) {
             const neighborIdx = cellIdx + this.cols;
             const neighborType = this.cells[neighborIdx].type;
-            if (!B.includes(currentType) && !T.includes(neighborType) && neighborType !== 'blackhole') {
+            if (!B.includes(currentType) && !T.includes(neighborType) && neighborType !== 'blackhole' && neighborType !== 'bomb') {
                 valid.push(neighborIdx);
             }
         }
@@ -2358,7 +2467,7 @@ class GridManager {
         if (x > 0) {
             const neighborIdx = cellIdx - 1;
             const neighborType = this.cells[neighborIdx].type;
-            if (!L.includes(currentType) && !R.includes(neighborType) && neighborType !== 'blackhole') {
+            if (!L.includes(currentType) && !R.includes(neighborType) && neighborType !== 'blackhole' && neighborType !== 'bomb') {
                 valid.push(neighborIdx);
             }
         }
@@ -2366,7 +2475,7 @@ class GridManager {
         if (x < this.cols - 1) {
             const neighborIdx = cellIdx + 1;
             const neighborType = this.cells[neighborIdx].type;
-            if (!R.includes(currentType) && !L.includes(neighborType) && neighborType !== 'blackhole') {
+            if (!R.includes(currentType) && !L.includes(neighborType) && neighborType !== 'blackhole' && neighborType !== 'bomb') {
                 valid.push(neighborIdx);
             }
         }
@@ -2394,7 +2503,7 @@ class GridManager {
             18: 'drop_e',
             20: 'seesaw',
             22: 'bomb',
-            23: 'line_bottom',
+            23: 'line_right',
             24: 'drop_s',
             25: 'drop_s',
             29: 'blackhole',
@@ -2634,23 +2743,368 @@ class PathfindingEngine {
 // =============================================================================
 // 5. PHYSICS & SCORING ENGINE (PURE METRICS & TIMING)
 // =============================================================================
+class MotionPhysicsModel {
+    static nominalWheelSpeedMmPerSec() {
+        return Config.PHYSICS.MOTOR_RPM * Math.PI * Config.PHYSICS.WHEEL_DIAMETER_MM / 60;
+    }
+
+    static defaultSettings() {
+        return {
+            maxSpeedMmPerSec: Math.round(this.nominalWheelSpeedMmPerSec()),
+            robotWidthMm: Config.PHYSICS.MAX_ROBOT_SIZE_MM,
+            robotLengthMm: Config.PHYSICS.MAX_ROBOT_SIZE_MM,
+            speedCalibrated: false,
+            footprintMeasured: false
+        };
+    }
+
+    static normalizeSettings(raw = {}) {
+        const defaults = this.defaultSettings();
+        const clamp = (value, min, max, fallback) => {
+            const number = Number(value);
+            return Number.isFinite(number) ? Math.min(max, Math.max(min, number)) : fallback;
+        };
+
+        return {
+            maxSpeedMmPerSec: clamp(raw.maxSpeedMmPerSec, 100, 1800, defaults.maxSpeedMmPerSec),
+            robotWidthMm: clamp(raw.robotWidthMm, 50, Config.PHYSICS.MAX_ROBOT_SIZE_MM, defaults.robotWidthMm),
+            robotLengthMm: clamp(raw.robotLengthMm, 50, Config.PHYSICS.MAX_ROBOT_SIZE_MM, defaults.robotLengthMm),
+            speedCalibrated: raw.speedCalibrated === true,
+            footprintMeasured: raw.footprintMeasured === true
+        };
+    }
+
+    static loadSettings() {
+        try {
+            const stored = localStorage.getItem(Config.PHYSICS.STORAGE_KEY);
+            return stored ? this.normalizeSettings(JSON.parse(stored)) : this.defaultSettings();
+        } catch (error) {
+            return this.defaultSettings();
+        }
+    }
+
+    static saveSettings(settings) {
+        try {
+            localStorage.setItem(Config.PHYSICS.STORAGE_KEY, JSON.stringify(this.normalizeSettings(settings)));
+        } catch (error) {
+            // The simulator remains usable when browser storage is unavailable.
+        }
+    }
+
+    static _pwmAt(speed, elapsedMs, remainingMs) {
+        const minSpeed = Config.PHYSICS.MIN_DRIVE_PWM;
+        const rampUp = Config.PHYSICS.RAMP_UP_MS;
+        const rampDown = Config.PHYSICS.RAMP_DOWN_MS;
+
+        if (rampUp > 0 && elapsedMs < rampUp) {
+            const progress = elapsedMs / rampUp;
+            const factor = 0.5 * (1 - Math.cos(progress * Math.PI));
+            return minSpeed + factor * (speed - minSpeed);
+        }
+        if (rampDown > 0 && remainingMs < rampDown) {
+            const progress = Math.max(0, remainingMs / rampDown);
+            const factor = 0.5 * (1 - Math.cos(progress * Math.PI));
+            return Math.max(minSpeed, minSpeed + factor * (speed - minSpeed));
+        }
+        return speed;
+    }
+
+    static integrateTimedMove(speed, timerMs, settings) {
+        const durationMs = Math.min(60000, Math.max(0, Number(timerMs) || 0));
+        const maxPwm = Math.min(100, Math.max(0, Number(speed) || 0));
+        const samples = [{ timeMs: 0, distanceMm: 0 }];
+        if (durationMs === 0 || maxPwm === 0) {
+            return { durationMs, distanceMm: 0, samples };
+        }
+
+        const maxSpeed = this.normalizeSettings(settings).maxSpeedMmPerSec;
+        let elapsedMs = 0;
+        let distanceMm = 0;
+        while (elapsedMs < durationMs) {
+            const dt = Math.min(Config.PHYSICS.INTEGRATION_STEP_MS, durationMs - elapsedMs);
+            const pwm = this._pwmAt(maxPwm, elapsedMs, durationMs - elapsedMs);
+            distanceMm += maxSpeed * (pwm / 100) * (dt / 1000);
+            elapsedMs += dt;
+            samples.push({ timeMs: elapsedMs, distanceMm });
+        }
+
+        // Timed FF/BB apply 10% braking at low terminal PWM and 18% above 35% PWM.
+        const terminalPwm = this._pwmAt(maxPwm, durationMs, 0);
+        const brakePwm = terminalPwm > Config.PHYSICS.BRAKE_PULSE_THRESHOLD_PWM
+            ? Config.PHYSICS.BRAKE_PULSE_HIGH_PWM
+            : Config.PHYSICS.BRAKE_PULSE_PWM;
+        const brakeDistanceMm = maxSpeed * (brakePwm / 100) * (Config.PHYSICS.BRAKE_PULSE_MS / 1000);
+        distanceMm = Math.max(0, distanceMm - brakeDistanceMm);
+        samples.push({ timeMs: durationMs + Config.PHYSICS.BRAKE_PULSE_MS, distanceMm });
+        return { durationMs: durationMs + Config.PHYSICS.BRAKE_PULSE_MS, distanceMm, brakePwm, samples };
+    }
+
+    static buildBlackLineSegments(gridManager) {
+        const segments = [];
+        const seen = new Set();
+        const tile = Config.PHYSICS.FIELD_TILE_MM;
+        const add = (axis, coordinateMm, startMm, endMm) => {
+            const key = `${axis}:${coordinateMm}:${startMm}:${endMm}`;
+            if (seen.has(key)) return;
+            seen.add(key);
+            segments.push({ axis, coordinateMm, startMm, endMm });
+        };
+
+        gridManager.cells.forEach((cell, index) => {
+            const col = gridManager.getCol(index);
+            const row = gridManager.getRow(index);
+            const type = cell?.type || 'empty';
+            if (Config.WALL_RULES.T.includes(type)) add('horizontal', row * tile, col * tile, (col + 1) * tile);
+            if (Config.WALL_RULES.B.includes(type)) add('horizontal', (row + 1) * tile, col * tile, (col + 1) * tile);
+            if (Config.WALL_RULES.L.includes(type)) add('vertical', col * tile, row * tile, (row + 1) * tile);
+            if (Config.WALL_RULES.R.includes(type)) add('vertical', (col + 1) * tile, row * tile, (row + 1) * tile);
+        });
+
+        return segments;
+    }
+
+    static checkClearance(xMm, yMm, headingDeg, gridManager, settings, lineSegments) {
+        const { robotWidthMm, robotLengthMm } = this.normalizeSettings(settings);
+        const radians = headingDeg * Math.PI / 180;
+        const sin = Math.abs(Math.sin(radians));
+        const cos = Math.abs(Math.cos(radians));
+        const halfX = (sin * robotLengthMm + cos * robotWidthMm) / 2;
+        const halfY = (cos * robotLengthMm + sin * robotWidthMm) / 2;
+        const margin = Config.PHYSICS.COLLISION_MARGIN_MM;
+        const fieldWidth = gridManager.cols * Config.PHYSICS.FIELD_TILE_MM;
+        const fieldHeight = gridManager.rows * Config.PHYSICS.FIELD_TILE_MM;
+        const outside = xMm - halfX < -margin || yMm - halfY < -margin ||
+            xMm + halfX > fieldWidth + margin || yMm + halfY > fieldHeight + margin;
+        const lineHalfWidth = Config.PHYSICS.BLACK_LINE_MM / 2;
+
+        let lineContact = false;
+        for (const line of (lineSegments || [])) {
+            if (line.axis === 'horizontal') {
+                const overlapsAlongLine = xMm + halfX > line.startMm && xMm - halfX < line.endMm;
+                if (overlapsAlongLine && Math.abs(yMm - line.coordinateMm) <= halfY + lineHalfWidth + margin) {
+                    lineContact = true;
+                    break;
+                }
+            } else {
+                const overlapsAlongLine = yMm + halfY > line.startMm && yMm - halfY < line.endMm;
+                if (overlapsAlongLine && Math.abs(xMm - line.coordinateMm) <= halfX + lineHalfWidth + margin) {
+                    lineContact = true;
+                    break;
+                }
+            }
+        }
+
+        return { outside, lineContact, halfX, halfY };
+    }
+
+    static hasSensorAlignment(node, tileType) {
+        return node.fn === 'SetFront' || node.fn === 'SetBack' ||
+            (node.fn !== 'BB' && (['bump', 'bridge', 'seesaw'].includes(tileType) || tileType.startsWith('drop')));
+    }
+
+    static buildTrajectory(pathNodes, gridManager, profile, settings, getCoordinates) {
+        const segments = [];
+        const summary = {
+            moveCount: 0,
+            expectedDistanceMm: 0,
+            predictedDistanceMm: 0,
+            largestDistanceErrorMm: 0,
+            distanceMismatchCount: 0,
+            unmodeledAlignmentCount: 0,
+            firstUnmodeledAlignment: null,
+            firstLineContact: null,
+            firstOutOfBounds: null,
+            speedCalibrated: settings.speedCalibrated === true
+        };
+        if (!pathNodes || pathNodes.length < 2) {
+            return { segments, summary, totalDurationMs: 0, pxPerMm: 1, lineSegments: [], initialState: { x: 0, y: 0, angle: 0 } };
+        }
+
+        const first = getCoordinates(pathNodes[0].cellIdx);
+        const nextCell = pathNodes.find((node, index) => index > 0 && node.cellIdx !== pathNodes[0].cellIdx);
+        let tilePitchPx = Config.ARENA.DEFAULT_CELL_SIZE_PX + Config.ARENA.CELL_GAP_PX;
+        if (nextCell) {
+            const next = getCoordinates(nextCell.cellIdx);
+            const delta = Math.hypot(next.x - first.x, next.y - first.y);
+            const gridDistance = Math.abs(gridManager.getCol(nextCell.cellIdx) - gridManager.getCol(pathNodes[0].cellIdx)) +
+                Math.abs(gridManager.getRow(nextCell.cellIdx) - gridManager.getRow(pathNodes[0].cellIdx));
+            if (delta > 0 && gridDistance > 0) tilePitchPx = delta / gridDistance;
+        }
+        const pxPerMm = tilePitchPx / Config.PHYSICS.FIELD_TILE_MM;
+        const lineSegments = this.buildBlackLineSegments(gridManager);
+        pathNodes.forEach((node, index) => {
+            if (index === 0) return;
+            const tileType = gridManager.getCell(node.cellIdx)?.type || '';
+            if (!this.hasSensorAlignment(node, tileType)) return;
+            summary.unmodeledAlignmentCount++;
+            if (!summary.firstUnmodeledAlignment) summary.firstUnmodeledAlignment = { stepIndex: index + 1 };
+        });
+        let x = first.x;
+        let y = first.y;
+        let heading = 0;
+        let elapsedMs = 0;
+
+        const recordClearance = (xPx, yPx, angle, stepIndex) => {
+            const clearance = this.checkClearance(xPx / pxPerMm, yPx / pxPerMm, angle, gridManager, settings, lineSegments);
+            if (clearance.lineContact && !summary.firstLineContact) summary.firstLineContact = { stepIndex };
+            if (clearance.outside && !summary.firstOutOfBounds) summary.firstOutOfBounds = { stepIndex };
+        };
+
+        for (let index = 1; index < pathNodes.length; index++) {
+            const previous = pathNodes[index - 1];
+            const node = pathNodes[index];
+            const startCell = getCoordinates(previous.cellIdx);
+            const endCell = getCoordinates(node.cellIdx);
+            const targetType = gridManager.getCell(node.cellIdx)?.type || '';
+            const hasSensorAlignment = this.hasSensorAlignment(node, targetType);
+            const isExplicitAlignment = node.fn === 'SetFront' || node.fn === 'SetBack';
+            if (isExplicitAlignment) break;
+            const dx = endCell.x - startCell.x;
+            const dy = endCell.y - startCell.y;
+            const pathLengthPx = Math.hypot(dx, dy);
+            if (pathLengthPx < 0.01) continue;
+            const directionX = dx / pathLengthPx;
+            const directionY = dy / pathLengthPx;
+            const targetHeading = (Math.atan2(directionX, -directionY) * 180 / Math.PI + 360) % 360;
+
+            if (node.fn !== 'BB') {
+                const deltaHeading = ((targetHeading - heading + 540) % 360) - 180;
+                if (Math.abs(deltaHeading) > 0.5) {
+                    const isHalfTurn = Math.abs(deltaHeading) > 179.5;
+                    const turnDurationMs = isHalfTurn
+                        ? Config.MANEUVERS.TURN_180_DURATION_MS
+                        : Math.max(0, Number(profile.turnDurationMs) || Config.MANEUVERS.TURN_90_DURATION_MS);
+                    segments.push({
+                        type: 'turn', stepIndex: index + 1, startTimeMs: elapsedMs, durationMs: turnDurationMs,
+                        x, y, startHeading: heading, deltaHeading
+                    });
+                    for (let t = 0; t <= turnDurationMs; t += 20) {
+                        const progress = turnDurationMs > 0 ? Math.min(1, t / turnDurationMs) : 1;
+                        const eased = progress * progress * (3 - 2 * progress);
+                        recordClearance(x, y, heading + deltaHeading * eased, index + 1);
+                    }
+                    elapsedMs += turnDurationMs;
+                    heading = (targetHeading + 360) % 360;
+                }
+            }
+
+            const speed = Number(node.speed) || profile.speed;
+            const timerMs = Number(node.timer) || profile.baseTimerMs;
+            const motion = this.integrateTimedMove(speed, timerMs, settings);
+            const endX = x + directionX * motion.distanceMm * pxPerMm;
+            const endY = y + directionY * motion.distanceMm * pxPerMm;
+            const samples = motion.samples.map(sample => ({
+                timeMs: sample.timeMs,
+                distanceMm: sample.distanceMm,
+                x: x + directionX * sample.distanceMm * pxPerMm,
+                y: y + directionY * sample.distanceMm * pxPerMm
+            }));
+
+            const distanceTiles = Number(node.dist) ||
+                Math.abs(gridManager.getCol(node.cellIdx) - gridManager.getCol(previous.cellIdx)) +
+                Math.abs(gridManager.getRow(node.cellIdx) - gridManager.getRow(previous.cellIdx));
+            const expectedDistanceMm = distanceTiles * Config.PHYSICS.FIELD_TILE_MM;
+            const errorMm = motion.distanceMm - expectedDistanceMm;
+            summary.moveCount++;
+            summary.expectedDistanceMm += expectedDistanceMm;
+            summary.predictedDistanceMm += motion.distanceMm;
+            summary.largestDistanceErrorMm = Math.max(summary.largestDistanceErrorMm, Math.abs(errorMm));
+            if (Math.abs(errorMm) > Math.max(25, expectedDistanceMm * 0.1)) summary.distanceMismatchCount++;
+
+            samples.forEach(sample => recordClearance(sample.x, sample.y, heading, index + 1));
+            segments.push({
+                type: 'move', stepIndex: index + 1, startTimeMs: elapsedMs, durationMs: motion.durationMs,
+                startX: x, startY: y, endX, endY, heading, samples, directionX, directionY
+            });
+            elapsedMs += motion.durationMs;
+            x = endX;
+            y = endY;
+            if (hasSensorAlignment) break;
+        }
+
+        return {
+            segments,
+            summary,
+            totalDurationMs: elapsedMs,
+            pxPerMm,
+            lineSegments,
+            initialState: { x: first.x, y: first.y, angle: 0 }
+        };
+    }
+}
+
 class PhysicsAndScoringEngine {
-    static calculateTelemetry(pathNodes, gridManager) {
+    static calculateTelemetry(pathNodes, gridManager, profile, physicsSettings) {
         let score = 0;
         let totalTimeMs = 0;
+        let expectedDistanceMm = 0;
+        let predictedDistanceMm = 0;
+        let moveCount = 0;
+        let distanceMismatchCount = 0;
+        let unmodeledAlignmentCount = 0;
         const visitedCheckpoints = new Set();
         const visitedDrops = new Set();
         let reachedFinish = false;
+        let hitBombCount = 0;
+        let hitBlackHoleCount = 0;
+        const bombHitCoords = [];
+
+        // Check every intermediate tile traversed between waypoints
+        for (let i = 1; i < pathNodes.length; i++) {
+            const prev = pathNodes[i - 1];
+            const curr = pathNodes[i];
+            const pX = gridManager.getCol(prev.cellIdx);
+            const pY = gridManager.getRow(prev.cellIdx);
+            const cX = gridManager.getCol(curr.cellIdx);
+            const cY = gridManager.getRow(curr.cellIdx);
+
+            if (pX === cX) {
+                const minY = Math.min(pY, cY);
+                const maxY = Math.max(pY, cY);
+                for (let y = minY; y <= maxY; y++) {
+                    const cell = gridManager.getCell(y * gridManager.cols + pX);
+                    if (cell?.type === 'bomb') {
+                        hitBombCount++;
+                        bombHitCoords.push(`X${pX},Y${y}`);
+                    }
+                    if (cell?.type === 'blackhole') hitBlackHoleCount++;
+                }
+            } else if (pY === cY) {
+                const minX = Math.min(pX, cX);
+                const maxX = Math.max(pX, cX);
+                for (let x = minX; x <= maxX; x++) {
+                    const cell = gridManager.getCell(pY * gridManager.cols + x);
+                    if (cell?.type === 'bomb') {
+                        hitBombCount++;
+                        bombHitCoords.push(`X${x},Y${pY}`);
+                    }
+                    if (cell?.type === 'blackhole') hitBlackHoleCount++;
+                }
+            }
+        }
 
         pathNodes.forEach((node, idx) => {
             const tile = gridManager.getCell(node.cellIdx);
             if (!tile) return;
 
-            if (idx > 0 && node.timer) {
-                totalTimeMs += Number(node.timer) || 0;
-                if (node.fn === 'SetFront' || node.fn === 'SetBack') {
-                    totalTimeMs += Config.MANEUVERS.ALIGNMENT_PAUSE_MS;
-                }
+            if (idx > 0 && node.timer && node.fn !== 'SetFront' && node.fn !== 'SetBack') {
+                const speed = Number(node.speed) || profile.speed;
+                const motion = MotionPhysicsModel.integrateTimedMove(speed, node.timer, physicsSettings);
+                totalTimeMs += motion.durationMs;
+                const previousNode = pathNodes[idx - 1];
+                const distanceTiles = Number(node.dist) ||
+                    Math.abs(gridManager.getCol(node.cellIdx) - gridManager.getCol(previousNode.cellIdx)) +
+                    Math.abs(gridManager.getRow(node.cellIdx) - gridManager.getRow(previousNode.cellIdx));
+                const expected = distanceTiles * Config.PHYSICS.FIELD_TILE_MM;
+                expectedDistanceMm += expected;
+                predictedDistanceMm += motion.distanceMm;
+                moveCount++;
+                if (Math.abs(motion.distanceMm - expected) > Math.max(25, expected * 0.1)) distanceMismatchCount++;
+            }
+
+            const targetType = tile.type || '';
+            if (idx > 0 && MotionPhysicsModel.hasSensorAlignment(node, targetType)) {
+                unmodeledAlignmentCount++;
             }
 
             if (tile.type === 'checkpoint') visitedCheckpoints.add(node.cellIdx);
@@ -2661,6 +3115,8 @@ class PhysicsAndScoringEngine {
         score += Math.min(visitedCheckpoints.size, Config.SCORING.MAX_CHECKPOINTS) * Config.SCORING.POINTS_CHECKPOINT;
         score += Math.min(visitedDrops.size, Config.SCORING.MAX_DROP_ZONES) * Config.SCORING.POINTS_DROP_ZONE;
         if (reachedFinish) score += Config.SCORING.POINTS_FINISH;
+        if (hitBombCount > 0) score = Math.max(0, score - hitBombCount * 25);
+        if (hitBlackHoleCount > 0) score = 0;
 
         // Heading calculations
         let currentHeading = 0;
@@ -2686,9 +3142,9 @@ class PhysicsAndScoringEngine {
 
             if (diff !== 0) {
                 const isArc = (curr.turnMode === 'ARC_CURVE' && Math.abs(diff) === 90);
-                const turnDuration = isArc 
-                    ? 180 
-                    : (Math.abs(diff) === 180 ? Config.MANEUVERS.TURN_180_DURATION_MS : (curr.speed === 100 ? 200 : Config.MANEUVERS.TURN_90_DURATION_MS));
+                const turnDuration = isArc
+                    ? (Number(profile.turnDurationMs) || 180)
+                    : (Math.abs(diff) === 180 ? Config.MANEUVERS.TURN_180_DURATION_MS : (Number(profile.turnDurationMs) || Config.MANEUVERS.TURN_90_DURATION_MS));
                 totalTimeMs += turnDuration;
                 currentHeading = targetHeading;
             }
@@ -2696,9 +3152,16 @@ class PhysicsAndScoringEngine {
 
         return {
             score,
+            hitBombCount,
+            bombHitCoords,
             totalTimeMs,
             totalTimeSec: (totalTimeMs / 1000).toFixed(1),
             nodeCount: pathNodes.length,
+            expectedDistanceMm,
+            predictedDistanceMm,
+            moveCount,
+            distanceMismatchCount,
+            unmodeledAlignmentCount,
             visitedCheckpointsCount: visitedCheckpoints.size,
             visitedDropsCount: visitedDrops.size,
             reachedFinish
@@ -2710,7 +3173,7 @@ class PhysicsAndScoringEngine {
 // 6. CODE GENERATOR (ARDUINO C++ SYNTHESIZER)
 // =============================================================================
 class CodeGenerator {
-    static generate(pathNodes, gridManager, profile, dropSystemType) {
+    static generate(pathNodes, gridManager, profile, dropSystemType, physicsSettings) {
         if (!pathNodes || pathNodes.length < 2) {
             return {
                 ALL: '// Set at least 2 waypoints or click AUTO PATH to generate code',
@@ -2719,7 +3182,7 @@ class CodeGenerator {
         }
 
         const servoList = Config.SERVO_CONFIGS[dropSystemType] || Config.SERVO_CONFIGS.THREE_DROP;
-        const headerCode = this._generateHeader(profile, dropSystemType);
+        const headerCode = this._generateHeader(profile, dropSystemType, physicsSettings);
 
         let fullBody = '';
         let currentHeading = 0;
@@ -2783,7 +3246,7 @@ class CodeGenerator {
 
                 const currentCellType = gridManager.getCell(curr.cellIdx)?.type || '';
                 if (['bump', 'bridge', 'seesaw'].includes(targetTile)) {
-                    stepLines.push(`  SetFront(20, T_RECOIL); // Align perpendicular to black line to reset accumulated error`);
+                    // Obstacle traversed with open-loop timing; no phantom line search
                 } else if (targetTile === 'checkpoint') {
                     stepLines.push(`  // Pass Checkpoint (+15 pts)`);
                 } else if (targetTile.startsWith('drop') || currentCellType.startsWith('drop')) {
@@ -2803,7 +3266,14 @@ class CodeGenerator {
         }
 
         return {
-            ALL: headerCode + `void runVisualRoute() {\n${fullBody}}\n\nvoid loop() {\n  Box1();\n  Box2();\n  Box3();\n  Box4();\n  Endmission();\n  while(1);\n}\n`,
+            ALL: headerCode + `void runVisualRoute() {\n${fullBody}}\n\n` +
+                `void Box1() {\n  // Mission: Drop package at zone 1 (+15 pts)\n${legCommands.BOX1.length > 0 ? legCommands.BOX1.join('\n') : '  // Skip'}\n}\n\n` +
+                `void Box2() {\n  // Mission: Drop package at zone 2 (+15 pts)\n${legCommands.BOX2.length > 0 ? legCommands.BOX2.join('\n') : '  // Skip'}\n}\n\n` +
+                `void Box3() {\n  // Mission: Drop package at zone 3 (+15 pts)\n${legCommands.BOX3.length > 0 ? legCommands.BOX3.join('\n') : '  // Skip'}\n}\n\n` +
+                `void Box4() {\n  // Mission: Drop package at zone 4 (+15 pts)\n${legCommands.BOX4.length > 0 ? legCommands.BOX4.join('\n') : '  // Skip'}\n}\n\n` +
+                `void Endmission() {\n  // Finish mission at FINISH zone (+10 pts)\n${legCommands.END.length > 0 ? legCommands.END.join('\n') : '  STOP();'}\n}\n\n` +
+                `void setup() {\n  Serial.begin(115200);\n  initialize();\n  config();\n  setSpeed_spin(100);\n  setSpeed_turn(100);\n  setDegreeStop_SpinLeft(2.85);\n  setDegreeStop_SpinRight(2.95);\n  setDegreeStop_TurnLeft(4.0);\n  setDegreeStop_TurnRight(4.0);\n}\n\n` +
+                `void loop() {\n  STOP();\n  setAngleOffset();\n  delay(1000);\n\n  // Execute full autonomous visual route\n  runVisualRoute();\n\n  STOP();\n  while(1) { delay(100); }\n}\n`,
             BOX1: `void Box1() {\n  // Mission: Drop package at zone 1 (+15 pts)\n${legCommands.BOX1.length > 0 ? legCommands.BOX1.join('\n') : '  // Skip'}\n}\n`,
             BOX2: `void Box2() {\n  // Mission: Drop package at zone 2 (+15 pts)\n${legCommands.BOX2.length > 0 ? legCommands.BOX2.join('\n') : '  // Skip'}\n}\n`,
             BOX3: `void Box3() {\n  // Mission: Drop package at zone 3 (+15 pts)\n${legCommands.BOX3.length > 0 ? legCommands.BOX3.join('\n') : '  // Skip'}\n}\n`,
@@ -2812,12 +3282,44 @@ class CodeGenerator {
         };
     }
 
-    static _generateHeader(profile, dropSystemType) {
-        return `// =============================================================================\n` +
-            `// PT-BOT ATOM VX TACTICAL MISSION CODE (PHYSICS OPTIMIZED: ${profile.id})\n` +
+    static _generateHeader(profile, dropSystemType, physicsSettings) {
+        const physics = MotionPhysicsModel.normalizeSettings(physicsSettings);
+        const speedStatus = physics.speedCalibrated ? 'field-measured value' : 'nominal no-load estimate; calibrate before use';
+        return `#include <PTBOTAtomVX.h>\n\n` +
+            `// --- Standalone Compilation Support (Fallback definitions for non-hardware compilation) ---\n` +
+            `#ifndef _PTBOT_ATOM_VX_H_\n` +
+            `#define _PTBOT_ATOM_VX_H_\n` +
+            `inline void initialize() {}\n` +
+            `inline void config() {}\n` +
+            `inline void setSpeed_spin(int) {}\n` +
+            `inline void setSpeed_turn(int) {}\n` +
+            `inline void setDegreeStop_SpinLeft(float) {}\n` +
+            `inline void setDegreeStop_SpinRight(float) {}\n` +
+            `inline void setDegreeStop_TurnLeft(float) {}\n` +
+            `inline void setDegreeStop_TurnRight(float) {}\n` +
+            `inline void setAngleOffset() {}\n` +
+            `inline void FF(int, int) {}\n` +
+            `inline void BB(int, int) {}\n` +
+            `inline void STOP() {}\n` +
+            `inline void spinDegree(int) {}\n` +
+            `inline void turnDegreeFront(int) {}\n` +
+            `inline void SetFront(int, int) {}\n` +
+            `inline void SetBack(int, int) {}\n` +
+            `inline void DropFL() {}\n` +
+            `inline void DropFR() {}\n` +
+            `inline void DropB() {}\n` +
+            `inline void Servo1(int) {}\n` +
+            `inline void Servo2(int) {}\n` +
+            `inline void Servo3(int) {}\n` +
+            `#endif\n\n` +
+            `// =============================================================================\n` +
+            `// PT-BOT ATOM VX TACTICAL MISSION CODE (MOTION PROFILE: ${profile.id})\n` +
             `// MCU: ESP-WROOM-32D | Motors: 4WD 16GA 570 RPM | Wheel: 43mm Silicone\n` +
             `// Motion Profile: ${profile.label}\n` +
             `// Drop Configuration: ${dropSystemType}\n` +
+            `// Browser model speed: ${Math.round(physics.maxSpeedMmPerSec)} mm/s (${speedStatus})\n` +
+            `// FF/BB are open-loop timed commands; validate travel distance and turn clearance on the actual field.\n` +
+            `// Sensor-controlled SetFront/SetBack line seeking is excluded from the browser trajectory and time estimate.\n` +
             `// =============================================================================\n\n` +
             `// === On-site Timing Calibration (Adjust here, Unit: ms) ===\n` +
             `int T_FLAT_BASE   = ${profile.baseTimerMs};  // Single flat tile (Includes 120ms ramp-up + 120ms ramp-down)\n` +
@@ -2839,72 +3341,108 @@ class CodeGenerator {
 class SimulationController {
     constructor(callbacks = {}) {
         this.isAnimating = false;
-        this.animTimeout = null;
+        this.frameId = null;
+        this.finishTimeout = null;
         this.callbacks = callbacks;
+        this.segmentIndex = 0;
+        this.plan = null;
+        this.startedAt = 0;
+        this.gridManager = null;
+        this.physicsSettings = null;
     }
 
-    start(pathNodes, getCoordinates) {
+    start(pathNodes, getCoordinates, gridManager, profile, physicsSettings) {
         if (!pathNodes || pathNodes.length < 2) return false;
         this.stop();
+        this.gridManager = gridManager;
+        this.physicsSettings = physicsSettings;
+        this.plan = MotionPhysicsModel.buildTrajectory(pathNodes, gridManager, profile, physicsSettings, getCoordinates);
+        this.segmentIndex = 0;
+        this.startedAt = performance.now();
         this.isAnimating = true;
-        if (this.callbacks.onStart) this.callbacks.onStart();
-        this._step(0, pathNodes, getCoordinates);
+        if (this.callbacks.onStart) this.callbacks.onStart(this.plan.summary);
+        if (this.callbacks.onStep) this.callbacks.onStep(this._stateAt(0));
+        this.frameId = requestAnimationFrame((time) => this._animate(time));
         return true;
     }
 
     stop() {
+        const wasAnimating = this.isAnimating;
         this.isAnimating = false;
-        if (this.animTimeout) {
-            clearTimeout(this.animTimeout);
-            this.animTimeout = null;
-        }
-        if (this.callbacks.onStop) this.callbacks.onStop();
+        if (this.frameId !== null) cancelAnimationFrame(this.frameId);
+        if (this.finishTimeout !== null) clearTimeout(this.finishTimeout);
+        this.frameId = null;
+        this.finishTimeout = null;
+        if (wasAnimating && this.callbacks.onStop) this.callbacks.onStop();
     }
 
-    _step(idx, pathNodes, getCoordinates) {
-        if (!this.isAnimating || idx >= pathNodes.length - 1) {
-            this.animTimeout = setTimeout(() => {
-                this.stop();
-                if (this.callbacks.onComplete) this.callbacks.onComplete();
+    _animate(timestamp) {
+        if (!this.isAnimating || !this.plan) return;
+        const elapsedMs = Math.min(this.plan.totalDurationMs, timestamp - this.startedAt);
+        if (this.callbacks.onStep) this.callbacks.onStep(this._stateAt(elapsedMs));
+
+        if (elapsedMs >= this.plan.totalDurationMs) {
+            this.frameId = null;
+            this.finishTimeout = setTimeout(() => {
+                if (!this.isAnimating) return;
+                this.isAnimating = false;
+                this.finishTimeout = null;
+                if (this.callbacks.onStop) this.callbacks.onStop();
+                if (this.callbacks.onComplete) this.callbacks.onComplete(this.plan.summary);
             }, Config.MANEUVERS.SIM_COMPLETION_DELAY_MS);
             return;
         }
 
-        const start = pathNodes[idx];
-        const end = pathNodes[idx + 1];
-        const { x: x1, y: y1 } = getCoordinates(start.cellIdx);
-        const { x: x2, y: y2 } = getCoordinates(end.cellIdx);
+        this.frameId = requestAnimationFrame((time) => this._animate(time));
+    }
 
-        let angle = Math.atan2(y2 - y1, x2 - x1) * 180 / Math.PI + 90;
-        if (end.fn === 'BB') {
-            angle = (angle + 180) % 360;
+    _stateAt(elapsedMs) {
+        const segments = this.plan?.segments || [];
+        if (segments.length === 0) {
+            const initial = this.plan?.initialState || { x: 0, y: 0, angle: 0 };
+            return { ...initial, lineContact: false, outside: false, stepIndex: 1 };
         }
 
-        const moveDuration = Math.max(end.timer || 300, Config.MANEUVERS.MIN_STEP_DURATION_MS);
-        const isArcMode = (end.turnMode === 'ARC_CURVE');
-        const rotDuration = isArcMode ? 80 : Config.MANEUVERS.SIM_ROTATION_TRANSITION_MS;
-
-        if (this.callbacks.onStep) {
-            this.callbacks.onStep({
-                x1, y1, x2, y2, angle, moveDuration,
-                isInitial: true,
-                isArc: isArcMode
-            });
+        while (this.segmentIndex < segments.length - 1) {
+            const current = segments[this.segmentIndex];
+            if (elapsedMs < current.startTimeMs + current.durationMs) break;
+            this.segmentIndex++;
         }
 
-        this.animTimeout = setTimeout(() => {
-            if (!this.isAnimating) return;
-            if (this.callbacks.onStep) {
-                this.callbacks.onStep({
-                    x1, y1, x2, y2, angle, moveDuration,
-                    isInitial: false,
-                    isArc: isArcMode
-                });
-            }
-            this.animTimeout = setTimeout(() => {
-                this._step(idx + 1, pathNodes, getCoordinates);
-            }, moveDuration);
-        }, rotDuration);
+        const segment = segments[this.segmentIndex];
+        const localMs = Math.max(0, Math.min(segment.durationMs, elapsedMs - segment.startTimeMs));
+        let x;
+        let y;
+        let angle;
+
+        if (segment.type === 'turn') {
+            const progress = segment.durationMs > 0 ? localMs / segment.durationMs : 1;
+            const eased = progress * progress * (3 - 2 * progress);
+            x = segment.x;
+            y = segment.y;
+            angle = segment.startHeading + segment.deltaHeading * eased;
+        } else {
+            const samples = segment.samples;
+            let upperIndex = 1;
+            while (upperIndex < samples.length && samples[upperIndex].timeMs < localMs) upperIndex++;
+            const lower = samples[Math.max(0, upperIndex - 1)];
+            const upper = samples[Math.min(samples.length - 1, upperIndex)];
+            const span = upper.timeMs - lower.timeMs;
+            const fraction = span > 0 ? Math.max(0, Math.min(1, (localMs - lower.timeMs) / span)) : 1;
+            x = lower.x + (upper.x - lower.x) * fraction;
+            y = lower.y + (upper.y - lower.y) * fraction;
+            angle = segment.heading;
+        }
+
+        const clearance = MotionPhysicsModel.checkClearance(
+            x / this.plan.pxPerMm,
+            y / this.plan.pxPerMm,
+            angle,
+            this.gridManager,
+            this.physicsSettings,
+            this.plan.lineSegments
+        );
+        return { x, y, angle, lineContact: clearance.lineContact, outside: clearance.outside, stepIndex: segment.stepIndex };
     }
 }
 
@@ -2923,6 +3461,8 @@ class UIController {
         this.currentProfile = 'NORMAL';
         this.showRulers = true;
         this.currentZoom = Config.ZOOM.DEFAULT;
+        this.physicsSettings = MotionPhysicsModel.loadSettings();
+        this.simulationWarningShown = false;
 
         this.cellSizePx = Config.ARENA.DEFAULT_CELL_SIZE_PX;
         this.tileOffsetPx = this.cellSizePx + Config.ARENA.CELL_GAP_PX;
@@ -2930,17 +3470,20 @@ class UIController {
 
         this.dom = {};
         this.simulation = new SimulationController({
-            onStart: () => this._handleSimulationStart(),
+            onStart: (summary) => this._handleSimulationStart(summary),
             onStop: () => this._handleSimulationStop(),
             onStep: (stepData) => this._handleSimulationStep(stepData),
-            onComplete: () => this._handleSimulationComplete()
+            onComplete: (summary) => this._handleSimulationComplete(summary)
         });
     }
 
     init() {
         this._cacheDom();
+        this._syncPhysicsControls();
+        this.updatePhysicsCalibrationNote();
         ThemeManager.init();
         this._setupEventListeners();
+        this.currentProfile = this.dom.speedProfileSelect?.value || 'NORMAL';
         this.gridManager.loadOfficialPreset();
         this.resizeArenaCanvas();
         this.initGrid();
@@ -2961,6 +3504,11 @@ class UIController {
             plannerInfo: document.getElementById('plannerInfo'),
             speedProfileSelect: document.getElementById('speedProfileSelect'),
             dropSystemSelect: document.getElementById('dropSystemSelect'),
+            physicsMaxSpeedInput: document.getElementById('physicsMaxSpeedInput'),
+            robotWidthInput: document.getElementById('robotWidthInput'),
+            robotLengthInput: document.getElementById('robotLengthInput'),
+            physicsCalibrationNote: document.getElementById('physicsCalibrationNote'),
+            simulationStatus: document.getElementById('simulationStatus'),
             previewBtn: document.getElementById('previewBtn'),
             robotPreview: document.getElementById('robotPreview'),
             robotPath: document.getElementById('robotPath'),
@@ -2995,6 +3543,58 @@ class UIController {
             frame: document.querySelector('.arena-frame'),
             overlay: document.getElementById('pathOverlay')
         };
+    }
+
+    _syncPhysicsControls() {
+        if (this.dom.physicsMaxSpeedInput) this.dom.physicsMaxSpeedInput.value = Math.round(this.physicsSettings.maxSpeedMmPerSec);
+        if (this.dom.robotWidthInput) this.dom.robotWidthInput.value = Math.round(this.physicsSettings.robotWidthMm);
+        if (this.dom.robotLengthInput) this.dom.robotLengthInput.value = Math.round(this.physicsSettings.robotLengthMm);
+    }
+
+    updatePhysicsCalibrationNote() {
+        const note = this.dom.physicsCalibrationNote;
+        if (!note) return;
+        const settings = this.physicsSettings;
+        const measuredText = settings.speedCalibrated
+            ? `Speed value ${Math.round(settings.maxSpeedMmPerSec)} mm/s is marked as measured.`
+            : `Uncalibrated: ${Config.PHYSICS.MOTOR_RPM} RPM × ${Config.PHYSICS.WHEEL_DIAMETER_MM} mm gives a no-load estimate of ${Math.round(MotionPhysicsModel.nominalWheelSpeedMmPerSec())} mm/s.`;
+        const footprintText = settings.footprintMeasured
+            ? `Robot envelope ${Math.round(settings.robotWidthMm)} × ${Math.round(settings.robotLengthMm)} mm.`
+            : `Using the rule maximum envelope ${Math.round(settings.robotWidthMm)} × ${Math.round(settings.robotLengthMm)} mm until measured.`;
+        note.textContent = `${measuredText} ${footprintText} Timed FF/BB uses the firmware's 120 ms S-curve and 15 ms brake pulse. The preview checks a conservative envelope against 25 mm black-line edges; sensor-controlled line seeking, wheel slip, and payload effects still need field calibration.`;
+        note.className = `physics-note ${settings.speedCalibrated && settings.footprintMeasured ? 'calibrated' : 'warning'}`;
+    }
+
+    updatePhysicsSettings(event) {
+        const changedId = event?.target?.id;
+        const next = {
+            ...this.physicsSettings,
+            maxSpeedMmPerSec: this.dom.physicsMaxSpeedInput?.value,
+            robotWidthMm: this.dom.robotWidthInput?.value,
+            robotLengthMm: this.dom.robotLengthInput?.value,
+            speedCalibrated: this.physicsSettings.speedCalibrated || changedId === 'physicsMaxSpeedInput',
+            footprintMeasured: this.physicsSettings.footprintMeasured || changedId === 'robotWidthInput' || changedId === 'robotLengthInput'
+        };
+        this.physicsSettings = MotionPhysicsModel.normalizeSettings(next);
+        MotionPhysicsModel.saveSettings(this.physicsSettings);
+        this._syncPhysicsControls();
+        this.updatePhysicsCalibrationNote();
+        if (this.simulation?.isAnimating) this.stopPreview();
+        this.generateCode();
+        this.updateTelemetryHUD();
+    }
+
+    _applyPhysicsSettings(settings) {
+        this.physicsSettings = MotionPhysicsModel.normalizeSettings(settings);
+        MotionPhysicsModel.saveSettings(this.physicsSettings);
+        this._syncPhysicsControls();
+        this.updatePhysicsCalibrationNote();
+    }
+
+    _setSimulationStatus(message, tone = '') {
+        if (!this.dom.simulationStatus) return;
+        this.dom.simulationStatus.textContent = message;
+        this.dom.simulationStatus.className = `simulation-status${tone ? ` ${tone}` : ''}`;
     }
 
     _setupEventListeners() {
@@ -3277,7 +3877,7 @@ class UIController {
     generateCode() {
         const dropSystem = this.dom.dropSystemSelect?.value || 'THREE_DROP';
         const profile = Config.PROFILES[this.currentProfile] || Config.PROFILES.FAST;
-        this.codeSnippets = CodeGenerator.generate(this.pathNodes, this.gridManager, profile, dropSystem);
+        this.codeSnippets = CodeGenerator.generate(this.pathNodes, this.gridManager, profile, dropSystem, this.physicsSettings);
         this.updateCodeDisplay();
     }
 
@@ -3595,10 +4195,15 @@ class UIController {
     }
 
     updateTelemetryHUD() {
-        const telemetry = PhysicsAndScoringEngine.calculateTelemetry(this.pathNodes, this.gridManager);
+        const profile = Config.PROFILES[this.currentProfile] || Config.PROFILES.NORMAL;
+        const telemetry = PhysicsAndScoringEngine.calculateTelemetry(this.pathNodes, this.gridManager, profile, this.physicsSettings);
 
         if (this.dom.hudScore) {
-            this.dom.hudScore.innerText = `${telemetry.score} / ${Config.SCORING.MAX_TOTAL_POINTS} PTS`;
+            if (telemetry.hitBombCount > 0) {
+                this.dom.hudScore.innerText = `${telemetry.score} / ${Config.SCORING.MAX_TOTAL_POINTS} PTS (💣 ${telemetry.hitBombCount} Bomb)`;
+            } else {
+                this.dom.hudScore.innerText = `${telemetry.score} / ${Config.SCORING.MAX_TOTAL_POINTS} PTS`;
+            }
             this.dom.hudScore.style.color = telemetry.score === Config.SCORING.MAX_TOTAL_POINTS
                 ? 'var(--apple-amber)'
                 : (telemetry.score >= 50 ? 'var(--apple-blue)' : 'var(--text-secondary)');
@@ -3613,6 +4218,24 @@ class UIController {
 
         if (this.dom.hudSteps) {
             this.dom.hudSteps.innerText = `${telemetry.nodeCount} Nodes`;
+        }
+
+        if (!this.simulation?.isAnimating) {
+            const calibration = this.physicsSettings.speedCalibrated ? 'measured speed value' : 'no-load speed estimate';
+            const fit = telemetry.moveCount > 0
+                ? `${telemetry.distanceMismatchCount}/${telemetry.moveCount} moves differ from tile distance by more than 10%`
+                : 'no movement commands to model';
+            const footprint = this.physicsSettings.footprintMeasured
+                ? `${Math.round(this.physicsSettings.robotWidthMm)}×${Math.round(this.physicsSettings.robotLengthMm)} mm footprint`
+                : '200×200 mm rule-maximum footprint until measured';
+            const calibrationWarning = this.physicsSettings.speedCalibrated && this.physicsSettings.footprintMeasured
+                ? 'Model still excludes surface slip, battery sag, payload shift, and arc-turn radius.'
+                : 'Calibrate speed and footprint before relying on this preview.';
+            const alignmentWarning = telemetry.unmodeledAlignmentCount
+                ? `${telemetry.unmodeledAlignmentCount} sensor-controlled line alignment(s) are excluded from the route and time estimate.`
+                : '';
+            this._setSimulationStatus(`Kinematic estimate (${calibration}): ${fit}; ${footprint}. ${calibrationWarning} ${alignmentWarning}`,
+                this.physicsSettings.speedCalibrated && this.physicsSettings.footprintMeasured && !telemetry.unmodeledAlignmentCount ? '' : 'warning');
         }
 
         this.updateTimelineTable();
@@ -3633,7 +4256,14 @@ class UIController {
             return;
         }
 
-        const started = this.simulation.start(this.pathNodes, (cellIdx) => this.getCellCenterPx(cellIdx));
+        const profile = Config.PROFILES[this.currentProfile] || Config.PROFILES.NORMAL;
+        const started = this.simulation.start(
+            this.pathNodes,
+            (cellIdx) => this.getCellCenterPx(cellIdx),
+            this.gridManager,
+            profile,
+            this.physicsSettings
+        );
         if (started) {
             ToastService.show('Running mission simulator...', 'info');
         }
@@ -3643,7 +4273,8 @@ class UIController {
         this.simulation.stop();
     }
 
-    _handleSimulationStart() {
+    _handleSimulationStart(summary) {
+        this.simulationWarningShown = false;
         const btn = this.dom.previewBtn;
         if (btn) {
             btn.innerText = '⏹ Stop';
@@ -3653,6 +4284,17 @@ class UIController {
         if (this.dom.robotPreview) {
             this.dom.robotPreview.style.display = 'block';
         }
+        const firstIssue = summary.firstLineContact
+            ? `Envelope may touch a black line at step ${summary.firstLineContact.stepIndex}.`
+            : (summary.firstOutOfBounds ? `Envelope may leave the field at step ${summary.firstOutOfBounds.stepIndex}.` : 'No modeled line or field-boundary contact.');
+        const alignmentIssue = summary.unmodeledAlignmentCount
+            ? `Preview will stop before sensor-controlled alignment at step ${summary.firstUnmodeledAlignment?.stepIndex}; the remaining route is not modeled (${summary.unmodeledAlignmentCount} alignment(s) total).`
+            : 'No sensor-controlled line alignments in this route.';
+        const calibration = summary.speedCalibrated
+            ? 'Speed uses the entered measured value.'
+            : 'Speed uses the nominal no-load estimate.';
+        this._setSimulationStatus(`${calibration} ${firstIssue} ${alignmentIssue} Largest modeled travel error: ${Math.round(summary.largestDistanceErrorMm)} mm.`,
+            summary.firstLineContact || summary.firstOutOfBounds ? 'danger' : (summary.speedCalibrated && !summary.unmodeledAlignmentCount ? '' : 'warning'));
     }
 
     _handleSimulationStop() {
@@ -3664,30 +4306,40 @@ class UIController {
         }
         if (this.dom.robotPreview) {
             this.dom.robotPreview.style.display = 'none';
+            this.dom.robotPreview.classList.remove('is-collision');
         }
     }
 
-    _handleSimulationStep({ x1, y1, x2, y2, angle, moveDuration, isInitial, isArc }) {
+    _handleSimulationStep({ x, y, angle, lineContact, outside, stepIndex }) {
         const bot = this.dom.robotPreview;
         if (!bot) return;
-
-        if (isInitial) {
-            const rotTime = isArc ? '0.08s ease-out' : '0.18s cubic-bezier(0.4, 0, 0.2, 1)';
-            bot.style.transition = `transform ${rotTime}`;
-            bot.style.left = `${x1}px`;
-            bot.style.top = `${y1}px`;
-            bot.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
-        } else {
-            // S-Curve physical momentum easing
-            const easeCurve = isArc ? 'cubic-bezier(0.25, 0.1, 0.25, 1)' : 'linear';
-            bot.style.transition = `top ${moveDuration}ms ${easeCurve}, left ${moveDuration}ms ${easeCurve}, transform 0.18s ease`;
-            bot.style.left = `${x2}px`;
-            bot.style.top = `${y2}px`;
+        bot.style.transition = 'none';
+        bot.style.left = `${x}px`;
+        bot.style.top = `${y}px`;
+        bot.style.transform = `translate(-50%, -50%) rotate(${angle}deg)`;
+        const hasContact = lineContact || outside;
+        bot.classList.toggle('is-collision', hasContact);
+        if (hasContact && !this.simulationWarningShown) {
+            this.simulationWarningShown = true;
+            const reason = lineContact ? 'robot envelope overlaps a modeled black-line edge' : 'robot envelope extends outside the field';
+            this._setSimulationStatus(`Step ${stepIndex}: ${reason}. Review the route and enter the measured robot size.`, 'danger');
         }
     }
 
-    _handleSimulationComplete() {
-        ToastService.show('Simulation completed!', 'success');
+    _handleSimulationComplete(summary) {
+        const speedText = summary.speedCalibrated ? 'measured speed' : 'no-load speed estimate';
+        const issueText = summary.firstLineContact
+            ? `Modeled line contact at step ${summary.firstLineContact.stepIndex}.`
+            : (summary.firstOutOfBounds ? `Modeled field exit at step ${summary.firstOutOfBounds.stepIndex}.` : 'No modeled line contact or field exit.');
+        const alignmentText = summary.unmodeledAlignmentCount
+            ? `Preview stopped before sensor-controlled alignment at step ${summary.firstUnmodeledAlignment?.stepIndex}; the remaining route was not modeled (${summary.unmodeledAlignmentCount} alignment(s) total).`
+            : 'No sensor-controlled line alignments in this route.';
+        this._setSimulationStatus(`Preview complete using ${speedText}. ${issueText} ${alignmentText} Largest travel error: ${Math.round(summary.largestDistanceErrorMm)} mm.`,
+            summary.firstLineContact || summary.firstOutOfBounds ? 'danger' : (summary.speedCalibrated && !summary.unmodeledAlignmentCount ? '' : 'warning'));
+        ToastService.show(summary.unmodeledAlignmentCount
+            ? 'Preview stopped at an unmodeled line alignment; the remaining route was not simulated.'
+            : 'Physics preview completed; check the clearance and travel estimate.',
+            summary.unmodeledAlignmentCount ? 'warning' : 'success');
     }
 
     // ================= Canvas & Rulers =================
@@ -3874,7 +4526,8 @@ class UIController {
     saveProject() {
         const payload = {
             ...this.gridManager.serialize(),
-            pathNodes: this.pathNodes
+            pathNodes: this.pathNodes,
+            physicsSettings: this.physicsSettings
         };
         localStorage.setItem(Config.STORAGE_KEYS.PROJECT, JSON.stringify(payload));
         ToastService.show('Project committed & saved to local storage!', 'success');
@@ -3883,7 +4536,8 @@ class UIController {
     exportMissionJSON() {
         const payload = {
             ...this.gridManager.serialize(),
-            pathNodes: this.pathNodes
+            pathNodes: this.pathNodes,
+            physicsSettings: this.physicsSettings
         };
         const dataStr = 'data:text/json;charset=utf-8,' + encodeURIComponent(JSON.stringify(payload));
         const downloadAnchor = document.createElement('a');
@@ -3909,6 +4563,7 @@ class UIController {
                 const parsed = JSON.parse(e.target.result);
                 if (parsed.gridData && parsed.pathNodes) {
                     this.stopPreview();
+                    if (parsed.physicsSettings) this._applyPhysicsSettings(parsed.physicsSettings);
                     this.gridManager.deserialize(parsed);
                     this.pathNodes = parsed.pathNodes;
                     this.selectedNodeIdx = null;
@@ -3943,6 +4598,7 @@ function showToast(m, t) { ToastService.show(m, t); }
 function applySpeedProfile() { uiController.applySpeedProfile(); }
 function initGrid(idx) { uiController.initGrid(idx); }
 function setMode(m) { uiController.setMode(m); }
+function updatePhysicsSettings(e) { uiController.updatePhysicsSettings(e); }
 function setTool(tool, el) { uiController.setTool(tool, el); }
 function handleCellClick(idx, el, e) { uiController.handleCellClick(idx, el, e); }
 function showLineStyleModal(cell, idx) { uiController.showLineStyleModal(cell, idx); }
