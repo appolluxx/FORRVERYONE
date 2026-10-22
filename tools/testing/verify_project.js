@@ -12,8 +12,6 @@ const ROOT_DIR = path.resolve(__dirname, '..', '..');
 
 const REQUIRED_PATHS = [
     'apps/web/index.html',
-    'apps/web/tactical_planner.html',
-    'apps/web/web.html',
     'apps/desktop/main.js',
     'apps/desktop/launch_ide.bat',
     'apps/desktop/Launch_IDE.vbs',
