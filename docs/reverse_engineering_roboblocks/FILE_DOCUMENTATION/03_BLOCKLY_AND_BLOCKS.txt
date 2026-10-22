@@ -1,0 +1,357 @@
+================================================================================
+FILE DOCUMENTATION — SUBSYSTEM 03: BLOCKLY ENGINE & STANDARD BLOCKS
+================================================================================
+Covers: Core Blockly framework scripts and universal standard block definitions.
+Target Directory: D:\Workspace\robot\assets\extracted_ide\microBlock-IDE\blocks\
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/blockly_compressed.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 892,347 bytes | Lines: 1651
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/blocks_compressed.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 92,048 bytes | Lines: 200
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/javascript_compressed.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 75,012 bytes | Lines: 1181
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/javascript_compressed.js.map
+--------------------------------------------------------------------------------
+Format: .map | Size: 132,716 bytes | Lines: 1
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/javascript_compressed.js_
+--------------------------------------------------------------------------------
+Format: .js_ | Size: 59,611 bytes | Lines: 296
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/python_compressed.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 54,448 bytes | Lines: 226
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/1x1.gif
+--------------------------------------------------------------------------------
+Format: .gif | Size: 43 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/click.mp3
+--------------------------------------------------------------------------------
+Format: .mp3 | Size: 2,304 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/click.ogg
+--------------------------------------------------------------------------------
+Format: .ogg | Size: 4,865 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/click.wav
+--------------------------------------------------------------------------------
+Format: .wav | Size: 3,782 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/delete.mp3
+--------------------------------------------------------------------------------
+Format: .mp3 | Size: 3,123 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/delete.ogg
+--------------------------------------------------------------------------------
+Format: .ogg | Size: 5,731 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/delete.wav
+--------------------------------------------------------------------------------
+Format: .wav | Size: 9,164 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/disconnect.mp3
+--------------------------------------------------------------------------------
+Format: .mp3 | Size: 1,586 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/disconnect.ogg
+--------------------------------------------------------------------------------
+Format: .ogg | Size: 4,404 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/disconnect.wav
+--------------------------------------------------------------------------------
+Format: .wav | Size: 1,492 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/dropdown-arrow.svg
+--------------------------------------------------------------------------------
+Format: .svg | Size: 569 bytes | Lines: 1
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/handclosed.cur
+--------------------------------------------------------------------------------
+Format: .cur | Size: 326 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/handdelete.cur
+--------------------------------------------------------------------------------
+Format: .cur | Size: 766 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/handopen.cur
+--------------------------------------------------------------------------------
+Format: .cur | Size: 198 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/pilcrow.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 1,010 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/quote0.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 771 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/quote1.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 738 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/sprites.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 2,595 bytes | Lines: 0
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/sprites.svg
+--------------------------------------------------------------------------------
+Format: .svg | Size: 1,849 bytes | Lines: 74
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/msg/en.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 33,091 bytes | Lines: 441
+1. Purpose: Google Blockly core library file.
+2. Responsibilities: Provides workspace canvas, SVG rendering, drag-and-drop connections, and event dispatch.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/blocks_advanced.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 12,758 bytes | Lines: 472
+1. Purpose: Visual block definition for standard 'advanced' category.
+2. Responsibilities: Declares block structure, inputs, outputs, dropdown fields, and color coding.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/blocks_controls.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 7,207 bytes | Lines: 319
+1. Purpose: Visual block definition for standard 'controls' category.
+2. Responsibilities: Declares block structure, inputs, outputs, dropdown fields, and color coding.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/blocks_operators.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 7,377 bytes | Lines: 305
+1. Purpose: Visual block definition for standard 'operators' category.
+2. Responsibilities: Declares block structure, inputs, outputs, dropdown fields, and color coding.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/blocks_pin.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,579 bytes | Lines: 86
+1. Purpose: Visual block definition for standard 'pin' category.
+2. Responsibilities: Declares block structure, inputs, outputs, dropdown fields, and color coding.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/blocks_procedures.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,884 bytes | Lines: 41
+1. Purpose: Visual block definition for standard 'procedures' category.
+2. Responsibilities: Declares block structure, inputs, outputs, dropdown fields, and color coding.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/blocks_serial.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 2,866 bytes | Lines: 113
+1. Purpose: Visual block definition for standard 'serial' category.
+2. Responsibilities: Declares block structure, inputs, outputs, dropdown fields, and color coding.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/blocks_text.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 0 bytes | Lines: 0
+1. Purpose: Visual block definition for standard 'text' category.
+2. Responsibilities: Declares block structure, inputs, outputs, dropdown fields, and color coding.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/blocks_text_code.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,146 bytes | Lines: 37
+1. Purpose: Visual block definition for standard 'text_code' category.
+2. Responsibilities: Declares block structure, inputs, outputs, dropdown fields, and color coding.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/blocks_variables.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,748 bytes | Lines: 118
+1. Purpose: Visual block definition for standard 'variables' category.
+2. Responsibilities: Declares block structure, inputs, outputs, dropdown fields, and color coding.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/generators_avanced.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 9,698 bytes | Lines: 253
+1. Purpose: Code generator for standard 'avanced' category.
+2. Responsibilities: Emits valid MicroPython code strings from block instances.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/generators_controls.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 10,745 bytes | Lines: 268
+1. Purpose: Code generator for standard 'controls' category.
+2. Responsibilities: Emits valid MicroPython code strings from block instances.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/generators_operators.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,569 bytes | Lines: 141
+1. Purpose: Code generator for standard 'operators' category.
+2. Responsibilities: Emits valid MicroPython code strings from block instances.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/generators_pin.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,972 bytes | Lines: 44
+1. Purpose: Code generator for standard 'pin' category.
+2. Responsibilities: Emits valid MicroPython code strings from block instances.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/generators_procedures.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 8,825 bytes | Lines: 196
+1. Purpose: Code generator for standard 'procedures' category.
+2. Responsibilities: Emits valid MicroPython code strings from block instances.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/generators_serial.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,639 bytes | Lines: 47
+1. Purpose: Code generator for standard 'serial' category.
+2. Responsibilities: Emits valid MicroPython code strings from block instances.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/generators_text.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,057 bytes | Lines: 31
+1. Purpose: Code generator for standard 'text' category.
+2. Responsibilities: Emits valid MicroPython code strings from block instances.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/generators_text_code.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,584 bytes | Lines: 88
+1. Purpose: Code generator for standard 'text_code' category.
+2. Responsibilities: Emits valid MicroPython code strings from block instances.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocks/generators_variables.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 2,061 bytes | Lines: 35
+1. Purpose: Code generator for standard 'variables' category.
+2. Responsibilities: Emits valid MicroPython code strings from block instances.
+

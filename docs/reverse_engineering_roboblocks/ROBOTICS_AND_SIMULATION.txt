@@ -1,0 +1,165 @@
+================================================================================
+ROBOBLOCKS IDE REVERSE ENGINEERING — ROBOTICS & SIMULATION DEEP DIVE
+================================================================================
+Target Hardware: PT-BOT Atom VX 4WD (ESP32-WROOM-32D)
+Target Simulation: Cannon.js + Three.js 3D Rigid-Body Competition Simulator
+Evidence Base: Verified source code from atom_vx_python/ and microBlock-IDE/robot-sim/
+================================================================================
+
+1. ROBOT CHASSIS & HARDWARE ARCHITECTURE (PT ATOM VX)
+--------------------------------------------------------------------------------
+From verified source code in `atom_vx_python/board.py`, `atom_vx_python/motor.py`,
+and `microBlock-IDE/robot-sim/atom-vx-model.js`:
+
+A. Microcontroller Core:
+   - Chip: Espressif ESP32-WROOM-32D (Dual-Core Xtensa LX6, 240 MHz, 520 KB SRAM).
+   - Firmware: MicroPython v1.24.1 (dirty build, official release dates 2025-05-14 / 2025-06-24).
+   - USB Interface: Silicon Labs CP210x USB-to-UART Bridge (VID: 0x10C4, PID: 0xEA60).
+
+B. Actuator Subsystem & PCA9685 PWM Allocations:
+   - Driver IC: NXP PCA9685 16-channel 12-bit I2C PWM Controller.
+   - I2C Bus: Bus 0 on Pin 22 (SCL) and Pin 21 (SDA), Clock Frequency = 200 kHz.
+   - Operating PWM Frequency: 1000 Hz for DC motors (`pca.freq(1000)` in motor.py).
+   - Channel Assignments:
+     * Motor 1 (Front Left) : Direction = PCA Channel 12, Speed PWM = Channel 13
+     * Motor 2 (Front Right): Direction = PCA Channel 14, Speed PWM = Channel 15
+     * Motor 3 (Rear Left)  : Direction = PCA Channel 10, Speed PWM = Channel 11
+     * Motor 4 (Rear Right) : Direction = PCA Channel 8,  Speed PWM = Channel 9
+     * Piezo Buzzer         : PCA Channel 5 (duty = 2000 for beep tone, 0 for off)
+     * RC Servos 1 to 6     : PCA Channels 0 to 4, 6 (50 Hz pulse period)
+
+C. Sensor & Peripheral Subsystems:
+   - Onboard IMU: Bosch BNO055 / BNO085 9-DOF Absolute Orientation Sensor on I2C (addr 0x28).
+   - Distance Sensor: STMicroelectronics VL53L0X Time-of-Flight Laser Ranging on I2C Bus 1.
+   - Analog Expander: 8-Channel 10-bit ADC via SPI Bus 1:
+     * SCK = Pin 18, MOSI = Pin 23, MISO = Pin 19, CS = Pin 15 (Clock = 1 MHz).
+     * Channels ADC0 to ADC7 mapped to line-follower photo-reflector array.
+   - Built-in Potentiometer: Pin 32 (ESP32 ADC1_CH4, 11dB attenuation, 12-bit: 0..4095).
+   - Tactile Switches:
+     * Switch SW_A: Virtualized switch triggered when Potentiometer is fully rotated (knob == 0).
+     * Switch SW_B: Physical switch on Pin 0 with internal pull-up (`Pin(0, Pin.IN, Pin.PULL_UP)`).
+   - Color Display: ST7789 128x160 SPI TFT:
+     * SCK = Pin 18, MOSI = Pin 23, MISO = Pin 19, CS = Pin 33, DC = Pin 12 (Baud = 30 MHz).
+
+
+2. MATHEMATICAL MOTION CONTROL & GYRO STABILIZATION ALGORITHMS
+--------------------------------------------------------------------------------
+Derived line-by-line from `atom_vx_python/motor.py`:
+
+A. Heading Error Calculation & Wrap-Around Normalization [motor.py L164-168]:
+   Given target heading θ_target and current heading θ_current (from board.angle_read(board.yaw)):
+     e = θ_target - θ_current
+     If e > 180° : e = e - 360°
+     If e < -180°: e = e + 360°
+   This guarantees the error e strictly remains in the range [-180°, +180°],
+   preventing catastrophic 359° full-rotation loops when crossing the 0°/360° boundary.
+
+B. Proportional-Derivative (PD) Heading Control Law [motor.py L169-174]:
+     Δe = e - e_previous
+     u_pd = (e × kp) + (Δe × kd)
+     u_pd = clamp(u_pd, -max_speed, +max_speed)
+     e_previous = e
+
+C. 4WD Differential Wheel Allocation [motor.py L175-181]:
+   In 4WD mode (WD4):
+     v_left  = clamp_speed(base_speed + u_pd)
+     v_right = clamp_speed(base_speed - u_pd)
+     drive_all(v_left, v_left, v_right, v_right)
+   In 2WD mode (WD2):
+     drive_single(1, v_left)
+     drive_single(2, v_right)
+
+D. Trapezoidal Speed Profile (`forward_degree_time`) [motor.py L208-244]:
+   Inputs: duration_s, ramp_up (default 0.1s), ramp_down (default 0.1s), start_speed, max_speed.
+   Execution Phases:
+   1. Acceleration Phase (t_elapsed ≤ ramp_up):
+      v(t) = start_speed + (t_elapsed / ramp_up) × (max_speed - start_speed)
+   2. Constant Cruise Phase (ramp_up < t_elapsed < duration_s - ramp_down):
+      v(t) = max_speed
+   3. Deceleration Phase (remaining_time ≤ ramp_down):
+      v(t) = start_speed + (remaining_time / ramp_down) × (max_speed - start_speed)
+      If v(t) < start_speed: v(t) = start_speed
+   Throughout all three phases, the closed-loop PD gyro stabilizer dynamically modulates
+   left and right wheel speeds around the baseline velocity v(t).
+
+E. Spot Turning (`spin_degree`) [motor.py L282-319]:
+   Multi-stage angular alignment:
+   1. Coarse Turn: If |e| ≥ small_angle_threshold:
+      Applies full PD angular velocity: drive_all(u_pd, u_pd, -u_pd, -u_pd).
+   2. Fine Creep Turn: If stop_threshold < |e| < small_angle_threshold:
+      Drives at fixed minimum speed min_speed in direction of error:
+      - If e > 0: spin(right, min_speed)
+      - If e < 0: spin(left, min_speed)
+   3. In-Position Hold Check: If |e| ≤ stop_threshold:
+      Starts stability timer (stable_time = 20 ms). If error remains within
+      stop_threshold continuously for 20 ms: stop() and break.
+
+
+3. OPTICAL SENSOR MODELING & ANALOG LINE TRACKING
+--------------------------------------------------------------------------------
+From verified source code in `atom_vx_python/line_follower.py` and
+`microBlock-IDE/robot-sim/field-map.js`:
+
+A. Sensor Array Geometry:
+   - Line-follower array comprises up to 7 reflective optical sensor pairs.
+   - Read via SPI 10-bit ADC (values 0..1023).
+
+B. White-Balance Calibration (`line_follower_calibrate`):
+   - Samples minimum values (pure white field background) and maximum values (black vinyl lines).
+   - Normalization formula:
+     calibrated_val = ((raw_val - min_val) / (max_val - min_val)) × 1000
+
+C. Centroid Position Calculation (`read_position`):
+   - Weighted average of calibrated sensor readings across array geometry:
+     Position = Σ (i × weight_i × reading_i) / Σ (reading_i)
+   - Zero represents perfect center alignment; negative is left deviation; positive is right deviation.
+
+
+4. 3D SIMULATOR PHYSICS PIPELINE & ARENA DYNAMICS
+--------------------------------------------------------------------------------
+Derived from `microBlock-IDE/robot-sim/assembly-physics.js`, `field-layout.js`, and `field-map.js`:
+
+A. Physical Coordinate System & Integrator:
+   - Simulation Engine: Cannon.js (version 0.6.2).
+   - Time Step: 60 Hz fixed delta time (timeStep = 1 / 60 ≈ 16.67 ms).
+   - Gravity: Vector3(0, -9.82 m/s², 0).
+   - Units: Meters, kilograms, seconds, radians.
+
+B. Chassis & Wheel Physical Parameters (`atom-vx-model.js`):
+   - Total Chassis Mass: 0.650 kg.
+   - Wheel Radius: 33 mm (0.033 m).
+   - Wheel Width: 20 mm (0.020 m).
+   - Wheelbase (Front-to-Rear axle): 140 mm (0.140 m).
+   - Track Width (Left-to-Right centerline): 130 mm (0.130 m).
+   - Damping: Linear damping = 0.015, Angular damping = 0.025.
+   - Wheel Collider Shape: CANNON.Cylinder(radius=0.033, radius=0.033, height=0.020, segments=64).
+   - Friction Axle: Vec3(0, 0, 1) enforcing anisotropic lateral resistance to prevent sideways slip.
+   - Tire-to-Ground Friction Coefficient: μ = 0.6.
+
+C. Competition Arena Layout (`field-layout.js`):
+   - Total Grid: 8 columns × 4 rows = 32 tiles.
+   - Tile Dimensions: 300 mm × 300 mm (0.30 m × 0.30 m).
+   - Total Field Dimensions: 2400 mm × 1200 mm (2.40 m × 1.20 m).
+   - Boundary Lines: 20 mm black matte tape marking tile perimeters.
+
+D. 50mm Elevated Bridge Obstacle Geometry (`field-layout.js` L125-145):
+   - Composition: 3 sequential tiles [Ramp Incline -> Flat Deck -> Ramp Decline].
+   - Elevation: Deck platform height h = 0.050 m (+50 mm above ground).
+   - Incline/Decline Angle: 15.0° ramp incline over 300 mm run length.
+   - Clearance Side Rails: Visual and physical collision barriers along deck borders.
+
+E. Chopstick Speed Bump Rods (`field-map.js` L71-80, L136-143):
+   - Physical Geometry: 7 cylindrical bamboo rods laid perpendicular to robot travel path.
+   - Dimensions: Diameter d = 5.0 mm (r = 2.5 mm), Length L = 300 mm.
+   - Surface Color: Bamboo wood `#cba477`.
+   - Optical Reflectance Formula (`field-map.js` L141):
+     Photocells traversing over wooden rods receive an optical luminance value of:
+     Luminance = (0.2126 × 203 + 0.7152 × 164 + 0.0722 × 119) / 255 ≈ 0.689 (68.9% reflectance).
+     This models the realistic sensor dip when optical line trackers cross physical bamboo rods.
+
+F. Hardware Bus Latency Emulation (`physics-control.js` L8-16):
+   - The simulator deliberately delays execution of simulated motor commands to match real hardware:
+     * Single Motor Write Latency: 540 μs (simulates I2C transaction over 200kHz PCA9685).
+     * 4-Motor Batch Update Latency: 2160 μs (4 × 540 μs).
+     * Sensor Register Read Latency: 10 μs (cached read), 100 μs (external bus read).
+================================================================================

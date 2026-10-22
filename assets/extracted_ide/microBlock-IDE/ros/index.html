@@ -1,0 +1,248 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+    <script src="../js/touch-selection-guard.js"></script>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ROS Tools</title>
+  <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+  <link rel="stylesheet" href="../xterm.js/xterm.css">
+  <link rel="stylesheet" href="style.css">
+<link rel="stylesheet" href="../css/control-focus.css">
+<script defer src="../js/styled-select.js"></script></head>
+<body>
+  <div class="app">
+    <div class="topbar">
+      <div class="status-left">
+        <div class="status-banner" id="statusBanner">
+          <span class="status-banner-dot"></span>
+          <span class="status-banner-text" id="statusText">Ready</span>
+        </div>
+        <div class="status-cluster">
+          <div class="pill" id="robotStatusPill"><span class="status-indicator danger" id="robotStatusIndicator"></span><span class="pill-copy"><strong>Robot</strong><span class="pill-value" id="robotStatusValue">Disconnected</span></span></div>
+          <div class="pill" id="lidarStatusPill"><span class="status-indicator warning" id="lidarStatusIndicator"></span><span class="pill-copy"><strong>LiDAR</strong><span class="pill-value" id="lidarStatusValue">No Data</span></span></div>
+          <div class="pill" id="imuStatusPill"><span class="status-indicator warning" id="imuStatusIndicator"></span><span class="pill-copy"><strong>IMU</strong><span class="pill-value" id="imuStatusValue">No Data</span></span></div>
+          <div class="pill"><span class="status-indicator warning"></span><span class="pill-copy"><strong>Battery</strong><span class="pill-value">12.4V</span></span></div>
+        </div>
+      </div>
+      <div class="status-right">
+        <div class="telemetry-pill"><span class="telemetry-copy"><span class="telemetry-label">X</span><span class="telemetry-value" id="telemetryXValue">0.00</span></span></div>
+        <div class="telemetry-pill"><span class="telemetry-copy"><span class="telemetry-label">Y</span><span class="telemetry-value" id="telemetryYValue">0.00</span></span></div>
+        <div class="telemetry-pill"><span class="telemetry-copy"><span class="telemetry-label">Yaw</span><span class="telemetry-value" id="telemetryYawValue">0&deg;</span></span></div>
+        <div class="telemetry-pill"><span class="telemetry-copy"><span class="telemetry-label">Speed</span><span class="telemetry-value" id="telemetrySpeedValue">0.00 m/s</span></span></div>
+        <button class="topbar-stop-btn" id="topbarStopBtn" type="button" aria-label="STOP">STOP</button>
+      </div>
+    </div>
+
+    <div class="container" id="layoutContainer">
+      <div id="threeWrap">
+        <div class="map-view-switch" aria-label="Map View Mode">
+          <button class="map-view-btn is-active" id="mapView2dBtn" type="button">2D</button>
+          <button class="map-view-btn" id="mapView3dBtn" type="button">3D</button>
+        </div>
+        <div class="map-layer-control">
+          <button class="map-layer-btn" id="mapLayerBtn" type="button" aria-expanded="false">
+            <i class="fas fa-layer-group"></i>
+            <span>Layers</span>
+          </button>
+          <div class="map-layer-menu is-hidden" id="mapLayerMenu">
+            <label class="map-layer-item">
+              <input type="checkbox" id="layerMapToggle" checked />
+              <span class="map-layer-check"></span>
+              <span>Map</span>
+            </label>
+            <label class="map-layer-item">
+              <input type="checkbox" id="layerScanToggle" checked />
+              <span class="map-layer-check"></span>
+              <span>Scan</span>
+            </label>
+            <label class="map-layer-item">
+              <input type="checkbox" id="layerCostMapToggle" checked />
+              <span class="map-layer-check"></span>
+              <span>Cost Map</span>
+            </label>
+          </div>
+        </div>
+        <div class="map-topbar">
+          <div class="icon-group" aria-label="Quick Actions">
+            <button class="icon-btn success" id="startBtn" aria-label="Start">
+              <i class="fas fa-play"></i>
+              <span class="icon-label">Start</span>
+            </button>
+            <button class="icon-btn" id="goalBtn" aria-label="Set Goal">
+              <i class="fas fa-crosshairs"></i>
+              <span class="icon-label">Goal</span>
+            </button>
+            <button class="icon-btn" id="openRemoteDesktopBtn" aria-label="Open Remote Desktop">
+              <i class="fas fa-desktop"></i>
+              <span class="icon-label">Remote</span>
+            </button>
+            <button class="icon-btn" id="openSshTerminalBtn" aria-label="Open SSH Terminal">
+              <i class="fas fa-terminal"></i>
+              <span class="icon-label">Terminal</span>
+            </button>
+            <div class="terminal-dropdown is-hidden" id="terminalDropdown">
+              <button class="terminal-menu-item" id="newTerminalBtn" type="button">
+                <i class="fas fa-plus"></i>
+                <span>New Terminal</span>
+              </button>
+              <div class="terminal-menu-list" id="terminalWindowList"></div>
+            </div>
+          </div>
+        </div>
+        <div class="map-loading-overlay is-hidden" id="mapLoadingOverlay" aria-hidden="true">
+          <div class="map-loading-card">
+            <div class="map-loading-spinner">
+              <i class="fas fa-spinner fa-spin"></i>
+            </div>
+            <div class="map-loading-copy">
+              <span class="map-loading-title" id="mapLoadingText">Loading...</span>
+              <span class="map-loading-subtitle">Applying robot action on map</span>
+            </div>
+          </div>
+        </div>
+        <div id="three"></div>
+        <div class="canvas-overlay">
+          <div class="overlay-card" id="poseInfo">Mouse -> x: -, y: -</div>
+        </div>
+      </div>
+
+      <div class="panel-resize-handle" id="panelResizeHandle">
+        <button class="panel-toggle-btn" id="togglePanelBtn" aria-label="Toggle right panel">
+          <i class="fas fa-chevron-right"></i>
+        </button>
+        <div class="panel-resize-grip"></div>
+      </div>
+
+      <div class="panel" id="sidePanel">
+        <div class="joystick-wrap">
+          <div class="joystick-cluster">
+            <button class="joystick-orbit-btn orbit-home" id="joystickHomeBtn" type="button" aria-label="Home">
+              <span class="joystick-orbit-inner">
+                <i class="fas fa-home"></i>
+                <span>Home</span>
+              </span>
+            </button>
+            <button class="joystick-orbit-btn orbit-pause" id="joystickPauseBtn" type="button" aria-label="Pause">
+              <span class="joystick-orbit-inner">
+                <i class="fas fa-pause"></i>
+                <span>Pause</span>
+              </span>
+            </button>
+            <div class="joystick" id="joystick" aria-label="Joystick control">
+              <div class="joystick-ring"></div>
+              <div class="joystick-cross-x"></div>
+              <div class="joystick-cross-y"></div>
+              <div class="joystick-knob" id="joystickKnob"></div>
+            </div>
+            <button class="joystick-orbit-btn orbit-run" id="joystickRunToBtn" type="button" aria-label="Rotate Left">
+              <span class="joystick-orbit-inner">
+                <i class="fas fa-undo-alt"></i>
+                <span>Left</span>
+              </span>
+            </button>
+            <button class="joystick-orbit-btn orbit-estimate" id="joystickEstimateBtn" type="button" aria-label="Rotate Right">
+              <span class="joystick-orbit-inner">
+                <i class="fas fa-redo-alt"></i>
+                <span>Right</span>
+              </span>
+            </button>
+          </div>
+        </div>
+
+        <div class="pose-table-card">
+          <div class="pose-table-header">
+            <div class="pose-table-actions" aria-label="Pose actions">
+              <button class="pose-action-btn" id="cancelGoalBtn" type="button" aria-label="Cancel Goal">
+                <span class="pose-action-inner">
+                  <i class="fas fa-plus"></i>
+                  <span class="pose-action-label">ADD</span>
+                </span>
+              </button>
+              <button class="pose-action-btn" id="setInitialPoseBtn" type="button" aria-label="Set Initial Pose">
+                <span class="pose-action-inner">
+                  <i class="fas fa-trash-alt"></i>
+                  <span class="pose-action-label">DELETE</span>
+                </span>
+              </button>
+              <button class="pose-action-btn" id="resetRobotPoseBtn" type="button" aria-label="Reset Robot">
+                <span class="pose-action-inner">
+                  <i class="fas fa-paint-roller"></i>
+                  <span class="pose-action-label">COVER</span>
+                </span>
+              </button>
+              <button class="pose-action-btn" id="stopMotionBtn" type="button" aria-label="Stop">
+                <span class="pose-action-inner">
+                  <i class="fas fa-location-arrow"></i>
+                  <span class="pose-action-label">RUN TO</span>
+                </span>
+              </button>
+              <button class="pose-action-btn" id="resetViewPanelBtn" type="button" aria-label="Reset View">
+                <span class="pose-action-inner">
+                  <i class="fas fa-crosshairs"></i>
+                  <span class="pose-action-label">ESTIMATE</span>
+                </span>
+              </button>
+              <button class="pose-action-btn" id="clearMapBtn" type="button" aria-label="Clear Map">
+                <span class="pose-action-inner">
+                  <i class="fas fa-home"></i>
+                  <span class="pose-action-label">HOME</span>
+                </span>
+              </button>
+            </div>
+          </div>
+          <div class="pose-table-wrap">
+            <table class="pose-table">
+              <thead>
+                <tr>
+                  <th>NAME</th>
+                  <th>X</th>
+                  <th>Y</th>
+                  <th>YAW</th>
+                </tr>
+              </thead>
+              <tbody id="poseTableBody">
+                <tr class="pose-table-empty">
+                  <td colspan="4">No poses</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+        </div>
+
+        <div class="section terminal-section is-hidden" id="embeddedTerminalSection">
+          <div class="terminal-toolbar">
+            <h3>ROS Terminal</h3>
+            <div class="terminal-toolbar-actions">
+              <input class="terminal-target" id="sshTarget" type="text" value="james@192.168.0.125" spellcheck="false">
+              <button class="terminal-action-btn" id="connectSshBtn" type="button">SSH</button>
+              <button class="terminal-action-btn" id="disconnectSshBtn" type="button">Ctrl+C</button>
+              <button class="terminal-action-btn" id="clearTerminalBtn" type="button">Clear</button>
+            </div>
+          </div>
+          <div class="terminal-shell" id="testOutput"></div>
+        </div>
+      </div>
+    </div>
+  </div>
+  <div class="terminal-window-host" id="terminalWindowHost"></div>
+  <div class="ros-confirm-modal is-hidden" id="rosConfirmModal" aria-hidden="true">
+    <div class="ros-confirm-backdrop" data-confirm-close="true"></div>
+    <div class="ros-confirm-dialog" role="dialog" aria-modal="true" aria-labelledby="rosConfirmTitle">
+      <div class="ros-confirm-header">
+        <div class="ros-confirm-title" id="rosConfirmTitle">Confirm</div>
+      </div>
+      <div class="ros-confirm-body" id="rosConfirmMessage">Are you sure?</div>
+      <div class="ros-confirm-actions">
+        <button class="ros-confirm-btn secondary" id="rosConfirmCancelBtn" type="button">Cancel</button>
+        <button class="ros-confirm-btn primary" id="rosConfirmOkBtn" type="button">Confirm</button>
+      </div>
+    </div>
+  </div>
+
+  <script src="../dashboard/js/three.min.js"></script>
+  <script src="../xterm.js/xterm.js"></script>
+  <script src="../xterm.js/xterm-addon-fit.js"></script>
+  <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,21 @@
+@import url("./hand-cursors.css");
+.monaco-editor .ide-code-function{color:#2865AB!important}
+.monaco-editor .suggest-widget{border-radius:8px;overflow:hidden;box-shadow:0 8px 24px #24496520}
+.monaco-editor .parameter-hints-widget{border-radius:8px;box-shadow:0 6px 18px #2449651a}
+/* Keep a comfortable drag target with a slim, rounded visible thumb. */
+/* Inset the editor viewport, preserving Monaco's scrollbar drag coordinates. */
+#editor,#code-editor>article{box-sizing:border-box;border:8px solid #fff;border-left:0}
+body[data-code-theme=dark] #editor,#code-editor[data-code-theme=dark]>article{border-color:#18212f}
+.monaco-editor .monaco-scrollable-element>.scrollbar>.slider{border-radius:6px;box-sizing:border-box;background-clip:padding-box;transition:background-color .15s}
+.monaco-editor .monaco-scrollable-element>.scrollbar.vertical>.slider{border-left:2px solid transparent;border-right:2px solid transparent}
+.monaco-editor .monaco-scrollable-element>.scrollbar.horizontal>.slider{border-top:2px solid transparent;border-bottom:2px solid transparent}
+.code-theme-switch{display:inline-flex;align-items:center;gap:2px;margin-left:auto;margin-right:24px;flex-shrink:0;padding:3px;border:1px solid #d9e5ef;border-radius:9px;background:#edf3f8;color:#6b8194;font:600 11px/26px 'Segoe UI',sans-serif;cursor:pointer;box-shadow:none;white-space:nowrap}
+.code-theme-switch span{padding:0 9px;border-radius:6px}
+.code-theme-switch[aria-checked=false] .theme-light{background:#fff;color:#2378b6;box-shadow:0 1px 4px #223b5014}
+.code-theme-switch[aria-checked=true] .theme-dark{background:#34465f;color:#d9eaff;box-shadow:0 1px 4px #0003}
+.code-theme-switch:focus-visible{outline:2px solid #63b5f2;outline-offset:3px}
+/* Code surfaces follow this preference; the surrounding IDE remains light. */
+[data-code-theme=dark] .monaco-editor{color-scheme:dark}
+[data-code-theme=light] .monaco-editor{color-scheme:light}
+[data-code-theme=dark] .monaco-editor .ide-code-function{color:#91c6ff!important}
+@media(max-width:460px){.code-header .toolbar{flex-basis:auto}.code-theme-switch span{padding:0 6px}.code-header{gap:8px}.code-identity{flex-shrink:1}.code-header .code-mark{display:none}}

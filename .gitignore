@@ -1,0 +1,13 @@
+# Dependencies
+node_modules/
+
+# Logs & temp
+*.log
+*.tmp
+*.bak
+temp_*.js
+
+# IDE & local settings
+.vscode/
+.idea/
+.claude/settings.local.json

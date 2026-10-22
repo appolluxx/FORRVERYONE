@@ -11,6 +11,12 @@ const path = require('path');
 const url = require('url');
 const { exec, spawn } = require('child_process');
 
+const { Waypoint, RouteIR } = require('../../core/domain/route_ir');
+const { compileRouteToPrimitives } = require('../../core/domain/firmware_primitives');
+const { PathPlanner } = require('../../core/application/path_planner');
+const { CodeGenerator } = require('../../core/application/code_generator');
+const { FirmwareValidator } = require('../compiler/firmware_validator');
+
 const PORT = 4848;
 const ROOT_DIR = path.resolve(__dirname, '..', '..', '..');
 const ARDUINO_CLI_PATH = 'C:\\Users\\john\\AppData\\Local\\Programs\\Arduino IDE\\resources\\app\\lib\\backend\\resources\\arduino-cli.exe';
@@ -187,6 +193,116 @@ const server = http.createServer(async (req, res) => {
 
             } catch (err) {
                 res.writeHead(500, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: err.message }));
+            }
+        });
+        return;
+    }
+
+    // POST /api/plan-path (A* Obstacle Avoidance & Path Optimization)
+    if (pathname === '/api/plan-path' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => { body += chunk; });
+        req.on('end', () => {
+            try {
+                const { projectId, startPose, destPose, speed, arenaData } = JSON.parse(body || '{}');
+                const planner = new PathPlanner(projectId || 'atom-vx-rescue-five-points', arenaData);
+                const planResult = planner.planAutoPath(startPose, destPose, speed || 70);
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify(planResult));
+            } catch (err) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: err.message }));
+            }
+        });
+        return;
+    }
+
+    // POST /api/compile-route (RouteIR & Firmware Primitives Compilation)
+    if (pathname === '/api/compile-route' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => { body += chunk; });
+        req.on('end', () => {
+            try {
+                const { projectId, waypoints, arenaData } = JSON.parse(body || '{}');
+                const routeIR = new RouteIR(projectId || 'atom-vx-rescue-five-points', waypoints || [], arenaData);
+                const primitives = compileRouteToPrimitives(routeIR);
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({
+                    isValid: routeIR.isValid,
+                    validationErrors: routeIR.validationErrors,
+                    totalDistance: routeIR.totalDistance,
+                    totalDurationMs: routeIR.totalDurationMs,
+                    segments: routeIR.segments,
+                    primitives: primitives.map((p, idx) => ({
+                        step: idx + 1,
+                        action: p.op.toCpp(...p.args),
+                        name: p.op.name,
+                        args: p.args,
+                        comment: p.comment,
+                        source: p.op.sourceFile
+                    }))
+                }));
+            } catch (err) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: err.message }));
+            }
+        });
+        return;
+    }
+
+    // POST /api/generate-code (Generate C++, Serial, or MicroPython Code)
+    if (pathname === '/api/generate-code' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => { body += chunk; });
+        req.on('end', () => {
+            try {
+                const { projectId, waypoints, arenaData, format, language, lang } = JSON.parse(body || '{}');
+                const routeIR = new RouteIR(projectId || 'atom-vx-rescue-five-points', waypoints || [], arenaData);
+                const targetFormat = format || language || lang || 'ino';
+                let code = '';
+                if (targetFormat === 'serial') {
+                    code = CodeGenerator.generateSerialProtocol(routeIR);
+                } else if (targetFormat === 'py' || targetFormat === 'python') {
+                    code = CodeGenerator.generateMicroPython(routeIR);
+                } else {
+                    code = CodeGenerator.generateCppSketch(routeIR);
+                }
+                const validation = FirmwareValidator.validateCppCode(code);
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({
+                    success: true,
+                    format: targetFormat,
+                    code,
+                    validation,
+                    routeStats: {
+                        waypointsCount: routeIR.waypoints.length,
+                        distanceCm: (routeIR.totalDistance * 100).toFixed(1),
+                        durationSec: (routeIR.totalDurationMs / 1000).toFixed(2),
+                        isValid: routeIR.isValid,
+                        errors: routeIR.validationErrors
+                    }
+                }));
+            } catch (err) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify({ error: err.message }));
+            }
+        });
+        return;
+    }
+
+    // POST /api/validate-code (Static Firmware AST Verification)
+    if (pathname === '/api/validate-code' && req.method === 'POST') {
+        let body = '';
+        req.on('data', chunk => { body += chunk; });
+        req.on('end', () => {
+            try {
+                const { code } = JSON.parse(body || '{}');
+                const validation = FirmwareValidator.validateCppCode(code || '');
+                res.writeHead(200, { 'Content-Type': 'application/json' });
+                res.end(JSON.stringify(validation));
+            } catch (err) {
+                res.writeHead(400, { 'Content-Type': 'application/json' });
                 res.end(JSON.stringify({ error: err.message }));
             }
         });

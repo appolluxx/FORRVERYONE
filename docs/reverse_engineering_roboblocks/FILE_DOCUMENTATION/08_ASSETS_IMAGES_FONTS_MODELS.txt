@@ -1,0 +1,1068 @@
+================================================================================
+FILE DOCUMENTATION — SUBSYSTEM 08: ASSETS, 3D MODELS, FONTS & STYLES
+================================================================================
+Total Visual/Binary Asset Files: 152
+Covers: 3D GLB/STL models, FontAwesome icons, Web fonts, audio cues, and stylesheets.
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/favicon.icns
+--------------------------------------------------------------------------------
+Format: .icns | Size: 83,086 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/favicon.ico
+--------------------------------------------------------------------------------
+Format: .ico | Size: 94,418 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/favicon.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 412,142 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/1x1.gif
+--------------------------------------------------------------------------------
+Format: .gif | Size: 43 bytes | Type: Binary Asset
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/click.mp3
+--------------------------------------------------------------------------------
+Format: .mp3 | Size: 2,304 bytes | Type: Binary Asset
+1. Asset Role: UI audio feedback for button clicks, compiler success, or error alerts.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/click.ogg
+--------------------------------------------------------------------------------
+Format: .ogg | Size: 4,865 bytes | Type: Binary Asset
+1. Asset Role: UI audio feedback for button clicks, compiler success, or error alerts.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/click.wav
+--------------------------------------------------------------------------------
+Format: .wav | Size: 3,782 bytes | Type: Binary Asset
+1. Asset Role: UI audio feedback for button clicks, compiler success, or error alerts.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/delete.mp3
+--------------------------------------------------------------------------------
+Format: .mp3 | Size: 3,123 bytes | Type: Binary Asset
+1. Asset Role: UI audio feedback for button clicks, compiler success, or error alerts.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/delete.ogg
+--------------------------------------------------------------------------------
+Format: .ogg | Size: 5,731 bytes | Type: Binary Asset
+1. Asset Role: UI audio feedback for button clicks, compiler success, or error alerts.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/delete.wav
+--------------------------------------------------------------------------------
+Format: .wav | Size: 9,164 bytes | Type: Binary Asset
+1. Asset Role: UI audio feedback for button clicks, compiler success, or error alerts.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/disconnect.mp3
+--------------------------------------------------------------------------------
+Format: .mp3 | Size: 1,586 bytes | Type: Binary Asset
+1. Asset Role: UI audio feedback for button clicks, compiler success, or error alerts.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/disconnect.ogg
+--------------------------------------------------------------------------------
+Format: .ogg | Size: 4,404 bytes | Type: Binary Asset
+1. Asset Role: UI audio feedback for button clicks, compiler success, or error alerts.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/disconnect.wav
+--------------------------------------------------------------------------------
+Format: .wav | Size: 1,492 bytes | Type: Binary Asset
+1. Asset Role: UI audio feedback for button clicks, compiler success, or error alerts.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/handclosed.cur
+--------------------------------------------------------------------------------
+Format: .cur | Size: 326 bytes | Type: Binary Asset
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/handdelete.cur
+--------------------------------------------------------------------------------
+Format: .cur | Size: 766 bytes | Type: Binary Asset
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/handopen.cur
+--------------------------------------------------------------------------------
+Format: .cur | Size: 198 bytes | Type: Binary Asset
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/pilcrow.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 1,010 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/quote0.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 771 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/quote1.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 738 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blockly/media/sprites.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 2,595 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/css/field_display.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 2,068 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/connector.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 999,085 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/cover.jpg
+--------------------------------------------------------------------------------
+Format: .jpg | Size: 55,751 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/display.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 868,684 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/gamepad.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 484,670 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/line_center.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,269 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/line_follower.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 380,218 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/line_left.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,268 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/line_right.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,265 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/micro_ros.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 101,268 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/micro_ros_icon.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 4,471 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/motor.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 101,208 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/sensor.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 363,024 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/models/PT-BOT_Atom_VX.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 6,537,284 bytes | Type: Binary Asset
+1. Asset Role: Binary glTF 3D model containing mesh geometry, PBR materials, and texture coordinates.
+2. Usage: Loaded by Three.js GLTFLoader for robot chassis or obstacle visualization in 3D simulator.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/model.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 6,537,284 bytes | Type: Binary Asset
+1. Asset Role: Binary glTF 3D model containing mesh geometry, PBR materials, and texture coordinates.
+2. Usage: Loaded by Three.js GLTFLoader for robot chassis or obstacle visualization in 3D simulator.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/thumbnail.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 26,006 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/assets/553600d456e4b5888af5e8096a3fc23adbd1e4f4b452a777c3d696f68767067c.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 6,537,284 bytes | Type: Binary Asset
+1. Asset Role: Binary glTF 3D model containing mesh geometry, PBR materials, and texture coordinates.
+2. Usage: Loaded by Three.js GLTFLoader for robot chassis or obstacle visualization in 3D simulator.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/assets/main.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 6,537,284 bytes | Type: Binary Asset
+1. Asset Role: Binary glTF 3D model containing mesh geometry, PBR materials, and texture coordinates.
+2. Usage: Loaded by Three.js GLTFLoader for robot chassis or obstacle visualization in 3D simulator.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/textures/Bottom.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 565,583 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/textures/Top.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 764,814 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/textures/Bottom.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 565,583 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/textures/Top.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 764,814 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/css/field_display.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 2,066 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/connector.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 999,085 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/cover.jpg
+--------------------------------------------------------------------------------
+Format: .jpg | Size: 43,931 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/display.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 868,684 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/line_center.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,269 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/line_follower.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 380,218 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/line_left.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,268 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/line_right.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,265 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/motor.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 101,208 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/sensor.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 363,024 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/account.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 11,964 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/animate.min.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 71,760 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/arduino-downloads.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 4,892 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/arduino-library-manager.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 3,703 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/arduino-workspace.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 12,868 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/code-editor-theme.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 2,212 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/control-focus.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 545 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/hand-cursors.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 1,133 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/install.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 3,041 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/note.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 5,133 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/python-workspace.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 2,791 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/simulator.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 1,203 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/style.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 156,771 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/styled-select.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 2,112 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/tool-windows.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 10,539 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/css/update-dialogs.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 9,915 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/dashboard/3D-model/sample-airplane.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 18,660 bytes | Type: Binary Asset
+1. Asset Role: Binary glTF 3D model containing mesh geometry, PBR materials, and texture coordinates.
+2. Usage: Loaded by Three.js GLTFLoader for robot chassis or obstacle visualization in 3D simulator.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/dashboard/css/compass.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 2,069 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/dashboard/css/OverlayScrollbars.min.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 20,011 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/dashboard/css/style.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 9,002 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/atom-vx-display-buttons.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 63,325 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/atom-vx-four-motors.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 65,372 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/atom-vx-line-stop.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 52,300 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/atom-vx-motors.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 63,004 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/atom-vx-rescue-five-points.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 76,332 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/atom-vx-sensors.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 64,116 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/atom-vx-smart-bin.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 84,706 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/atom-vx-square.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 54,762 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/buildbot-display-buttons.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 60,386 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/buildbot-follow-line.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 66,067 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/buildbot-gyro.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 71,197 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/buildbot-junction.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 64,510 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/buildbot-motors.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 66,067 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/buildbot-obstacle.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 59,964 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/buildbot-sensors.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 70,830 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/buildbot-servo.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 69,179 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/images/opt-primary-v2-0-4.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 85,556 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/smart-bin/bin.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 38,992 bytes | Type: Binary Asset
+1. Asset Role: Binary glTF 3D model containing mesh geometry, PBR materials, and texture coordinates.
+2. Usage: Loaded by Three.js GLTFLoader for robot chassis or obstacle visualization in 3D simulator.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/smart-bin/lid.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 28,084 bytes | Type: Binary Asset
+1. Asset Role: Binary glTF 3D model containing mesh geometry, PBR materials, and texture coordinates.
+2. Usage: Loaded by Three.js GLTFLoader for robot chassis or obstacle visualization in 3D simulator.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/examples/smart-bin/paper.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 13,804 bytes | Type: Binary Asset
+1. Asset Role: Binary glTF 3D model containing mesh geometry, PBR materials, and texture coordinates.
+2. Usage: Loaded by Three.js GLTFLoader for robot chassis or obstacle visualization in 3D simulator.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/LICENSE.txt
+--------------------------------------------------------------------------------
+Format: .txt | Size: 1,582 bytes | Type: Text (CSS)
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/all.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 77,703 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/all.min.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 58,939 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/brands.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 747 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/brands.min.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 679 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/fontawesome.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 76,034 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/fontawesome.min.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 57,507 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/regular.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 749 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/regular.min.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 681 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/solid.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 743 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/solid.min.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 673 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/svg-with-js.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 8,448 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/svg-with-js.min.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 6,363 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/v4-shims.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 43,484 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/css/v4-shims.min.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 26,706 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-brands-400.eot
+--------------------------------------------------------------------------------
+Format: .eot | Size: 134,622 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-brands-400.svg
+--------------------------------------------------------------------------------
+Format: .svg | Size: 733,939 bytes | Type: Text (CSS)
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-brands-400.ttf
+--------------------------------------------------------------------------------
+Format: .ttf | Size: 134,316 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-brands-400.woff
+--------------------------------------------------------------------------------
+Format: .woff | Size: 90,672 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-brands-400.woff2
+--------------------------------------------------------------------------------
+Format: .woff2 | Size: 77,400 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-regular-400.eot
+--------------------------------------------------------------------------------
+Format: .eot | Size: 34,350 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-regular-400.svg
+--------------------------------------------------------------------------------
+Format: .svg | Size: 145,520 bytes | Type: Text (CSS)
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-regular-400.ttf
+--------------------------------------------------------------------------------
+Format: .ttf | Size: 34,052 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-regular-400.woff
+--------------------------------------------------------------------------------
+Format: .woff | Size: 16,780 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-regular-400.woff2
+--------------------------------------------------------------------------------
+Format: .woff2 | Size: 13,600 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-solid-900.eot
+--------------------------------------------------------------------------------
+Format: .eot | Size: 204,266 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-solid-900.svg
+--------------------------------------------------------------------------------
+Format: .svg | Size: 919,140 bytes | Type: Text (CSS)
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-solid-900.ttf
+--------------------------------------------------------------------------------
+Format: .ttf | Size: 203,980 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-solid-900.woff
+--------------------------------------------------------------------------------
+Format: .woff | Size: 104,004 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/fontawesome/webfonts/fa-solid-900.woff2
+--------------------------------------------------------------------------------
+Format: .woff2 | Size: 80,148 bytes | Type: Binary Asset
+1. Asset Role: Scalable typography font (e.g. FontAwesome or Roboto/Noto).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/microBlock Logo-microText.svg
+--------------------------------------------------------------------------------
+Format: .svg | Size: 5,282 bytes | Type: Text (CSS)
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/icon/expert.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 446,359 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/icon/jigsaw.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 1,349,197 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/icon/led.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 2,579 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/icon/maths.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 692,962 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/icon/process.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 229,064 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/icon/relativity.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 716,081 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/logo/icon-128x128.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 24,130 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/logo/icon-144x144.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 30,003 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/logo/icon-152x152.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 33,389 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/logo/icon-192x192.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 53,300 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/logo/icon-256x256.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 94,396 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/logo/icon-512x512.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 412,142 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/images/logo/roboblocks_app_icon.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 942,208 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/notiflix/notiflix-2.3.3.min.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 23,759 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-mode.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 22,975 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/field-editor.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 16,293 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assets/pt-robotics-logo.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 70,176 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/fields/opt-primary-2025.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 148,765 bytes | Type: Binary Asset
+1. Asset Role: Raster graphics for block icons, board previews, or arena decals.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/chassis.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 1,471 bytes | Type: Text (CSS)
+1. Asset Role: CAD solid mesh geometry.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/deck.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 985 bytes | Type: Text (CSS)
+1. Asset Role: CAD solid mesh geometry.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/front_marker.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 153 bytes | Type: Text (CSS)
+1. Asset Role: CAD solid mesh geometry.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/hub.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 525 bytes | Type: Text (CSS)
+1. Asset Role: CAD solid mesh geometry.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/motor.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 529 bytes | Type: Text (CSS)
+1. Asset Role: CAD solid mesh geometry.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/tire.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 779 bytes | Type: Text (CSS)
+1. Asset Role: CAD solid mesh geometry.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/wheel_marker.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 304 bytes | Type: Text (CSS)
+1. Asset Role: CAD solid mesh geometry.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/occt/test-cube.stp
+--------------------------------------------------------------------------------
+Format: .stp | Size: 8,010 bytes | Type: Text (CSS)
+1. Asset Role: CAD solid mesh geometry.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/ros/style.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 39,332 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/ros/terminal.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 3,549 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/xterm.js/xterm.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 4,245 bytes | Type: Text (CSS)
+1. Asset Role: Cascading stylesheet defining theme colors, layout positioning, and typography.
+

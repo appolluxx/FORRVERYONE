@@ -1,0 +1,46 @@
+{
+  "servoProduct": "servo_mg90s",
+  "pivot": [
+    0.135,
+    0.268,
+    -0.109
+  ],
+  "axis": [
+    -1,
+    2.220446049250313e-16,
+    0
+  ],
+  "pivotErrorMm": 0,
+  "housingFixedTo": "bin",
+  "outputFixedTo": "lid",
+  "servoPort": "S0",
+  "ultrasonic": {
+    "product": "buildbot_ultrasonic",
+    "position": [
+      -0.063,
+      0.223,
+      0.138
+    ],
+    "trigger": "IO2",
+    "echo": "IO4",
+    "binding": {
+      "deviceId": "ultrasonic_distance",
+      "name": "Ultrasonic",
+      "boardPartId": "atom",
+      "boardComponentId": "main",
+      "port": "IO4",
+      "driveSide": "none",
+      "invert": false,
+      "triggerPort": "IO2"
+    }
+  },
+  "servoBinding": {
+    "deviceId": "servo",
+    "name": "MG90S",
+    "boardPartId": "atom",
+    "boardComponentId": "main",
+    "port": "S0",
+    "driveSide": "none",
+    "invert": false
+  }
+}

@@ -1,0 +1,28 @@
+{
+  "name": "roboblocks-ide",
+  "version": "1.2.2",
+  "description": "roboBlocks IDE (offline version)",
+  "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/microBlock-IDE/microBlock-IDE-offline.git"
+  },
+  "author": "roboBlocks",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/microBlock-IDE/microBlock-IDE-offline/issues"
+  },
+  "homepage": "https://github.com/microBlock-IDE/microBlock-IDE-offline#readme",
+  "dependencies": {
+    "@electron/remote": "2.1.3",
+    "bcrypt": "5.0.0",
+    "dive": "0.5.0",
+    "electron-updater": "^4.3.9",
+    "koffi": "3.3.2",
+    "node-disk-info": "1.1.0",
+    "node-wifi": "2.0.14",
+    "serialport": "^13.0.0",
+    "ssh2": "^1.17.0"
+  },
+  "postinstall": "electron-builder install-app-deps"
+}

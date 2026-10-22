@@ -1,0 +1,155 @@
+================================================================================
+ROBOBLOCKS IDE REVERSE ENGINEERING — APPLICATION ARCHITECTURE
+================================================================================
+Target Application: roboBlocks IDE v1.2.2 (Offline Edition)
+Architecture Model: Electron Desktop Shell + Browser-Engine Renderer + MicroPython/Arduino Dual Toolchain
+Evidence Base: Unpacked source tree at D:\Workspace\robot\assets\extracted_ide
+================================================================================
+
+1. APPLICATION STARTUP & PROCESS LIFECYCLE
+--------------------------------------------------------------------------------
+roboBlocks IDE operates on a dual-process Electron architecture:
+
+[Host OS: Windows]
+   │
+   ├──> [Electron Main Process: main.js]
+   │       │
+   │       ├──> Window Management: Creates frameless 1200x800 BrowserWindow
+   │       ├──> Native Chrome: windows-titlebar.js hooks maximize, minimize, close
+   │       ├──> Background Daemons:
+   │       │       - desktop/arduino-service.cjs (arduino-cli daemon)
+   │       │       - desktop/arduino-storage.cjs (settings & cache)
+   │       └──> Native IPC Dispatcher:
+   │               - 'open-link': External browser redirection
+   │               - 'get-serial-ports': Native SerialPort COM enumeration
+   │               - 'auto-updater': Electron-updater checking GitHub releases
+   │
+   └──> [Chromium Renderer Process: microBlock-IDE/index.html]
+           │
+           ├──> UI Shell: Top navbar, board selector, mode switcher, side drawer
+           ├──> Core Bootstrap: microBlock-IDE/js/app.js (initApp)
+           ├──> Workspace Engine:
+           │       - Blockly Workspace (visual block programming)
+           │       - Monaco Code Editor (raw Python / C++ editor)
+           │       - Xterm.js Terminal (interactive serial REPL)
+           └──> Runtime Services:
+                   - board.js (hardware profile manager)
+                   - serial.js (WebSerial / Native serial port transport)
+                   - esptool.js (ROM bootloader uploader)
+                   - robot-sim/ (3D WebGL simulator with Cannon.js physics)
+
+Evidence:
+- main.js [L30-80]: BrowserWindow instantiation with webPreferences (nodeIntegration: true).
+- package.json [L5]: "main": "main.js".
+- microBlock-IDE/index.html [L1-150]: DOM structure with #blocklyArea, #code-editor, and #terminal.
+
+
+2. IPC & SYSTEM INTEGRATION
+--------------------------------------------------------------------------------
+The communication bridge between Main and Renderer utilizes:
+1. @electron/remote: Provides direct synchronous access to native APIs from renderer scripts.
+2. ipcRenderer / ipcMain:
+   - ipcMain.on('open-dev-tools'): Toggles developer inspection console.
+   - ipcMain.on('restart_app'): Re-launches application post-update.
+   - ipcMain.handle('exec-command'): Runs shell commands via child_process.spawn.
+3. Native Serial Bridge:
+   - Renderer checks if window.require is present (Electron mode) vs standard browser.
+   - If in Electron mode: serial.js loads native 'serialport' package for raw COM access.
+   - If in Web mode: serial.js falls back to navigator.serial (WebSerial API).
+
+Evidence:
+- microBlock-IDE/js/serial.js [L320-365]: Detection of require("serialport") vs navigator.serial.
+
+
+3. UI SUBSYSTEM & BLOCK-TO-CODE WORKFLOW
+--------------------------------------------------------------------------------
+The visual programming pipeline translates drag-and-drop puzzles into executable code:
+
+  [User Assembles Blocks in Blockly Workspace]
+                      │
+                      ▼
+  [Block Definitions: boards/atom-vx/blocks/blocks_*.js]
+  - Defines visual shapes, dropdowns, input sockets, and colors
+                      │
+                      ▼
+  [Code Generators: boards/atom-vx/blocks/generators_*.js]
+  - Iterates connected AST block hierarchy
+  - Extracts parameters: angle, speed, kp, kd, time
+  - Emits Python string representations:
+    e.g. `motor.forward_degree(0, 30, 80, 0.6, 2.0)\n`
+                      │
+                      ▼
+  [Code Consolidation: Blockly.Python.workspaceToCode(workspace)]
+  - Prepends required import headers (import board, import motor, import imu)
+  - Resolves variable declarations and function definitions
+                      │
+                      ▼
+  [Target Code Output]
+  ├── Mode A (MicroPython): Pushed over WebSerial to ESP32 REPL or saved as main.py
+  └── Mode B (Simulation): Sent to Pyodide/Skulpt WebAssembly engine or C++ simulator
+
+
+4. BOARD HARDWARE ABSTRACTION & PROFILE LIFECYCLE
+--------------------------------------------------------------------------------
+Boards are dynamically registered via `addBoard({...})` in `microBlock-IDE/js/board.js`:
+
+Board Lifecycle:
+1. Registration: Board index scripts (e.g. `boards/atom-vx/index.js`) call `addBoard()`.
+2. Selection: User chooses board from dropdown, or auto-detection triggers via USB PID/VID.
+   - Atom VX matches USB Vendor ID 0x10C4 (Silicon Labs), Product ID 0xEA60 (CP210x).
+3. Initialization (`onLoad`):
+   - Injects board-specific Blockly toolboxes into sidebar.
+   - Attaches orphan block disable rules (Blockly.Events.disableOrphansCustomForAtomVXBoard).
+   - Loads board 3D visual assets and simulator package (`package/board.json`).
+4. Disposal (`onDispose`):
+   - Cleans up event listeners, resets simulator environment, unloads custom blocks.
+
+Evidence:
+- microBlock-IDE/boards/atom-vx/index.js [L39-108]: addBoard configuration object.
+
+
+5. DUAL FIRMWARE COMPILATION & FLASHING TOOLCHAINS
+--------------------------------------------------------------------------------
+roboBlocks IDE features two distinct firmware toolchains:
+
+A. MicroPython Toolchain:
+   - Target MicroPython firmware binaries stored in board package:
+     * VX1: `firmware/MicroPython.for.Atom.VX1.v1.24.1-dirty.bin` (date: 2025-05-14)
+     * VX2: `firmware/MicroPython.for.Atom.VX2.v1.24.1-dirty.bin` (date: 2025-06-24)
+   - Flashing Mechanism: `microBlock-IDE/js/esptool.js` directly executes serial SLIP
+     bootloader protocol to write the binary at flash offset 0x1000.
+   - Code Execution: User Python code is streamed to MicroPython Raw REPL (Ctrl+A / Ctrl+D)
+     over serial at 115200 baud, executing immediately without recompiling the firmware.
+
+B. Arduino C++ Toolchain:
+   - Native Background Service: `desktop/arduino-service.cjs` executes local `arduino-cli.exe`.
+   - Preprocessing: `desktop/cpp-sim/preprocess.cjs` validates user sketch, adds `#include <PTBOTAtomVX.h>`.
+   - Build Execution: Runs `arduino-cli compile --fqbn esp32:esp32:esp32 --upload -p <PORT>`.
+   - High-Speed Upload: Flashes compiled ELF/BIN via esptool at 921600 baud.
+
+
+6. 3D SIMULATOR ARCHITECTURE & RUNTIME LOOPS
+--------------------------------------------------------------------------------
+The simulator runs a decoupled render/physics tick model:
+
+  [Browser Animation Frame: requestAnimationFrame (60 FPS)]
+         │
+         ├──> [Physics Step: CANNON.World.step(1/60)]
+         │       │
+         │       ├── 1. Vehicle Dynamics: assembly-physics.js calculates wheel torque & slip
+         │       ├── 2. Collision Response: Solves contacts against arena tiles & obstacles
+         │       ├── 3. Optical Sampling: field-map.js queries lineAt(x, z) for IR sensors
+         │       └── 4. RPC Latency Emulation: physics-control.js enforces 540us I2C bus cost
+         │
+         ├──> [State Synchronization: product-runtime.js]
+         │       │
+         │       └── Copies body.position & body.quaternion to Three.js Mesh objects
+         │
+         └──> [WebGL Render: THREE.WebGLRenderer.render(scene, camera)]
+                 │
+                 └── Draws 3D arena, robot chassis, wheels, sensors, and trajectory paths
+
+Evidence:
+- microBlock-IDE/robot-sim/assembly-physics.js [L240-310]: Rigid body solver loop.
+- microBlock-IDE/robot-sim/physics-control.js [L8-25]: motorTimingProfiles (pca9685-200khz).
+================================================================================

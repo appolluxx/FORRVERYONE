@@ -1,0 +1,1008 @@
+================================================================================
+FILE DOCUMENTATION — SUBSYSTEM 06: 3D SIMULATOR & PHYSICS ENGINE
+================================================================================
+Scope: Full Cannon.js physics pipeline, obstacle geometries, optical sampling, and runtime dispatch.
+Target Path: D:\Workspace\robot\assets\extracted_ide\microBlock-IDE\robot-sim\
+================================================================================
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/app.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 116,328 bytes
+Lines: 1740
+1. Purpose: Simulator support script or vendor module (app.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-catalog.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 229 bytes
+Lines: 6
+1. Purpose: Simulator support script or vendor module (assembly-catalog.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-constraints.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 6,127 bytes
+Lines: 95
+1. Purpose: Simulator support script or vendor module (assembly-constraints.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-faces.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 23,238 bytes
+Lines: 350
+1. Purpose: Simulator support script or vendor module (assembly-faces.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-feedback-audio.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,540 bytes
+Lines: 20
+1. Purpose: Simulator support script or vendor module (assembly-feedback-audio.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-guide-view.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 19,960 bytes
+Lines: 285
+1. Purpose: Simulator support script or vendor module (assembly-guide-view.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-guided-mode.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 33,420 bytes
+Lines: 471
+1. Purpose: Simulator support script or vendor module (assembly-guided-mode.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-mode.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 22,975 bytes
+Lines: 231
+1. Purpose: Simulator support script or vendor module (assembly-mode.css).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-mode.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 127,580 bytes
+Lines: 2225
+1. Purpose: Simulator support script or vendor module (assembly-mode.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-physics-client.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 15,799 bytes
+Lines: 210
+1. Purpose: Simulator support script or vendor module (assembly-physics-client.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-physics-kernel.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 66,034 bytes
+Lines: 860
+1. Purpose: Mathematical constraint equations and solver kernel extensions for Cannon.js.
+2. Responsibilities:
+   - Implements LocalRotationEquation enforcing angular lock between mated parts.
+   - Implements PlaneEquation maintaining planar alignment between sliding surfaces.
+   - Computes Jacobian matrices and velocity constraints for high-stiffness joints.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-physics-wasm.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 2,236 bytes
+Lines: 2
+1. Purpose: Simulator support script or vendor module (assembly-physics-wasm.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-physics-worker.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 11,449 bytes
+Lines: 164
+1. Purpose: Simulator support script or vendor module (assembly-physics-worker.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-physics.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 55,588 bytes
+Lines: 692
+1. Purpose: Primary physics world coordinator and vehicle dynamics simulator.
+2. Responsibilities:
+   - Creates CANNON.World instance with customized gravity (y = -9.82 m/s^2).
+   - Solves multi-body constraints for 4-wheel independent drivetrains.
+   - Constructs collision hulls for robot chassis (lowerHull, lowerColliders) without air gaps.
+   - Simulates cylindrical wheel colliders (CANNON.Cylinder) with frictionAxle constraints.
+   - Handles sphere sweeping (sweepHeldSphere) for obstacle and payload interactions.
+   - Computes ground contact equations with anisotropic lateral friction.
+3. Key Constants & Equations:
+   - unitScale: Converts millimeters to meters (0.001).
+   - Default linear damping: 0.015, angular damping: 0.025.
+   - Wheel friction coefficient: 0.6; lateral friction axle: Vec3(0, 0, 1).
+   - Spook parameter tuning: k = 1e7, d = 4 for rigid mate constraints.
+4. Robotics Relevance: Core simulation kernel defining how Atom VX traverses slopes and obstacles.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-product-config.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 19,796 bytes
+Lines: 245
+1. Purpose: Simulator support script or vendor module (assembly-product-config.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-runtime-links.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 17,466 bytes
+Lines: 212
+1. Purpose: Simulator support script or vendor module (assembly-runtime-links.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly-sim-loader.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 28,321 bytes
+Lines: 417
+1. Purpose: Simulator support script or vendor module (assembly-sim-loader.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assembly.html
+--------------------------------------------------------------------------------
+Format: .html | Size: 10,118 bytes
+Lines: 134
+1. Purpose: Simulator support script or vendor module (assembly.html).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/atom-vx-model.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 23,902 bytes
+Lines: 420
+1. Purpose: Physical dimension, mass, and center of gravity descriptor for Atom VX.
+2. Responsibilities: Declares chassis mass (~650g), wheel radius (33mm), wheelbase (140mm), track width (130mm).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/board-package.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,833 bytes
+Lines: 40
+1. Purpose: Simulator support script or vendor module (board-package.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/camera-follow.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,518 bytes
+Lines: 75
+1. Purpose: Simulator support script or vendor module (camera-follow.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/cpp-task-scheduler.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 2,538 bytes
+Lines: 42
+1. Purpose: Simulator support script or vendor module (cpp-task-scheduler.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/cpp-worker.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 13,552 bytes
+Lines: 183
+1. Purpose: Simulator support script or vendor module (cpp-worker.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/custom-trace.py
+--------------------------------------------------------------------------------
+Format: .py | Size: 3,049 bytes
+Lines: 78
+1. Purpose: Simulator support script or vendor module (custom-trace.py).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/default-position.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 797 bytes
+Lines: 8
+1. Purpose: Simulator support script or vendor module (default-position.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/delivery-blocks.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 7,844 bytes
+Lines: 87
+1. Purpose: Simulator support script or vendor module (delivery-blocks.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/delivery-preview.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 13,501 bytes
+Lines: 142
+1. Purpose: Simulator support script or vendor module (delivery-preview.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/delivery-trace.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,805 bytes
+Lines: 48
+1. Purpose: Simulator support script or vendor module (delivery-trace.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/field-border-mark.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,782 bytes
+Lines: 2
+1. Purpose: Simulator support script or vendor module (field-border-mark.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/field-cans.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,379 bytes
+Lines: 74
+1. Purpose: Simulator support script or vendor module (field-cans.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/field-editor.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 16,293 bytes
+Lines: 110
+1. Purpose: Simulator support script or vendor module (field-editor.css).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/field-editor.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 37,410 bytes
+Lines: 269
+1. Purpose: Simulator support script or vendor module (field-editor.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/field-layout-worker.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 816 bytes
+Lines: 11
+1. Purpose: Simulator support script or vendor module (field-layout-worker.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/field-layout.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 52,188 bytes
+Lines: 553
+1. Purpose: Canonical arena tile and obstacle geometry specification.
+2. Responsibilities:
+   - Defines 8-column x 4-row grid (32 tiles total, 300x300mm per tile).
+   - Implements structureAccess(layout) validating path reachability from START to FINISH.
+   - Specifies 50mm Elevated Bridge geometry:
+     * 3-tile structure: Incline Ramp -> +50mm Deck Platform -> Decline Ramp.
+     * Ramp angle: ~15 degrees; deck elevation h = 0.05 m (50mm).
+   - Specifies Chopstick Speed Bump Rods (rescue_rods):
+     * Array of cylindrical bamboo rods spaced across the tile surface.
+     * Rod diameter = 5mm, length = 300mm.
+   - Defines Tile Types: rescue_open, rescue_edge, rescue_corner, rescue_corridor, rescue_checkpoint, rescue_drop, rescue_pit.
+3. Algorithms: Breadth-first search (BFS) graph reachability validator from START node.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/field-map.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 14,146 bytes
+Lines: 219
+1. Purpose: Optical ground reflectance and sensor raycasting engine.
+2. Responsibilities:
+   - Implements lineAt(x, z) function returning surface reflectance (0.0=black, 1.0=white).
+   - Accurately models optical reflectance of wooden speed bump rods:
+     * formula: (.2126 * 203 + .7152 * 164 + .0722 * 119) / 255 ~= 0.689.
+   - Creates cached canvas luminance samplers to eliminate CPU overhead during 60 FPS physics loops.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/field-vector-export.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 11,038 bytes
+Lines: 108
+1. Purpose: Simulator support script or vendor module (field-vector-export.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware-worker.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 18,508 bytes
+Lines: 259
+1. Purpose: Simulator support script or vendor module (firmware-worker.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/glb-import.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 20,892 bytes
+Lines: 364
+1. Purpose: Simulator support script or vendor module (glb-import.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/guided-assembly-session.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 9,437 bytes
+Lines: 145
+1. Purpose: Simulator support script or vendor module (guided-assembly-session.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/imported-part-physics.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,334 bytes
+Lines: 21
+1. Purpose: Simulator support script or vendor module (imported-part-physics.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/mechanical-audio-settings.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 217 bytes
+Lines: 2
+1. Purpose: Simulator support script or vendor module (mechanical-audio-settings.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/mechanical-audio.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 12,897 bytes
+Lines: 163
+1. Purpose: Simulator support script or vendor module (mechanical-audio.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/monitor-panel.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,791 bytes
+Lines: 87
+1. Purpose: Simulator support script or vendor module (monitor-panel.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/performance-recorder.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,720 bytes
+Lines: 23
+1. Purpose: Simulator support script or vendor module (performance-recorder.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/physics-control.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 23,617 bytes
+Lines: 294
+1. Purpose: Firmware RPC dispatcher and communication bus latency emulator.
+2. Responsibilities:
+   - Emulates hardware execution delays on the I2C bus:
+     * pca9685-200khz profile: motorWriteUs = 540us, motorsWriteUs = 2160us, cachedReadUs = 10us.
+   - Dispatches setMotor(), readADC(), readIMU(), and switchRead() requests from user code to physics state.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/physics-shared-transport.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,237 bytes
+Lines: 76
+1. Purpose: Simulator support script or vendor module (physics-shared-transport.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/playback-video.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,010 bytes
+Lines: 63
+1. Purpose: Simulator support script or vendor module (playback-video.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/playback.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 8,353 bytes
+Lines: 101
+1. Purpose: Simulator support script or vendor module (playback.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/popout.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,265 bytes
+Lines: 89
+1. Purpose: Simulator support script or vendor module (popout.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/preferences-store.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,857 bytes
+Lines: 30
+1. Purpose: Simulator support script or vendor module (preferences-store.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/prepared-model.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,093 bytes
+Lines: 54
+1. Purpose: Simulator support script or vendor module (prepared-model.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/product-artwork.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 9,218 bytes
+Lines: 168
+1. Purpose: Simulator support script or vendor module (product-artwork.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/product-assembly-guide.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 11,447 bytes
+Lines: 134
+1. Purpose: Simulator support script or vendor module (product-assembly-guide.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/product-catalog.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 30,697 bytes
+Lines: 431
+1. Purpose: Simulator support script or vendor module (product-catalog.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/product-drive.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,357 bytes
+Lines: 23
+1. Purpose: Simulator support script or vendor module (product-drive.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/product-physics.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,001 bytes
+Lines: 47
+1. Purpose: Simulator support script or vendor module (product-physics.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/product-runtime.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 53,493 bytes
+Lines: 763
+1. Purpose: Three.js to Cannon.js visual/physics bridge.
+2. Responsibilities: Copies positions and quaternions from physics bodies to rendered Three.js meshes each frame.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/product-schema.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 29,480 bytes
+Lines: 318
+1. Purpose: Simulator support script or vendor module (product-schema.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/python-modules.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,795 bytes
+Lines: 130
+1. Purpose: Simulator support script or vendor module (python-modules.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/python-runtime.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 19,409 bytes
+Lines: 241
+1. Purpose: Simulator support script or vendor module (python-runtime.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/python-source.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,095 bytes
+Lines: 67
+1. Purpose: Simulator support script or vendor module (python-source.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/python-worker.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,119 bytes
+Lines: 44
+1. Purpose: Simulator support script or vendor module (python-worker.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/rigid-robot.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 7,312 bytes
+Lines: 83
+1. Purpose: Simulator support script or vendor module (rigid-robot.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/runtime.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 13,119 bytes
+Lines: 169
+1. Purpose: Simulator support script or vendor module (runtime.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/step-fast-import.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 889 bytes
+Lines: 18
+1. Purpose: Simulator support script or vendor module (step-fast-import.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/step-geometry.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 6,574 bytes
+Lines: 119
+1. Purpose: Simulator support script or vendor module (step-geometry.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/step-import.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 13,521 bytes
+Lines: 283
+1. Purpose: Simulator support script or vendor module (step-import.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/step-node-worker.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,544 bytes
+Lines: 23
+1. Purpose: Simulator support script or vendor module (step-node-worker.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/step-worker.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,734 bytes
+Lines: 28
+1. Purpose: Simulator support script or vendor module (step-worker.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/studio-environment.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,860 bytes
+Lines: 28
+1. Purpose: Simulator support script or vendor module (studio-environment.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/surface-occlusion.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 12,170 bytes
+Lines: 150
+1. Purpose: Simulator support script or vendor module (surface-occlusion.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/telemetry-panel.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 7,720 bytes
+Lines: 91
+1. Purpose: Simulator support script or vendor module (telemetry-panel.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/telemetry.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 8,784 bytes
+Lines: 125
+1. Purpose: Simulator support script or vendor module (telemetry.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/toolbar-menus.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,556 bytes
+Lines: 28
+1. Purpose: Simulator support script or vendor module (toolbar-menus.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/urdf-loader.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 9,475 bytes
+Lines: 219
+1. Purpose: Simulator support script or vendor module (urdf-loader.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/view-menu.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,330 bytes
+Lines: 43
+1. Purpose: Simulator support script or vendor module (view-menu.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/viewport-style.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 2,565 bytes
+Lines: 46
+1. Purpose: Simulator support script or vendor module (viewport-style.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/assets/pt-robotics-logo.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 70,176 bytes
+1. Purpose: Graphical texture, field decal, or 3D obstacle geometry asset.
+2. Asset Role: Visual rendering in Three.js arena scene.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/fields/README.md
+--------------------------------------------------------------------------------
+Format: .md | Size: 1,522 bytes
+Lines: 27
+1. Purpose: Simulator support script or vendor module (README.md).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/fields/opt-primary-2025.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 148,765 bytes
+1. Purpose: Graphical texture, field decal, or 3D obstacle geometry asset.
+2. Asset Role: Visual rendering in Three.js arena scene.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/atom-vx/hardware.py
+--------------------------------------------------------------------------------
+Format: .py | Size: 12,317 bytes
+Lines: 272
+1. Purpose: Simulator support script or vendor module (hardware.py).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/atom-vx/profile.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 232,060 bytes
+Lines: 1
+1. Purpose: Complete embedded MicroPython filesystem archive for the simulator.
+2. Responsibilities: Stores byte-accurate string contents of all 16 Python modules executed by Pyodide/Skulpt.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/buildbot/hardware.py
+--------------------------------------------------------------------------------
+Format: .py | Size: 16,414 bytes
+Lines: 358
+1. Purpose: Simulator support script or vendor module (hardware.py).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/buildbot/profile.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 264,310 bytes
+Lines: 1
+1. Purpose: Complete embedded MicroPython filesystem archive for the simulator.
+2. Responsibilities: Stores byte-accurate string contents of all 16 Python modules executed by Pyodide/Skulpt.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/buildbot/licenses/BusDevice.txt
+--------------------------------------------------------------------------------
+Format: .txt | Size: 1,076 bytes
+Lines: 21
+1. Purpose: Simulator support script or vendor module (BusDevice.txt).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/buildbot/licenses/HCSR04.txt
+--------------------------------------------------------------------------------
+Format: .txt | Size: 1,067 bytes
+Lines: 21
+1. Purpose: Simulator support script or vendor module (HCSR04.txt).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/buildbot/licenses/Motor.txt
+--------------------------------------------------------------------------------
+Format: .txt | Size: 1,110 bytes
+Lines: 21
+1. Purpose: Simulator support script or vendor module (Motor.txt).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/buildbot/licenses/PCA9685.txt
+--------------------------------------------------------------------------------
+Format: .txt | Size: 1,119 bytes
+Lines: 21
+1. Purpose: Simulator support script or vendor module (PCA9685.txt).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/buildbot/licenses/Register.txt
+--------------------------------------------------------------------------------
+Format: .txt | Size: 1,076 bytes
+Lines: 21
+1. Purpose: Simulator support script or vendor module (Register.txt).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/buildbot/licenses/ST7789.txt
+--------------------------------------------------------------------------------
+Format: .txt | Size: 1,119 bytes
+Lines: 21
+1. Purpose: Simulator support script or vendor module (ST7789.txt).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/firmware/buildbot/licenses/Ticks.txt
+--------------------------------------------------------------------------------
+Format: .txt | Size: 1,101 bytes
+Lines: 21
+1. Purpose: Simulator support script or vendor module (Ticks.txt).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/robot.urdf
+--------------------------------------------------------------------------------
+Format: .urdf | Size: 4,873 bytes
+Lines: 56
+1. Purpose: Simulator support script or vendor module (robot.urdf).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/chassis.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 1,471 bytes
+1. Purpose: Graphical texture, field decal, or 3D obstacle geometry asset.
+2. Asset Role: Visual rendering in Three.js arena scene.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/deck.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 985 bytes
+1. Purpose: Graphical texture, field decal, or 3D obstacle geometry asset.
+2. Asset Role: Visual rendering in Three.js arena scene.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/front_marker.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 153 bytes
+1. Purpose: Graphical texture, field decal, or 3D obstacle geometry asset.
+2. Asset Role: Visual rendering in Three.js arena scene.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/hub.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 525 bytes
+1. Purpose: Graphical texture, field decal, or 3D obstacle geometry asset.
+2. Asset Role: Visual rendering in Three.js arena scene.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/motor.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 529 bytes
+1. Purpose: Graphical texture, field decal, or 3D obstacle geometry asset.
+2. Asset Role: Visual rendering in Three.js arena scene.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/tire.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 779 bytes
+1. Purpose: Graphical texture, field decal, or 3D obstacle geometry asset.
+2. Asset Role: Visual rendering in Three.js arena scene.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/models/sample_4wd/meshes/wheel_marker.stl
+--------------------------------------------------------------------------------
+Format: .stl | Size: 304 bytes
+1. Purpose: Graphical texture, field decal, or 3D obstacle geometry asset.
+2. Asset Role: Visual rendering in Three.js arena scene.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/cannon-0.6.2.min.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 132,405 bytes
+Lines: 30
+1. Purpose: Bundled open-source Cannon.js 3D physics library.
+2. Responsibilities: Provides numerical integrator, broadphase collision detection, and rigid-body solver.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/cannon-LICENSE
+--------------------------------------------------------------------------------
+Format:  | Size: 1,125 bytes
+Lines: 22
+1. Purpose: Simulator support script or vendor module (cannon-LICENSE).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/mediabunny/LICENSE
+--------------------------------------------------------------------------------
+Format:  | Size: 16,726 bytes
+Lines: 373
+1. Purpose: Simulator support script or vendor module (LICENSE).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/mediabunny/README.txt
+--------------------------------------------------------------------------------
+Format: .txt | Size: 140 bytes
+Lines: 3
+1. Purpose: Simulator support script or vendor module (README.txt).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/mediabunny/mediabunny.min.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 691,220 bytes
+Lines: 50
+1. Purpose: Simulator support script or vendor module (mediabunny.min.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/occt/LICENSE.md
+--------------------------------------------------------------------------------
+Format: .md | Size: 26,526 bytes
+Lines: 504
+1. Purpose: Simulator support script or vendor module (LICENSE.md).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/occt/README.md
+--------------------------------------------------------------------------------
+Format: .md | Size: 720 bytes
+Lines: 12
+1. Purpose: Simulator support script or vendor module (README.md).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/occt/occt-import-js.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 96,871 bytes
+Lines: 19
+1. Purpose: Simulator support script or vendor module (occt-import-js.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/occt/test-cube.stp
+--------------------------------------------------------------------------------
+Format: .stp | Size: 8,010 bytes
+1. Purpose: Graphical texture, field decal, or 3D obstacle geometry asset.
+2. Asset Role: Visual rendering in Three.js arena scene.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/occt-legacy/README.md
+--------------------------------------------------------------------------------
+Format: .md | Size: 619 bytes
+Lines: 11
+1. Purpose: Simulator support script or vendor module (README.md).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/occt-legacy/occt-import-js.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 190,156 bytes
+Lines: 21
+1. Purpose: Simulator support script or vendor module (occt-import-js.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/pyodide/CPYTHON-LICENSE
+--------------------------------------------------------------------------------
+Format:  | Size: 13,936 bytes
+Lines: 279
+1. Purpose: Simulator support script or vendor module (CPYTHON-LICENSE).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/pyodide/LICENSE
+--------------------------------------------------------------------------------
+Format:  | Size: 16,725 bytes
+Lines: 373
+1. Purpose: Simulator support script or vendor module (LICENSE).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/pyodide/README.md
+--------------------------------------------------------------------------------
+Format: .md | Size: 1,013 bytes
+Lines: 20
+1. Purpose: Simulator support script or vendor module (README.md).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/pyodide/pyodide-lock.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 84,412 bytes
+Lines: 3768
+1. Purpose: Simulator support script or vendor module (pyodide-lock.json).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/pyodide/pyodide.asm.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,157,891 bytes
+Lines: 17
+1. Purpose: Simulator support script or vendor module (pyodide.asm.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/pyodide/pyodide.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 17,417 bytes
+Lines: 13
+1. Purpose: Simulator support script or vendor module (pyodide.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/skulpt/LICENSE
+--------------------------------------------------------------------------------
+Format:  | Size: 1,579 bytes
+Lines: 35
+1. Purpose: Simulator support script or vendor module (LICENSE).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/skulpt/README.md
+--------------------------------------------------------------------------------
+Format: .md | Size: 498 bytes
+Lines: 8
+1. Purpose: Simulator support script or vendor module (README.md).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/skulpt/skulpt-stdlib.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 407,300 bytes
+Lines: 1
+1. Purpose: Simulator support script or vendor module (skulpt-stdlib.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/robot-sim/vendor/skulpt/skulpt.min.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 559,460 bytes
+Lines: 1061
+1. Purpose: Simulator support script or vendor module (skulpt.min.js).
+

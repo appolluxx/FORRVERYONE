@@ -1,0 +1,51 @@
+{
+  "schemaVersion": 2,
+  "id": "smart-bin-paper",
+  "name": "Crumpled paper",
+  "kind": "component",
+  "components": [
+    {
+      "id": "paper",
+      "name": "Paper",
+      "format": "glb",
+      "unit": "meter",
+      "asset": "paper.glb",
+      "preparedAsset": "paper.ptmesh",
+      "physics": {
+        "mass": 0.005,
+        "collider": "sphere",
+        "friction": 0.5,
+        "drag3D": true,
+        "soundMaterial": "paper"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "kind": "component",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "appearance": {
+        "materials": [],
+        "surfaces": []
+      },
+      "connectors": [],
+      "mounts": []
+    }
+  ],
+  "version": "1.0.0",
+  "mates": [],
+  "joints": [],
+  "devices": [],
+  "connections": [],
+  "artwork": []
+}

@@ -1,0 +1,222 @@
+================================================================================
+FILE DOCUMENTATION — SUBSYSTEM 07: ATOM VX MICROPYTHON FIRMWARE MODULES
+================================================================================
+Origin: Extracted from embedded profile.json (microBlock-IDE/robot-sim/firmware/atom-vx/profile.json)
+Target Platform: ESP32-WROOM-32D (MicroPython v1.24.1)
+Target Directory: D:\Workspace\robot\assets\extracted_ide\atom_vx_python\
+================================================================================
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/_board_setup.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 11,353 bytes | Lines: 17
+1. Purpose: Factory first-boot provisioning script.
+2. Responsibilities: Formats VFS filesystem, copies default configuration files, and sets up MicroPython REPL banner.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/bno055.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 6,669 bytes | Lines: 177
+1. Purpose: MicroPython driver for Bosch BNO055 9-DOF Absolute Orientation Sensor with onboard sensor fusion.
+2. Responsibilities:
+   - Configures NDOF (Nine Degrees of Freedom) sensor fusion mode.
+   - Reads Euler angles (heading, roll, pitch) and quaternions (w, x, y, z).
+   - Reads linear acceleration, gravity vector, and gyroscope angular velocity.
+   - Reads and writes sensor offset calibration registers to/from NVS.
+3. Key Registers: _CHIP_ID (0xA0), _NDOF_MODE (0x0C), EULER_DATA (0x1A), QUAT_DATA (0x20).
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/bno055_base.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 8,493 bytes | Lines: 216
+1. Purpose: MicroPython driver for Bosch BNO055 9-DOF Absolute Orientation Sensor with onboard sensor fusion.
+2. Responsibilities:
+   - Configures NDOF (Nine Degrees of Freedom) sensor fusion mode.
+   - Reads Euler angles (heading, roll, pitch) and quaternions (w, x, y, z).
+   - Reads linear acceleration, gravity vector, and gyroscope angular velocity.
+   - Reads and writes sensor offset calibration registers to/from NVS.
+3. Key Registers: _CHIP_ID (0xA0), _NDOF_MODE (0x0C), EULER_DATA (0x1A), QUAT_DATA (0x20).
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/board.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 7,993 bytes | Lines: 244
+1. Purpose: Hardware abstraction layer (HAL) and board initialization for PT Atom VX.
+2. Responsibilities:
+   - Configures I2C, SPI, and ADC hardware buses on the ESP32.
+   - Initializes PCA9685 PWM expander (frequency 1300 Hz).
+   - Starts background switch polling task (SwitchLoopTask) on FreeRTOS thread.
+   - Provides unified sensor read methods (knob, buttons, ultrasonic, VL53L0X, ADC).
+   - Manages IMU calibration checks and calibration splash screen.
+3. Key Hardware Allocations:
+   - I2C Bus 0: Pin(22) [SCL], Pin(21) [SDA], freq=200000.
+   - SPI Bus 1: Pin(18) [SCK], Pin(23) [MOSI], Pin(19) [MISO], baudrate=1000000 (ADC expander).
+   - CS Pin for ADC: Pin(15).
+   - Potentiometer Knob: ADC(Pin(32)), 11dB attenuation, 12-bit resolution.
+   - Tactile Switches: SW_A (virtualized on knob == 0), SW_B (Pin(0), pull-up).
+   - Buzzer: PCA9685 Channel 5 (duty=2000 for beep).
+   - IMU axis offsets: angles_offset = [roll_off, pitch_off, yaw_off].
+4. Key Functions:
+   - beep(duration): Emits audible tone for specified seconds.
+   - knob_read(): Returns raw 0..4095 ADC reading.
+   - switch_read(pin): Returns boolean pressed state.
+   - read_adc(pin, is_differential=False): Reads 10-bit SPI ADC channel 0..7.
+   - angle_read(axis): Returns normalized 0..360 degree reading for ROLL (0), PITCH (1), YAW (2).
+   - ultrasonic_read(trigger_pin, echo_pin): Measures distance via time_pulse_us().
+   - VL53L0X_read(scl_pin, sda_pin): ToF distance in mm minus 50mm offset.
+   - check_imu_calibrated(): Verifies NVS imu_bias; prompts auto_calibrate if missing.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/display.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 1,624 bytes | Lines: 111
+1. Purpose: ST7789 128x160 SPI TFT color display driver.
+2. Responsibilities: Provides color_hex(), fill(), text(), line(), rect(), circle(), and image() (Base64 JPEG decoding).
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/fonts/font_12.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 6,694 bytes
+1. Purpose: Bitmap font definition file for ST7789 display.
+2. Responsibilities: Contains pre-rendered font glyph bitmaps (WIDTHS, OFFSETS, BITMAPS) for high-speed TFT text rendering without FreeType dependencies.
+3. Key Symbols: WIDTHS (memoryview), OFFSETS (memoryview), BITMAPS (memoryview), HEIGHT, MAX_WIDTH.
+4. Dependencies: Used by display.text() in display.py.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/fonts/font_16.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 10,970 bytes
+1. Purpose: Bitmap font definition file for ST7789 display.
+2. Responsibilities: Contains pre-rendered font glyph bitmaps (WIDTHS, OFFSETS, BITMAPS) for high-speed TFT text rendering without FreeType dependencies.
+3. Key Symbols: WIDTHS (memoryview), OFFSETS (memoryview), BITMAPS (memoryview), HEIGHT, MAX_WIDTH.
+4. Dependencies: Used by display.text() in display.py.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/fonts/font_32.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 37,247 bytes
+1. Purpose: Bitmap font definition file for ST7789 display.
+2. Responsibilities: Contains pre-rendered font glyph bitmaps (WIDTHS, OFFSETS, BITMAPS) for high-speed TFT text rendering without FreeType dependencies.
+3. Key Symbols: WIDTHS (memoryview), OFFSETS (memoryview), BITMAPS (memoryview), HEIGHT, MAX_WIDTH.
+4. Dependencies: Used by display.text() in display.py.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/fonts/font_bold_12.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 6,692 bytes
+1. Purpose: Bitmap font definition file for ST7789 display.
+2. Responsibilities: Contains pre-rendered font glyph bitmaps (WIDTHS, OFFSETS, BITMAPS) for high-speed TFT text rendering without FreeType dependencies.
+3. Key Symbols: WIDTHS (memoryview), OFFSETS (memoryview), BITMAPS (memoryview), HEIGHT, MAX_WIDTH.
+4. Dependencies: Used by display.text() in display.py.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/fonts/font_bold_16.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 10,968 bytes
+1. Purpose: Bitmap font definition file for ST7789 display.
+2. Responsibilities: Contains pre-rendered font glyph bitmaps (WIDTHS, OFFSETS, BITMAPS) for high-speed TFT text rendering without FreeType dependencies.
+3. Key Symbols: WIDTHS (memoryview), OFFSETS (memoryview), BITMAPS (memoryview), HEIGHT, MAX_WIDTH.
+4. Dependencies: Used by display.text() in display.py.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/fonts/font_bold_32.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 37,245 bytes
+1. Purpose: Bitmap font definition file for ST7789 display.
+2. Responsibilities: Contains pre-rendered font glyph bitmaps (WIDTHS, OFFSETS, BITMAPS) for high-speed TFT text rendering without FreeType dependencies.
+3. Key Symbols: WIDTHS (memoryview), OFFSETS (memoryview), BITMAPS (memoryview), HEIGHT, MAX_WIDTH.
+4. Dependencies: Used by display.text() in display.py.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/line_follower.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 16,632 bytes | Lines: 825
+1. Purpose: Line following sensor array management and PID path tracking.
+2. Responsibilities:
+   - Calibrates 3-to-7 analog reflectance sensors against white/black arena surfaces.
+   - Normalizes raw sensor readings into calibrated position coordinates (read_position).
+   - Detects track junctions (cross, T-junction, left branch, right branch).
+   - Controls autonomous line tracing until stopping condition or junction is reached.
+3. Key Algorithms: Position centroid calculation, white-balance min/max calibration.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/motor.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 14,467 bytes | Lines: 787
+1. Purpose: Primary motor drive and closed-loop motion control library for PT Atom VX 4WD.
+2. Responsibilities:
+   - Controls 4-wheel independent DC drive (M1, M2, M3, M4) via PCA9685 PWM registers.
+   - Implements PD-stabilized gyro heading lock (forward_degree, backward_degree).
+   - Implements trapezoidal ramp-up and ramp-down timed motion (forward_degree_time).
+   - Implements spot turning and front-wheel pivot turning (spin_degree, turn_degree_front).
+   - Supports both 2WD and 4WD configurations (WD2, WD4) and mecanum wheel kinematics.
+3. Key Constants & Variables:
+   - forward = 0, backward = 1, left = 0, right = 1, WD2 = 0, WD4 = 1.
+   - ramp_up = 0.1 s, ramp_down = 0.1 s, previous_error = 0.
+4. Key Functions (Derived with exact line citations):
+   - clamp_speed(speed) [L19-20]: Constrains speed between -100 and +100.
+   - set_motor_drive(drive_mode) [L22-24]: Sets WD2 (2WD) or WD4 (4WD) mode.
+   - drive_single(motor, speed, invert=False) [L26-72]:
+     * Translates speed percentage to 12-bit PCA9685 PWM: pwm_speed = int((abs(speed) / 100) * 4095).
+     * M1: Direction = ch 12, PWM = ch 13.
+     * M2: Direction = ch 14, PWM = ch 15.
+     * M3: Direction = ch 10, PWM = ch 11.
+     * M4: Direction = ch 8, PWM = ch 9.
+   - drive_all(s1, s2, s3, s4) [L73-81]: Drives all 4 channels simultaneously.
+   - move(direction, speed) [L83-96]: High-level forward/backward drive.
+   - spin(direction, speed) [L97-110]: Tank turn in place.
+   - turn_front(direction, speed) [L111-124]: Front pivot steering.
+   - turn_back(direction, speed) [L125-138]: Rear pivot steering.
+   - mecanum_move(vx, vy, r) [L139-147]: 3-DOF holonomic drive kinematics.
+   - stop() [L148-156]: Halts all 4 motors (sets duty=0 on all channels).
+   - forward_degree(degree, base_speed, max_speed, kp, kd) [L162-184]:
+     * Continuous PD loop calculating: error = degree - board.angle_read(board.yaw).
+     * Wraps error to [-180, +180]: if error > 180: error -= 360; elif error < -180: error += 360.
+     * Derivative: derivative = error - previous_error.
+     * PD output: pd_value = clamp((error * kp) + (derivative * kd), -max_speed, max_speed).
+     * Motor speeds: speed_left = base_speed + pd_value; speed_right = base_speed - pd_value.
+   - forward_degree_time(degree, start_speed, max_speed, kp, kd, duration_s) [L208-244]:
+     * Trapezoidal speed profile combining ramp-up, constant cruise, ramp-down with active PD heading lock.
+   - spin_degree(target_degree, small_angle_threshold, stop_threshold, min_speed, max_speed, kp, kd, stable_time=20) [L282-319]:
+     * Precision heading adjustment stopping when within stop_threshold for >= 20 ms.
+5. Dependencies: board (for PCA9685 and angle_read), utime.
+6. Hardware Integration: PCA9685 I2C driver on bus 0 (SDA=21, SCL=22) running at 1000 Hz.
+7. Robotics Relevance: Core autonomous trajectory navigation for competition runs.
+8. Reuse Potential: Directly portable to standalone Python scripts and Python/C++ simulator synthesis.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/pca9685.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 2,564 bytes | Lines: 77
+1. Purpose: NXP PCA9685 16-channel, 12-bit PWM I2C bus driver.
+2. Responsibilities: Sets frequency (freq()), individual channel duty cycles (duty()), and batch register writes.
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/servo.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 540 bytes | Lines: 36
+1. Purpose: RC Servo motor control helper wrapping PCA9685 PWM outputs.
+2. Responsibilities: Translates 0..180 degree angles into 50 Hz PWM pulse widths (0.5ms - 2.5ms).
+
+
+--------------------------------------------------------------------------------
+FILE: atom_vx_python/vl53l0x.py
+--------------------------------------------------------------------------------
+Format: Python (.py) | Size: 23,446 bytes | Lines: 662
+1. Purpose: STMicroelectronics VL53L0X Time-of-Flight (ToF) laser ranging sensor driver.
+2. Responsibilities: Performs VCSEL pulse configuration, SPAD array calibration, and precise millimeter distance ranging.
+

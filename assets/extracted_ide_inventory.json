@@ -1,0 +1,5092 @@
+[
+  {
+    "rel_path": ".gitmodules",
+    "filename": ".gitmodules",
+    "ext": "",
+    "size": 129,
+    "sha256": "c7f653d575add732b98f45471b9ea392fa3d482ee2482470e674a0a2ac69c08c",
+    "is_text": true,
+    "line_count": 4,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "main.js",
+    "filename": "main.js",
+    "ext": ".js",
+    "size": 43746,
+    "sha256": "d6e1e3a6925b7544c04b87a7a92d3bceccaa5ea8e03925e8e3d85cc419dfffc5",
+    "is_text": true,
+    "line_count": 1065,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "package.json",
+    "filename": "package.json",
+    "ext": ".json",
+    "size": 788,
+    "sha256": "8e7386d25ae3f9369666dcfc863f0f061b97c364d967363ef4b1df52c2cd8f2d",
+    "is_text": true,
+    "line_count": 28,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "README.md",
+    "filename": "README.md",
+    "ext": ".md",
+    "size": 1903,
+    "sha256": "4c5538f59c30f6e5a85d37498b9ddb2408e3d38217ef75662f2c2912ff7145da",
+    "is_text": true,
+    "line_count": 54,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "Start",
+    "filename": "Start",
+    "ext": "",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "is_text": true,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "windows-titlebar.js",
+    "filename": "windows-titlebar.js",
+    "ext": ".js",
+    "size": 1759,
+    "sha256": "b447db3dc90287d73fb7ad6e846db6be360c20b53f4f7a7ed1c7c2fbe9e18fcb",
+    "is_text": true,
+    "line_count": 35,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "atom_vx_python/bno055.py",
+    "filename": "bno055.py",
+    "ext": ".py",
+    "size": 6669,
+    "sha256": "af5517993be1a170a1c2a102f8339535bc50cb31f398508f6217378bd7bf148f",
+    "is_text": true,
+    "line_count": 177,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/bno055_base.py",
+    "filename": "bno055_base.py",
+    "ext": ".py",
+    "size": 8493,
+    "sha256": "d8856ee22fa1f7c39094a788e8ad76722012717211c2d9deb988d13f945034f8",
+    "is_text": true,
+    "line_count": 216,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/board.py",
+    "filename": "board.py",
+    "ext": ".py",
+    "size": 7993,
+    "sha256": "7abf98679282f5d208429a92c77207590a5263c8d9496f5489e7afc67b8d4e36",
+    "is_text": true,
+    "line_count": 244,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/display.py",
+    "filename": "display.py",
+    "ext": ".py",
+    "size": 1624,
+    "sha256": "9b58a87bf44254bc7a71a9ac2b77db4a2cca2613002f70849458c97848a02dff",
+    "is_text": true,
+    "line_count": 111,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/line_follower.py",
+    "filename": "line_follower.py",
+    "ext": ".py",
+    "size": 16632,
+    "sha256": "fcb786b1a6f682781d88620cdcbcee8ee68fc86ba6231c9b65268ee545f7ad1e",
+    "is_text": true,
+    "line_count": 825,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/motor.py",
+    "filename": "motor.py",
+    "ext": ".py",
+    "size": 14467,
+    "sha256": "aa780d39c218a46bb291f9d23df7ee163f31afb9e3d891ce2a72135818cfcf0c",
+    "is_text": true,
+    "line_count": 787,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/pca9685.py",
+    "filename": "pca9685.py",
+    "ext": ".py",
+    "size": 2564,
+    "sha256": "bf5e9f915444b79facf1b741f9490e747ddc2efa3d22e1ea9ae21a6c97fec692",
+    "is_text": true,
+    "line_count": 77,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/servo.py",
+    "filename": "servo.py",
+    "ext": ".py",
+    "size": 540,
+    "sha256": "d70629e48a6f100d13a0b214f3ae5a6f9dcc1d12f5dbbc2fa721e8bc0c1b999e",
+    "is_text": true,
+    "line_count": 36,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/vl53l0x.py",
+    "filename": "vl53l0x.py",
+    "ext": ".py",
+    "size": 23446,
+    "sha256": "53d040f0845fc0183fa25d2507516f0c717e9f81befb16efb34b99ed8edb9815",
+    "is_text": true,
+    "line_count": 662,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/_board_setup.py",
+    "filename": "_board_setup.py",
+    "ext": ".py",
+    "size": 11353,
+    "sha256": "3d9745ff4759e27cf6842de231311eb3106e4fe0bfcbb62b48049a886e6359e2",
+    "is_text": true,
+    "line_count": 17,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/fonts/font_12.py",
+    "filename": "font_12.py",
+    "ext": ".py",
+    "size": 6694,
+    "sha256": "798db50067d3d07704f51bd4efc74614e12def42b6532030c8dc9ca49db955f5",
+    "is_text": true,
+    "line_count": 209,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/fonts/font_16.py",
+    "filename": "font_16.py",
+    "ext": ".py",
+    "size": 10970,
+    "sha256": "0737b054cca4495cf25b43545b8574cd4a33cdd316acdc7259a5785e607f4c0e",
+    "is_text": true,
+    "line_count": 323,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/fonts/font_32.py",
+    "filename": "font_32.py",
+    "ext": ".py",
+    "size": 37247,
+    "sha256": "2bcdb127c181d1a8a7e04a91239300056d36851d05af98fed8dc1499903e427f",
+    "is_text": true,
+    "line_count": 1025,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/fonts/font_bold_12.py",
+    "filename": "font_bold_12.py",
+    "ext": ".py",
+    "size": 6692,
+    "sha256": "3d4e93a8eb1961d6cee4bae2f1bc67870009683ba6e86304ba0f4882e583fb50",
+    "is_text": true,
+    "line_count": 209,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/fonts/font_bold_16.py",
+    "filename": "font_bold_16.py",
+    "ext": ".py",
+    "size": 10968,
+    "sha256": "325f51a3a808250b3bd7e167162901ba7aced38f6a60199f77a6ec910c365e95",
+    "is_text": true,
+    "line_count": 323,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "atom_vx_python/fonts/font_bold_32.py",
+    "filename": "font_bold_32.py",
+    "ext": ".py",
+    "size": 37245,
+    "sha256": "b65c8e358610908a2ffaf55a14bf00d2c383ae8d243c72c59179964766440ccb",
+    "is_text": true,
+    "line_count": 1025,
+    "origin": "Generated from microBlock-IDE/robot-sim/firmware/atom-vx/profile.json during analysis"
+  },
+  {
+    "rel_path": "bin/clang-format/LICENSE.txt",
+    "filename": "LICENSE.txt",
+    "ext": ".txt",
+    "size": 15141,
+    "sha256": "8d85c1057d742e597985c7d4e6320b015a9139385cff4cbae06ffc0ebe89afee",
+    "is_text": true,
+    "line_count": 279,
+    "origin": "Extracted from app.asar / copied from app.asar.unpacked"
+  },
+  {
+    "rel_path": "bin/clang-format/source.json",
+    "filename": "source.json",
+    "ext": ".json",
+    "size": 246,
+    "sha256": "268f4ca73a9b2cb360d973057a112d6eeeac4206c33fe1dd7dd5c4847c8332c9",
+    "is_text": true,
+    "line_count": 5,
+    "origin": "Extracted from app.asar / copied from app.asar.unpacked"
+  },
+  {
+    "rel_path": "bin/esptool/esptool",
+    "filename": "esptool",
+    "ext": "",
+    "size": 3897939,
+    "sha256": "f877192586470e4f77382fef219344ad9038213869e302291916d1ad9319d1a7",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted from app.asar / copied from app.asar.unpacked"
+  },
+  {
+    "rel_path": "bin/esptool/esptool-ubuntu-x64",
+    "filename": "esptool-ubuntu-x64",
+    "ext": "",
+    "size": 5453400,
+    "sha256": "b44c2a906f0296e4fa19ca8f2849638748f5cc8eb11039d86f8ec2680861c191",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted from app.asar / copied from app.asar.unpacked"
+  },
+  {
+    "rel_path": "bin/esptool/esptool.py",
+    "filename": "esptool.py",
+    "ext": ".py",
+    "size": 135728,
+    "sha256": "562c0696ffe28198fdd5830f7abb3e4b13d2e989ea3c0449b93449a85ee42197",
+    "is_text": true,
+    "line_count": 2959,
+    "origin": "Extracted from app.asar / copied from app.asar.unpacked"
+  },
+  {
+    "rel_path": "desktop/arduino-board-manager.cjs",
+    "filename": "arduino-board-manager.cjs",
+    "ext": ".cjs",
+    "size": 3289,
+    "sha256": "1fc161d8a50e0d2bbd06a37b76d47edb4926346f1b417099107ab193d39cc35f",
+    "is_text": true,
+    "line_count": 37,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-compile-output.cjs",
+    "filename": "arduino-compile-output.cjs",
+    "ext": ".cjs",
+    "size": 1625,
+    "sha256": "e89abb5b90d9cf1f45ab76a4e21573add1e4f9ec83a2fbf2ff309d63adf89a00",
+    "is_text": true,
+    "line_count": 30,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-components.cjs",
+    "filename": "arduino-components.cjs",
+    "ext": ".cjs",
+    "size": 8095,
+    "sha256": "def3e58e226ad62e741efdb163cc0f3cf279cebbca517115524124fed20875fa",
+    "is_text": true,
+    "line_count": 89,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-components.json",
+    "filename": "arduino-components.json",
+    "ext": ".json",
+    "size": 765,
+    "sha256": "3b20aefaa52ee7536865d5dcf4956255abe12b28ae641f837175ce749280af18",
+    "is_text": true,
+    "line_count": 22,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-download-progress.cjs",
+    "filename": "arduino-download-progress.cjs",
+    "ext": ".cjs",
+    "size": 1049,
+    "sha256": "74b72862b43fda45c7358cb99b023fbbcacacab460cd4e7d81270cdef26e3b1d",
+    "is_text": true,
+    "line_count": 18,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-examples.cjs",
+    "filename": "arduino-examples.cjs",
+    "ext": ".cjs",
+    "size": 2530,
+    "sha256": "b7a842c7af572a51107ad51a282cc4165209232a4562c65ab6db81e8ffa91943",
+    "is_text": true,
+    "line_count": 30,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-formatter.cjs",
+    "filename": "arduino-formatter.cjs",
+    "ext": ".cjs",
+    "size": 1615,
+    "sha256": "9c14c38850645cdc013c5d3a2f1ba8f07e8e46ffbbba39c6c60a274c7c697df5",
+    "is_text": true,
+    "line_count": 19,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-libraries.cjs",
+    "filename": "arduino-libraries.cjs",
+    "ext": ".cjs",
+    "size": 2158,
+    "sha256": "873f4879fa9e6e6ed424bb06a1c7f5af5c3188bc718557524f5ba5ca8e030b10",
+    "is_text": true,
+    "line_count": 24,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-progress.cjs",
+    "filename": "arduino-progress.cjs",
+    "ext": ".cjs",
+    "size": 972,
+    "sha256": "a165db48e91edb94e7f9150516d88e9f924c36dc51070b288b4ebe34980afcbf",
+    "is_text": true,
+    "line_count": 18,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-project-archive.cjs",
+    "filename": "arduino-project-archive.cjs",
+    "ext": ".cjs",
+    "size": 9115,
+    "sha256": "8be7c65ff56c9e8bb8f1c221f2cb0192db77363de5d93d7dbbf23ba1e150926a",
+    "is_text": true,
+    "line_count": 115,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-serial-monitor.cjs",
+    "filename": "arduino-serial-monitor.cjs",
+    "ext": ".cjs",
+    "size": 2024,
+    "sha256": "d8e2e510849581dfb404e5ea405e87edfc5da2965f04be02f8a2a0f755287600",
+    "is_text": true,
+    "line_count": 42,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-service.cjs",
+    "filename": "arduino-service.cjs",
+    "ext": ".cjs",
+    "size": 15393,
+    "sha256": "7179f292e36061e020369eb0af5a8aa67ef36a0368b9ffcc76bc0bba021b126d",
+    "is_text": true,
+    "line_count": 165,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-sim-compiler.cjs",
+    "filename": "arduino-sim-compiler.cjs",
+    "ext": ".cjs",
+    "size": 3902,
+    "sha256": "ba1c9d7fe04495cb6d82d4510f19f755ae26be08a939b3d2bc45da46594431a5",
+    "is_text": true,
+    "line_count": 47,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/arduino-storage.cjs",
+    "filename": "arduino-storage.cjs",
+    "ext": ".cjs",
+    "size": 1368,
+    "sha256": "f86a24d4ad5ddb10386f9c95f166505dcaf56f024ca9caea05dee9d4397ca855",
+    "is_text": true,
+    "line_count": 23,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/cpp-sim/entry.cpp",
+    "filename": "entry.cpp",
+    "ext": ".cpp",
+    "size": 470,
+    "sha256": "6850b6200b5bcf150eb32bf05381cc6f08404aff5d6bea4f8ffb465ce4ff1f19",
+    "is_text": true,
+    "line_count": 10,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/cpp-sim/preprocess.cjs",
+    "filename": "preprocess.cjs",
+    "ext": ".cjs",
+    "size": 2175,
+    "sha256": "4cacd9eb9ce30e0a43f0d0f7cf0b5fc9176b158e7387082d27f9aeec69d338ce",
+    "is_text": true,
+    "line_count": 35,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/cpp-sim/include/Arduino.h",
+    "filename": "Arduino.h",
+    "ext": ".h",
+    "size": 3591,
+    "sha256": "4693629a23a834aae8933206c4c80d155b985ca401d2c5dcf6a428b10211d253",
+    "is_text": true,
+    "line_count": 72,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/cpp-sim/include/atom-boot-logo.h",
+    "filename": "atom-boot-logo.h",
+    "ext": ".h",
+    "size": 144768,
+    "sha256": "70e7b868613252df84734b44816c5db22724f453d689537f021acd4d6db191dc",
+    "is_text": true,
+    "line_count": 644,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/cpp-sim/include/ESP32Encoder.h",
+    "filename": "ESP32Encoder.h",
+    "ext": ".h",
+    "size": 883,
+    "sha256": "79d519fd7ffc80f4c02a105c14a200b4ef7bfe3d87d0adf9033ebd8f2c379f7b",
+    "is_text": true,
+    "line_count": 19,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/cpp-sim/include/Preferences.h",
+    "filename": "Preferences.h",
+    "ext": ".h",
+    "size": 5134,
+    "sha256": "1c3e25e528c626d6d1996be469744823973709371c2818c0f4d1fb1c958a858b",
+    "is_text": true,
+    "line_count": 54,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/cpp-sim/include/PTBOTAtomVX.h",
+    "filename": "PTBOTAtomVX.h",
+    "ext": ".h",
+    "size": 4780,
+    "sha256": "7a346d119984ef724b5bd4a10bebb6d2b188e8607cdbb2f2c5a60d98614be6cc",
+    "is_text": true,
+    "line_count": 88,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/cpp-sim/include/sim-tasks.h",
+    "filename": "sim-tasks.h",
+    "ext": ".h",
+    "size": 1216,
+    "sha256": "13ec4fa7f5ec3aba86b3cb5d4df07ee03967d19bb276947343050ebd8ee94087",
+    "is_text": true,
+    "line_count": 24,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "desktop/cpp-sim/include/Wire.h",
+    "filename": "Wire.h",
+    "ext": ".h",
+    "size": 1041,
+    "sha256": "6256009006c58468bd2a79ed5a357bc48816d9161cbaf17283dc13cfdc51a243",
+    "is_text": true,
+    "line_count": 25,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "extension/.dummy",
+    "filename": ".dummy",
+    "ext": "",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "is_text": true,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/account-config.json",
+    "filename": "account-config.json",
+    "ext": ".json",
+    "size": 42,
+    "sha256": "b7808de79193464fb0ce96db14f1c8da19aef74e51221b897f6ac4e8cb39d4b1",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/arduino-editor.html",
+    "filename": "arduino-editor.html",
+    "ext": ".html",
+    "size": 4323,
+    "sha256": "35809caf43c4a0a083b459c3077aa05961773bfca8d739190a682e823733a173",
+    "is_text": true,
+    "line_count": 3,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/asset-manifest.json",
+    "filename": "asset-manifest.json",
+    "ext": ".json",
+    "size": 127620,
+    "sha256": "2aa242ef2885a7f0ff41967ece22326e1bf3b9717902100526b95b864725778b",
+    "is_text": true,
+    "line_count": 1857,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocksTree.js",
+    "filename": "blocksTree.js",
+    "ext": ".js",
+    "size": 13979,
+    "sha256": "f79ea17a297c1663134864fdc25a151f76a3d7f0d62af79aaabc59ba8ca97a4b",
+    "is_text": true,
+    "line_count": 389,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/build-manifest.mjs",
+    "filename": "build-manifest.mjs",
+    "ext": ".mjs",
+    "size": 5592,
+    "sha256": "0d3b14c2f7ecebc4dbfdb47df39e0b1251ee5d0901ccb6d331c2567ba7ff4977",
+    "is_text": true,
+    "line_count": 166,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/CNAME",
+    "filename": "CNAME",
+    "ext": "",
+    "size": 14,
+    "sha256": "7c30c672e879c621909bd1713ee7e4c6772f450f48d78ac1fbecca1e290bcbf9",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dev.local+5-key.pem",
+    "filename": "dev.local+5-key.pem",
+    "ext": ".pem",
+    "size": 1704,
+    "sha256": "8960344ac581d8e4b8732723b4931d15821d99c6dff24c1c901f59171620ddc8",
+    "is_text": true,
+    "line_count": 28,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dev.local+5.pem",
+    "filename": "dev.local+5.pem",
+    "ext": ".pem",
+    "size": 1627,
+    "sha256": "f76bfae48294d8b86dc9733e2b7750b3ee6ef3aa47f16a19194d423ea93025d0",
+    "is_text": true,
+    "line_count": 27,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/embed.js",
+    "filename": "embed.js",
+    "ext": ".js",
+    "size": 1814,
+    "sha256": "448f0479d7e145142a2621b6c6330bf52caf31ea87e5e83386a94d0566d23402",
+    "is_text": true,
+    "line_count": 55,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/favicon.icns",
+    "filename": "favicon.icns",
+    "ext": ".icns",
+    "size": 83086,
+    "sha256": "a3625e2ee0f2de622555d7d0e328d396ecc76cafebceab8cb7211e28c1e550c1",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/favicon.ico",
+    "filename": "favicon.ico",
+    "ext": ".ico",
+    "size": 94418,
+    "sha256": "bc9b9607f26b92dbf3fd6a1b7d72b2f6f191fdb2bb97eb85445ba9df55da9c0b",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/favicon.png",
+    "filename": "favicon.png",
+    "ext": ".png",
+    "size": 412142,
+    "sha256": "22a799e39952fb4f87279c3d6ad3a6c8cc9214eec359ff3ddd8308ac1498527c",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/firmware.html",
+    "filename": "firmware.html",
+    "ext": ".html",
+    "size": 11454,
+    "sha256": "6f237413592c5c20f5639f64aa4ddb7873850bbbc34a6b0bcfc21fde19e8327e",
+    "is_text": true,
+    "line_count": 241,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/index.html",
+    "filename": "index.html",
+    "ext": ".html",
+    "size": 56115,
+    "sha256": "aa8995307703500105539a663ff8504ef05e606e6c85332775bca90e78a694f5",
+    "is_text": true,
+    "line_count": 1021,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/manifest.json",
+    "filename": "manifest.json",
+    "ext": ".json",
+    "size": 935,
+    "sha256": "d02b0bb4508b342f68fa35250fdd20668c89c823e26566f30c7681f6095cb3b9",
+    "is_text": true,
+    "line_count": 43,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/README.md",
+    "filename": "README.md",
+    "ext": ".md",
+    "size": 738,
+    "sha256": "07ff1c1dc8eaedfc1c2c8f430ce8f6c18c0b149be440e8c24087aee3a7b25e88",
+    "is_text": true,
+    "line_count": 25,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/service-worker.js",
+    "filename": "service-worker.js",
+    "ext": ".js",
+    "size": 6153,
+    "sha256": "69130e2029240592e266b586a8ec4baac752e0b9d1bb89a586325dbf55182769",
+    "is_text": true,
+    "line_count": 104,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/test-embed.html",
+    "filename": "test-embed.html",
+    "ext": ".html",
+    "size": 246,
+    "sha256": "15622d37e7c37d75357ae354798bee046c3dd0e680b130b24068629f702bf6cc",
+    "is_text": true,
+    "line_count": 5,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/blockly_compressed.js",
+    "filename": "blockly_compressed.js",
+    "ext": ".js",
+    "size": 892347,
+    "sha256": "c5f7191d7ed357342107e1ea181727cf094218e033ad3d5049c915b5f4c1c91e",
+    "is_text": true,
+    "line_count": 1651,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/blocks_compressed.js",
+    "filename": "blocks_compressed.js",
+    "ext": ".js",
+    "size": 92048,
+    "sha256": "bb9187af2eea5e0e9d73d32ffb25d3a159b47f1612d8243ff994f5c63aca716c",
+    "is_text": true,
+    "line_count": 200,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/javascript_compressed.js",
+    "filename": "javascript_compressed.js",
+    "ext": ".js",
+    "size": 75012,
+    "sha256": "cc0bfca634828fb1f3bb93b1958e97ef1290c42de7eee2fbd28f178200da052a",
+    "is_text": true,
+    "line_count": 1181,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/javascript_compressed.js.map",
+    "filename": "javascript_compressed.js.map",
+    "ext": ".map",
+    "size": 132716,
+    "sha256": "6c310dbb1acb5b0b174c92a7bcec7536b3c93aab7d5062c13ce537c80f460155",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/javascript_compressed.js_",
+    "filename": "javascript_compressed.js_",
+    "ext": ".js_",
+    "size": 59611,
+    "sha256": "9ffea1c066e35054f20ad61bb5c1d01d5b0b59f66c3f45adaf7bb59ee3f19033",
+    "is_text": true,
+    "line_count": 296,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/python_compressed.js",
+    "filename": "python_compressed.js",
+    "ext": ".js",
+    "size": 54448,
+    "sha256": "f31e175946b738867e55dcbc3872f37b5517a6cd9f81951bc4ca1312101ef3ae",
+    "is_text": true,
+    "line_count": 226,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/1x1.gif",
+    "filename": "1x1.gif",
+    "ext": ".gif",
+    "size": 43,
+    "sha256": "a1d88b2c952b790f5f23473c63ef99473327d02e11ebe174799ad912db08f629",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/click.mp3",
+    "filename": "click.mp3",
+    "ext": ".mp3",
+    "size": 2304,
+    "sha256": "1048f2539ac47e4eaa4bd1688968c0d7b9956bd6fef507644ee5131924c6517c",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/click.ogg",
+    "filename": "click.ogg",
+    "ext": ".ogg",
+    "size": 4865,
+    "sha256": "90f628941d7aa10db43d0eb84fb0975f55b27c5b9130bcfbd6d6e14db20f469b",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/click.wav",
+    "filename": "click.wav",
+    "ext": ".wav",
+    "size": 3782,
+    "sha256": "1c2194a0d12a71d416d97665c437a8b0b0fb83c14b26a5fcd7013089e164845b",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/delete.mp3",
+    "filename": "delete.mp3",
+    "ext": ".mp3",
+    "size": 3123,
+    "sha256": "6ea0afab062cb3ba5409dc65d7a9fdf85d602b1870d231d80bdf3cc5b32432b6",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/delete.ogg",
+    "filename": "delete.ogg",
+    "ext": ".ogg",
+    "size": 5731,
+    "sha256": "b96d6b00dc8d3053eefff8997fed91c81e3710569d47a1214e0321ed1963b664",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/delete.wav",
+    "filename": "delete.wav",
+    "ext": ".wav",
+    "size": 9164,
+    "sha256": "8adfc57da35dd3b6ad65adc67b9cf9f2efebcbd94baaf1671ab320331497abef",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/disconnect.mp3",
+    "filename": "disconnect.mp3",
+    "ext": ".mp3",
+    "size": 1586,
+    "sha256": "849465a8968836ab5b24b68a7289ee76ca1a6a50ba87a295a32efe1e507e3451",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/disconnect.ogg",
+    "filename": "disconnect.ogg",
+    "ext": ".ogg",
+    "size": 4404,
+    "sha256": "63ceb6668890b173166eb207a665d02c1b3a8ff80fc20414ec25ebe1b2e88aac",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/disconnect.wav",
+    "filename": "disconnect.wav",
+    "ext": ".wav",
+    "size": 1492,
+    "sha256": "af6be7442f17223421cc012c59bf72bd5303e2878d0287acb4d0368d3995cf8a",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/dropdown-arrow.svg",
+    "filename": "dropdown-arrow.svg",
+    "ext": ".svg",
+    "size": 569,
+    "sha256": "bc3873b086b25a01c417cb3b5fe61fd7eef360b8f7c85c2c7f7b802a2626faf9",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/handclosed.cur",
+    "filename": "handclosed.cur",
+    "ext": ".cur",
+    "size": 326,
+    "sha256": "4a1637e16f33e1b02f96f699ada695edededfd089530372126d375ad9ed2f0a5",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/handdelete.cur",
+    "filename": "handdelete.cur",
+    "ext": ".cur",
+    "size": 766,
+    "sha256": "e53ef200d76fef617bd2e307a100d778834ad49784f80c1abc6da547e50b8040",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/handopen.cur",
+    "filename": "handopen.cur",
+    "ext": ".cur",
+    "size": 198,
+    "sha256": "d2ec9a81d9a76b0f64b7168e5f05ee660ffb6ba7e35695caaf9851e6b01a04fd",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/pilcrow.png",
+    "filename": "pilcrow.png",
+    "ext": ".png",
+    "size": 1010,
+    "sha256": "4e4aa37ce0c162b0239203e538a7ae8eee706554514ff611cfb3a94baaa66167",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/quote0.png",
+    "filename": "quote0.png",
+    "ext": ".png",
+    "size": 771,
+    "sha256": "a06f7a05d9c86851266e55357090d3af37ff24e116258c94d52c4f436c614c7c",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/quote1.png",
+    "filename": "quote1.png",
+    "ext": ".png",
+    "size": 738,
+    "sha256": "56c52fc75cf7d2926d7502aaa7e95efb46c229aa266306d932795325722aba35",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/sprites.png",
+    "filename": "sprites.png",
+    "ext": ".png",
+    "size": 2595,
+    "sha256": "6be49176dc8bef41c97958e02903c77c5e298b8dc26d2a09905851bfb73cc459",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/media/sprites.svg",
+    "filename": "sprites.svg",
+    "ext": ".svg",
+    "size": 1849,
+    "sha256": "08900e7a52396298a49b5914f695e08a155a58f1054872f0663776a0724be30c",
+    "is_text": true,
+    "line_count": 74,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blockly/msg/en.js",
+    "filename": "en.js",
+    "ext": ".js",
+    "size": 33091,
+    "sha256": "a3e24e7cf8012893c590bd1b990a772af9d4d5eb28615f157b5a70510c4d49d1",
+    "is_text": true,
+    "line_count": 441,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/blocks_advanced.js",
+    "filename": "blocks_advanced.js",
+    "ext": ".js",
+    "size": 12758,
+    "sha256": "4aaba905bf998d45587be1329eb015b12e5c99d7f62b29fe9abe00cabacf294a",
+    "is_text": true,
+    "line_count": 472,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/blocks_controls.js",
+    "filename": "blocks_controls.js",
+    "ext": ".js",
+    "size": 7207,
+    "sha256": "a5e3ef6579c9415fb6a8eb7bec9ad825b14568c94eb665174e6b33115cf0a16c",
+    "is_text": true,
+    "line_count": 319,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/blocks_operators.js",
+    "filename": "blocks_operators.js",
+    "ext": ".js",
+    "size": 7377,
+    "sha256": "2dc1aab646b2e277f0c59582c13516b121952d1a6d24e0e5b9709b4f48ba12c4",
+    "is_text": true,
+    "line_count": 305,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/blocks_pin.js",
+    "filename": "blocks_pin.js",
+    "ext": ".js",
+    "size": 1579,
+    "sha256": "32a5d13ad2a56aae0d6b1ed825cd0fb77fee0703a2320371ad496592216f2c51",
+    "is_text": true,
+    "line_count": 86,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/blocks_procedures.js",
+    "filename": "blocks_procedures.js",
+    "ext": ".js",
+    "size": 1884,
+    "sha256": "8c857598c0869aa45f1b651f59003c54bf4375605e23831b3e1d46df95bf37ee",
+    "is_text": true,
+    "line_count": 41,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/blocks_serial.js",
+    "filename": "blocks_serial.js",
+    "ext": ".js",
+    "size": 2866,
+    "sha256": "0e8b2610bfca1a05c70204fc96024c0a2cf83bb96bc2b395794ad8fb59aea303",
+    "is_text": true,
+    "line_count": 113,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/blocks_text.js",
+    "filename": "blocks_text.js",
+    "ext": ".js",
+    "size": 0,
+    "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+    "is_text": true,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/blocks_text_code.js",
+    "filename": "blocks_text_code.js",
+    "ext": ".js",
+    "size": 1146,
+    "sha256": "79a58501fa7747c944f7fc4fff8700c7601ee6f3f91974814c664ebcd9f99c29",
+    "is_text": true,
+    "line_count": 37,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/blocks_variables.js",
+    "filename": "blocks_variables.js",
+    "ext": ".js",
+    "size": 3748,
+    "sha256": "f773724de560d89ae5eca9f763eb8e03a4beda09888a7a68991dfea4aeda2634",
+    "is_text": true,
+    "line_count": 118,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/generators_avanced.js",
+    "filename": "generators_avanced.js",
+    "ext": ".js",
+    "size": 9698,
+    "sha256": "7154743aaba1270a8552d235f14d86cb9379307886a50a1c7ac56a13de7a48fd",
+    "is_text": true,
+    "line_count": 253,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/generators_controls.js",
+    "filename": "generators_controls.js",
+    "ext": ".js",
+    "size": 10745,
+    "sha256": "12280a3a902882f4d94fe7b3702e4299c8478550369df6fdfd725b18aaf5e7af",
+    "is_text": true,
+    "line_count": 268,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/generators_operators.js",
+    "filename": "generators_operators.js",
+    "ext": ".js",
+    "size": 5569,
+    "sha256": "2a86a10bb7edf6ef08902714520cdf9d2bb4f08d4668c1464a3d69311eef94a7",
+    "is_text": true,
+    "line_count": 141,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/generators_pin.js",
+    "filename": "generators_pin.js",
+    "ext": ".js",
+    "size": 1972,
+    "sha256": "c76f8d40fc8f8d3ee68715d2ac566ee50cc6668b846b79cd30a7d0133fbe6c47",
+    "is_text": true,
+    "line_count": 44,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/generators_procedures.js",
+    "filename": "generators_procedures.js",
+    "ext": ".js",
+    "size": 8825,
+    "sha256": "d2025a6a176df4c278efd2553958cf812025d034b2bcf3f563a7076017ee8ddf",
+    "is_text": true,
+    "line_count": 196,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/generators_serial.js",
+    "filename": "generators_serial.js",
+    "ext": ".js",
+    "size": 1639,
+    "sha256": "2b1dfb812949245bfea2da5ddc1f508df9bc988b2fc3b1710515461b2a6928dd",
+    "is_text": true,
+    "line_count": 47,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/generators_text.js",
+    "filename": "generators_text.js",
+    "ext": ".js",
+    "size": 1057,
+    "sha256": "fdf7e404617d5dae258b6b8301d5e42cb7fca524867c3c06078eca66bace313d",
+    "is_text": true,
+    "line_count": 31,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/generators_text_code.js",
+    "filename": "generators_text_code.js",
+    "ext": ".js",
+    "size": 3584,
+    "sha256": "bccc2242785e00ac351cafd2b5de5466a83776538918e656b5be8045cdcc579b",
+    "is_text": true,
+    "line_count": 88,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/blocks/generators_variables.js",
+    "filename": "generators_variables.js",
+    "ext": ".js",
+    "size": 2061,
+    "sha256": "3eb477f43232eaec20f612d56d001cb4fdc4a5112931c4e76d9f5805e93b58b6",
+    "is_text": true,
+    "line_count": 35,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/index.js",
+    "filename": "index.js",
+    "ext": ".js",
+    "size": 207,
+    "sha256": "647516103b39e99cffe32533ab509442a60d18a56488ee396320dbd0350e8d5a",
+    "is_text": true,
+    "line_count": 8,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-mini/index.js",
+    "filename": "index.js",
+    "ext": ".js",
+    "size": 324,
+    "sha256": "bc0e29b37d3eb77415f790f2647d88d6392c0320657ec3298e332a1951ea4f9f",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-mini/placeholder.svg",
+    "filename": "placeholder.svg",
+    "ext": ".svg",
+    "size": 548,
+    "sha256": "83d58e9072fd79f91b34237b996c51df42326efc53d826fd68e8b2bbf10ab486",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/index.js",
+    "filename": "index.js",
+    "ext": ".js",
+    "size": 104278,
+    "sha256": "7ab80e8a1fd842d47d9822b44dd9ccdf55f76c96f2be99753a4e3e62f2f61111",
+    "is_text": true,
+    "line_count": 2046,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/blocks_advanced.js",
+    "filename": "blocks_advanced.js",
+    "ext": ".js",
+    "size": 360,
+    "sha256": "a3862250f2319a150bcab103913b6877f5590b4c46ed106e506646d384bdde3f",
+    "is_text": true,
+    "line_count": 14,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/blocks_display.js",
+    "filename": "blocks_display.js",
+    "ext": ".js",
+    "size": 6794,
+    "sha256": "6c419a0a53e2d4137b82bd0184c744f1f17264c62a8e291260b5bf4599598dda",
+    "is_text": true,
+    "line_count": 306,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/blocks_gamepad.js",
+    "filename": "blocks_gamepad.js",
+    "ext": ".js",
+    "size": 7520,
+    "sha256": "7a8a08bea6e22f6bccecdd5a7190bb44e4dac87c1fd1ed3dd43d529d09a60d1d",
+    "is_text": true,
+    "line_count": 340,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/blocks_io.js",
+    "filename": "blocks_io.js",
+    "ext": ".js",
+    "size": 11486,
+    "sha256": "1cad38a28a4ace4e35cabcb15e136103a9410923f7a916955bb1a8ba081bc0fd",
+    "is_text": true,
+    "line_count": 458,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/blocks_line_follower.js",
+    "filename": "blocks_line_follower.js",
+    "ext": ".js",
+    "size": 17878,
+    "sha256": "9c4df673160d25f3cf3b8a5c9dcc39bcdc2cd71b3e9e56b72ebd87f21b5738a5",
+    "is_text": true,
+    "line_count": 596,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/blocks_micro_ros.js",
+    "filename": "blocks_micro_ros.js",
+    "ext": ".js",
+    "size": 11704,
+    "sha256": "1d26d4b1e359a737940db49572ad096506c0424463867669508d7a207b3a06b3",
+    "is_text": true,
+    "line_count": 535,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/blocks_motor.js",
+    "filename": "blocks_motor.js",
+    "ext": ".js",
+    "size": 20513,
+    "sha256": "b536275e2c5f43b64ad6a43bd501f1b2d51c74a14a843233a484b2c9ea6a4929",
+    "is_text": true,
+    "line_count": 895,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/blocks_sensor.js",
+    "filename": "blocks_sensor.js",
+    "ext": ".js",
+    "size": 10687,
+    "sha256": "48ac492af8a9b0dcd41ba9a010e1d91f2d37fa07e01f0f42b7a100bdd379a8e4",
+    "is_text": true,
+    "line_count": 487,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/blocks_servo.js",
+    "filename": "blocks_servo.js",
+    "ext": ".js",
+    "size": 1067,
+    "sha256": "f1a060abbe086c30226871a497bf03a8a8dc0f67507af4c4062128274802db9e",
+    "is_text": true,
+    "line_count": 38,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/generators_avanced.js",
+    "filename": "generators_avanced.js",
+    "ext": ".js",
+    "size": 1902,
+    "sha256": "0301396c0ff4652df7f8d8a8c43a1f8d041dc2e8b13fec4765aec1b034d9b757",
+    "is_text": true,
+    "line_count": 53,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/generators_display.js",
+    "filename": "generators_display.js",
+    "ext": ".js",
+    "size": 4256,
+    "sha256": "69e73854116eb4b435560a1fe11c21149f00c693caeb76fe0fd2d5a4cf620021",
+    "is_text": true,
+    "line_count": 81,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/generators_gamepad.js",
+    "filename": "generators_gamepad.js",
+    "ext": ".js",
+    "size": 4489,
+    "sha256": "805a494f3b0d9309c38721a5a7d6985bd8739b07385d7f1f2bfad70aa3df72bd",
+    "is_text": true,
+    "line_count": 132,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/generators_io.js",
+    "filename": "generators_io.js",
+    "ext": ".js",
+    "size": 5977,
+    "sha256": "3950566db1de35d3025c8b3df6f29cb694e65447e25e87ed489a7057682085d9",
+    "is_text": true,
+    "line_count": 173,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/generators_line_follower.js",
+    "filename": "generators_line_follower.js",
+    "ext": ".js",
+    "size": 11053,
+    "sha256": "9952c236219a6a401aee6c837e6e6332b6d04d4896911c659d858c2d30a09d11",
+    "is_text": true,
+    "line_count": 214,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/generators_micro_ros.js",
+    "filename": "generators_micro_ros.js",
+    "ext": ".js",
+    "size": 23362,
+    "sha256": "ee2bf51f433a00e9f17fc854c32bc9c0226f4f222f50caadd7975c9fd15d21ea",
+    "is_text": true,
+    "line_count": 507,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/generators_motor.js",
+    "filename": "generators_motor.js",
+    "ext": ".js",
+    "size": 14483,
+    "sha256": "5ea47de2956f8b6c78ff17af3a00689190ca77ca505425cbb44037b8f5fa5512",
+    "is_text": true,
+    "line_count": 285,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/generators_sensor.js",
+    "filename": "generators_sensor.js",
+    "ext": ".js",
+    "size": 5152,
+    "sha256": "f944722c58e52f91206b909e1b652b7eee7f64eef6e078921cfb7b05d7eebc1c",
+    "is_text": true,
+    "line_count": 150,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/blocks/generators_servo.js",
+    "filename": "generators_servo.js",
+    "ext": ".js",
+    "size": 412,
+    "sha256": "030ce2282bac4d4cb4c87640dc082397d443ecdb6db6e6c904e4554f8351b2a0",
+    "is_text": true,
+    "line_count": 10,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/css/field_display.css",
+    "filename": "field_display.css",
+    "ext": ".css",
+    "size": 2068,
+    "sha256": "3cbb24499da1afc854e3b3f45a0e39e543e6754ba48427f64c57128936e40445",
+    "is_text": true,
+    "line_count": 95,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/connector.png",
+    "filename": "connector.png",
+    "ext": ".png",
+    "size": 999085,
+    "sha256": "8e301e394bbb509629ad59f1a6bf19361a46493e8a02f98ef270a99315fa5cf7",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/cover.jpg",
+    "filename": "cover.jpg",
+    "ext": ".jpg",
+    "size": 55751,
+    "sha256": "d8d8b6a5717d253098733eaa39f53d7c560c4d8513d413e7e694834bf71e9a74",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/display.png",
+    "filename": "display.png",
+    "ext": ".png",
+    "size": 868684,
+    "sha256": "0e00a146a4fff2fb2f523354afef94d06f339763dd3f7d21cea30a90d3b99983",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/gamepad.png",
+    "filename": "gamepad.png",
+    "ext": ".png",
+    "size": 484670,
+    "sha256": "5c63c7f0031f7072dd6d01bfa9abf42dc49717c99d603a7dd8a6c09938b4c449",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/line_center.png",
+    "filename": "line_center.png",
+    "ext": ".png",
+    "size": 6269,
+    "sha256": "ee4a9ddf45e951397aef0257dbd0b66c67c0486516e6b232624b9c957c65c989",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/line_follower.png",
+    "filename": "line_follower.png",
+    "ext": ".png",
+    "size": 380218,
+    "sha256": "980d89a395ed245dce3ba07ae6c46b1c9638caee11d1c9527f3166729e68b0c7",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/line_left.png",
+    "filename": "line_left.png",
+    "ext": ".png",
+    "size": 6268,
+    "sha256": "89f096f4d00607d7c816d7d7cbf0149b070d349d0edc9d80ee95ff9e0a1fc698",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/line_right.png",
+    "filename": "line_right.png",
+    "ext": ".png",
+    "size": 6265,
+    "sha256": "c2f0fd432043273262f83e798ea00715e22e3dcc981b4116f68bef6f525c17d5",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/micro_ros.png",
+    "filename": "micro_ros.png",
+    "ext": ".png",
+    "size": 101268,
+    "sha256": "7559532068e2d938b0733d12472d40ab48de5222381dedde7d200da7e291bc84",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/micro_ros_icon.png",
+    "filename": "micro_ros_icon.png",
+    "ext": ".png",
+    "size": 4471,
+    "sha256": "74f31f9381b78a9c393b129a7f8d32a7602900b7182cc5ea426a2b1e60787f9d",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/motor.png",
+    "filename": "motor.png",
+    "ext": ".png",
+    "size": 101208,
+    "sha256": "5b6569bba7fba39d19585e583556ddeddc9610230d8ce1f6882aa528982d06d6",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/images/sensor.png",
+    "filename": "sensor.png",
+    "ext": ".png",
+    "size": 363024,
+    "sha256": "82c8281ec39ae94a94ca12010560de8c029cf173a7df0cc7774e2b9f01a4106c",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/js/field_display.js",
+    "filename": "field_display.js",
+    "ext": ".js",
+    "size": 21495,
+    "sha256": "8f3e88ff7d2b9beea0310faad3707b4a099c5b47c816a07179aaea037d9e7a3f",
+    "is_text": true,
+    "line_count": 305,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/models/PT-BOT_Atom_VX.glb",
+    "filename": "PT-BOT_Atom_VX.glb",
+    "ext": ".glb",
+    "size": 6537284,
+    "sha256": "553600d456e4b5888af5e8096a3fc23adbd1e4f4b452a777c3d696f68767067c",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/package/board.json",
+    "filename": "board.json",
+    "ext": ".json",
+    "size": 4433,
+    "sha256": "21a49bf3bbf65844bba6b361c2b96e75027375f846a66263982811b6cc51695a",
+    "is_text": true,
+    "line_count": 256,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/package/model.glb",
+    "filename": "model.glb",
+    "ext": ".glb",
+    "size": 6537284,
+    "sha256": "553600d456e4b5888af5e8096a3fc23adbd1e4f4b452a777c3d696f68767067c",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/package/product.json",
+    "filename": "product.json",
+    "ext": ".json",
+    "size": 18335,
+    "sha256": "51b13b97e3b0b2b38be0fefe1a0cc85c4f8c8d1212f3f41eac09175a7da67ec0",
+    "is_text": true,
+    "line_count": 950,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/package/thumbnail.png",
+    "filename": "thumbnail.png",
+    "ext": ".png",
+    "size": 26006,
+    "sha256": "e33da099d55a0514f3f3cdfb6f44d0e50d2b85cf42e984ca4f1501a65538ce3a",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/package/assets/553600d456e4b5888af5e8096a3fc23adbd1e4f4b452a777c3d696f68767067c.glb",
+    "filename": "553600d456e4b5888af5e8096a3fc23adbd1e4f4b452a777c3d696f68767067c.glb",
+    "ext": ".glb",
+    "size": 6537284,
+    "sha256": "553600d456e4b5888af5e8096a3fc23adbd1e4f4b452a777c3d696f68767067c",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/package/assets/main.glb",
+    "filename": "main.glb",
+    "ext": ".glb",
+    "size": 6537284,
+    "sha256": "553600d456e4b5888af5e8096a3fc23adbd1e4f4b452a777c3d696f68767067c",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/package/textures/Bottom.png",
+    "filename": "Bottom.png",
+    "ext": ".png",
+    "size": 565583,
+    "sha256": "d1247a0bd9f6c60705d2ba309f74436f03a786a5747fee7d1a538a6c394146ae",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/package/textures/Top.png",
+    "filename": "Top.png",
+    "ext": ".png",
+    "size": 764814,
+    "sha256": "17554fdbf398c7c54ede5e44ad4bb9479a573a73b8cbf72cdd53b782f961c011",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/textures/Bottom.png",
+    "filename": "Bottom.png",
+    "ext": ".png",
+    "size": 565583,
+    "sha256": "d1247a0bd9f6c60705d2ba309f74436f03a786a5747fee7d1a538a6c394146ae",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/atom-vx/textures/Top.png",
+    "filename": "Top.png",
+    "ext": ".png",
+    "size": 764814,
+    "sha256": "17554fdbf398c7c54ede5e44ad4bb9479a573a73b8cbf72cdd53b782f961c011",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/index.js",
+    "filename": "index.js",
+    "ext": ".js",
+    "size": 68463,
+    "sha256": "dfb627cc274cbbccb1df9568319c8f7f7f3fa585cb2f8aea9348d5772956b2ec",
+    "is_text": true,
+    "line_count": 1377,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/blocks_advanced.js",
+    "filename": "blocks_advanced.js",
+    "ext": ".js",
+    "size": 360,
+    "sha256": "a3862250f2319a150bcab103913b6877f5590b4c46ed106e506646d384bdde3f",
+    "is_text": true,
+    "line_count": 14,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/blocks_display.js",
+    "filename": "blocks_display.js",
+    "ext": ".js",
+    "size": 6278,
+    "sha256": "6a1161f174d72af2e6958a1bf9e41ce69cc0f7c896ed93439560d50b94bf8fb9",
+    "is_text": true,
+    "line_count": 279,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/blocks_io.js",
+    "filename": "blocks_io.js",
+    "ext": ".js",
+    "size": 8813,
+    "sha256": "f8126443ad0b45e87e1af791cdde2dad9eb59664d3116d95dc9a082b133c7411",
+    "is_text": true,
+    "line_count": 355,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/blocks_line_follower.js",
+    "filename": "blocks_line_follower.js",
+    "ext": ".js",
+    "size": 13632,
+    "sha256": "50897507c3f51efc373a3ea0f2fe42366cf3db9af724ae62525e7938264212cd",
+    "is_text": true,
+    "line_count": 471,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/blocks_motor.js",
+    "filename": "blocks_motor.js",
+    "ext": ".js",
+    "size": 14151,
+    "sha256": "0b6285add588431c9129fdd6f8e52503cd1bdd088e38508f1dc5d0202f033e62",
+    "is_text": true,
+    "line_count": 620,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/blocks_sensor.js",
+    "filename": "blocks_sensor.js",
+    "ext": ".js",
+    "size": 3519,
+    "sha256": "839a4078f5a34bd9db98ccf51e2abb58c90ba4003094bacc1838303735233268",
+    "is_text": true,
+    "line_count": 159,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/blocks_servo.js",
+    "filename": "blocks_servo.js",
+    "ext": ".js",
+    "size": 1035,
+    "sha256": "f85899defc3ecb2ab3aab2f302a9f9c3ed76842355333f8749ec80838ad782b2",
+    "is_text": true,
+    "line_count": 37,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/generators_avanced.js",
+    "filename": "generators_avanced.js",
+    "ext": ".js",
+    "size": 1902,
+    "sha256": "0301396c0ff4652df7f8d8a8c43a1f8d041dc2e8b13fec4765aec1b034d9b757",
+    "is_text": true,
+    "line_count": 53,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/generators_display.js",
+    "filename": "generators_display.js",
+    "ext": ".js",
+    "size": 3796,
+    "sha256": "f4764797ea671c60341e11f35c7ddc81c2a66f0820a6e94ed27307c7bf9274c7",
+    "is_text": true,
+    "line_count": 70,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/generators_io.js",
+    "filename": "generators_io.js",
+    "ext": ".js",
+    "size": 7281,
+    "sha256": "6ae89cbcf35060199929866dc3f4cb2999e993df0077642ba80e6c8047532833",
+    "is_text": true,
+    "line_count": 196,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/generators_line_follower.js",
+    "filename": "generators_line_follower.js",
+    "ext": ".js",
+    "size": 8657,
+    "sha256": "b9cc51a5276695ba324f75db0a629bb019fdea7066f4a76548943d3f5eefab92",
+    "is_text": true,
+    "line_count": 156,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/generators_motor.js",
+    "filename": "generators_motor.js",
+    "ext": ".js",
+    "size": 7203,
+    "sha256": "bf8d553a846fbfaa9c1d0ca5108892122cae0691ebc4c5049dfe120ae0d3cf44",
+    "is_text": true,
+    "line_count": 131,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/generators_sensor.js",
+    "filename": "generators_sensor.js",
+    "ext": ".js",
+    "size": 1505,
+    "sha256": "6177ebbb7a1c32f7f9f37b47177884865fb3de26897ab6696376a7fa80e76b44",
+    "is_text": true,
+    "line_count": 37,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/blocks/generators_servo.js",
+    "filename": "generators_servo.js",
+    "ext": ".js",
+    "size": 351,
+    "sha256": "7edc3f2b508d3a428bbc095b306977280cd03d4afee01ec6dde2831f07103bf2",
+    "is_text": true,
+    "line_count": 9,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/css/field_display.css",
+    "filename": "field_display.css",
+    "ext": ".css",
+    "size": 2066,
+    "sha256": "811ce40615c0d9a6a36a522e2a881141561a2067c30b51acb9bcda1c019406c8",
+    "is_text": true,
+    "line_count": 95,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/images/connector.png",
+    "filename": "connector.png",
+    "ext": ".png",
+    "size": 999085,
+    "sha256": "8e301e394bbb509629ad59f1a6bf19361a46493e8a02f98ef270a99315fa5cf7",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/images/cover.jpg",
+    "filename": "cover.jpg",
+    "ext": ".jpg",
+    "size": 43931,
+    "sha256": "0259789ed4363176eaa281cebf62d63c872d25cbe485c7168adc5615771efe19",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/images/display.png",
+    "filename": "display.png",
+    "ext": ".png",
+    "size": 868684,
+    "sha256": "0e00a146a4fff2fb2f523354afef94d06f339763dd3f7d21cea30a90d3b99983",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/images/line_center.png",
+    "filename": "line_center.png",
+    "ext": ".png",
+    "size": 6269,
+    "sha256": "ee4a9ddf45e951397aef0257dbd0b66c67c0486516e6b232624b9c957c65c989",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/images/line_follower.png",
+    "filename": "line_follower.png",
+    "ext": ".png",
+    "size": 380218,
+    "sha256": "980d89a395ed245dce3ba07ae6c46b1c9638caee11d1c9527f3166729e68b0c7",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/images/line_left.png",
+    "filename": "line_left.png",
+    "ext": ".png",
+    "size": 6268,
+    "sha256": "89f096f4d00607d7c816d7d7cbf0149b070d349d0edc9d80ee95ff9e0a1fc698",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/images/line_right.png",
+    "filename": "line_right.png",
+    "ext": ".png",
+    "size": 6265,
+    "sha256": "c2f0fd432043273262f83e798ea00715e22e3dcc981b4116f68bef6f525c17d5",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/images/motor.png",
+    "filename": "motor.png",
+    "ext": ".png",
+    "size": 101208,
+    "sha256": "5b6569bba7fba39d19585e583556ddeddc9610230d8ce1f6882aa528982d06d6",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/images/sensor.png",
+    "filename": "sensor.png",
+    "ext": ".png",
+    "size": 363024,
+    "sha256": "82c8281ec39ae94a94ca12010560de8c029cf173a7df0cc7774e2b9f01a4106c",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/buildbot/js/field_display.js",
+    "filename": "field_display.js",
+    "ext": ".js",
+    "size": 22982,
+    "sha256": "a966e44ed342ef45e7c0fd77ac4fb3ad1ae9b075f8247ad551a7b29ba16ac715",
+    "is_text": true,
+    "line_count": 322,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/strom-mini/index.js",
+    "filename": "index.js",
+    "ext": ".js",
+    "size": 326,
+    "sha256": "9821c45ea0ff2005faa8278eec8f8ad9020fa2c7cd45beebbe20c0085f066f40",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/boards/strom-mini/placeholder.svg",
+    "filename": "placeholder.svg",
+    "ext": ".svg",
+    "size": 548,
+    "sha256": "83d58e9072fd79f91b34237b996c51df42326efc53d826fd68e8b2bbf10ab486",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/account.css",
+    "filename": "account.css",
+    "ext": ".css",
+    "size": 11964,
+    "sha256": "420d3fbbac1f60ba806ab1da0a562f7d9192b8269beae1b75b0bc14bbcf0ad2a",
+    "is_text": true,
+    "line_count": 73,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/animate.min.css",
+    "filename": "animate.min.css",
+    "ext": ".css",
+    "size": 71760,
+    "sha256": "a1fcab9f2085f4bd9fa30f4db4c8f4484f6b72fdbac396960ecefa6a435068f4",
+    "is_text": true,
+    "line_count": 9,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/arduino-downloads.css",
+    "filename": "arduino-downloads.css",
+    "ext": ".css",
+    "size": 4892,
+    "sha256": "96815e86ce2c671361959925cc85870378d36a2b5872630be36acad81997279f",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/arduino-library-manager.css",
+    "filename": "arduino-library-manager.css",
+    "ext": ".css",
+    "size": 3703,
+    "sha256": "16a93fd52a39119197d915459cc4c737a0cf0c83269b6c47390c08e8e0c89794",
+    "is_text": true,
+    "line_count": 24,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/arduino-workspace.css",
+    "filename": "arduino-workspace.css",
+    "ext": ".css",
+    "size": 12868,
+    "sha256": "66020797952b60e780b549ad3100dbe003d92d2a3a0f4c91ed516fe8975165c8",
+    "is_text": true,
+    "line_count": 106,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/code-editor-theme.css",
+    "filename": "code-editor-theme.css",
+    "ext": ".css",
+    "size": 2212,
+    "sha256": "4b41cccd25bf0b51620db0b41e428299c618176ee8e1e91c24846559e511d4d3",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/control-focus.css",
+    "filename": "control-focus.css",
+    "ext": ".css",
+    "size": 545,
+    "sha256": "17fa008a0363d208e8cf22d7973ad5b70211d9c2ab91070ad1ccbbb7805a9064",
+    "is_text": true,
+    "line_count": 7,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/hand-cursors.css",
+    "filename": "hand-cursors.css",
+    "ext": ".css",
+    "size": 1133,
+    "sha256": "7a4efeeed717e69cbced08834e3579473cf98c65c57225f718ae6e7ff4beb161",
+    "is_text": true,
+    "line_count": 29,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/install.css",
+    "filename": "install.css",
+    "ext": ".css",
+    "size": 3041,
+    "sha256": "75a1c0fce41e314eb909257c611a8e1d297dde8138cfa84ce71f0742be1b2418",
+    "is_text": true,
+    "line_count": 19,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/note.css",
+    "filename": "note.css",
+    "ext": ".css",
+    "size": 5133,
+    "sha256": "3e81c760b827c88dd232e90add119cc5ea7d363e1644d5d5ceccb54b9a03615f",
+    "is_text": true,
+    "line_count": 265,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/python-workspace.css",
+    "filename": "python-workspace.css",
+    "ext": ".css",
+    "size": 2791,
+    "sha256": "19453036da2d37aca321b9788c7581d04a0fcee8e318b66f65cd7d8cd7c0c251",
+    "is_text": true,
+    "line_count": 18,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/simulator.css",
+    "filename": "simulator.css",
+    "ext": ".css",
+    "size": 1203,
+    "sha256": "8353a74ab15f1b56cdba58d9f844ab614524e7c9ff770214671bc32572f2fb6e",
+    "is_text": true,
+    "line_count": 65,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/style.css",
+    "filename": "style.css",
+    "ext": ".css",
+    "size": 156771,
+    "sha256": "b836006a62eb8408bb60805fdf9a32221b41ba81a1cda566a3c11b41df711ef0",
+    "is_text": true,
+    "line_count": 4079,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/styled-select.css",
+    "filename": "styled-select.css",
+    "ext": ".css",
+    "size": 2112,
+    "sha256": "5bd696cca14c6f2c71915f70ff58ba42f4b91463cec1e5798ad221ca13918ad2",
+    "is_text": true,
+    "line_count": 9,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/tool-windows.css",
+    "filename": "tool-windows.css",
+    "ext": ".css",
+    "size": 10539,
+    "sha256": "0babf8da6d6e9d6ef3347ce290292792e7a08252fcd742da0fd3ac5101a77222",
+    "is_text": true,
+    "line_count": 86,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/css/update-dialogs.css",
+    "filename": "update-dialogs.css",
+    "ext": ".css",
+    "size": 9915,
+    "sha256": "b02ae8a7eba31d307b2f0b44ac51124fd50efc469c6a59567adb5b5e28ee729d",
+    "is_text": true,
+    "line_count": 71,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/asset-manifest.json",
+    "filename": "asset-manifest.json",
+    "ext": ".json",
+    "size": 540,
+    "sha256": "816146c82c33bcd7ced0bac9012fab4253fb37dc7d7a9613f55b1c1eb1c2b0c9",
+    "is_text": true,
+    "line_count": 23,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/index.html",
+    "filename": "index.html",
+    "ext": ".html",
+    "size": 2074,
+    "sha256": "4d4c01d8cc18a4c1290897afcccf649f53576c7c9592c1eea774856ee93488a5",
+    "is_text": true,
+    "line_count": 71,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/3D-model/sample-airplane.glb",
+    "filename": "sample-airplane.glb",
+    "ext": ".glb",
+    "size": 18660,
+    "sha256": "bddac1bb18f90c4bd4f6004541371fab46aae058bfeb9b800ee9ea316f490940",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/css/compass.css",
+    "filename": "compass.css",
+    "ext": ".css",
+    "size": 2069,
+    "sha256": "57b9274ae60be60d9e512167e6a1eb192e181009925795ebc03464935025fb52",
+    "is_text": true,
+    "line_count": 121,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/css/OverlayScrollbars.min.css",
+    "filename": "OverlayScrollbars.min.css",
+    "ext": ".css",
+    "size": 20011,
+    "sha256": "6de9462026c3b42e3fcc9964b818399ba0c676e02d3ca100a185013d4c912033",
+    "is_text": true,
+    "line_count": 13,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/css/style.css",
+    "filename": "style.css",
+    "ext": ".css",
+    "size": 9002,
+    "sha256": "4e73e88a21dbfca1bdea0388513c9fc27f1e0a8e1d576d9b387711bd2f93c043",
+    "is_text": true,
+    "line_count": 437,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/images/light-bulb.off.svg",
+    "filename": "light-bulb.off.svg",
+    "ext": ".svg",
+    "size": 20221,
+    "sha256": "c9b7634780b1f6fe26484d7b3ee6d83fe3cdec1f7f32882647b821304e9aefa5",
+    "is_text": true,
+    "line_count": 741,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/images/light-bulb.on.svg",
+    "filename": "light-bulb.on.svg",
+    "ext": ".svg",
+    "size": 2385,
+    "sha256": "f2ee969c6c089be34d6d17fa9a9344d020dce5e3c522225cc637d97ae7292828",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/images/microBlock Logo-microText.gray.svg",
+    "filename": "microBlock Logo-microText.gray.svg",
+    "ext": ".svg",
+    "size": 9073,
+    "sha256": "aae9d6a0ec725a2935bc6f1379c6b8a906d0b20ba3e5f7333c5664d7c0de53ef",
+    "is_text": true,
+    "line_count": 120,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/js/app.js",
+    "filename": "app.js",
+    "ext": ".js",
+    "size": 12913,
+    "sha256": "ca74743a88d5cb69f38d3f014fd4c36916e82c0375f8493a1695ac48aced6219",
+    "is_text": true,
+    "line_count": 382,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/js/Chart.bundle.min.js",
+    "filename": "Chart.bundle.min.js",
+    "ext": ".js",
+    "size": 226503,
+    "sha256": "0acce7e17f17f0bb7efbcac8a2bdd97373d81886d5952d8078eed590d0bfc0f6",
+    "is_text": true,
+    "line_count": 7,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/js/Game.js",
+    "filename": "Game.js",
+    "ext": ".js",
+    "size": 9435,
+    "sha256": "af1da0605d4a5716b0c8f4818c2a17e0c5106b65a77c95103a1412aadc8350e6",
+    "is_text": true,
+    "line_count": 250,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/js/gauge.js",
+    "filename": "gauge.js",
+    "ext": ".js",
+    "size": 11450,
+    "sha256": "eaa7a4c91726f7f6b8718bd6d164f247b06d02831840ef0a4ab360c219b3ea54",
+    "is_text": true,
+    "line_count": 347,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/js/GLTFLoader.js",
+    "filename": "GLTFLoader.js",
+    "ext": ".js",
+    "size": 100921,
+    "sha256": "399fbdb4e14bdfa9ae1f1c0b084f36b151c3902b1d22aab7a2c1b4fb91dd4ecb",
+    "is_text": true,
+    "line_count": 3876,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/js/moment-with-locales.min.js",
+    "filename": "moment-with-locales.min.js",
+    "ext": ".js",
+    "size": 369177,
+    "sha256": "f75e854d2cfa3a479d435e57a9986b184f2e5e78030e4bb1c87648729b839675",
+    "is_text": true,
+    "line_count": 2,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/js/OrbitControls.js",
+    "filename": "OrbitControls.js",
+    "ext": ".js",
+    "size": 27199,
+    "sha256": "29057db93ec34889e0c7ca7779f0947a7b1766482ac109a331ab3f20cd3fc48f",
+    "is_text": true,
+    "line_count": 1220,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/js/OverlayScrollbars.min.js",
+    "filename": "OverlayScrollbars.min.js",
+    "ext": ".js",
+    "size": 53787,
+    "sha256": "b99b1c2beffd137c202a7716cbce2b9a0605bd13791bb2500eb616245142341c",
+    "is_text": true,
+    "line_count": 13,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/js/three.min.js",
+    "filename": "three.min.js",
+    "ext": ".js",
+    "size": 652700,
+    "sha256": "7250b56d8f398d4c49770be99379413f03afe67b342ce7a6ef62c48419594729",
+    "is_text": true,
+    "line_count": 2,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/dashboard/js/widget.js",
+    "filename": "widget.js",
+    "ext": ".js",
+    "size": 15671,
+    "sha256": "2a2ec5444d8daf57438c8b3808f5d3c811c11a76c680cf41f7460f196b580915",
+    "is_text": true,
+    "line_count": 420,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/atom-vx-display-buttons.mby",
+    "filename": "atom-vx-display-buttons.mby",
+    "ext": ".mby",
+    "size": 1270193,
+    "sha256": "61078cc1b9a12bcf6409b4226000523fdd21be42f947d6f9e434cd039bd9d143",
+    "is_text": true,
+    "line_count": 39255,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/atom-vx-four-motors.mby",
+    "filename": "atom-vx-four-motors.mby",
+    "ext": ".mby",
+    "size": 1266168,
+    "sha256": "faf44c9c08ecd18658618d4e2ef24b50556caaaedd237367737773132b40b967",
+    "is_text": true,
+    "line_count": 39253,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/atom-vx-hello.mby",
+    "filename": "atom-vx-hello.mby",
+    "ext": ".mby",
+    "size": 832,
+    "sha256": "1b6ccb11382d8782a8a3b8509c1e935d6f0a6616cda008a2cfc6ca746563e9bd",
+    "is_text": true,
+    "line_count": 9,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/atom-vx-line-stop.mby",
+    "filename": "atom-vx-line-stop.mby",
+    "ext": ".mby",
+    "size": 1266831,
+    "sha256": "c99955d69140b1b41054cfcc242e0cd783ae98c7a0dacb435e389a6e355d4b7a",
+    "is_text": true,
+    "line_count": 39261,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/atom-vx-millis.mby",
+    "filename": "atom-vx-millis.mby",
+    "ext": ".mby",
+    "size": 790,
+    "sha256": "c96df553e452b7d9a61b005446a38bf6d8ae935142e52cd043883847a041f0ba",
+    "is_text": true,
+    "line_count": 9,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/atom-vx-motors.mby",
+    "filename": "atom-vx-motors.mby",
+    "ext": ".mby",
+    "size": 1267070,
+    "sha256": "5e1693f20729501aca1065f5ea2a3c4475caacb0900e0ccaa50f22f9c5c02251",
+    "is_text": true,
+    "line_count": 39255,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/atom-vx-rescue-five-points.mby",
+    "filename": "atom-vx-rescue-five-points.mby",
+    "ext": ".mby",
+    "size": 1310401,
+    "sha256": "0dfc81916f46b19c2a28bc6e315a15b87ece428791a8a5b9022c9e053410e957",
+    "is_text": true,
+    "line_count": 39271,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/atom-vx-sensors.mby",
+    "filename": "atom-vx-sensors.mby",
+    "ext": ".mby",
+    "size": 1265663,
+    "sha256": "9c786724fe5ebb29e3918ac51e311adbae7403178eebedf16f65483d217f1954",
+    "is_text": true,
+    "line_count": 39249,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/atom-vx-smart-bin.mby",
+    "filename": "atom-vx-smart-bin.mby",
+    "ext": ".mby",
+    "size": 154977,
+    "sha256": "17bff699b8982120f12ceb9e92866d61927b5e1d121c3aa3cba365c941d4e79d",
+    "is_text": true,
+    "line_count": 4661,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/atom-vx-square.mby",
+    "filename": "atom-vx-square.mby",
+    "ext": ".mby",
+    "size": 1268535,
+    "sha256": "530114685d0120255abd1e75a88a45e1d6679d750d5e259cd42dc0ce1b305c75",
+    "is_text": true,
+    "line_count": 39253,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/buildbot-display-buttons.mby",
+    "filename": "buildbot-display-buttons.mby",
+    "ext": ".mby",
+    "size": 3336313,
+    "sha256": "b6fa7245d7e0e6c3f95c8c149ad9010823da72e03dc41f9773709d1add6f29ed",
+    "is_text": true,
+    "line_count": 90032,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/buildbot-follow-line.mby",
+    "filename": "buildbot-follow-line.mby",
+    "ext": ".mby",
+    "size": 3334980,
+    "sha256": "4b9d7fce1331296cf385f17b91425c811b2bb16210859338f2bbaf79de0c78a5",
+    "is_text": true,
+    "line_count": 90027,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/buildbot-gyro.mby",
+    "filename": "buildbot-gyro.mby",
+    "ext": ".mby",
+    "size": 3334481,
+    "sha256": "e75c01853d44cd63b6733d5841403b60ebccda48be44d06ab696d00ea7ba7643",
+    "is_text": true,
+    "line_count": 90025,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/buildbot-hello.mby",
+    "filename": "buildbot-hello.mby",
+    "ext": ".mby",
+    "size": 833,
+    "sha256": "f162f19c236dc1078ab682b239b842e44e4f9344b99dc4c9f6c1dabfdabc44da",
+    "is_text": true,
+    "line_count": 9,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/buildbot-junction.mby",
+    "filename": "buildbot-junction.mby",
+    "ext": ".mby",
+    "size": 3334330,
+    "sha256": "8d3ad5266e6663c6d93d1d119c561f431cdf70214d023b077db36a11f8c1c6ab",
+    "is_text": true,
+    "line_count": 90024,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/buildbot-millis.mby",
+    "filename": "buildbot-millis.mby",
+    "ext": ".mby",
+    "size": 791,
+    "sha256": "c87407fb2ae2a12f3e678e940d1c5e10de30da93d754e6add101719451c3e504",
+    "is_text": true,
+    "line_count": 9,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/buildbot-motors.mby",
+    "filename": "buildbot-motors.mby",
+    "ext": ".mby",
+    "size": 3333363,
+    "sha256": "dbc3e6bb600820f2a0cd665c064327d6547eeecd68ecbc4b627ef6d22aa22208",
+    "is_text": true,
+    "line_count": 90026,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/buildbot-obstacle.mby",
+    "filename": "buildbot-obstacle.mby",
+    "ext": ".mby",
+    "size": 3334341,
+    "sha256": "33af6674766f5befd0d960004fceefbbc316979f308b9b2e10d71c6dbe003d94",
+    "is_text": true,
+    "line_count": 90044,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/buildbot-sensors.mby",
+    "filename": "buildbot-sensors.mby",
+    "ext": ".mby",
+    "size": 3332161,
+    "sha256": "6aad733a96da60f256793d502dd29d0dd25e55ab85c002a7027283b8371f4e9a",
+    "is_text": true,
+    "line_count": 90023,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/buildbot-servo.mby",
+    "filename": "buildbot-servo.mby",
+    "ext": ".mby",
+    "size": 3335027,
+    "sha256": "83d2072f71656de34b03e944faf04489a4786cc4963cbf0b18bc490cca5b7c40",
+    "is_text": true,
+    "line_count": 90033,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/index.json",
+    "filename": "index.json",
+    "ext": ".json",
+    "size": 5822,
+    "sha256": "6d8adee821c86117156c2447d1f097abff4f2ff12ca6a8915eda6b9d2b313e5e",
+    "is_text": true,
+    "line_count": 155,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/opt-primary-v2-0-4.mby",
+    "filename": "opt-primary-v2-0-4.mby",
+    "ext": ".mby",
+    "size": 3536205,
+    "sha256": "abe26b476b47848d5544ca12fde6f8b0e794da8e86438e4f6941f9e93151bf27",
+    "is_text": true,
+    "line_count": 41268,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/atom-vx-display-buttons.png",
+    "filename": "atom-vx-display-buttons.png",
+    "ext": ".png",
+    "size": 63325,
+    "sha256": "2ebeb759ec6c5829363e6d8805cd0ac1fbfa8f731bc23ef8b8d70a0ab3dbdc32",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/atom-vx-four-motors.png",
+    "filename": "atom-vx-four-motors.png",
+    "ext": ".png",
+    "size": 65372,
+    "sha256": "0e89e197dbf0b4b287813ce6b47f5d0a4a6f6023d474c76bdd11a64f7bdffed0",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/atom-vx-line-stop.png",
+    "filename": "atom-vx-line-stop.png",
+    "ext": ".png",
+    "size": 52300,
+    "sha256": "cfed6ed058db739aa63f6d54114ebb1c317d8a0848698b812d4fd38ca581765f",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/atom-vx-motors.png",
+    "filename": "atom-vx-motors.png",
+    "ext": ".png",
+    "size": 63004,
+    "sha256": "06e65ebaabe9cf05b2a4b79392f2c443081c866845ba3779aa967d2ce71e248d",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/atom-vx-rescue-five-points.png",
+    "filename": "atom-vx-rescue-five-points.png",
+    "ext": ".png",
+    "size": 76332,
+    "sha256": "8e574f3468b43847373d37f4039822dc2468a344f5738e74f4506d175fa55712",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/atom-vx-sensors.png",
+    "filename": "atom-vx-sensors.png",
+    "ext": ".png",
+    "size": 64116,
+    "sha256": "7e6a197f96bc342336ef086b9a1d9c4a97b46d64356a46bcfb7a20128cf0734e",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/atom-vx-smart-bin.png",
+    "filename": "atom-vx-smart-bin.png",
+    "ext": ".png",
+    "size": 84706,
+    "sha256": "5b54e25f9606cbc590ba42951d12a4e778b07ea87d0fcec3238d701bed3c155b",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/atom-vx-square.png",
+    "filename": "atom-vx-square.png",
+    "ext": ".png",
+    "size": 54762,
+    "sha256": "4a92bd94cb89b02818fcfc0ec8cfa819eb3f25fefae34474ee1359a12b1c8659",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/buildbot-display-buttons.png",
+    "filename": "buildbot-display-buttons.png",
+    "ext": ".png",
+    "size": 60386,
+    "sha256": "93afd823fd35e48c2eae98c98cef48f44a9cfd43745953a5afba4e51cc758ace",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/buildbot-follow-line.png",
+    "filename": "buildbot-follow-line.png",
+    "ext": ".png",
+    "size": 66067,
+    "sha256": "4d3c05d24faccc294d31391cee6f4292cf8893934620a8192820d0b0a9a8a2a2",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/buildbot-gyro.png",
+    "filename": "buildbot-gyro.png",
+    "ext": ".png",
+    "size": 71197,
+    "sha256": "b0f809c1b2b54ff046d1cb3defc9a9504f51be4ccc36ecddd7e2d3f5d5a46f7a",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/buildbot-junction.png",
+    "filename": "buildbot-junction.png",
+    "ext": ".png",
+    "size": 64510,
+    "sha256": "3b6aec557c710aa8459834794089f2b315a406b55777f630f1bef54f85c058b5",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/buildbot-motors.png",
+    "filename": "buildbot-motors.png",
+    "ext": ".png",
+    "size": 66067,
+    "sha256": "4d3c05d24faccc294d31391cee6f4292cf8893934620a8192820d0b0a9a8a2a2",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/buildbot-obstacle.png",
+    "filename": "buildbot-obstacle.png",
+    "ext": ".png",
+    "size": 59964,
+    "sha256": "33bb2d6ee362d6e2255e96574091b436681c56113a1a0316abb871b8188c24e1",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/buildbot-sensors.png",
+    "filename": "buildbot-sensors.png",
+    "ext": ".png",
+    "size": 70830,
+    "sha256": "0b6de6958028e87bcea2bac0ec2abc8c65fbafff00da71191b3bff4163a67f8a",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/buildbot-servo.png",
+    "filename": "buildbot-servo.png",
+    "ext": ".png",
+    "size": 69179,
+    "sha256": "f9231b2531c656a700f72a52c7aa24c8b7acec63eda9086fce3fd2bf68eb8fa8",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/images/opt-primary-v2-0-4.png",
+    "filename": "opt-primary-v2-0-4.png",
+    "ext": ".png",
+    "size": 85556,
+    "sha256": "9f5cceb84c01e83d745080efed3383040169864b30f63850c50282850f79405e",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/smart-bin/assembly-checks.json",
+    "filename": "assembly-checks.json",
+    "ext": ".json",
+    "size": 851,
+    "sha256": "57fddd3debf5fef7ea1807efba3e8aedce2a322e8cab05256820f7eeca0e1aed",
+    "is_text": true,
+    "line_count": 46,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/smart-bin/bin.glb",
+    "filename": "bin.glb",
+    "ext": ".glb",
+    "size": 38992,
+    "sha256": "31bb6f51985057c8319598d4965e302aee7c9c509bf5ee2266b15524fe45d8ec",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/smart-bin/lid.glb",
+    "filename": "lid.glb",
+    "ext": ".glb",
+    "size": 28084,
+    "sha256": "5685d9dfc2958a263aa7ec88d1f564af371574290b36e5cd65fbfffd95e90aed",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/smart-bin/lid.json",
+    "filename": "lid.json",
+    "ext": ".json",
+    "size": 833,
+    "sha256": "f8620e5f035d6253b92a82bebff37ba47a3b15e3c5765fdb70f1158bb546184f",
+    "is_text": true,
+    "line_count": 49,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/smart-bin/paper.glb",
+    "filename": "paper.glb",
+    "ext": ".glb",
+    "size": 13804,
+    "sha256": "458f6f55b426c45f53784ab801199fbed856dd940c5d6b8538fc250e9d33ddd5",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/smart-bin/paper.json",
+    "filename": "paper.json",
+    "ext": ".json",
+    "size": 946,
+    "sha256": "4f70e02a2c03e07251372288ba69a277ad5172f2629b7940aa6a5685f60731d9",
+    "is_text": true,
+    "line_count": 51,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/examples/smart-bin/product.json",
+    "filename": "product.json",
+    "ext": ".json",
+    "size": 2752,
+    "sha256": "49059abf873a56434a8cba6010d9b54babc4b28b9a949d4954f4fc9111dba998",
+    "is_text": true,
+    "line_count": 147,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/firmware-update/esptool.js",
+    "filename": "esptool.js",
+    "ext": ".js",
+    "size": 30459,
+    "sha256": "135c545b746c83f1f76b12de208289b287665701056b2d331993b6bd722b109a",
+    "is_text": true,
+    "line_count": 1024,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/firmware-update/utilities.js",
+    "filename": "utilities.js",
+    "ext": ".js",
+    "size": 4779,
+    "sha256": "4806980cbc8e838d622ffd395f62a7b71128bc209135c812e3051c6d37575ef9",
+    "is_text": true,
+    "line_count": 145,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/LICENSE.txt",
+    "filename": "LICENSE.txt",
+    "ext": ".txt",
+    "size": 1582,
+    "sha256": "04223cef842cb167b40f1a697df12f0ccc46a7ab63962931ce066b244c1bf079",
+    "is_text": true,
+    "line_count": 34,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/all.css",
+    "filename": "all.css",
+    "ext": ".css",
+    "size": 77703,
+    "sha256": "ff45f15dbdf902cb4552a3cd125d4b7375752fbed1008000b1de2616b3156bc6",
+    "is_text": true,
+    "line_count": 4586,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/all.min.css",
+    "filename": "all.min.css",
+    "ext": ".css",
+    "size": 58939,
+    "sha256": "b91971f7c680736978dee82f8654b5d080ec979fbe441474d805785c1f88b43d",
+    "is_text": true,
+    "line_count": 5,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/brands.css",
+    "filename": "brands.css",
+    "ext": ".css",
+    "size": 747,
+    "sha256": "3b9f9cfc54667111b686c0dbae79394c00c1d84525926dbce4b5b68a1be1ada8",
+    "is_text": true,
+    "line_count": 15,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/brands.min.css",
+    "filename": "brands.min.css",
+    "ext": ".css",
+    "size": 679,
+    "sha256": "92772defeaa9a1decd170a4f84f9e26af1df0369e6b6312541ad55e6b3ff7965",
+    "is_text": true,
+    "line_count": 5,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/fontawesome.css",
+    "filename": "fontawesome.css",
+    "ext": ".css",
+    "size": 76034,
+    "sha256": "d2656c3ea6699f79649e08a3f07bd2618ce3061a0aab865147fcda3b0b0f4bf1",
+    "is_text": true,
+    "line_count": 4552,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/fontawesome.min.css",
+    "filename": "fontawesome.min.css",
+    "ext": ".css",
+    "size": 57507,
+    "sha256": "0e7fde54ef34982ba47d4e9221bbf26e72b727cdac24802d78c232aed976577a",
+    "is_text": true,
+    "line_count": 5,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/regular.css",
+    "filename": "regular.css",
+    "ext": ".css",
+    "size": 749,
+    "sha256": "5f242330f23a3420bc8125c0650c31661e3bee7d92369c7524efc74739190da4",
+    "is_text": true,
+    "line_count": 15,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/regular.min.css",
+    "filename": "regular.min.css",
+    "ext": ".css",
+    "size": 681,
+    "sha256": "cafcb39de749c956f906fbfebdb774441a318d2610570cdd6fea11508537e98c",
+    "is_text": true,
+    "line_count": 5,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/solid.css",
+    "filename": "solid.css",
+    "ext": ".css",
+    "size": 743,
+    "sha256": "1d0ed441bfc0ddb0dd875febd9427a6dd8938ae8989a113c2fc4804cd9ff0b3f",
+    "is_text": true,
+    "line_count": 16,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/solid.min.css",
+    "filename": "solid.min.css",
+    "ext": ".css",
+    "size": 673,
+    "sha256": "d227280e01bb53310ea8fb37f510200e5541e31d295eb28685acfae96d8c4ad6",
+    "is_text": true,
+    "line_count": 5,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/svg-with-js.css",
+    "filename": "svg-with-js.css",
+    "ext": ".css",
+    "size": 8448,
+    "sha256": "c121af482d9638300af956a0877b218b14940b278b7718b932cd898657851d2c",
+    "is_text": true,
+    "line_count": 371,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/svg-with-js.min.css",
+    "filename": "svg-with-js.min.css",
+    "ext": ".css",
+    "size": 6363,
+    "sha256": "4c6067048afc39f3e048859d4c4eeafae943cda13ad2cca508c297177c30d8a9",
+    "is_text": true,
+    "line_count": 5,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/v4-shims.css",
+    "filename": "v4-shims.css",
+    "ext": ".css",
+    "size": 43484,
+    "sha256": "25239fd3e2dbb6d30ffb681d2acb01a7d42491f46a1d46a0383e75f5bf961142",
+    "is_text": true,
+    "line_count": 2172,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/css/v4-shims.min.css",
+    "filename": "v4-shims.min.css",
+    "ext": ".css",
+    "size": 26706,
+    "sha256": "6998b8b7c47da84a7b1603293511cf52969c7e472beebeccb51a9cb76c006ede",
+    "is_text": true,
+    "line_count": 5,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-brands-400.eot",
+    "filename": "fa-brands-400.eot",
+    "ext": ".eot",
+    "size": 134622,
+    "sha256": "383b27615172c150f3cb85a97d4825d45eaa8b442b781e9e8351e7e834b8706d",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-brands-400.svg",
+    "filename": "fa-brands-400.svg",
+    "ext": ".svg",
+    "size": 733939,
+    "sha256": "1b7cebdab209022e55480ae7495cdb61a5b286089d174d6a22eccea18af1fd6e",
+    "is_text": true,
+    "line_count": 3637,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-brands-400.ttf",
+    "filename": "fa-brands-400.ttf",
+    "ext": ".ttf",
+    "size": 134316,
+    "sha256": "07504680f886659b0f0d8539ae5c01324b88f30387609687c2f2a0050928bddf",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-brands-400.woff",
+    "filename": "fa-brands-400.woff",
+    "ext": ".woff",
+    "size": 90672,
+    "sha256": "e01029f3278fc6270cd31a5fe753cbda694fbb777ee30e8f6a13909087178988",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-brands-400.woff2",
+    "filename": "fa-brands-400.woff2",
+    "ext": ".woff2",
+    "size": 77400,
+    "sha256": "1c87d2b26de7d55c66037916bbb4cba6c791da0e2adfa378332678ff13e12d9d",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-regular-400.eot",
+    "filename": "fa-regular-400.eot",
+    "ext": ".eot",
+    "size": 34350,
+    "sha256": "c4f72714221008f5bdfcc90821ccd835cce9524c7ec99ad5d947488930fe1623",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-regular-400.svg",
+    "filename": "fa-regular-400.svg",
+    "ext": ".svg",
+    "size": 145520,
+    "sha256": "465a23102b39f106c6ac91c02f944ee9cbc2da68d1770d52327ab638c9088c50",
+    "is_text": true,
+    "line_count": 805,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-regular-400.ttf",
+    "filename": "fa-regular-400.ttf",
+    "ext": ".ttf",
+    "size": 34052,
+    "sha256": "a5e1580acc1d3fbd2d2045b2a85bdb8291c475939e9cb48003afc502499b3f2e",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-regular-400.woff",
+    "filename": "fa-regular-400.woff",
+    "ext": ".woff",
+    "size": 16780,
+    "sha256": "2fa36d869db5e0d8a752bd4a3b1db35d25655e179a31de6ba33e4568017e66f9",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-regular-400.woff2",
+    "filename": "fa-regular-400.woff2",
+    "ext": ".woff2",
+    "size": 13600,
+    "sha256": "245818b22d1ec4892fcb722437e32888e97f63a0316bd22aaf9f44cde01f4c91",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-solid-900.eot",
+    "filename": "fa-solid-900.eot",
+    "ext": ".eot",
+    "size": 204266,
+    "sha256": "5c44f9d868c55913ca587e0399fc6df18f157c544a0b366ae544a83d32f057d5",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-solid-900.svg",
+    "filename": "fa-solid-900.svg",
+    "ext": ".svg",
+    "size": 919140,
+    "sha256": "ffa7494e533354e34dba271104b2a2d834085c1073df68840ab4bab025a04866",
+    "is_text": true,
+    "line_count": 5015,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-solid-900.ttf",
+    "filename": "fa-solid-900.ttf",
+    "ext": ".ttf",
+    "size": 203980,
+    "sha256": "af849952e881b92cf7206540a91c5feefe23ff5910af83097cbb2eaff614ba20",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-solid-900.woff",
+    "filename": "fa-solid-900.woff",
+    "ext": ".woff",
+    "size": 104004,
+    "sha256": "c704d9e677b72859d29ddd73a2a63e3b15b5a4db903cff64b3c29a059e180871",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/fontawesome/webfonts/fa-solid-900.woff2",
+    "filename": "fa-solid-900.woff2",
+    "ext": ".woff2",
+    "size": 80148,
+    "sha256": "cfe3b7382e477059da11be2099914b94f0e2a4f08240c60542c376957b8d9658",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/microBlock Logo-microText.svg",
+    "filename": "microBlock Logo-microText.svg",
+    "ext": ".svg",
+    "size": 5282,
+    "sha256": "0f00b3a54993da3a9f8246539e82927b6bca71c0f6896f4f47c518a67606c6ab",
+    "is_text": true,
+    "line_count": 131,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/icon/expert.png",
+    "filename": "expert.png",
+    "ext": ".png",
+    "size": 446359,
+    "sha256": "c89f2fbcf84fa1444d4bbd7dfd3a5f7f2042a933eb5d75392cde6a6d0d6c56b7",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/icon/jigsaw.png",
+    "filename": "jigsaw.png",
+    "ext": ".png",
+    "size": 1349197,
+    "sha256": "8d43069a2599d8c365a03ac2c7481a9eb080a8d9813ba7f4a21c95cc681c9449",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/icon/led.png",
+    "filename": "led.png",
+    "ext": ".png",
+    "size": 2579,
+    "sha256": "9451ec07274b0ad9217024cb03ce2643ce47c71ef00a618c66732c2f317a39ab",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/icon/maths.png",
+    "filename": "maths.png",
+    "ext": ".png",
+    "size": 692962,
+    "sha256": "792427d65b40fb6a358598d82000742bca59a9364a1b4b1df4ffc1ad8a4df3f0",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/icon/process.png",
+    "filename": "process.png",
+    "ext": ".png",
+    "size": 229064,
+    "sha256": "4feb993ad5269bed6b51f5a0dd94acfad0ef60f3473f33a387cbbca797dd85d6",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/icon/relativity.png",
+    "filename": "relativity.png",
+    "ext": ".png",
+    "size": 716081,
+    "sha256": "fc495a100c81cf5d061869e0978988963d4670c1ec4f05f81fa07705f28495d3",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/logo/icon-128x128.png",
+    "filename": "icon-128x128.png",
+    "ext": ".png",
+    "size": 24130,
+    "sha256": "bf6d8f566ac8c87850fb6d9b3aaba35f9b7bbfdf3a518efc2058811c6d955e66",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/logo/icon-144x144.png",
+    "filename": "icon-144x144.png",
+    "ext": ".png",
+    "size": 30003,
+    "sha256": "2d0987efd3d88035278c7507c3201b6aa619ba86526d75ad5090065ed82d8e77",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/logo/icon-152x152.png",
+    "filename": "icon-152x152.png",
+    "ext": ".png",
+    "size": 33389,
+    "sha256": "21a72f832dd5a9d305746d658510a73782795b140602d0916388aed7f63b91f6",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/logo/icon-192x192.png",
+    "filename": "icon-192x192.png",
+    "ext": ".png",
+    "size": 53300,
+    "sha256": "a0b970928d97fcb615e3196347ac0195873cd75b5c109fe59aed1d1a91e5f9e3",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/logo/icon-256x256.png",
+    "filename": "icon-256x256.png",
+    "ext": ".png",
+    "size": 94396,
+    "sha256": "17b53c865470276ac416b00c729a24f2acf4b5156e3de823f3f22cf758d49e54",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/logo/icon-512x512.png",
+    "filename": "icon-512x512.png",
+    "ext": ".png",
+    "size": 412142,
+    "sha256": "22a799e39952fb4f87279c3d6ad3a6c8cc9214eec359ff3ddd8308ac1498527c",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/images/logo/roboblocks_app_icon.png",
+    "filename": "roboblocks_app_icon.png",
+    "ext": ".png",
+    "size": 942208,
+    "sha256": "7ed82959bc62192f5f4a718fb5f536f2f5b2cc091b6b4d14110519830e345da0",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/account.js",
+    "filename": "account.js",
+    "ext": ".js",
+    "size": 20198,
+    "sha256": "2ffdd732d59adf7922c80679115956fd8d0c5df91bc31c15a486a1256796d1fd",
+    "is_text": true,
+    "line_count": 176,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/app.js",
+    "filename": "app.js",
+    "ext": ".js",
+    "size": 52978,
+    "sha256": "e0b289b83ea1daff9e0eb4f04363770afbd60413f27ec51621a94fa4b755cb6c",
+    "is_text": true,
+    "line_count": 1332,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/arduino-auto-install.js",
+    "filename": "arduino-auto-install.js",
+    "ext": ".js",
+    "size": 867,
+    "sha256": "80062168f2a87331b3bfa8da3e43c4bb68f9176b9c1f75021b3ec902e2217acd",
+    "is_text": true,
+    "line_count": 23,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/arduino-downloads.js",
+    "filename": "arduino-downloads.js",
+    "ext": ".js",
+    "size": 11884,
+    "sha256": "a16a73d34ad78648b2cb54cde6975a2c335f2e8c3fb152d23e1a70ffd765aa0a",
+    "is_text": true,
+    "line_count": 95,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/arduino-inline.js",
+    "filename": "arduino-inline.js",
+    "ext": ".js",
+    "size": 26753,
+    "sha256": "0709f7cfa3cc29bcaba20e2cb423a7c8574c76a9266831e1e3e02ab436777cf3",
+    "is_text": true,
+    "line_count": 362,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/arduino-library-manager.js",
+    "filename": "arduino-library-manager.js",
+    "ext": ".js",
+    "size": 4321,
+    "sha256": "1eadf30aa5a2008b8d4865dff0074079f7d47adebe1d14efaac7c2ebc86b5371",
+    "is_text": true,
+    "line_count": 30,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/arduino-workspace.js",
+    "filename": "arduino-workspace.js",
+    "ext": ".js",
+    "size": 20832,
+    "sha256": "e0fb4d9a48fddf6eedd88537ae6c87ca4fff9c6916fc47859eaefadfbf36838a",
+    "is_text": true,
+    "line_count": 212,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/arduino.js",
+    "filename": "arduino.js",
+    "ext": ".js",
+    "size": 11055,
+    "sha256": "2185cc2b821cea59d05e303b0c8327c2c1755ac689f23882e107c03f3e435e6e",
+    "is_text": true,
+    "line_count": 274,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/assembly-window.js",
+    "filename": "assembly-window.js",
+    "ext": ".js",
+    "size": 663,
+    "sha256": "ce244c554ed16d5891c30ef9bb9be38fcdee59356ac710214f71147c89ed96c4",
+    "is_text": true,
+    "line_count": 19,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/Base64.js",
+    "filename": "Base64.js",
+    "ext": ".js",
+    "size": 4265,
+    "sha256": "7fb006616ef29981e6b6fb15c8cdb3cb26e5ed4d752e9ccf090cf8eb8b45bff9",
+    "is_text": true,
+    "line_count": 157,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/board.js",
+    "filename": "board.js",
+    "ext": ".js",
+    "size": 17253,
+    "sha256": "5ce2e1292dad9acf914796b6b86a82d063379acd94ab7b609fa1968d9ea73db0",
+    "is_text": true,
+    "line_count": 414,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/code-editor-theme.js",
+    "filename": "code-editor-theme.js",
+    "ext": ".js",
+    "size": 5732,
+    "sha256": "71dce4b37455722142c8484c9650de23ca27948d37d62271987425eca9a32d6e",
+    "is_text": true,
+    "line_count": 49,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/code-example.js",
+    "filename": "code-example.js",
+    "ext": ".js",
+    "size": 4760,
+    "sha256": "daf614f613d5f8f1dbb51cbaa9f8fde59b47b4b15249e210bd7b7cc3b31c9a86",
+    "is_text": true,
+    "line_count": 138,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/code-share.js",
+    "filename": "code-share.js",
+    "ext": ".js",
+    "size": 3178,
+    "sha256": "0ee57a3e7fff9b61b943913fee397ea17ed33733f964fad7936e7804bc4907e6",
+    "is_text": true,
+    "line_count": 97,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/code2block.js",
+    "filename": "code2block.js",
+    "ext": ".js",
+    "size": 31688,
+    "sha256": "015c18ce407a1f6c0ede18c528dfcdd9d89768d3a2a2ae1784115b11a1c2710f",
+    "is_text": true,
+    "line_count": 559,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/colour-palette.js",
+    "filename": "colour-palette.js",
+    "ext": ".js",
+    "size": 7203,
+    "sha256": "be362e2cfce5ab3a241c90f821d27b7ef1e75906b958c8b026009edf82cc085e",
+    "is_text": true,
+    "line_count": 70,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/dashboard.js",
+    "filename": "dashboard.js",
+    "ext": ".js",
+    "size": 1208,
+    "sha256": "14ec74489c785110db42d643619378c74d5adbd58f6e7c05a5cb971ebf3c88f8",
+    "is_text": true,
+    "line_count": 41,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/dialog.js",
+    "filename": "dialog.js",
+    "ext": ".js",
+    "size": 405,
+    "sha256": "abeda19d60da8e5ee48d032fbdecbcb613ada55d540cf0da466e0918c4224692",
+    "is_text": true,
+    "line_count": 11,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/esptool.js",
+    "filename": "esptool.js",
+    "ext": ".js",
+    "size": 32637,
+    "sha256": "2c1cba9484ea55845286eab2d55b2140f747cef0f1e788505ac9f3b6605614f6",
+    "is_text": true,
+    "line_count": 1080,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/extension.js",
+    "filename": "extension.js",
+    "ext": ".js",
+    "size": 10774,
+    "sha256": "12c67b37c2fc82b9ff732c79afa9f866ba28e8cfeda215c3178177fde929b901",
+    "is_text": true,
+    "line_count": 267,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/file-explorer.js",
+    "filename": "file-explorer.js",
+    "ext": ".js",
+    "size": 8759,
+    "sha256": "5f63e992e9d3f0fc3781a2cbc375e9440fe2938c0463ae878bce5467f5dfdadc",
+    "is_text": true,
+    "line_count": 224,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/fireware.js",
+    "filename": "fireware.js",
+    "ext": ".js",
+    "size": 29268,
+    "sha256": "fb9c69dadb1ab54f100b42cf0f4dd11c3c12d3770da29239efed90a8fbe1cf65",
+    "is_text": true,
+    "line_count": 702,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/GitHubAPI.js",
+    "filename": "GitHubAPI.js",
+    "ext": ".js",
+    "size": 12230,
+    "sha256": "5825883974bb97e2aff3169bdf7a19fe4652ebabe90533989a71e4c0f7bfc619",
+    "is_text": true,
+    "line_count": 342,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/ide-layout.js",
+    "filename": "ide-layout.js",
+    "ext": ".js",
+    "size": 13273,
+    "sha256": "2949f3bfdef2b2836e3fbd4c36a398724eb16921c0810e7a2ef50cf8b0be7094",
+    "is_text": true,
+    "line_count": 187,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/install.js",
+    "filename": "install.js",
+    "ext": ".js",
+    "size": 8661,
+    "sha256": "bb16e3c14384192ac0a017a366be5b76dec3762c816f05aa68517105f46be3a4",
+    "is_text": true,
+    "line_count": 101,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/jquery-3.5.1.min.js",
+    "filename": "jquery-3.5.1.min.js",
+    "ext": ".js",
+    "size": 89478,
+    "sha256": "f36844906ad2309877aae3121b87fb15b9e09803cb4c333adc7e1e35ac92e14b",
+    "is_text": true,
+    "line_count": 2,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/lodash.min.js",
+    "filename": "lodash.min.js",
+    "ext": ".js",
+    "size": 73397,
+    "sha256": "9f73c0015652859ca111e91691ddc2be33b28a82f1423f1e4268ab506d1c9477",
+    "is_text": true,
+    "line_count": 137,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/md5.min.js",
+    "filename": "md5.min.js",
+    "ext": ".js",
+    "size": 3771,
+    "sha256": "7f446e37193ee57eaeffd7790f5f8e4a3a5daeba093f5b709af1d911bce525e2",
+    "is_text": true,
+    "line_count": 2,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/menu-ui.js",
+    "filename": "menu-ui.js",
+    "ext": ".js",
+    "size": 8435,
+    "sha256": "a3724460a167488bfb5ce89ee8f5c1ef2fd0529645c7cd4c800aa84802d9be85",
+    "is_text": true,
+    "line_count": 162,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/menu.js",
+    "filename": "menu.js",
+    "ext": ".js",
+    "size": 15236,
+    "sha256": "e12c87ff6d55b94d2f291d542485f5ec0b6d6c2e900e9f2ab8d9ad1801607eb0",
+    "is_text": true,
+    "line_count": 271,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/mode.js",
+    "filename": "mode.js",
+    "ext": ".js",
+    "size": 17762,
+    "sha256": "f69da2647509847c45112e2533a9e71b7f9bc4228c12743b7d3176aec4719612",
+    "is_text": true,
+    "line_count": 351,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/monaco-loader.js",
+    "filename": "monaco-loader.js",
+    "ext": ".js",
+    "size": 1423,
+    "sha256": "97b3f0157a860e6461a7255018ae775ea944e6bc2795c11ed6174dcb99f36167",
+    "is_text": true,
+    "line_count": 31,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/note.js",
+    "filename": "note.js",
+    "ext": ".js",
+    "size": 7302,
+    "sha256": "eb7e33d4c56753f2ec4e20bed3ffb2d9d01b1ecf8552cf039d37e2568b772c82",
+    "is_text": true,
+    "line_count": 170,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/Notify.js",
+    "filename": "Notify.js",
+    "ext": ".js",
+    "size": 623,
+    "sha256": "af8616b0b06b2e7695004c314ad28f0a333722fe4fe5f011a8e2f0e954b845bb",
+    "is_text": true,
+    "line_count": 16,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/offline-data.js",
+    "filename": "offline-data.js",
+    "ext": ".js",
+    "size": 3430,
+    "sha256": "e4aef9d276c89905061f75448d2366b66e48a7614df892139676dc1de1719995",
+    "is_text": true,
+    "line_count": 26,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/pako.min.js",
+    "filename": "pako.min.js",
+    "ext": ".js",
+    "size": 44046,
+    "sha256": "9a0770fbde33f28a072aff170c1efc140e14eeca5b29ba9b8ea90ae823250763",
+    "is_text": true,
+    "line_count": 2,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/phone-viewport.js",
+    "filename": "phone-viewport.js",
+    "ext": ".js",
+    "size": 1277,
+    "sha256": "f747aadbf132a7b2c0757540527eef35cc2d10f0e826caf74d52b2993f55571c",
+    "is_text": true,
+    "line_count": 25,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/project-completions.js",
+    "filename": "project-completions.js",
+    "ext": ".js",
+    "size": 10011,
+    "sha256": "9656dc52d70f0a678893b9548f0e3a96a3e7982117b23473bc66a91971fb19a8",
+    "is_text": true,
+    "line_count": 148,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/project-examples.js",
+    "filename": "project-examples.js",
+    "ext": ".js",
+    "size": 17865,
+    "sha256": "9bf1f0ec1ab7575cf2c5bdbbdcc2cfeff5a212a9b667e64c12983af06d6c2339",
+    "is_text": true,
+    "line_count": 128,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/project-geometry.js",
+    "filename": "project-geometry.js",
+    "ext": ".js",
+    "size": 4820,
+    "sha256": "03936e5128471a3ee774a1330b6b983a225be8ee95e034612f7270548d57351a",
+    "is_text": true,
+    "line_count": 72,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/ros.js",
+    "filename": "ros.js",
+    "ext": ".js",
+    "size": 238,
+    "sha256": "189d350c7018d5fe0bdbaca81696e10d665ab995ba285253ee8f218b23c2b3e4",
+    "is_text": true,
+    "line_count": 9,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/serial.js",
+    "filename": "serial.js",
+    "ext": ".js",
+    "size": 94297,
+    "sha256": "9a9e0511f71e4414711db1e63efd9b841b86d57a35e5f407e1590470d9ce1629",
+    "is_text": true,
+    "line_count": 2426,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/servo-angle-slider.js",
+    "filename": "servo-angle-slider.js",
+    "ext": ".js",
+    "size": 5290,
+    "sha256": "48ad317dd4ef6150d199c5e52f7e8f94bf9f678477fafb9201c081bb039a13d0",
+    "is_text": true,
+    "line_count": 74,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/simulator.js",
+    "filename": "simulator.js",
+    "ext": ".js",
+    "size": 4743,
+    "sha256": "6eb6b35972b1861cdb60db57e083e1897617c05265c84b8acd13405a09211121",
+    "is_text": true,
+    "line_count": 145,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/styled-select.js",
+    "filename": "styled-select.js",
+    "ext": ".js",
+    "size": 5082,
+    "sha256": "f4198612a38e7680e3dc5d1609529371a6817423303ef3e44ec6e02fe891e868",
+    "is_text": true,
+    "line_count": 42,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/terminal.js",
+    "filename": "terminal.js",
+    "ext": ".js",
+    "size": 12551,
+    "sha256": "14ae3360488d5ef71b5edfdb1a367210e37eb787d1c7c01b0f457d712defc9a6",
+    "is_text": true,
+    "line_count": 258,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/tool-windows.js",
+    "filename": "tool-windows.js",
+    "ext": ".js",
+    "size": 10731,
+    "sha256": "3381a48f0b1177f5642f07207e03d0f3f6a8093e27d368ca544e9de335d0fe60",
+    "is_text": true,
+    "line_count": 149,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/touch-selection-guard.js",
+    "filename": "touch-selection-guard.js",
+    "ext": ".js",
+    "size": 2717,
+    "sha256": "b5f6464e60c39beab4a9841764d3e32cb882a6fa9f6854a8e0d1a36f26c0a2e5",
+    "is_text": true,
+    "line_count": 19,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/updater.js",
+    "filename": "updater.js",
+    "ext": ".js",
+    "size": 3292,
+    "sha256": "43cab95d51b8e98a29babb5376f5e7d32b9f01b803cdc9a1e07ba26b30623612",
+    "is_text": true,
+    "line_count": 75,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/utilities.js",
+    "filename": "utilities.js",
+    "ext": ".js",
+    "size": 4643,
+    "sha256": "f81bfa835b96a29b658e78671eff7fb67d1995f55532c5d4a85a81c168e79c57",
+    "is_text": true,
+    "line_count": 145,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/vFS.js",
+    "filename": "vFS.js",
+    "ext": ".js",
+    "size": 3074,
+    "sha256": "d143b4a42cc83ea84f7ea61885097dc58c37103e6966a968d5fc487523966587",
+    "is_text": true,
+    "line_count": 118,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/workspace-touch.js",
+    "filename": "workspace-touch.js",
+    "ext": ".js",
+    "size": 2742,
+    "sha256": "4ae429821b69ad218e28fac6a0995330aaf51ad7808e98dde71346940243daa1",
+    "is_text": true,
+    "line_count": 34,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/js/zip.min.js",
+    "filename": "zip.min.js",
+    "ext": ".js",
+    "size": 95191,
+    "sha256": "bc33af8e497117f2ad924681cdeb53fee310df38bf40c81761de19f2870703ea",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/notiflix/notiflix-2.3.3.min.css",
+    "filename": "notiflix-2.3.3.min.css",
+    "ext": ".css",
+    "size": 23759,
+    "sha256": "d177bfa2f2f2bfb55e108a5de84d02e1360cd57f4abb4503e62fd2fad3f286ed",
+    "is_text": true,
+    "line_count": 3,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/notiflix/notiflix-2.3.3.min.js",
+    "filename": "notiflix-2.3.3.min.js",
+    "ext": ".js",
+    "size": 70126,
+    "sha256": "49302257320e9a302160fc9d0680e76511ceb7d0ebcaaa85057d12779e9fd338",
+    "is_text": true,
+    "line_count": 3,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/notiflix/notiflix-aio-2.3.3.min.js",
+    "filename": "notiflix-aio-2.3.3.min.js",
+    "ext": ".js",
+    "size": 93833,
+    "sha256": "33aa69d6a0cf71169bed28d21b1c6433a661d0ca04997931aa88d49e16225906",
+    "is_text": true,
+    "line_count": 3,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/plug-in/block-plus-minus/index.js",
+    "filename": "index.js",
+    "ext": ".js",
+    "size": 15341,
+    "sha256": "e2969a9c9799da1e9f76d4b484a5b852895918fbaf656f110bd69257f2b481cc",
+    "is_text": true,
+    "line_count": 3,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/app.js",
+    "filename": "app.js",
+    "ext": ".js",
+    "size": 116328,
+    "sha256": "2c3f684874cade357577308f9d25f237244cc7b35b20e2dd0ec718c4895451e2",
+    "is_text": true,
+    "line_count": 1740,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-catalog.js",
+    "filename": "assembly-catalog.js",
+    "ext": ".js",
+    "size": 229,
+    "sha256": "8134037c3e7ad36dfaed484e7bc6e4fb2851f1d2e77d37f02335f2366f6926e6",
+    "is_text": true,
+    "line_count": 6,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-constraints.js",
+    "filename": "assembly-constraints.js",
+    "ext": ".js",
+    "size": 6127,
+    "sha256": "3cda4503f9e63188ae9aadc71327f7d560bc79f928ea270760b42552fdf89fd2",
+    "is_text": true,
+    "line_count": 95,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-faces.js",
+    "filename": "assembly-faces.js",
+    "ext": ".js",
+    "size": 23238,
+    "sha256": "8cc289cc6a454007819b377e0ecb11546ba7ab79989ba8227b679a84919ab091",
+    "is_text": true,
+    "line_count": 350,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-feedback-audio.js",
+    "filename": "assembly-feedback-audio.js",
+    "ext": ".js",
+    "size": 1540,
+    "sha256": "2007eb12ccd67361ef7bd8d5cc1f25d8f72f0ba7b13d5421d8d0273cb3f2411f",
+    "is_text": true,
+    "line_count": 20,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-guide-view.js",
+    "filename": "assembly-guide-view.js",
+    "ext": ".js",
+    "size": 19960,
+    "sha256": "f8b37d5be9f1dbcf4aca40ac83706e0cb975b1d2fe45a48cb11f32a4035bebab",
+    "is_text": true,
+    "line_count": 285,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-guided-mode.js",
+    "filename": "assembly-guided-mode.js",
+    "ext": ".js",
+    "size": 33420,
+    "sha256": "5fc485d6e596742904f548c0297a8a334989c79bf93352ddafe74daab7c32044",
+    "is_text": true,
+    "line_count": 471,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-mode.css",
+    "filename": "assembly-mode.css",
+    "ext": ".css",
+    "size": 22975,
+    "sha256": "52873e900a998d761fb217b3ca6e21f5db392b3948ded7b6a2c2331c9cac82e8",
+    "is_text": true,
+    "line_count": 231,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-mode.js",
+    "filename": "assembly-mode.js",
+    "ext": ".js",
+    "size": 127580,
+    "sha256": "7e83f18cdf0c5c0180b207ff67e34a7c9290bb268cbcd18b6b9be3110234873d",
+    "is_text": true,
+    "line_count": 2225,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-physics-client.js",
+    "filename": "assembly-physics-client.js",
+    "ext": ".js",
+    "size": 15799,
+    "sha256": "8eff5198edb781abf8457b91e727131870ecd75508081aeb3c7022b22fb6f89d",
+    "is_text": true,
+    "line_count": 210,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-physics-kernel.js",
+    "filename": "assembly-physics-kernel.js",
+    "ext": ".js",
+    "size": 66034,
+    "sha256": "18d7619d40cee59264a6a65b7a16858ab0523100518579782a6f02f566c4c393",
+    "is_text": true,
+    "line_count": 860,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-physics-wasm.js",
+    "filename": "assembly-physics-wasm.js",
+    "ext": ".js",
+    "size": 2236,
+    "sha256": "6fed0b962223782aba372f364af2ec1cb14de961157f8297851f8f87f6f404cb",
+    "is_text": true,
+    "line_count": 2,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-physics-worker.js",
+    "filename": "assembly-physics-worker.js",
+    "ext": ".js",
+    "size": 11449,
+    "sha256": "98cce74e041c58fdd354827db1e9b6a67acbab9ab4229f2dc53b22f2f65feeb9",
+    "is_text": true,
+    "line_count": 164,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-physics.js",
+    "filename": "assembly-physics.js",
+    "ext": ".js",
+    "size": 55588,
+    "sha256": "8bd33104f295b0e642d28857a4213ddfc49edd47a323d5c357007bffbe647afe",
+    "is_text": true,
+    "line_count": 692,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-product-config.js",
+    "filename": "assembly-product-config.js",
+    "ext": ".js",
+    "size": 19796,
+    "sha256": "0645d0e55a4725ed0a682b002dc5592ba2fe36cc3479d10230ecc142725ce6e4",
+    "is_text": true,
+    "line_count": 245,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-runtime-links.js",
+    "filename": "assembly-runtime-links.js",
+    "ext": ".js",
+    "size": 17466,
+    "sha256": "5a05fcfb412930814e93d4c096d18c2724c2bd1537548d385848df5e25c41c80",
+    "is_text": true,
+    "line_count": 212,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly-sim-loader.js",
+    "filename": "assembly-sim-loader.js",
+    "ext": ".js",
+    "size": 28321,
+    "sha256": "44b7e0b3c19ca5b5514a625d5253f9863494ffc0bdb62e57189c5b634a169581",
+    "is_text": true,
+    "line_count": 417,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assembly.html",
+    "filename": "assembly.html",
+    "ext": ".html",
+    "size": 10118,
+    "sha256": "baada8873eb5a4d12bdde1c9cd63017f20ad0939ad9619ba9e34aa9931230c61",
+    "is_text": true,
+    "line_count": 134,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/atom-vx-model.js",
+    "filename": "atom-vx-model.js",
+    "ext": ".js",
+    "size": 23902,
+    "sha256": "2ad4d172615bc7fb5ceb7cf235af4f0d27c308896cf0b5d11663a609e8482f1e",
+    "is_text": true,
+    "line_count": 420,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/board-package.js",
+    "filename": "board-package.js",
+    "ext": ".js",
+    "size": 1833,
+    "sha256": "87394c3b15266e1b377c1bea6f26ac6e8448cb11fb1cb528d7efe7e399c8c511",
+    "is_text": true,
+    "line_count": 40,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/camera-follow.js",
+    "filename": "camera-follow.js",
+    "ext": ".js",
+    "size": 3518,
+    "sha256": "621d0e6a2855d5cf1c1bf2648ae39537239a76afe7f238f37180502117573a17",
+    "is_text": true,
+    "line_count": 75,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/cpp-task-scheduler.js",
+    "filename": "cpp-task-scheduler.js",
+    "ext": ".js",
+    "size": 2538,
+    "sha256": "252742dd00bf2a24de6655bd5dd44caf76a2783c5d707e480f0e0bdb0abe1bf9",
+    "is_text": true,
+    "line_count": 42,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/cpp-worker.js",
+    "filename": "cpp-worker.js",
+    "ext": ".js",
+    "size": 13552,
+    "sha256": "52377189eb97abdced2c2104cb13f5e3be3c338a891aacef02fdd64c6c8d79b4",
+    "is_text": true,
+    "line_count": 183,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/custom-trace.py",
+    "filename": "custom-trace.py",
+    "ext": ".py",
+    "size": 3049,
+    "sha256": "210b69f7bf91d2f2f72d8a02c0e8769f75904bf5e36f288f4d172737599b8845",
+    "is_text": true,
+    "line_count": 78,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/default-position.js",
+    "filename": "default-position.js",
+    "ext": ".js",
+    "size": 797,
+    "sha256": "e7ac2aef281180ff6bb37f736db9dc610a88b1af1c094320824a0238ed52c683",
+    "is_text": true,
+    "line_count": 8,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/delivery-blocks.js",
+    "filename": "delivery-blocks.js",
+    "ext": ".js",
+    "size": 7844,
+    "sha256": "9457924b1c823e8ff11e10373bfcf76548570262cdfd46dc5a3eeff05a78ad88",
+    "is_text": true,
+    "line_count": 87,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/delivery-preview.js",
+    "filename": "delivery-preview.js",
+    "ext": ".js",
+    "size": 13501,
+    "sha256": "e02d924b119508054cb1be21cf1f8746a1b3d26ea48a78b72fbb3b7b438a9f13",
+    "is_text": true,
+    "line_count": 142,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/delivery-trace.js",
+    "filename": "delivery-trace.js",
+    "ext": ".js",
+    "size": 3805,
+    "sha256": "0ccd848ca371eed003fbe3c2c42d493ddcf73e2655e28c9aa92d85ec0792273f",
+    "is_text": true,
+    "line_count": 48,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/field-border-mark.js",
+    "filename": "field-border-mark.js",
+    "ext": ".js",
+    "size": 3782,
+    "sha256": "4a5eab3adece3d64f545f9eada18edea9e58135bfea39ba83e82fcaf0e8dc577",
+    "is_text": true,
+    "line_count": 2,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/field-cans.js",
+    "filename": "field-cans.js",
+    "ext": ".js",
+    "size": 5379,
+    "sha256": "728f2f2fee2d275adb7fa6c7653bb3cdd68cad944541feca634da84e1bcbe0cb",
+    "is_text": true,
+    "line_count": 74,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/field-editor.css",
+    "filename": "field-editor.css",
+    "ext": ".css",
+    "size": 16293,
+    "sha256": "e057d4e940f2a93129ac1b908ec22363c4089be8e1a43c81048be7534e0246f4",
+    "is_text": true,
+    "line_count": 110,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/field-editor.js",
+    "filename": "field-editor.js",
+    "ext": ".js",
+    "size": 37410,
+    "sha256": "b341c9787fe26a0533f9fb747f7cd35599f6c379a0c8e3fc3c5c5dddb594ea41",
+    "is_text": true,
+    "line_count": 269,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/field-layout-worker.js",
+    "filename": "field-layout-worker.js",
+    "ext": ".js",
+    "size": 816,
+    "sha256": "eb023a6f8115e52135e9aa90aa4823aa8d9221f52b8be3df0e1aabb78b1171c1",
+    "is_text": true,
+    "line_count": 11,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/field-layout.js",
+    "filename": "field-layout.js",
+    "ext": ".js",
+    "size": 52188,
+    "sha256": "f0da0ce9a22ffb1ac13f10b1b24ce1c7022cd2b0e27a87f68a81e028bf855ef7",
+    "is_text": true,
+    "line_count": 553,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/field-map.js",
+    "filename": "field-map.js",
+    "ext": ".js",
+    "size": 14146,
+    "sha256": "f494f25a74e28785a0e5a1e5f0f645e44e059b95001466fd1598e2d2849afd36",
+    "is_text": true,
+    "line_count": 219,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/field-vector-export.js",
+    "filename": "field-vector-export.js",
+    "ext": ".js",
+    "size": 11038,
+    "sha256": "b17a6ad5324e4d2586bffdfbaa1a87f0c7a30f06c63dd207e13ac43dd87a7f9f",
+    "is_text": true,
+    "line_count": 108,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware-worker.js",
+    "filename": "firmware-worker.js",
+    "ext": ".js",
+    "size": 18508,
+    "sha256": "33689972044b7f2f738c0aadff82c885c9bf784c2548c19ef38c26c66c2868db",
+    "is_text": true,
+    "line_count": 259,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/glb-import.js",
+    "filename": "glb-import.js",
+    "ext": ".js",
+    "size": 20892,
+    "sha256": "1c2c35710bd1e6fb4c76794837a180383a03041a1776afef273b281af64b1fcb",
+    "is_text": true,
+    "line_count": 364,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/guided-assembly-session.js",
+    "filename": "guided-assembly-session.js",
+    "ext": ".js",
+    "size": 9437,
+    "sha256": "466363e5542e180cfc57b1ee99cfc3a6a7faab237846b5055ccc499c8d2f0565",
+    "is_text": true,
+    "line_count": 145,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/imported-part-physics.js",
+    "filename": "imported-part-physics.js",
+    "ext": ".js",
+    "size": 1334,
+    "sha256": "e7f442f1f99ffbf586318b252c2e036fc92ff55556ae1457097a8289b571eae7",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/mechanical-audio-settings.js",
+    "filename": "mechanical-audio-settings.js",
+    "ext": ".js",
+    "size": 217,
+    "sha256": "f171f19f95ac459ca05029f0715fb2009aae62e54d06bc594cc67a9478ecb529",
+    "is_text": true,
+    "line_count": 2,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/mechanical-audio.js",
+    "filename": "mechanical-audio.js",
+    "ext": ".js",
+    "size": 12897,
+    "sha256": "1af350b239bf3d443a4039fb85f1dc3c6abb64dff06f5bddc7a73feb32ad466f",
+    "is_text": true,
+    "line_count": 163,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/monitor-panel.js",
+    "filename": "monitor-panel.js",
+    "ext": ".js",
+    "size": 5791,
+    "sha256": "43f8890303afe3878be6684330cca8668f95ed8e35fef2b4fd646ed688de3511",
+    "is_text": true,
+    "line_count": 87,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/performance-recorder.js",
+    "filename": "performance-recorder.js",
+    "ext": ".js",
+    "size": 1720,
+    "sha256": "2dfe6d557a375de060a54749271ff8755fb2aa71739d9b9d9449c21ec5515af3",
+    "is_text": true,
+    "line_count": 23,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/physics-control.js",
+    "filename": "physics-control.js",
+    "ext": ".js",
+    "size": 23617,
+    "sha256": "2b033ed2ad3f4263a77939c1f6b90f5a9201323f7730c0f57116005287fdab2a",
+    "is_text": true,
+    "line_count": 294,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/physics-shared-transport.js",
+    "filename": "physics-shared-transport.js",
+    "ext": ".js",
+    "size": 4237,
+    "sha256": "cb04df614f16b291efad28f23c8c947b7ac9623b07f27e5470cdbedf0c7e85fb",
+    "is_text": true,
+    "line_count": 76,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/playback-video.js",
+    "filename": "playback-video.js",
+    "ext": ".js",
+    "size": 5010,
+    "sha256": "7e59aec0eabebd9439694da55f68e2829f71dd89d272bd0365a6feeff88c9e80",
+    "is_text": true,
+    "line_count": 63,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/playback.js",
+    "filename": "playback.js",
+    "ext": ".js",
+    "size": 8353,
+    "sha256": "1f47255968decb25077c47e4448e43027df6791ba49e9939a319e7dc73993eae",
+    "is_text": true,
+    "line_count": 101,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/popout.js",
+    "filename": "popout.js",
+    "ext": ".js",
+    "size": 5265,
+    "sha256": "17cbcd7680d919620004e6c19dd438276d42a68c1950ec42e242d767dcf1e9e0",
+    "is_text": true,
+    "line_count": 89,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/preferences-store.js",
+    "filename": "preferences-store.js",
+    "ext": ".js",
+    "size": 1857,
+    "sha256": "0d48ecb3ee5b0e525a59fd63ca69e542444dfb9d4a1ef11032fb296a8e054f96",
+    "is_text": true,
+    "line_count": 30,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/prepared-model.js",
+    "filename": "prepared-model.js",
+    "ext": ".js",
+    "size": 4093,
+    "sha256": "95055ac6cc9c5454a3d38a3b9a34416a5b1919b8901403fe29d3e6b7d04f89ab",
+    "is_text": true,
+    "line_count": 54,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/product-artwork.js",
+    "filename": "product-artwork.js",
+    "ext": ".js",
+    "size": 9218,
+    "sha256": "07c2a8ea885c362c65ca0bbd36c0e637c534dca844196880244cb656e982cef7",
+    "is_text": true,
+    "line_count": 168,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/product-assembly-guide.js",
+    "filename": "product-assembly-guide.js",
+    "ext": ".js",
+    "size": 11447,
+    "sha256": "24f2af4970bd6c71168912d64e3e4a738848dde5450e0f21003195c4d2efc4f9",
+    "is_text": true,
+    "line_count": 134,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/product-catalog.js",
+    "filename": "product-catalog.js",
+    "ext": ".js",
+    "size": 30697,
+    "sha256": "f518093fa6d332233acbb8f17aae265573f95c6be12e1342ff3b2c16d5eb61e3",
+    "is_text": true,
+    "line_count": 431,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/product-drive.js",
+    "filename": "product-drive.js",
+    "ext": ".js",
+    "size": 1357,
+    "sha256": "2ad958849651f7a30a2af6a2ebcda2a39019c2236474800c69f7695f2d355e14",
+    "is_text": true,
+    "line_count": 23,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/product-physics.js",
+    "filename": "product-physics.js",
+    "ext": ".js",
+    "size": 3001,
+    "sha256": "9c5f7e441cb032950b3a5dfd5f14633fdc3b72f25284f5ea7d5140df8c403dfe",
+    "is_text": true,
+    "line_count": 47,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/product-runtime.js",
+    "filename": "product-runtime.js",
+    "ext": ".js",
+    "size": 53493,
+    "sha256": "27abb52213d66cc223c2b895712182b97bb056b1a6bf416f32ff9ca43081cfcd",
+    "is_text": true,
+    "line_count": 763,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/product-schema.js",
+    "filename": "product-schema.js",
+    "ext": ".js",
+    "size": 29480,
+    "sha256": "de8262c795d3aeb19e04debb357bd23ad2414f82ddb76314a2eeb0dd11c7a881",
+    "is_text": true,
+    "line_count": 318,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/python-modules.js",
+    "filename": "python-modules.js",
+    "ext": ".js",
+    "size": 4795,
+    "sha256": "1e3213f19a0e7e2b3e798a227ad928d5e8cc6799c64d3eb1ccc1b2d2004e5c8e",
+    "is_text": true,
+    "line_count": 130,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/python-runtime.js",
+    "filename": "python-runtime.js",
+    "ext": ".js",
+    "size": 19409,
+    "sha256": "43edfdb4edaa9ee85f616425aa894f31fbbc28813dab88d920164afb063b1ec3",
+    "is_text": true,
+    "line_count": 241,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/python-source.js",
+    "filename": "python-source.js",
+    "ext": ".js",
+    "size": 5095,
+    "sha256": "6025a3c521afbbd8f71b2e5521ce7b362901148583b1c14505f541611d601004",
+    "is_text": true,
+    "line_count": 67,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/python-worker.js",
+    "filename": "python-worker.js",
+    "ext": ".js",
+    "size": 3119,
+    "sha256": "6c582eb903762ee022be179296f5bb8abb584be460475c7a2085a077f7e33178",
+    "is_text": true,
+    "line_count": 44,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/rigid-robot.js",
+    "filename": "rigid-robot.js",
+    "ext": ".js",
+    "size": 7312,
+    "sha256": "fdae48a857f91d9f2b0bf1b231bb146519226114ae63d6da941b4797e6e5169b",
+    "is_text": true,
+    "line_count": 83,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/runtime.js",
+    "filename": "runtime.js",
+    "ext": ".js",
+    "size": 13119,
+    "sha256": "319c5e80885bb85aface69c0a8784ed62d9909a8163cb397c590de9ccb6d8874",
+    "is_text": true,
+    "line_count": 169,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/step-fast-import.js",
+    "filename": "step-fast-import.js",
+    "ext": ".js",
+    "size": 889,
+    "sha256": "b6b962fccdb5aa6e6715db9950908b1110a268605f797d2dac3da4dd697635ab",
+    "is_text": true,
+    "line_count": 18,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/step-geometry.js",
+    "filename": "step-geometry.js",
+    "ext": ".js",
+    "size": 6574,
+    "sha256": "a77744a64383ad299b638a15264850168cc11c8253a349a30f7ce9e427988580",
+    "is_text": true,
+    "line_count": 119,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/step-import.js",
+    "filename": "step-import.js",
+    "ext": ".js",
+    "size": 13521,
+    "sha256": "ab8fd59cba1633409b67d07aac31aafaa7f4936e2edba580eb44344ff6198128",
+    "is_text": true,
+    "line_count": 283,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/step-node-worker.js",
+    "filename": "step-node-worker.js",
+    "ext": ".js",
+    "size": 1544,
+    "sha256": "d46cadb919a02e31877f40075e110126bb7ee7714c2639d7ab8ddeabc404dc1f",
+    "is_text": true,
+    "line_count": 23,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/step-worker.js",
+    "filename": "step-worker.js",
+    "ext": ".js",
+    "size": 1734,
+    "sha256": "0b444827f098131b45679deff707e3f43582d6a98bc1cc69cff69cba48291387",
+    "is_text": true,
+    "line_count": 28,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/studio-environment.js",
+    "filename": "studio-environment.js",
+    "ext": ".js",
+    "size": 1860,
+    "sha256": "dde052386e92e68a14329af38df9defc023b00350cd082befbcc9e1973e4910b",
+    "is_text": true,
+    "line_count": 28,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/surface-occlusion.js",
+    "filename": "surface-occlusion.js",
+    "ext": ".js",
+    "size": 12170,
+    "sha256": "92a518d1d8692c6f9671ee7f39d0ffa12a706b6703938f94cfac665f9bd4a90f",
+    "is_text": true,
+    "line_count": 150,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/telemetry-panel.js",
+    "filename": "telemetry-panel.js",
+    "ext": ".js",
+    "size": 7720,
+    "sha256": "492f44e38094f815e80fb30ddd46875c2a7b129c00e805334043face3b0b2469",
+    "is_text": true,
+    "line_count": 91,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/telemetry.js",
+    "filename": "telemetry.js",
+    "ext": ".js",
+    "size": 8784,
+    "sha256": "8035466cee6092f5e5ce52f44c00b0d72fbacaa6389f1757dc485517ef31c6b5",
+    "is_text": true,
+    "line_count": 125,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/toolbar-menus.js",
+    "filename": "toolbar-menus.js",
+    "ext": ".js",
+    "size": 3556,
+    "sha256": "6aca1e394dd6128640f013e87f74d3fcd826d001d2f07bd86a358bc5337fd215",
+    "is_text": true,
+    "line_count": 28,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/urdf-loader.js",
+    "filename": "urdf-loader.js",
+    "ext": ".js",
+    "size": 9475,
+    "sha256": "8724f61ae883305fa370c0cc2db57ddcd4fea4f8065083f1c1df6c863cb1bee3",
+    "is_text": true,
+    "line_count": 219,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/view-menu.js",
+    "filename": "view-menu.js",
+    "ext": ".js",
+    "size": 3330,
+    "sha256": "e3081375f771cf40009b2faf5220c4752fb92ba60a240a72c55a06661049e510",
+    "is_text": true,
+    "line_count": 43,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/viewport-style.js",
+    "filename": "viewport-style.js",
+    "ext": ".js",
+    "size": 2565,
+    "sha256": "1a1a279aa52f7270860352c31a530481e0b854b37a3ce36a05cba85d792694ae",
+    "is_text": true,
+    "line_count": 46,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/assets/pt-robotics-logo.png",
+    "filename": "pt-robotics-logo.png",
+    "ext": ".png",
+    "size": 70176,
+    "sha256": "cd75b55a9d0ec3a39230cc7a3ebb09417931cdfbd85651d9faeab26f72d22590",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/fields/opt-primary-2025.png",
+    "filename": "opt-primary-2025.png",
+    "ext": ".png",
+    "size": 148765,
+    "sha256": "521b7ec81bf3633e3d92c261320538cb30162b3a1d5441a32dff3c72cecd9b8d",
+    "is_text": false,
+    "line_count": 0,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/fields/README.md",
+    "filename": "README.md",
+    "ext": ".md",
+    "size": 1522,
+    "sha256": "963921a5a13802611bf7030e0e1bb8cf6abc405d13069fa0a393831f3f3a6951",
+    "is_text": true,
+    "line_count": 27,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/atom-vx/hardware.py",
+    "filename": "hardware.py",
+    "ext": ".py",
+    "size": 12317,
+    "sha256": "749df33ee182e4ab478d2a1448c862a23bdea51c9ed41e0ff4cf968e077b3757",
+    "is_text": true,
+    "line_count": 272,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/atom-vx/profile.json",
+    "filename": "profile.json",
+    "ext": ".json",
+    "size": 232060,
+    "sha256": "4230aec6dc3cb8fe30c57ace8d4430c314c3a98bdc7ced01569e2c6ed6a1ad2f",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/buildbot/hardware.py",
+    "filename": "hardware.py",
+    "ext": ".py",
+    "size": 16414,
+    "sha256": "ced003808c14ad0b468ab9c896cafafa9a60f9d8a9db7b346f98f3fd28a7d08f",
+    "is_text": true,
+    "line_count": 358,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/buildbot/profile.json",
+    "filename": "profile.json",
+    "ext": ".json",
+    "size": 264310,
+    "sha256": "c1126707e63f5a932eb02cbef9f6bcffba2581e6e62802eae6f97577e2a48400",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/buildbot/licenses/BusDevice.txt",
+    "filename": "BusDevice.txt",
+    "ext": ".txt",
+    "size": 1076,
+    "sha256": "f60436644e066301d4c2e8f1f0674a157b1f60e4fd5586717b99dde255cc18cd",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/buildbot/licenses/HCSR04.txt",
+    "filename": "HCSR04.txt",
+    "ext": ".txt",
+    "size": 1067,
+    "sha256": "47ce2a277e6d0303871e6030f9d754837d3edc08fffef34e635b43db9c8b7e36",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/buildbot/licenses/Motor.txt",
+    "filename": "Motor.txt",
+    "ext": ".txt",
+    "size": 1110,
+    "sha256": "80c86c3effbdca862178048224e46c5abcc86a280acc08111f37fac0297c61bc",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/buildbot/licenses/PCA9685.txt",
+    "filename": "PCA9685.txt",
+    "ext": ".txt",
+    "size": 1119,
+    "sha256": "f2dedcf9167ff5b29b5b8a912804024f4bf5f244f74622700b281113ade1fa20",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/buildbot/licenses/Register.txt",
+    "filename": "Register.txt",
+    "ext": ".txt",
+    "size": 1076,
+    "sha256": "f60436644e066301d4c2e8f1f0674a157b1f60e4fd5586717b99dde255cc18cd",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/buildbot/licenses/ST7789.txt",
+    "filename": "ST7789.txt",
+    "ext": ".txt",
+    "size": 1119,
+    "sha256": "0eaa8a3fb38f4375b84bbd9b3bf7af40ff28dda368478f19b4426deba6724e29",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/firmware/buildbot/licenses/Ticks.txt",
+    "filename": "Ticks.txt",
+    "ext": ".txt",
+    "size": 1101,
+    "sha256": "b7ed732475d89cf1f70806fb566feb1951090eb52498b5068737b806b802c798",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/models/sample_4wd/robot.urdf",
+    "filename": "robot.urdf",
+    "ext": ".urdf",
+    "size": 4873,
+    "sha256": "7ba67cd0ec808a27ce06f2388f0b3097aab031e8b1a9e3a64d97820a90af4aea",
+    "is_text": true,
+    "line_count": 56,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/models/sample_4wd/meshes/chassis.stl",
+    "filename": "chassis.stl",
+    "ext": ".stl",
+    "size": 1471,
+    "sha256": "2967b8fd39e70cc371a696f61ed932504aaa5c7338a2849592e53601c5a19261",
+    "is_text": true,
+    "line_count": 86,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/models/sample_4wd/meshes/deck.stl",
+    "filename": "deck.stl",
+    "ext": ".stl",
+    "size": 985,
+    "sha256": "dbbb33680a6f8cd958fa6a6e471274290cc0ad6cd3e998715cc9cd960aba1f7b",
+    "is_text": true,
+    "line_count": 58,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/models/sample_4wd/meshes/front_marker.stl",
+    "filename": "front_marker.stl",
+    "ext": ".stl",
+    "size": 153,
+    "sha256": "59049b69cfbe309eed75126702911af62516a23d725263a6d055a3717a4fdbf7",
+    "is_text": true,
+    "line_count": 9,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/models/sample_4wd/meshes/hub.stl",
+    "filename": "hub.stl",
+    "ext": ".stl",
+    "size": 525,
+    "sha256": "77f6ca19999b95d261423a53413b7e309ea26c9f07bd5dd7af69d22125cd5d1b",
+    "is_text": true,
+    "line_count": 30,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/models/sample_4wd/meshes/motor.stl",
+    "filename": "motor.stl",
+    "ext": ".stl",
+    "size": 529,
+    "sha256": "98e87090ced960bd2d9a261dae2c346419513a2110f1b81cac3c790b05d1e9df",
+    "is_text": true,
+    "line_count": 30,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/models/sample_4wd/meshes/tire.stl",
+    "filename": "tire.stl",
+    "ext": ".stl",
+    "size": 779,
+    "sha256": "92fc043bee4bf634929a95d0a3093e46dca70bc9a563959e20a7ec3505c3b992",
+    "is_text": true,
+    "line_count": 44,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/models/sample_4wd/meshes/wheel_marker.stl",
+    "filename": "wheel_marker.stl",
+    "ext": ".stl",
+    "size": 304,
+    "sha256": "d63ed75d79ef31f9f40298dba78215b94d52887241793c94fe1faec1e9cf3363",
+    "is_text": true,
+    "line_count": 16,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/cannon-0.6.2.min.js",
+    "filename": "cannon-0.6.2.min.js",
+    "ext": ".js",
+    "size": 132405,
+    "sha256": "2dbb0876eba2816dadf64e87878ddad9171e4e29c2705ff568a8cff9a92bdf83",
+    "is_text": true,
+    "line_count": 30,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/cannon-LICENSE",
+    "filename": "cannon-LICENSE",
+    "ext": "",
+    "size": 1125,
+    "sha256": "4714d0272f50cb21fe46fe29333c7c600d3c85b5ebd2a80f4db07e8cfccbf5b2",
+    "is_text": true,
+    "line_count": 22,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/mediabunny/LICENSE",
+    "filename": "LICENSE",
+    "ext": "",
+    "size": 16726,
+    "sha256": "3f3d9e0024b1921b067d6f7f88deb4a60cbe7a78e76c64e3f1d7fc3b779b9d04",
+    "is_text": true,
+    "line_count": 373,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/mediabunny/mediabunny.min.js",
+    "filename": "mediabunny.min.js",
+    "ext": ".js",
+    "size": 691220,
+    "sha256": "d7b3a90e82158a7022729cbd4f861daf73cbb4f69d23349d2aefc9c8281cf70c",
+    "is_text": true,
+    "line_count": 50,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/mediabunny/README.txt",
+    "filename": "README.txt",
+    "ext": ".txt",
+    "size": 140,
+    "sha256": "3b9707a61e119c714eaaf7209e61a854f781d99a75223b83078a5609263f75cc",
+    "is_text": true,
+    "line_count": 3,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/occt/LICENSE.md",
+    "filename": "LICENSE.md",
+    "ext": ".md",
+    "size": 26526,
+    "sha256": "20c17d8b8c48a600800dfd14f95d5cb9ff47066a9641ddeab48dc54aec96e331",
+    "is_text": true,
+    "line_count": 504,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/occt/occt-import-js.js",
+    "filename": "occt-import-js.js",
+    "ext": ".js",
+    "size": 96871,
+    "sha256": "3fb44ce11d00611f9b3f3c5775d520ebab48930c1f08279b7b1316f05f0d3379",
+    "is_text": true,
+    "line_count": 19,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/occt/README.md",
+    "filename": "README.md",
+    "ext": ".md",
+    "size": 720,
+    "sha256": "a06c17ea456d28e61e928c2498dd6d420c9d6d1f90577e9001bfcf3c9cde2ae6",
+    "is_text": true,
+    "line_count": 12,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/occt/test-cube.stp",
+    "filename": "test-cube.stp",
+    "ext": ".stp",
+    "size": 8010,
+    "sha256": "cfa52db7eab6fe6a73986a87aff8702d24431bdb7da6382afdd94234deb3f648",
+    "is_text": true,
+    "line_count": 237,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/occt-legacy/occt-import-js.js",
+    "filename": "occt-import-js.js",
+    "ext": ".js",
+    "size": 190156,
+    "sha256": "e07def28722e52f81ea9646f68442f90b1471343544b8ed4314a434d790ba4fc",
+    "is_text": true,
+    "line_count": 21,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/occt-legacy/README.md",
+    "filename": "README.md",
+    "ext": ".md",
+    "size": 619,
+    "sha256": "eac077b0acd5062ec57754beec547fa0b3a251787ae7c0bb160613e7b3e5e45c",
+    "is_text": true,
+    "line_count": 11,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/pyodide/CPYTHON-LICENSE",
+    "filename": "CPYTHON-LICENSE",
+    "ext": "",
+    "size": 13936,
+    "sha256": "3b2f81fe21d181c499c59a256c8e1968455d6689d269aa85373bfb6af41da3bf",
+    "is_text": true,
+    "line_count": 279,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/pyodide/LICENSE",
+    "filename": "LICENSE",
+    "ext": "",
+    "size": 16725,
+    "sha256": "1f256ecad192880510e84ad60474eab7589218784b9a50bc7ceee34c2b91f1d5",
+    "is_text": true,
+    "line_count": 373,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/pyodide/pyodide-lock.json",
+    "filename": "pyodide-lock.json",
+    "ext": ".json",
+    "size": 84412,
+    "sha256": "e313a21e0717839411cecf6f5bb74a92124239a2dffa80ec7ed1b712d621380f",
+    "is_text": true,
+    "line_count": 3768,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/pyodide/pyodide.asm.js",
+    "filename": "pyodide.asm.js",
+    "ext": ".js",
+    "size": 1157891,
+    "sha256": "71250bb1cf7216d1f848505f1056f351bd02187fbb112e966f6e9745465d0c4f",
+    "is_text": true,
+    "line_count": 17,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/pyodide/pyodide.js",
+    "filename": "pyodide.js",
+    "ext": ".js",
+    "size": 17417,
+    "sha256": "b67a1e4ed23ed8c3ee0b50f3b054f4fccf2cb9dda2f6db0cb69a531bd21107da",
+    "is_text": true,
+    "line_count": 13,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/pyodide/README.md",
+    "filename": "README.md",
+    "ext": ".md",
+    "size": 1013,
+    "sha256": "c1dc24f8e64a4aad952d87d2241a82a563e933b4d2991d9a267f31b49f848479",
+    "is_text": true,
+    "line_count": 20,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/skulpt/LICENSE",
+    "filename": "LICENSE",
+    "ext": "",
+    "size": 1579,
+    "sha256": "e407544486b5cff8bdb1faa9930ae5d980fd363d1003d3a032f9915674da0fa9",
+    "is_text": true,
+    "line_count": 35,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/skulpt/README.md",
+    "filename": "README.md",
+    "ext": ".md",
+    "size": 498,
+    "sha256": "10efb13ca4de9aae67d3bc5c4a914673d5365db1a31c39111f59e223c88b59e4",
+    "is_text": true,
+    "line_count": 8,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/skulpt/skulpt-stdlib.js",
+    "filename": "skulpt-stdlib.js",
+    "ext": ".js",
+    "size": 407300,
+    "sha256": "e3ecccbc17c6164d19ed3c5561aaaeb752c38c8efa2d88b62b5fb7a7e1b086a7",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/robot-sim/vendor/skulpt/skulpt.min.js",
+    "filename": "skulpt.min.js",
+    "ext": ".js",
+    "size": 559460,
+    "sha256": "1a319d8eedf314dba5af2444313e3cf2ac072a335df0f5100277e8f49b64eae9",
+    "is_text": true,
+    "line_count": 1061,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/ros/app.js",
+    "filename": "app.js",
+    "ext": ".js",
+    "size": 165177,
+    "sha256": "d329d3ea3f336c4ea6948be8b475cbb7d6bed7fe2f47487dada9e419dea00ae7",
+    "is_text": true,
+    "line_count": 4551,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/ros/index.html",
+    "filename": "index.html",
+    "ext": ".html",
+    "size": 12534,
+    "sha256": "acbfd3c836d8da0cf94d20c44bf7266dfb9fbacfb1815e6d74d4852c5dc52bf7",
+    "is_text": true,
+    "line_count": 248,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/ros/style.css",
+    "filename": "style.css",
+    "ext": ".css",
+    "size": 39332,
+    "sha256": "ab86f942adcb2247ae2a2ddaba3495182a466674bcac723e6cf614d2e2bc54e2",
+    "is_text": true,
+    "line_count": 1769,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/ros/terminal.css",
+    "filename": "terminal.css",
+    "ext": ".css",
+    "size": 3549,
+    "sha256": "4e3b76b3830f3e2fec53ecd45799f1b63e94eff31f2a32e9b4c85a1649ca7b0c",
+    "is_text": true,
+    "line_count": 181,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/ros/terminal.html",
+    "filename": "terminal.html",
+    "ext": ".html",
+    "size": 1325,
+    "sha256": "bc77a462e6539589732ed5b886c3b0c937e5d204c3802c3d7a3040df77a736f5",
+    "is_text": true,
+    "line_count": 32,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/ros/terminal.js",
+    "filename": "terminal.js",
+    "ext": ".js",
+    "size": 16862,
+    "sha256": "12aa6bf24f39f8d2f3228132837e501bb935264115e9f6d914eff4965a6b875d",
+    "is_text": true,
+    "line_count": 560,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/stubs/esp32.json",
+    "filename": "esp32.json",
+    "ext": ".json",
+    "size": 4681,
+    "sha256": "37431bcd83c58a05843875f700e9ac01530167e07a201c74c1f01bd546bd92c9",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/stubs/esp32c3.json",
+    "filename": "esp32c3.json",
+    "ext": ".json",
+    "size": 4889,
+    "sha256": "777f8f03dbe93c240d51cbf520e2c98086de80cf0e50fbf29aca2306f6026212",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/stubs/esp32h2.json",
+    "filename": "esp32h2.json",
+    "ext": ".json",
+    "size": 4633,
+    "sha256": "87f603eabd04ee99205df55d5b0a9885072891bec4c272e1accfdf57c9437e1c",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/stubs/esp32s2.json",
+    "filename": "esp32s2.json",
+    "ext": ".json",
+    "size": 5537,
+    "sha256": "bc9c56d3fb02ce7070e73dd695e9a73365cf92659c71dc2f3630987e990b66ad",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/stubs/esp32s3.json",
+    "filename": "esp32s3.json",
+    "ext": ".json",
+    "size": 6425,
+    "sha256": "5cc5f85d8e0eb7032205c7c54673ce07388b246d217ce4bd8b9c2406709e7f89",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/stubs/esp8266.json",
+    "filename": "esp8266.json",
+    "ext": ".json",
+    "size": 12109,
+    "sha256": "65c725c0baac68a4c09efa5c9ba02f7bb97b9bc09fa33462d658af22ca3f9d66",
+    "is_text": true,
+    "line_count": 1,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/tippyjs/popper.min.js",
+    "filename": "popper.min.js",
+    "ext": ".js",
+    "size": 18059,
+    "sha256": "20db2fdda40d8716d5e8cd540589e60066a8eab97ee2d81656c10c11ccf7539c",
+    "is_text": true,
+    "line_count": 6,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/tippyjs/tippy-bundle.umd.min.js",
+    "filename": "tippy-bundle.umd.min.js",
+    "ext": ".js",
+    "size": 23565,
+    "sha256": "b56b08debc2bae1d92d602164b75380eac9992f72e94eb68808974584f6c2e08",
+    "is_text": true,
+    "line_count": 2,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/xterm.js/xterm-addon-fit.js",
+    "filename": "xterm-addon-fit.js",
+    "ext": ".js",
+    "size": 2466,
+    "sha256": "a401ad42e44dd44f6a67e0d96c0ac067beffd33bbfee021de2c484de1fd517c9",
+    "is_text": true,
+    "line_count": 2,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/xterm.js/xterm.css",
+    "filename": "xterm.css",
+    "ext": ".css",
+    "size": 4245,
+    "sha256": "c9312c929901d4403affd3293ff32bac54302b498a626767307b30c8a2a8e633",
+    "is_text": true,
+    "line_count": 171,
+    "origin": "Extracted directly from app.asar payload"
+  },
+  {
+    "rel_path": "microBlock-IDE/xterm.js/xterm.js",
+    "filename": "xterm.js",
+    "ext": ".js",
+    "size": 297236,
+    "sha256": "a013012d46ec27a0e249d92ba29b8d976bc902c9d3173de1321b8e0babd6cdf2",
+    "is_text": true,
+    "line_count": 5,
+    "origin": "Extracted directly from app.asar payload"
+  }
+]

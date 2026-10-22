@@ -1,0 +1,58 @@
+solid deck
+facet normal 0 1 0
+ outer loop
+  vertex -0.64 0 0.36
+  vertex 0.64 0 0.36
+  vertex 0.64 0.08 0.36
+ endloop
+endfacet
+facet normal 0 1 0
+ outer loop
+  vertex -0.64 0 0.36
+  vertex 0.64 0.08 0.36
+  vertex -0.64 0.08 0.36
+ endloop
+endfacet
+facet normal 0 -1 0
+ outer loop
+  vertex -0.64 0 -0.36
+  vertex 0.64 0 -0.36
+  vertex 0.64 0.08 -0.36
+ endloop
+endfacet
+facet normal 0 -1 0
+ outer loop
+  vertex -0.64 0 -0.36
+  vertex 0.64 0.08 -0.36
+  vertex -0.64 0.08 -0.36
+ endloop
+endfacet
+facet normal 0 0 1
+ outer loop
+  vertex -0.64 0.08 -0.36
+  vertex 0.64 0.08 -0.36
+  vertex 0.64 0.08 0.36
+ endloop
+endfacet
+facet normal 0 0 1
+ outer loop
+  vertex -0.64 0.08 -0.36
+  vertex 0.64 0.08 0.36
+  vertex -0.64 0.08 0.36
+ endloop
+endfacet
+facet normal 0 0 -1
+ outer loop
+  vertex -0.64 0 -0.36
+  vertex 0.64 0 0.36
+  vertex 0.64 0 -0.36
+ endloop
+endfacet
+facet normal 0 0 -1
+ outer loop
+  vertex -0.64 0 -0.36
+  vertex -0.64 0 0.36
+  vertex 0.64 0 0.36
+ endloop
+endfacet
+endsolid deck

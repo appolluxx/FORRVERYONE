@@ -1,0 +1,71 @@
+/* Shared software and firmware update surfaces. */
+:is(#app-update-dialog,#firmware-upgrade-dialog){position:fixed;inset:0;width:100%;height:100%;padding:clamp(16px,8vh,72px) 16px;box-sizing:border-box;background:rgba(25,48,72,.28);backdrop-filter:none;overflow:auto;color:#29465e}
+:is(#app-update-dialog,#firmware-upgrade-dialog) > section{width:100%;max-width:520px;margin:auto;border:1px solid #dce8f3;border-radius:12px;background:#fff;box-shadow:0 18px 64px #18354d26;overflow:hidden;box-sizing:border-box}
+:is(#app-update-dialog,#firmware-upgrade-dialog) > section > header{position:relative;padding:16px 22px;border-bottom:1px solid #e6eef7;background:#fff}
+:is(#app-update-dialog,#firmware-upgrade-dialog) > section > header > .title{padding:0 34px 0 0;font-size:20px;line-height:1.4;font-weight:650;color:#29465e}
+#firmware-upgrade-dialog > section > header > div.title{padding:0 34px 0 0;font-size:20px;font-weight:650;color:#29465e}
+:is(#app-update-dialog,#firmware-upgrade-dialog) > section > header > .title small{display:block;margin-top:5px;font-size:12px;font-weight:400;color:#7189a0}
+:is(#app-update-dialog,#firmware-upgrade-dialog) > section > header > .close-btn{position:absolute;right:18px;top:50%;transform:translateY(-50%);width:30px;height:30px;padding:0;border:0;border-radius:8px;display:grid;place-items:center;color:#7189a0;background:transparent;font-size:15px;cursor:pointer}
+:is(#app-update-dialog,#firmware-upgrade-dialog) > section > header > .close-btn:hover{background:#e7f3ff;color:#258ee2}
+:is(#app-update-dialog,#firmware-upgrade-dialog) > section > section{padding:26px;text-align:center}
+#app-update-dialog .app-update-icon,#firmware-upgrade-dialog > section > section > article > .icon{width:56px;height:56px;box-sizing:border-box;margin:0 auto 20px;padding:12px;border-radius:12px;background:#eaf5ff;color:#39a3fa;font-size:28px;line-height:32px}
+#firmware-upgrade-dialog > section > section > article.done > .icon.success{background:#e9f8f1;color:#229c74}
+#firmware-upgrade-dialog > section > section > article.done > .icon.fail{background:#fff0f0;color:#dc6570}
+#app-update-dialog .app-update-version{padding:12px 16px;border:1px solid #e2edf6;border-radius:10px;background:#f7fbff;color:#71859a;font-size:13px;line-height:1.8}
+#app-update-dialog .app-update-version strong{color:#29465e;font-weight:650;margin-left:4px}
+#app-update-status,#firmware-upgrade-dialog > section > section > article > p{font-size:14px;line-height:1.7;color:#506b83;margin:18px 0;overflow-wrap:anywhere}
+#firmware-upgrade-dialog > section > section > article > select{width:100%;max-width:100%;box-sizing:border-box;margin:0 0 20px;padding:11px 14px;border:1px solid #d7e6f3;border-radius:10px;background:#f7fbff;color:#29465e;font:inherit;font-size:14px}
+:is(#app-update-dialog,#firmware-upgrade-dialog) .app-update-actions,#firmware-upgrade-dialog .botton-group{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin-top:20px}
+#app-update-dialog .app-update-actions button,#firmware-upgrade-dialog > section > section > article button{min-height:40px;padding:10px 22px;border:1px solid transparent;border-radius:10px;box-shadow:none;background:#3ba5ff;color:#fff;font:inherit;font-size:14px;font-weight:600;cursor:pointer;text-transform:none;letter-spacing:0}
+#app-update-dialog .app-update-actions button:hover,#firmware-upgrade-dialog > section > section > article button:hover{background:#268fe8;box-shadow:none}
+#app-update-dialog .app-update-actions button:disabled,#firmware-upgrade-dialog > section > section > article button:disabled{opacity:.5;cursor:default}
+#firmware-upgrade-dialog #continue-upload,#firmware-upgrade-dialog > section > section > article button.close-btn{background:#edf6ff;color:#238ce0}
+#firmware-upgrade-dialog #continue-upload:hover,#firmware-upgrade-dialog > section > section > article button.close-btn:hover{background:#dfefff;color:#1873bc}
+#firmware-upgrade-dialog > section > section > article .botton-group{display:flex;justify-content:flex-end;gap:10px;flex-wrap:wrap;padding-top:18px;border-top:1px solid #e7edf4}
+#firmware-upgrade-dialog > section > section > article button{margin:0;border-radius:8px;font-weight:500}
+#firmware-upgrade-dialog > section > section > article button#continue-upload{background:#edf6ff;color:#238ce0}
+#app-update-dialog .app-update-actions{justify-content:flex-end}
+#app-update-dialog .app-update-actions button{border-radius:8px;font-weight:500}
+#app-update-progress,#firmware-upgrade-dialog > section > section > article > .progress-box{position:relative;height:auto;min-height:42px;margin:22px 0 16px;border-radius:0;background:transparent;overflow:hidden;padding-top:14px;box-sizing:border-box}
+#app-update-progress::before,#firmware-upgrade-dialog .progress-box::before{content:'';position:absolute;top:0;left:0;right:0;height:7px;background:#e5f0fa;border-radius:8px}
+#app-update-progress > .back-drop,#firmware-upgrade-dialog > section > section > article > .progress-box > .back-drop{position:absolute;top:0;left:0;height:7px;border-radius:8px;background:#3ba5ff;transition:width .18s ease}
+#app-update-progress > .caption,#firmware-upgrade-dialog > section > section > article > .progress-box > .caption{position:static;transform:none;font-size:12px;line-height:1.6;color:#698298;overflow-wrap:anywhere;font-variant-numeric:tabular-nums}
+#firmware-upgrade-dialog > section > section > article > .warning,#firmware-upgrade-dialog .note-for-rp2{padding:12px 14px;border-radius:10px;background:#f1f7fc;color:#698298;font-size:12px;line-height:1.6;margin-bottom:0}
+#firmware-upgrade-dialog.fullScreen{padding:16px;background:#f1f7fc}
+#firmware-upgrade-dialog.fullScreen > section{width:100%;height:auto;min-height:0;max-width:520px;border-radius:12px}
+@media(max-width:480px){:is(#app-update-dialog,#firmware-upgrade-dialog) > section > header{padding:18px 20px}:is(#app-update-dialog,#firmware-upgrade-dialog) > section > section{padding:22px 18px}#app-update-latest-wrap{margin-left:8px}}
+@media(prefers-reduced-motion:reduce){:is(#app-update-dialog,#firmware-upgrade-dialog) *{animation:none!important;transition:none!important}}
+
+/* Compact update layout shared with the IDE's tool dialogs. */
+:is(#app-update-dialog,#firmware-upgrade-dialog) > section > header{display:flex;align-items:center;gap:14px;padding:20px 24px}
+:is(#app-update-dialog,#firmware-upgrade-dialog) > section > header > .title{flex:1;min-width:0;font-size:18px}
+#firmware-upgrade-dialog > section > header > div.title{font-size:18px}
+#app-update-dialog .app-update-icon.update-header-icon,#firmware-upgrade-dialog .update-header-icon{display:grid;place-items:center;flex:none;width:44px;height:44px;padding:0;margin:0;border-radius:10px;background:#eaf5ff;color:#329df4;font-size:21px;line-height:1}
+:is(#app-update-dialog,#firmware-upgrade-dialog) > section > section{padding:24px;text-align:left}
+#app-update-dialog .app-update-version{display:flex;flex-direction:column;gap:0;padding:0;border:0;background:transparent;line-height:1.5}
+#app-update-dialog .update-version-cell{display:flex;align-items:center;justify-content:space-between;gap:20px;min-width:0;padding:11px 0;border:0;border-bottom:1px solid #edf1f5;border-radius:0;background:transparent;box-sizing:border-box;font-size:13px;color:#71859a}
+#app-update-dialog #app-update-latest-wrap{margin:0;background:transparent}
+#app-update-dialog .update-version-cell strong{display:block;margin:0;font-size:14px;font-weight:600;letter-spacing:0;color:#29465e;font-variant-numeric:tabular-nums;overflow-wrap:anywhere;text-align:right}
+#app-update-dialog #app-update-latest-version{color:#218ee5}
+#app-update-status{margin:20px 0 0;font-size:13px;line-height:1.7;color:#587189;min-height:22px}
+#app-update-dialog .app-update-actions{display:none;padding-top:18px;border-top:1px solid #e7edf4}
+#firmware-upgrade-dialog > section > section > article.todo > .icon,#firmware-upgrade-dialog > section > section > article.doing > .icon{display:none}
+#firmware-upgrade-dialog > section > section > article > p{margin:0 0 20px;font-size:13px;color:#587189}
+#firmware-upgrade-dialog .update-field-label{display:block;margin:0 0 8px;font-size:12px;font-weight:600;color:#3e5b74}
+#firmware-upgrade-dialog > section > section > article > select{margin:0;min-height:42px;border-radius:8px;background:#fff}
+#firmware-upgrade-dialog > section > section > article .botton-group{margin-top:24px;padding-top:18px}
+#firmware-upgrade-dialog #continue-upload,#firmware-upgrade-dialog .botton-group .close-btn{order:-1}
+#firmware-upgrade-dialog > section > section > article.done{text-align:center}
+#firmware-upgrade-dialog > section > section > article.done .botton-group{justify-content:center}
+#firmware-upgrade-dialog .note-for-rp2{margin-top:16px;font-weight:400;text-align:left;border-radius:8px}
+#app-update-progress,#firmware-upgrade-dialog > section > section > article > .progress-box{margin:20px 0 0}
+#firmware-upgrade-dialog > section > section > article > .warning{margin:18px 0 0;border-radius:8px;font-size:12px}
+@media(max-width:480px){:is(#app-update-dialog,#firmware-upgrade-dialog) > section > header{gap:10px;padding:18px}:is(#app-update-dialog,#firmware-upgrade-dialog) > section > section{padding:20px 18px}:is(#app-update-dialog,#firmware-upgrade-dialog) > section > header > .title small{font-size:11px}.app-update-version{gap:8px}}
+
+/* Keep device descriptions on one line while retaining the port identity. */
+#port-list > li{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+#port-list .device-name,#port-list .device-meta{min-width:0;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+#port-list > li.device-item{display:flex;align-items:center;gap:8px}
+#port-list .device-name{flex:1}
+#port-list .device-detail,#port-list .usb-icon,#port-list .wifi-icon{flex:none}
+#port-list .device-meta{flex:0 1 auto;max-width:30%;font-size:12px}

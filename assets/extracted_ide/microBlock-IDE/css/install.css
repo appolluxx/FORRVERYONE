@@ -1,0 +1,19 @@
+.offline-download-entry[hidden],.offline-download-panel[hidden],.offline-download-panel [hidden]{display:none!important}
+:is(#offline-download-status,#arduino-download-status){position:relative;display:grid;place-items:center;width:34px;min-width:34px;height:34px;padding:6px!important;border:0;border-radius:50%;background:transparent;color:inherit;cursor:pointer}
+:is(#offline-download-status,#arduino-download-status) svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.8;stroke-linecap:round;stroke-linejoin:round}
+:is(#offline-download-status,#arduino-download-status)[data-state=downloading]::after,:is(#offline-download-status,#arduino-download-status)[data-state=checking]::after{content:"";position:absolute;inset:4px;border:1.5px solid #ffffff55;border-top-color:currentColor;border-radius:50%;animation:offline-spin 1s linear infinite}
+body.ide-touch :is(#offline-download-status,#arduino-download-status) svg{width:14px;height:14px}
+:is(#offline-download-status,#arduino-download-status)[data-state=error]::after{content:"!";position:absolute;right:-1px;top:-2px;background:#d43c3c;color:white;font:bold 10px/14px system-ui;text-align:center;width:14px;height:14px;border-radius:50%}
+:is(#offline-download-status,#arduino-download-status)[data-state=ready]::after{content:"";position:absolute;right:0;bottom:1px;width:7px;height:7px;background:#27a86f;border:1px solid #fff;border-radius:50%}
+.offline-download-panel{position:fixed;z-index:110000;box-sizing:border-box;padding:16px;border:1px solid #dce5ee;border-radius:12px;background:#fff;box-shadow:0 8px 28px #18354d26;color:#24394d;font:13px/1.5 system-ui,sans-serif;max-height:calc(100dvh - 24px);overflow:auto}
+.offline-download-panel header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin:0 0 12px}
+.offline-download-panel header strong{font-size:14px;font-weight:600}
+.offline-download-panel .offline-panel-close{border:0;background:transparent;color:#62778a;font-size:22px;line-height:1;cursor:pointer;padding:0 4px}
+.offline-download-panel p{margin:8px 0;color:#576e82;overflow-wrap:anywhere}
+.offline-download-panel .offline-download-summary{font-weight:600;color:#263f56}
+.offline-download-panel progress{display:block;width:100%;height:6px;margin:12px 0;appearance:none;border:0;border-radius:4px;overflow:hidden;background:#e6edf4;accent-color:#258fee}
+.offline-download-panel progress::-webkit-progress-bar{background:#e6edf4}.offline-download-panel progress::-webkit-progress-value{background:#258fee;border-radius:4px}.offline-download-panel progress::-moz-progress-bar{background:#258fee}
+.offline-download-panel .offline-download-note{font-size:11px;color:#7b8d9d;margin-bottom:0}
+#retry-offline-download{border:1px solid #d5e3ef;border-radius:6px;padding:5px 12px;background:#f4f9ff;color:#1478c8;cursor:pointer;font:inherit}
+@keyframes offline-spin{to{transform:rotate(360deg)}}
+@media(prefers-reduced-motion:reduce){:is(#offline-download-status,#arduino-download-status)::after{animation:none!important}}

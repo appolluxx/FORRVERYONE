@@ -1,0 +1,458 @@
+================================================================================
+FILE DOCUMENTATION — SUBSYSTEM 02: MICROBLOCK-IDE CORE CONTROLLERS & SERVICES
+================================================================================
+Covers: WebSerial, board manager, compiler, uploader, Monaco editor, and UI lifecycle.
+Target Directory: D:\Workspace\robot\assets\extracted_ide\microBlock-IDE\js\
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/account-config.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 42 bytes | Lines: 1
+1. Purpose: IDE auxiliary module (account-config.json).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/arduino-editor.html
+--------------------------------------------------------------------------------
+Format: .html | Size: 4,323 bytes | Lines: 3
+1. Purpose: IDE auxiliary module (arduino-editor.html).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/asset-manifest.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 127,620 bytes | Lines: 1857
+1. Purpose: IDE auxiliary module (asset-manifest.json).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/blocksTree.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 13,979 bytes | Lines: 389
+1. Purpose: Declarative JSON tree defining the visual block categories in the left sidebar.
+2. Responsibilities: Configures categories (Logic, Loops, Math, Text, Variables, Functions, Pins, Motors, Sensors).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/build-manifest.mjs
+--------------------------------------------------------------------------------
+Format: .mjs | Size: 5,592 bytes | Lines: 166
+1. Purpose: IDE auxiliary module (build-manifest.mjs).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/embed.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,814 bytes | Lines: 55
+1. Purpose: IDE auxiliary module (embed.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/firmware.html
+--------------------------------------------------------------------------------
+Format: .html | Size: 11,454 bytes | Lines: 241
+1. Purpose: IDE auxiliary module (firmware.html).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/index.html
+--------------------------------------------------------------------------------
+Format: .html | Size: 56,115 bytes | Lines: 1021
+1. Purpose: Main single-page application (SPA) HTML container for roboBlocks IDE.
+2. Responsibilities: Renders main toolbar, Blockly workspace container, Monaco editor panel, terminal panel, and modal overlays.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/manifest.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 935 bytes | Lines: 43
+1. Purpose: IDE auxiliary module (manifest.json).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/service-worker.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 6,153 bytes | Lines: 104
+1. Purpose: IDE auxiliary module (service-worker.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/account.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 20,198 bytes | Lines: 176
+1. Purpose: IDE auxiliary module (account.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/app.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 52,978 bytes | Lines: 1332
+1. Purpose: Master frontend controller and bootstrap runner for the microBlock IDE interface.
+2. Responsibilities: Initializes UI layout, loads active board profile, binds global hotkeys (Ctrl+S, Ctrl+U), manages dark/light themes, and synchronizes code editor tabs.
+3. Key Symbols: initApp(), switchBoard(), setMode(), updateTitle(), saveProject(), openProject().
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/arduino-auto-install.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 867 bytes | Lines: 23
+1. Purpose: IDE auxiliary module (arduino-auto-install.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/arduino-downloads.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 11,884 bytes | Lines: 95
+1. Purpose: IDE auxiliary module (arduino-downloads.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/arduino-inline.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 26,753 bytes | Lines: 362
+1. Purpose: IDE auxiliary module (arduino-inline.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/arduino-library-manager.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,321 bytes | Lines: 30
+1. Purpose: IDE auxiliary module (arduino-library-manager.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/arduino-workspace.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 20,832 bytes | Lines: 212
+1. Purpose: IDE auxiliary module (arduino-workspace.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/arduino.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 11,055 bytes | Lines: 274
+1. Purpose: Arduino CLI wrapper and board package manager.
+2. Responsibilities: Interacts with desktop/arduino-service.cjs to compile sketches into ESP32 binaries and flash them.
+3. Key Symbols: ARDUINO_CLI_PATH, compileArduinoCode(), uploadArduinoCode(), checkArduinoCli().
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/assembly-window.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 663 bytes | Lines: 19
+1. Purpose: IDE auxiliary module (assembly-window.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/Base64.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,265 bytes | Lines: 157
+1. Purpose: IDE auxiliary module (Base64.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/board.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 17,253 bytes | Lines: 414
+1. Purpose: Board catalog registry and lifecycle manager.
+2. Responsibilities: Exposes addBoard() API, maintains list of installed boards (atom-vx, buildbot), handles board switching and disposal.
+3. Key Symbols: boards (array), addBoard(config), selectBoard(id), getBoard(id).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/code-editor-theme.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,732 bytes | Lines: 49
+1. Purpose: IDE auxiliary module (code-editor-theme.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/code-example.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,760 bytes | Lines: 138
+1. Purpose: IDE auxiliary module (code-example.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/code-share.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,178 bytes | Lines: 97
+1. Purpose: IDE auxiliary module (code-share.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/code2block.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 31,688 bytes | Lines: 559
+1. Purpose: Python-to-Blockly AST decompiler.
+2. Responsibilities: Parses raw Python text into abstract syntax trees and reconstructs visual Blockly puzzle blocks.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/colour-palette.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 7,203 bytes | Lines: 70
+1. Purpose: IDE auxiliary module (colour-palette.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/dashboard.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,208 bytes | Lines: 41
+1. Purpose: IDE auxiliary module (dashboard.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/dialog.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 405 bytes | Lines: 11
+1. Purpose: IDE auxiliary module (dialog.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/esptool.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 32,637 bytes | Lines: 1080
+1. Purpose: ESP32 ROM bootloader flasher and chip identification interface.
+2. Responsibilities: Performs automatic reset sequence (RTS/DTR toggling) to enter ESP32 bootloader and writes firmware partitions.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/extension.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 10,774 bytes | Lines: 267
+1. Purpose: IDE auxiliary module (extension.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/file-explorer.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 8,759 bytes | Lines: 224
+1. Purpose: IDE auxiliary module (file-explorer.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/fireware.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 29,268 bytes | Lines: 702
+1. Purpose: IDE auxiliary module (fireware.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/GitHubAPI.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 12,230 bytes | Lines: 342
+1. Purpose: IDE auxiliary module (GitHubAPI.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/ide-layout.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 13,273 bytes | Lines: 187
+1. Purpose: IDE auxiliary module (ide-layout.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/install.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 8,661 bytes | Lines: 101
+1. Purpose: IDE auxiliary module (install.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/jquery-3.5.1.min.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 89,478 bytes | Lines: 2
+1. Purpose: IDE auxiliary module (jquery-3.5.1.min.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/lodash.min.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 73,397 bytes | Lines: 137
+1. Purpose: IDE auxiliary module (lodash.min.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/md5.min.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,771 bytes | Lines: 2
+1. Purpose: IDE auxiliary module (md5.min.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/menu-ui.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 8,435 bytes | Lines: 162
+1. Purpose: IDE auxiliary module (menu-ui.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/menu.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 15,236 bytes | Lines: 271
+1. Purpose: IDE auxiliary module (menu.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/mode.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 17,762 bytes | Lines: 351
+1. Purpose: Workspace mode switcher (Blockly visual mode vs Monaco Python/C++ code mode).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/monaco-loader.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,423 bytes | Lines: 31
+1. Purpose: IDE auxiliary module (monaco-loader.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/note.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 7,302 bytes | Lines: 170
+1. Purpose: IDE auxiliary module (note.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/Notify.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 623 bytes | Lines: 16
+1. Purpose: IDE auxiliary module (Notify.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/offline-data.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,430 bytes | Lines: 26
+1. Purpose: IDE auxiliary module (offline-data.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/pako.min.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 44,046 bytes | Lines: 2
+1. Purpose: IDE auxiliary module (pako.min.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/phone-viewport.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,277 bytes | Lines: 25
+1. Purpose: IDE auxiliary module (phone-viewport.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/project-completions.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 10,011 bytes | Lines: 148
+1. Purpose: IDE auxiliary module (project-completions.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/project-examples.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 17,865 bytes | Lines: 128
+1. Purpose: IDE auxiliary module (project-examples.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/project-geometry.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,820 bytes | Lines: 72
+1. Purpose: IDE auxiliary module (project-geometry.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/ros.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 238 bytes | Lines: 9
+1. Purpose: IDE auxiliary module (ros.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/serial.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 94,297 bytes | Lines: 2426
+1. Purpose: Unified serial port communication manager supporting WebSerial and native Electron serialport.
+2. Responsibilities: Discovers COM ports, manages 115200 baud connections, handles terminal ANSI sequences, transmits REPL commands, and streams telemetry.
+3. Key Symbols: connectLegacySerialElectron(), initSerialPortElectron(), writeSerial(), connectWiFiREPL(), setTransport().
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/servo-angle-slider.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,290 bytes | Lines: 74
+1. Purpose: IDE auxiliary module (servo-angle-slider.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/simulator.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,743 bytes | Lines: 145
+1. Purpose: IDE auxiliary module (simulator.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/styled-select.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,082 bytes | Lines: 42
+1. Purpose: IDE auxiliary module (styled-select.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/terminal.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 12,551 bytes | Lines: 258
+1. Purpose: Xterm.js terminal integration for interactive MicroPython REPL.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/tool-windows.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 10,731 bytes | Lines: 149
+1. Purpose: IDE auxiliary module (tool-windows.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/touch-selection-guard.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 2,717 bytes | Lines: 19
+1. Purpose: IDE auxiliary module (touch-selection-guard.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/updater.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,292 bytes | Lines: 75
+1. Purpose: IDE auxiliary module (updater.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/utilities.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,643 bytes | Lines: 145
+1. Purpose: IDE auxiliary module (utilities.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/vFS.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,074 bytes | Lines: 118
+1. Purpose: IDE auxiliary module (vFS.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/workspace-touch.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 2,742 bytes | Lines: 34
+1. Purpose: IDE auxiliary module (workspace-touch.js).
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/js/zip.min.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 95,191 bytes | Lines: 1
+1. Purpose: IDE auxiliary module (zip.min.js).
+

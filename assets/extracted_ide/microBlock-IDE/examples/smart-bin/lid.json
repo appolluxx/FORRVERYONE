@@ -1,0 +1,49 @@
+{
+  "schemaVersion": 2,
+  "id": "smart-bin-lid",
+  "name": "Lid and servo horn",
+  "kind": "component",
+  "components": [
+    {
+      "id": "lid",
+      "name": "Servo lid",
+      "format": "glb",
+      "unit": "meter",
+      "asset": "lid.glb",
+      "preparedAsset": "lid.ptmesh",
+      "physics": {
+        "mass": 0.025,
+        "friction": 0.4,
+        "collider": "box"
+      },
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "kind": "component",
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "appearance": {
+        "materials": [],
+        "surfaces": []
+      },
+      "connectors": [],
+      "mounts": []
+    }
+  ],
+  "version": "1.0.0",
+  "mates": [],
+  "joints": [],
+  "devices": [],
+  "connections": [],
+  "artwork": []
+}

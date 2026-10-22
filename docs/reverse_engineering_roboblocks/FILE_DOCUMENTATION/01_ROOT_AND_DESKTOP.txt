@@ -1,0 +1,201 @@
+================================================================================
+FILE DOCUMENTATION — SUBSYSTEM 01: ROOT APPLICATION & DESKTOP RUNTIME
+================================================================================
+Covers: Electron main process, host packaging, window chrome, and desktop C++ simulation bridge.
+Target Path: D:\Workspace\robot\assets\extracted_ide\
+================================================================================
+
+--------------------------------------------------------------------------------
+FILE: main.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 43,746 bytes | Lines: 1065
+1. Purpose: Electron Main Process controller. Manages app lifecycle, browser windows, native menus, auto-updates, and native IPC channels.
+2. Responsibilities:
+   - Creates primary BrowserWindow with native frameless window chrome.
+   - Configures @electron/remote and contextBridge for renderer process access.
+   - Implements native IPC handlers for serial ports, external browser links, and child processes.
+   - Initializes background Arduino service (desktop/arduino-service.cjs).
+3. Key Symbols & Logic:
+   - createWindow(): Configures webPreferences (nodeIntegration: true, contextIsolation: false, enableRemoteModule: true).
+   - autoUpdater setup: Checks updates via electron-updater against GitHub Releases.
+   - IPC channels: 'open-dev-tools', 'open-link', 'restart_app', 'get-serial-ports'.
+4. Inputs/Outputs: Listens to Electron app lifecycle events ('ready', 'window-all-closed', 'activate'); outputs desktop windows and OS dialogs.
+5. Dependencies: @electron/remote/main, electron-updater, ./desktop/arduino-service.cjs, ./desktop/arduino-storage.cjs.
+6. Loading & Execution: Declared as 'main' in package.json; executed directly by Electron runtime upon launch.
+7. Hardware/OS Integration: Manages OS-level window frame buttons via windows-titlebar.js.
+8. Limitations: Disables context isolation (contextIsolation: false) for legacy compatibility with microBlock scripts; requires specific Electron ABI.
+9. Robotics Relevance: Essential host process for native WebSerial/USB port communication with ESP32 microcontrollers.
+10. Reuse Potential: Reference architecture for packaging the PT-BOT Tactical Suite into a standalone desktop application.
+
+
+--------------------------------------------------------------------------------
+FILE: package.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 788 bytes | Lines: 28
+1. Purpose: NPM manifest and application metadata for roboBlocks IDE.
+2. Responsibilities: Declares package metadata, entry point ('main.js'), and native runtime dependencies.
+3. Key Fields:
+   - name: 'roboblocks-ide', version: '1.2.2', description: 'roboBlocks IDE (offline version)'.
+   - repository: 'git+https://github.com/microBlock-IDE/microBlock-IDE-offline.git'.
+   - dependencies: @electron/remote (^2.1.3), serialport (^13.0.0), koffi (3.3.2), electron-updater (^4.3.9), node-wifi, ssh2, bcrypt.
+4. Dependencies: Confirms the exact version of third-party native libraries required to run.
+5. Execution: Read by Electron / Node package manager.
+6. Limitations: Does not bundle the actual node_modules directory within this extracted folder.
+7. Reuse: Critical reference for dependency resolution when compiling standalone builds.
+
+
+--------------------------------------------------------------------------------
+FILE: windows-titlebar.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,759 bytes | Lines: 35
+1. Purpose: Custom frameless window titlebar integration for Windows.
+2. Responsibilities: Binds window control buttons (minimize, maximize/restore, close) to Electron remote window actions.
+3. Key Logic: Queries DOM elements '.title-bar-button-min', '.title-bar-button-max', '.title-bar-button-close' and invokes remote.getCurrentWindow().minimize(), maximize(), close().
+4. Dependencies: @electron/remote.
+
+
+--------------------------------------------------------------------------------
+FILE: README.md
+--------------------------------------------------------------------------------
+Format: .md | Size: 1,903 bytes | Lines: 54
+1. Purpose: Configuration or marker file (README.md).
+2. Size: 1903 bytes.
+3. First lines preview: ['# microBlock IDE (Offline version)', '', 'Offline version of microBlock IDE']
+
+
+--------------------------------------------------------------------------------
+FILE: .gitmodules
+--------------------------------------------------------------------------------
+Format: [none] | Size: 129 bytes | Lines: 4
+1. Purpose: Configuration or marker file (.gitmodules).
+2. Size: 129 bytes.
+3. First lines preview: ['[submodule "microBlock-IDE"]', '\tpath = microBlock-IDE', '\turl = https://github.com/microBlock-IDE/microBlock-IDE']
+
+
+--------------------------------------------------------------------------------
+FILE: Start
+--------------------------------------------------------------------------------
+Format: [none] | Size: 0 bytes | Lines: 0
+1. Purpose: Configuration or marker file (Start).
+2. Size: 0 bytes.
+3. First lines preview: []
+
+
+--------------------------------------------------------------------------------
+FILE: extension/.dummy
+--------------------------------------------------------------------------------
+Format: [none] | Size: 0 bytes | Lines: 0
+1. Purpose: Configuration or marker file (extension/.dummy).
+2. Size: 0 bytes.
+3. First lines preview: []
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/arduino-components.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 765 bytes | Lines: 22
+1. Purpose: Configuration catalog for ESP32 and AVR core board packages, libraries, and compiler toolchains.
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/arduino-service.cjs
+--------------------------------------------------------------------------------
+Format: .cjs | Size: 15,393 bytes | Lines: 165
+1. Purpose: Desktop background daemon managing the local Arduino CLI and toolchains.
+2. Responsibilities: Spawns arduino-cli compile and upload commands, manages board index downloads, and reports build progress.
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/arduino-storage.cjs
+--------------------------------------------------------------------------------
+Format: .cjs | Size: 1,368 bytes | Lines: 23
+1. Purpose: Persistence layer for Arduino IDE settings, board packages, and user sketch history.
+2. Responsibilities: Manages settings.yaml and local cache directories in %APPDATA%.
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/cpp-sim/entry.cpp
+--------------------------------------------------------------------------------
+Format: .cpp | Size: 470 bytes | Lines: 10
+1. Purpose: Main C++ WebAssembly runtime entry harness.
+2. Responsibilities: Implements setup() and loop() runner, calling into WebAssembly export functions.
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/cpp-sim/preprocess.cjs
+--------------------------------------------------------------------------------
+Format: .cjs | Size: 2,175 bytes | Lines: 35
+1. Purpose: AST preprocessor script for Arduino sketches before WebAssembly compilation.
+2. Responsibilities: Analyzes user C++ code, extracts function prototypes, injects necessary headers (#include <PTBOTAtomVX.h>), and formats code.
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/cpp-sim/include/Arduino.h
+--------------------------------------------------------------------------------
+Format: .h | Size: 3,591 bytes | Lines: 72
+1. Purpose: Standard Arduino core compatibility header for C++ WebAssembly simulation.
+2. Responsibilities: Defines standard types (byte, boolean, String), math functions (min, max, constrain, fmod), and timing (millis, micros, delay).
+3. Symbols: millis(), micros(), delay(), delayMicroseconds(), pinMode(), digitalWrite(), digitalRead().
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/cpp-sim/include/atom-boot-logo.h
+--------------------------------------------------------------------------------
+Format: .h | Size: 144,768 bytes | Lines: 644
+1. Purpose: 160x128 16-bit RGB565 bitmap array of the official PT-BOT Atom VX boot splash image.
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/cpp-sim/include/ESP32Encoder.h
+--------------------------------------------------------------------------------
+Format: .h | Size: 883 bytes | Lines: 19
+1. Purpose: Emulates the ESP32 hardware pulse counter (PCNT) quadrature encoder library.
+2. Responsibilities: Provides attachFullQuad(pinA, pinB), getCount(), clearCount() mapped to simulator wheel rotation counters.
+3. Key Symbols: class ESP32Encoder; attachHalfQuad, attachFullQuad, getCount, setCount, pauseCount, resumeCount.
+4. Robotics Relevance: Used for authentic wheel odometry and distance calculation in C++ sketches.
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/cpp-sim/include/Preferences.h
+--------------------------------------------------------------------------------
+Format: .h | Size: 5,134 bytes | Lines: 54
+1. Purpose: Non-Volatile Storage (NVS) simulation header for ESP32 Preferences library.
+2. Responsibilities: Emulates begin(), putInt(), getInt(), putFloat(), getFloat(), clear() against local simulator storage.
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/cpp-sim/include/PTBOTAtomVX.h
+--------------------------------------------------------------------------------
+Format: .h | Size: 4,780 bytes | Lines: 88
+1. Purpose: Official C++ simulation and Arduino hardware API header for PT-BOT Atom VX 4WD.
+2. Responsibilities: Declares all high-level robotics APIs for Atom VX in Arduino C++ mode and binds them to WebAssembly/simulator runtime calls.
+3. Key Symbols & Macros:
+   - rb_call(opcode, arg1, arg2): Low-level WebAssembly/simulator RPC bridge.
+   - motorWrite(byte motor, int speed): Constrains speed (-100 to 100) and calls rb_call(10, motor, speed).
+   - motorWrite(int a, int b, int c, int d): Batch 4-wheel drive command (M1, M2, M3, M4).
+   - motorStop(): Equivalent to motorWrite(0, 0, 0, 0).
+   - servoWrite(byte channel, byte degree): Channels 0..6, angles 0..180 deg.
+   - adcRead(byte channel): Reads 10-bit analog channel 0..7 via rb_call(12).
+   - knobRead(): Reads onboard potentiometer via rb_call(13).
+   - angleRead(byte axis): Reads ROLL (0), PITCH (1), YAW (2) in degrees via rb_call(14).
+   - setAngleOffset(): Zeroes IMU orientation via rb_call(15).
+   - SimTFT tft: ST7789 display simulation object with Adafruit GFX compatible methods (fillScreen, drawLine, drawRect, print).
+   - initialize(): Boot sequence (motorStop, setAngleOffset, lcdClear, draw boot logo, beep).
+4. Hardware Assumptions: PCA9685 PWM driver, Bosch BNO055 IMU, ST7789 128x160 SPI display.
+5. Robotics Relevance: Core API header for all Arduino C++ competition firmware.
+6. Reuse Potential: Directly reusable in PT-BOT Tactical IDE for compiling and simulating Arduino sketches.
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/cpp-sim/include/sim-tasks.h
+--------------------------------------------------------------------------------
+Format: .h | Size: 1,216 bytes | Lines: 24
+1. Purpose: FreeRTOS task and coroutine simulation primitives for ESP32 multitasking emulation.
+
+
+--------------------------------------------------------------------------------
+FILE: desktop/cpp-sim/include/Wire.h
+--------------------------------------------------------------------------------
+Format: .h | Size: 1,041 bytes | Lines: 25
+1. Purpose: Arduino TwoWire (I2C) library stub for simulation.
+

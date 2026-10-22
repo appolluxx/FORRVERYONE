@@ -1,0 +1,155 @@
+{
+  "version": 1,
+  "examples": [
+    {
+      "id": "buildbot-motors",
+      "title": "Motor Control",
+      "board": "buildbot",
+      "description": "Move forward, reverse, spin left and right, then stop on a simple closed-loop track.",
+      "file": "buildbot-motors.mby",
+      "image": "examples/images/buildbot-motors.png",
+      "tag": "Robot basics",
+      "imageVersion": "4d3c05d24fac"
+    },
+    {
+      "id": "buildbot-sensors",
+      "title": "Sensor Monitor",
+      "board": "buildbot",
+      "description": "Read ADC0 to ADC3 every 0.1 seconds. Explore straight lines and junctions while watching Serial.",
+      "file": "buildbot-sensors.mby",
+      "image": "examples/images/buildbot-sensors.png",
+      "tag": "Robot basics",
+      "imageVersion": "0b6de6958028"
+    },
+    {
+      "id": "atom-vx-sensors",
+      "title": "Sensor Monitor",
+      "board": "atom-vx",
+      "description": "Read four line sensors on ADC0 to ADC3. Move across the bends of a serpentine track and watch Serial.",
+      "file": "atom-vx-sensors.mby",
+      "image": "examples/images/atom-vx-sensors.png",
+      "tag": "Robot basics",
+      "imageVersion": "7e6a197f96bc"
+    },
+    {
+      "id": "buildbot-follow-line",
+      "title": "Follow the Loop",
+      "description": "Follow a rounded loop using saved SIM calibration. Press A to recalibrate after changing sensors.",
+      "board": "buildbot",
+      "file": "buildbot-follow-line.mby",
+      "image": "examples/images/buildbot-follow-line.png",
+      "tag": "Robot activities",
+      "imageVersion": "4d3c05d24fac"
+    },
+    {
+      "id": "buildbot-servo",
+      "title": "Arm and Gripper",
+      "description": "Watch both servos move, then press A to lift and open or B to lower and close.",
+      "board": "buildbot",
+      "file": "buildbot-servo.mby",
+      "image": "examples/images/buildbot-servo.png",
+      "tag": "Robot activities",
+      "imageVersion": "f9231b2531c6"
+    },
+    {
+      "id": "buildbot-gyro",
+      "title": "Gyro Turns",
+      "description": "Reset yaw, turn to 90 degrees, return to zero and print each measured angle.",
+      "board": "buildbot",
+      "file": "buildbot-gyro.mby",
+      "image": "examples/images/buildbot-gyro.png",
+      "tag": "Robot activities",
+      "imageVersion": "b0f809c1b2b5"
+    },
+    {
+      "id": "buildbot-display-buttons",
+      "title": "Display and Buttons",
+      "description": "Press A to show ADC0 or B to show yaw on the robot display and in Serial.",
+      "board": "buildbot",
+      "file": "buildbot-display-buttons.mby",
+      "image": "examples/images/buildbot-display-buttons.png",
+      "tag": "Robot activities",
+      "imageVersion": "93afd823fd35"
+    },
+    {
+      "id": "buildbot-obstacle",
+      "title": "Obstacle Stop",
+      "description": "Read ultrasonic distance on IO2 / IO1. Drive slowly and stop within 15 cm of a can.",
+      "board": "buildbot",
+      "file": "buildbot-obstacle.mby",
+      "image": "examples/images/buildbot-obstacle.png",
+      "tag": "Robot activities",
+      "imageVersion": "33bb2d6ee362"
+    },
+    {
+      "id": "buildbot-junction",
+      "title": "Find a Junction",
+      "description": "Follow the line into a T-junction, stop and turn 90 degrees using the gyro.",
+      "board": "buildbot",
+      "file": "buildbot-junction.mby",
+      "image": "examples/images/buildbot-junction.png",
+      "tag": "Robot activities",
+      "imageVersion": "3b6aec557c71"
+    },
+    {
+      "id": "atom-vx-square",
+      "title": "Motor Control",
+      "description": "Drive forward and backward, then use a loop and gyro headings to drive a square.",
+      "board": "atom-vx",
+      "file": "atom-vx-square.mby",
+      "image": "examples/images/atom-vx-square.png",
+      "tag": "Robot activities",
+      "imageVersion": "4a92bd94cb89"
+    },
+    {
+      "id": "atom-vx-line-stop",
+      "title": "Stop at a Line",
+      "description": "Drive slowly until FL or FR detects the black stripe, then brake. Adjust the threshold to explore sensor readings.",
+      "board": "atom-vx",
+      "file": "atom-vx-line-stop.mby",
+      "image": "examples/images/atom-vx-line-stop.png",
+      "tag": "Robot activities",
+      "imageVersion": "cfed6ed058db"
+    },
+    {
+      "id": "atom-vx-display-buttons",
+      "title": "Buttons and Readings",
+      "description": "Press A for front sensors or B for rear sensors. View the readings on the display and in Serial.",
+      "board": "atom-vx",
+      "file": "atom-vx-display-buttons.mby",
+      "image": "examples/images/atom-vx-display-buttons.png",
+      "tag": "Robot activities",
+      "imageVersion": "2ebeb759ec6c"
+    },
+    {
+      "id": "opt-primary-v2-0-4",
+      "title": "OPT Primary V2.0.4",
+      "board": "buildbot",
+      "description": "Delivery robot project with the OPT custom extension and saved simulation setup.",
+      "file": "opt-primary-v2-0-4.mby",
+      "image": "examples/images/opt-primary-v2-0-4.png",
+      "tag": "Delivery robot",
+      "imageVersion": "9f5cceb84c01"
+    },
+    {
+      "id": "atom-vx-smart-bin",
+      "title": "Smart Bin",
+      "description": "Lift the paper toward the ultrasonic sensor. Drop it into the open bin before the servo closes the lid.",
+      "board": "atom-vx",
+      "file": "atom-vx-smart-bin.mby",
+      "image": "examples/images/atom-vx-smart-bin.png",
+      "tag": "Robot activities",
+      "imageVersion": "5b54e25f9606"
+    },
+    {
+      "id": "atom-vx-rescue-five-points",
+      "title": "Five-Point Route",
+      "description": "Drive through five points using timed turns and short gyro-corrected forward segments.",
+      "board": "atom-vx",
+      "file": "atom-vx-rescue-five-points.mby",
+      "image": "examples/images/atom-vx-rescue-five-points.png",
+      "tag": "Robot activities",
+      "imageVersion": "8e574f3468b4"
+    }
+  ]
+}

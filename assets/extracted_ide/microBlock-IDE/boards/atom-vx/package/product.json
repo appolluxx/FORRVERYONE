@@ -1,0 +1,950 @@
+{
+  "schemaVersion": 2,
+  "id": "atom-vx",
+  "name": "PT Atom VX",
+  "version": "1.0.2",
+  "model": {
+    "file": "model.glb",
+    "unit": "meter",
+    "rotation": [
+      0,
+      0,
+      0
+    ],
+    "scale": [
+      1,
+      1,
+      1
+    ]
+  },
+  "appearance": {
+    "artwork": [
+      {
+        "side": "top",
+        "file": "textures/Top.png",
+        "position": [
+          0.00003,
+          -0.0057,
+          0
+        ],
+        "size": [
+          0.083,
+          0.07
+        ],
+        "rotation": [
+          -90,
+          0,
+          0
+        ]
+      },
+      {
+        "side": "bottom",
+        "file": "textures/Bottom.png",
+        "position": [
+          0.000033,
+          -0.00735,
+          0
+        ],
+        "size": [
+          0.083,
+          0.07
+        ],
+        "rotation": [
+          90,
+          0,
+          180
+        ]
+      }
+    ],
+    "materials": [
+      {
+        "index": 10,
+        "name": "Material 11",
+        "color": "#141414"
+      }
+    ],
+    "surfaces": [
+      {
+        "index": 7224,
+        "color": "#141414"
+      },
+      {
+        "index": 2177,
+        "color": "#141414"
+      }
+    ]
+  },
+  "simulation": {
+    "display": {
+      "resolution": [
+        160,
+        128
+      ],
+      "textureScale": 4,
+      "position": [
+        0.0029,
+        0.00979,
+        -0.0053
+      ],
+      "size": [
+        0.039125,
+        0.0313
+      ],
+      "rotation": [
+        -90,
+        0,
+        0
+      ]
+    },
+    "motorLeds": [
+      {
+        "motor": "M1",
+        "position": [
+          -0.028685,
+          -0.00518,
+          -0.0034
+        ],
+        "rotation": [
+          -90,
+          0,
+          0
+        ],
+        "size": [
+          0.00115,
+          0.0016
+        ]
+      },
+      {
+        "motor": "M2",
+        "position": [
+          -0.028685,
+          -0.00518,
+          0.0036
+        ],
+        "rotation": [
+          -90,
+          0,
+          0
+        ],
+        "size": [
+          0.00115,
+          0.0016
+        ]
+      },
+      {
+        "motor": "M3",
+        "position": [
+          -0.028685,
+          -0.00518,
+          0.0106
+        ],
+        "rotation": [
+          -90,
+          0,
+          0
+        ],
+        "size": [
+          0.00115,
+          0.0016
+        ]
+      },
+      {
+        "motor": "M4",
+        "position": [
+          -0.028685,
+          -0.00518,
+          0.0176
+        ],
+        "rotation": [
+          -90,
+          0,
+          0
+        ],
+        "size": [
+          0.00115,
+          0.0016
+        ]
+      }
+    ],
+    "motorColors": {
+      "off": "#15191b",
+      "forward": "#00ff00",
+      "reverse": "#ff0000"
+    }
+  },
+  "ports": [],
+  "kind": "board",
+  "components": [
+    {
+      "id": "main",
+      "name": "PT Atom VX",
+      "kind": "board",
+      "asset": "assets/553600d456e4b5888af5e8096a3fc23adbd1e4f4b452a777c3d696f68767067c.glb",
+      "format": "glb",
+      "unit": "meter",
+      "position": [
+        0,
+        0,
+        0
+      ],
+      "rotation": [
+        0,
+        0,
+        0
+      ],
+      "scale": [
+        1,
+        1,
+        1
+      ],
+      "assetTransform": {
+        "unit": "meter",
+        "rotation": [
+          0,
+          0,
+          0
+        ],
+        "scale": [
+          1,
+          1,
+          1
+        ]
+      },
+      "appearance": {
+        "materials": [
+          {
+            "index": 10,
+            "name": "Material 11",
+            "color": "#141414"
+          }
+        ],
+        "surfaces": [
+          {
+            "index": 7224,
+            "color": "#141414"
+          },
+          {
+            "index": 2177,
+            "color": "#141414"
+          },
+          {
+            "index": 1172,
+            "color": "#141414"
+          },
+          {
+            "index": 7963,
+            "color": "#141414"
+          },
+          {
+            "index": 8055,
+            "color": "#141414"
+          },
+          {
+            "index": 8147,
+            "color": "#141414"
+          },
+          {
+            "index": 1170,
+            "color": "#ffffff"
+          },
+          {
+            "index": 7961,
+            "color": "#ffffff"
+          },
+          {
+            "index": 8053,
+            "color": "#ffffff"
+          },
+          {
+            "index": 8145,
+            "color": "#ffffff"
+          },
+          {
+            "index": 8146,
+            "color": "#ffffff"
+          },
+          {
+            "index": 8054,
+            "color": "#ffffff"
+          },
+          {
+            "index": 7962,
+            "color": "#ffffff"
+          },
+          {
+            "index": 1171,
+            "color": "#ffffff"
+          },
+          {
+            "index": 84,
+            "color": "#141414"
+          }
+        ]
+      },
+      "boardDefinition": {
+        "schemaVersion": 1,
+        "id": "atom-vx",
+        "name": "PT Atom VX",
+        "version": "1.0.0",
+        "model": {
+          "file": "model.glb",
+          "unit": "meter",
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "scale": [
+            1,
+            1,
+            1
+          ]
+        },
+        "appearance": {
+          "artwork": [
+            {
+              "side": "top",
+              "file": "textures/Top.png",
+              "position": [
+                0.00003,
+                -0.0057,
+                0
+              ],
+              "size": [
+                0.083,
+                0.07
+              ],
+              "rotation": [
+                -90,
+                0,
+                0
+              ]
+            },
+            {
+              "side": "bottom",
+              "file": "textures/Bottom.png",
+              "position": [
+                0.000033,
+                -0.00735,
+                0
+              ],
+              "size": [
+                0.083,
+                0.07
+              ],
+              "rotation": [
+                90,
+                0,
+                180
+              ]
+            }
+          ],
+          "materials": [
+            {
+              "index": 10,
+              "name": "Material 11",
+              "color": "#141414"
+            }
+          ],
+          "surfaces": [
+            {
+              "index": 7224,
+              "color": "#141414"
+            },
+            {
+              "index": 2177,
+              "color": "#141414"
+            }
+          ]
+        },
+        "simulation": {
+          "display": {
+            "resolution": [
+              160,
+              128
+            ],
+            "textureScale": 4,
+            "position": [
+              0.0029,
+              0.00979,
+              -0.0053
+            ],
+            "size": [
+              0.039125,
+              0.0313
+            ],
+            "rotation": [
+              -90,
+              0,
+              0
+            ]
+          },
+          "motorLeds": [
+            {
+              "motor": "M1",
+              "position": [
+                -0.028685,
+                -0.00518,
+                -0.0034
+              ],
+              "rotation": [
+                -90,
+                0,
+                0
+              ],
+              "size": [
+                0.00115,
+                0.0016
+              ]
+            },
+            {
+              "motor": "M2",
+              "position": [
+                -0.028685,
+                -0.00518,
+                0.0036
+              ],
+              "rotation": [
+                -90,
+                0,
+                0
+              ],
+              "size": [
+                0.00115,
+                0.0016
+              ]
+            },
+            {
+              "motor": "M3",
+              "position": [
+                -0.028685,
+                -0.00518,
+                0.0106
+              ],
+              "rotation": [
+                -90,
+                0,
+                0
+              ],
+              "size": [
+                0.00115,
+                0.0016
+              ]
+            },
+            {
+              "motor": "M4",
+              "position": [
+                -0.028685,
+                -0.00518,
+                0.0176
+              ],
+              "rotation": [
+                -90,
+                0,
+                0
+              ],
+              "size": [
+                0.00115,
+                0.0016
+              ]
+            }
+          ],
+          "motorColors": {
+            "off": "#15191b",
+            "forward": "#00ff00",
+            "reverse": "#ff0000"
+          }
+        },
+        "ports": []
+      },
+      "legacyDevices": true,
+      "physics": {
+        "mass": 0.1,
+        "friction": 0.6
+      },
+      "mounts": [
+        {
+          "id": "mount-mtzjpw5p-u61nz",
+          "name": "Mount - Screw 1",
+          "type": "fixed",
+          "position": [
+            -0.03846701199222087,
+            -0.006525000557303429,
+            -0.03199999978195951
+          ],
+          "axis": [
+            0,
+            -1,
+            0
+          ]
+        },
+        {
+          "id": "mount-mtzjsjph-erpbu",
+          "name": "Mount - Screw 2",
+          "type": "fixed",
+          "position": [
+            0.03853298789951562,
+            -0.006525000557303429,
+            -0.032000001025398815
+          ],
+          "axis": [
+            0,
+            1,
+            0
+          ]
+        },
+        {
+          "id": "mount-mtzju5n4-jq4le",
+          "name": "Mount - Screw 3",
+          "type": "fixed",
+          "position": [
+            -0.038467014180539355,
+            -0.006525000557303427,
+            0.02500000038268258
+          ],
+          "axis": [
+            0,
+            -1,
+            0
+          ]
+        },
+        {
+          "id": "mount-mtzjui5w-8vay1",
+          "name": "Mount - Screw 4",
+          "type": "fixed",
+          "position": [
+            0.038532989234284054,
+            -0.006525000557303427,
+            0.025000000421542032
+          ],
+          "axis": [
+            0,
+            -1,
+            0
+          ]
+        }
+      ],
+      "preparedAsset": "assets/01b9f40685445aa6d1d1b2e21b3ea1d0da44a241f9b773d40898485615431d59.ptmesh",
+      "ports": [
+        {
+          "id": "M1",
+          "name": "M1",
+          "type": "motor",
+          "voltage": 8.4
+        },
+        {
+          "id": "M2",
+          "name": "M2",
+          "type": "motor",
+          "voltage": 8.4
+        },
+        {
+          "id": "M3",
+          "name": "M3",
+          "type": "motor",
+          "voltage": 8.4
+        },
+        {
+          "id": "M4",
+          "name": "M4",
+          "type": "motor",
+          "voltage": 8.4
+        },
+        {
+          "id": "S0",
+          "name": "S0",
+          "type": "servo",
+          "voltage": 5
+        },
+        {
+          "id": "S1",
+          "name": "S1",
+          "type": "servo",
+          "voltage": 5
+        },
+        {
+          "id": "S2",
+          "name": "S2",
+          "type": "servo",
+          "voltage": 5
+        },
+        {
+          "id": "ADC0",
+          "name": "ADC0",
+          "type": "analog",
+          "voltage": 5
+        },
+        {
+          "id": "ADC1",
+          "name": "ADC1",
+          "type": "analog",
+          "voltage": 5
+        },
+        {
+          "id": "ADC2",
+          "name": "ADC2",
+          "type": "analog",
+          "voltage": 5
+        },
+        {
+          "id": "ADC3",
+          "name": "ADC3",
+          "type": "analog",
+          "voltage": 5
+        },
+        {
+          "id": "ADC4",
+          "name": "ADC4",
+          "type": "analog",
+          "voltage": 5
+        },
+        {
+          "id": "ADC5",
+          "name": "ADC5",
+          "type": "analog",
+          "voltage": 5
+        },
+        {
+          "id": "ADC6",
+          "name": "ADC6",
+          "type": "analog",
+          "voltage": 5
+        },
+        {
+          "id": "ADC7",
+          "name": "ADC7",
+          "type": "analog",
+          "voltage": 5
+        },
+        {
+          "id": "IO2",
+          "name": "IO2",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "IO4",
+          "name": "IO4",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "IO13",
+          "name": "IO13",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "IO14",
+          "name": "IO14",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "IO25",
+          "name": "IO25",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "IO26",
+          "name": "IO26",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "IO27",
+          "name": "IO27",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "IO34",
+          "name": "IO34",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "IO35",
+          "name": "IO35",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "IO36",
+          "name": "IO36",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "IO39",
+          "name": "IO39",
+          "type": "digital",
+          "voltage": 3.3
+        },
+        {
+          "id": "S3",
+          "name": "S3",
+          "type": "servo",
+          "voltage": 5
+        },
+        {
+          "id": "S4",
+          "name": "S4",
+          "type": "servo",
+          "voltage": 5
+        },
+        {
+          "id": "S5",
+          "name": "S5",
+          "type": "servo",
+          "voltage": 5
+        },
+        {
+          "id": "S6",
+          "name": "S6",
+          "type": "servo",
+          "voltage": 5
+        }
+      ],
+      "boardRole": "main",
+      "connectors": []
+    }
+  ],
+  "artwork": [
+    {
+      "id": "top",
+      "name": "top",
+      "size": [
+        0.083,
+        0.07
+      ],
+      "visible": true,
+      "opacity": 1,
+      "lockAspect": true,
+      "side": "top",
+      "file": "textures/Top.png",
+      "position": [
+        0.00003,
+        -0.0057,
+        0
+      ],
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "componentId": "main"
+    },
+    {
+      "id": "bottom",
+      "name": "bottom",
+      "size": [
+        0.083,
+        0.07
+      ],
+      "visible": true,
+      "opacity": 1,
+      "lockAspect": true,
+      "side": "bottom",
+      "file": "textures/Bottom.png",
+      "position": [
+        0.000033,
+        -0.00735,
+        0
+      ],
+      "rotation": [
+        90,
+        0,
+        180
+      ],
+      "componentId": "main"
+    }
+  ],
+  "devices": [
+    {
+      "id": "display",
+      "name": "Display",
+      "type": "display",
+      "driveSide": "none",
+      "wheelRadius": 0.0325,
+      "maxSpeed": 360,
+      "invert": false,
+      "range": 0.5,
+      "resolution": [
+        160,
+        128
+      ],
+      "textureScale": 4,
+      "position": [
+        0.0029,
+        0.00979,
+        -0.0053
+      ],
+      "size": [
+        0.039125,
+        0.0313
+      ],
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "componentId": "main",
+      "legacyOverlay": "display"
+    },
+    {
+      "id": "led-M1",
+      "name": "M1 LED",
+      "type": "led",
+      "driveSide": "none",
+      "wheelRadius": 0.0325,
+      "maxSpeed": 360,
+      "invert": false,
+      "range": 0.5,
+      "motor": "M1",
+      "position": [
+        -0.028685,
+        -0.00518,
+        -0.0034
+      ],
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "size": [
+        0.00115,
+        0.0016
+      ],
+      "componentId": "main",
+      "legacyOverlay": "M1",
+      "offColor": "#15191b",
+      "forwardColor": "#00ff00",
+      "reverseColor": "#ff0000"
+    },
+    {
+      "id": "led-M2",
+      "name": "M2 LED",
+      "type": "led",
+      "driveSide": "none",
+      "wheelRadius": 0.0325,
+      "maxSpeed": 360,
+      "invert": false,
+      "range": 0.5,
+      "motor": "M2",
+      "position": [
+        -0.028685,
+        -0.00518,
+        0.0036
+      ],
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "size": [
+        0.00115,
+        0.0016
+      ],
+      "componentId": "main",
+      "legacyOverlay": "M2",
+      "offColor": "#15191b",
+      "forwardColor": "#00ff00",
+      "reverseColor": "#ff0000"
+    },
+    {
+      "id": "led-M3",
+      "name": "M3 LED",
+      "type": "led",
+      "driveSide": "none",
+      "wheelRadius": 0.0325,
+      "maxSpeed": 360,
+      "invert": false,
+      "range": 0.5,
+      "motor": "M3",
+      "position": [
+        -0.028685,
+        -0.00518,
+        0.0106
+      ],
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "size": [
+        0.00115,
+        0.0016
+      ],
+      "componentId": "main",
+      "legacyOverlay": "M3",
+      "offColor": "#15191b",
+      "forwardColor": "#00ff00",
+      "reverseColor": "#ff0000"
+    },
+    {
+      "id": "led-M4",
+      "name": "M4 LED",
+      "type": "led",
+      "driveSide": "none",
+      "wheelRadius": 0.0325,
+      "maxSpeed": 360,
+      "invert": false,
+      "range": 0.5,
+      "motor": "M4",
+      "position": [
+        -0.028685,
+        -0.00518,
+        0.0176
+      ],
+      "rotation": [
+        -90,
+        0,
+        0
+      ],
+      "size": [
+        0.00115,
+        0.0016
+      ],
+      "componentId": "main",
+      "legacyOverlay": "M4",
+      "offColor": "#15191b",
+      "forwardColor": "#00ff00",
+      "reverseColor": "#ff0000"
+    }
+  ],
+  "connections": [
+    {
+      "id": "wire-led-M1",
+      "boardId": "main",
+      "port": "M1",
+      "deviceId": "led-M1"
+    },
+    {
+      "id": "wire-led-M2",
+      "boardId": "main",
+      "port": "M2",
+      "deviceId": "led-M2"
+    },
+    {
+      "id": "wire-led-M3",
+      "boardId": "main",
+      "port": "M3",
+      "deviceId": "led-M3"
+    },
+    {
+      "id": "wire-led-M4",
+      "boardId": "main",
+      "port": "M4",
+      "deviceId": "led-M4"
+    }
+  ],
+  "controllerBoardId": "atom-vx",
+  "mates": [],
+  "joints": [],
+  "assemblyPrepared": {
+    "file": "assets/a3464f2d99fa1a501121a52b9c49fd48210626bac160f8070e61e12b702ab7e4.assembly.ptmesh",
+    "key": "assembled-product-v1-5969805d-2d482dab-8296"
+  }
+}

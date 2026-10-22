@@ -1,0 +1,4661 @@
+{
+  "format": "microBlockProject",
+  "version": 3,
+  "files": {
+    "config.json": "{\"mode\":\"block\",\"github\":null,\"board\":\"atom-vx\",\"level\":\"Beginner\"}",
+    "main.xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"controls_on_start\" x=\"30\" y=\"30\"><statement name=\"block\"><block type=\"variables_set\"><field name=\"VAR\">hold_ticks</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><next><block type=\"servo_set_degree\"><field name=\"servo\">0</field><value name=\"degree\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value><next><block type=\"print\"><value name=\"value\"><shadow type=\"text\"><field name=\"TEXT\">Smart bin ready: ultrasonic distance in cm. Lift paper toward the sensor, then drop it into the bin.</field></shadow></value></block></next></block></next></block></statement><next><block type=\"controls_forever\"><statement name=\"block\"><block type=\"variables_set\"><field name=\"VAR\">distance_cm</field><value name=\"VALUE\"><block type=\"ultrasonic_read_distance\"><field name=\"trigger_pin\">2</field><field name=\"echo_pin\">4</field></block></value><next><block type=\"print\"><value name=\"value\"><block type=\"variables_get\"><field name=\"VAR\">distance_cm</field></block></value><next><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">LT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\">distance_cm</field></block></value><value name=\"B\"><shadow type=\"math_number\"><field name=\"NUM\">15</field></shadow></value></block></value><statement name=\"DO0\"><block type=\"servo_set_degree\"><field name=\"servo\">0</field><value name=\"degree\"><shadow type=\"math_number\"><field name=\"NUM\">100</field></shadow></value><next><block type=\"variables_set\"><field name=\"VAR\">hold_ticks</field><value name=\"VALUE\"><shadow type=\"math_number\"><field name=\"NUM\">30</field></shadow></value></block></next></block></statement><statement name=\"ELSE\"><block type=\"controls_if\"><mutation else=\"1\"></mutation><value name=\"IF0\"><block type=\"logic_compare\"><field name=\"OP\">GT</field><value name=\"A\"><block type=\"variables_get\"><field name=\"VAR\">hold_ticks</field></block></value><value name=\"B\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></value><statement name=\"DO0\"><block type=\"math_change\"><field name=\"VAR\">hold_ticks</field><value name=\"DELTA\"><shadow type=\"math_number\"><field name=\"NUM\">-1</field></shadow></value></block></statement><statement name=\"ELSE\"><block type=\"servo_set_degree\"><field name=\"servo\">0</field><value name=\"degree\"><shadow type=\"math_number\"><field name=\"NUM\">0</field></shadow></value></block></statement></block></statement><next><block type=\"controls_wait\"><value name=\"time\"><shadow type=\"math_number\"><field name=\"NUM\">0.1</field></shadow></value></block></next></block></next></block></next></block></statement></block></next></block></xml>"
+  },
+  "meta": {
+    "assembly": {
+      "schemaVersion": 1,
+      "boardId": "atom-vx",
+      "parts": [
+        {
+          "id": "bin",
+          "name": "Smart bin",
+          "type": "step",
+          "fileName": "bin.glb",
+          "productManifest": {
+            "schemaVersion": 2,
+            "id": "smart-bin",
+            "name": "Smart bin",
+            "kind": "component",
+            "components": [
+              {
+                "id": "body",
+                "name": "Hollow bin",
+                "format": "glb",
+                "unit": "meter",
+                "asset": "bin.glb",
+                "preparedAsset": "bin.ptmesh",
+                "physics": {
+                  "mass": 0,
+                  "static": true,
+                  "friction": 0.5,
+                  "colliderBoxes": [
+                    {
+                      "min": [
+                        -0.11,
+                        0,
+                        -0.11
+                      ],
+                      "max": [
+                        0.11,
+                        0.008,
+                        0.11
+                      ]
+                    },
+                    {
+                      "min": [
+                        -0.11,
+                        0.008000000000000007,
+                        -0.11
+                      ],
+                      "max": [
+                        -0.102,
+                        0.26,
+                        0.11
+                      ]
+                    },
+                    {
+                      "min": [
+                        0.102,
+                        0.008000000000000007,
+                        -0.11
+                      ],
+                      "max": [
+                        0.11,
+                        0.26,
+                        0.11
+                      ]
+                    },
+                    {
+                      "min": [
+                        -0.102,
+                        0.008000000000000007,
+                        -0.11
+                      ],
+                      "max": [
+                        0.102,
+                        0.26,
+                        -0.102
+                      ]
+                    },
+                    {
+                      "min": [
+                        -0.102,
+                        0.008000000000000007,
+                        0.102
+                      ],
+                      "max": [
+                        0.102,
+                        0.26,
+                        0.11
+                      ]
+                    },
+                    {
+                      "min": [
+                        0.10700000000000001,
+                        0.257,
+                        -0.127
+                      ],
+                      "max": [
+                        0.171,
+                        0.261,
+                        -0.08099999999999999
+                      ]
+                    },
+                    {
+                      "min": [
+                        0.107,
+                        0.236,
+                        -0.127
+                      ],
+                      "max": [
+                        0.111,
+                        0.259,
+                        -0.08099999999999999
+                      ]
+                    },
+                    {
+                      "min": [
+                        0.169,
+                        0.259,
+                        -0.127
+                      ],
+                      "max": [
+                        0.17300000000000001,
+                        0.28500000000000003,
+                        -0.08099999999999999
+                      ]
+                    }
+                  ]
+                },
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ],
+                "kind": "component",
+                "scale": [
+                  1,
+                  1,
+                  1
+                ],
+                "appearance": {
+                  "materials": [],
+                  "surfaces": []
+                },
+                "connectors": [],
+                "mounts": []
+              }
+            ],
+            "devices": [],
+            "version": "1.0.0",
+            "mates": [],
+            "joints": [],
+            "connections": [],
+            "artwork": []
+          },
+          "productBaseUrl": "microblock://./examples/smart-bin/",
+          "geometryKey": "example-current-bin-assembled-product-v1-c282a26d-dc695e3f-1069",
+          "position": [
+            0.02802499756217003,
+            0.14249999811686576,
+            -0.006000000983476639
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.2950500026345253,
+            0.2849999966137111,
+            0.2420000061392784
+          ],
+          "color": "#ffffff",
+          "faceColors": {},
+          "mateLinks": [
+            "atom",
+            "servo",
+            "ultrasonic"
+          ],
+          "mateTypes": {
+            "atom": "plane",
+            "servo": "plane",
+            "ultrasonic": "plane"
+          },
+          "mates": [
+            {
+              "id": "bin-atom",
+              "a": "bin",
+              "b": "atom",
+              "type": "plane",
+              "lockRotation": true,
+              "faceA": {
+                "componentId": "body",
+                "center": [
+                  -0.1217249997779727,
+                  0.14,
+                  0
+                ],
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "componentFace": {
+                  "center": [
+                    -0.1217249997779727,
+                    0.14,
+                    0
+                  ],
+                  "normal": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              },
+              "faceB": {
+                "componentId": "main",
+                "center": [
+                  -0.1217249997779727,
+                  0.14,
+                  0
+                ],
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "componentFace": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "normal": [
+                    1,
+                    2.220446049250313e-16,
+                    0
+                  ]
+                }
+              }
+            },
+            {
+              "id": "bin-servo",
+              "a": "bin",
+              "b": "servo",
+              "type": "plane",
+              "lockRotation": true,
+              "faceA": {
+                "componentId": "body",
+                "center": [
+                  0.15133597537875176,
+                  0.2680003427267075,
+                  -0.10337680840492249
+                ],
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "componentFace": {
+                  "center": [
+                    0.15133597537875176,
+                    0.2680003427267075,
+                    -0.10337680840492249
+                  ],
+                  "normal": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              },
+              "faceB": {
+                "componentId": "housing",
+                "center": [
+                  0.15133597537875176,
+                  0.2680003427267075,
+                  -0.10337680840492249
+                ],
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "componentFace": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "normal": [
+                    1,
+                    2.220446049250313e-16,
+                    0
+                  ]
+                }
+              }
+            },
+            {
+              "id": "bin-ultrasonic",
+              "a": "bin",
+              "b": "ultrasonic",
+              "type": "plane",
+              "lockRotation": true,
+              "faceA": {
+                "componentId": "body",
+                "center": [
+                  -0.063,
+                  0.2238,
+                  0.12747
+                ],
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "componentFace": {
+                  "center": [
+                    -0.063,
+                    0.2238,
+                    0.12747
+                  ],
+                  "normal": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              },
+              "faceB": {
+                "componentId": "main",
+                "center": [
+                  -0.063,
+                  0.2238,
+                  0.12747
+                ],
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "componentFace": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "normal": [
+                    -2.449293598294707e-16,
+                    1,
+                    5.0814363615624044e-33
+                  ]
+                }
+              }
+            }
+          ],
+          "deviceBindings": []
+        },
+        {
+          "id": "atom",
+          "name": "PT Atom VX",
+          "type": "step",
+          "fileName": "atom.glb",
+          "productManifest": {
+            "schemaVersion": 2,
+            "id": "atom-vx",
+            "name": "PT Atom VX",
+            "version": "1.0.2",
+            "model": {
+              "file": "model.glb",
+              "unit": "meter",
+              "rotation": [
+                0,
+                0,
+                0
+              ],
+              "scale": [
+                1,
+                1,
+                1
+              ]
+            },
+            "appearance": {
+              "artwork": [
+                {
+                  "side": "top",
+                  "file": "textures/Top.png",
+                  "position": [
+                    0.00003,
+                    -0.0057,
+                    0
+                  ],
+                  "size": [
+                    0.083,
+                    0.07
+                  ],
+                  "rotation": [
+                    -90,
+                    0,
+                    0
+                  ]
+                },
+                {
+                  "side": "bottom",
+                  "file": "textures/Bottom.png",
+                  "position": [
+                    0.000033,
+                    -0.00735,
+                    0
+                  ],
+                  "size": [
+                    0.083,
+                    0.07
+                  ],
+                  "rotation": [
+                    90,
+                    0,
+                    180
+                  ]
+                }
+              ],
+              "materials": [
+                {
+                  "index": 10,
+                  "name": "Material 11",
+                  "color": "#141414"
+                }
+              ],
+              "surfaces": [
+                {
+                  "index": 7224,
+                  "color": "#141414"
+                },
+                {
+                  "index": 2177,
+                  "color": "#141414"
+                }
+              ]
+            },
+            "simulation": {
+              "display": {
+                "resolution": [
+                  160,
+                  128
+                ],
+                "textureScale": 4,
+                "position": [
+                  0.0029,
+                  0.00979,
+                  -0.0053
+                ],
+                "size": [
+                  0.039125,
+                  0.0313
+                ],
+                "rotation": [
+                  -90,
+                  0,
+                  0
+                ]
+              },
+              "motorLeds": [
+                {
+                  "motor": "M1",
+                  "position": [
+                    -0.028685,
+                    -0.00518,
+                    -0.0034
+                  ],
+                  "rotation": [
+                    -90,
+                    0,
+                    0
+                  ],
+                  "size": [
+                    0.00115,
+                    0.0016
+                  ]
+                },
+                {
+                  "motor": "M2",
+                  "position": [
+                    -0.028685,
+                    -0.00518,
+                    0.0036
+                  ],
+                  "rotation": [
+                    -90,
+                    0,
+                    0
+                  ],
+                  "size": [
+                    0.00115,
+                    0.0016
+                  ]
+                },
+                {
+                  "motor": "M3",
+                  "position": [
+                    -0.028685,
+                    -0.00518,
+                    0.0106
+                  ],
+                  "rotation": [
+                    -90,
+                    0,
+                    0
+                  ],
+                  "size": [
+                    0.00115,
+                    0.0016
+                  ]
+                },
+                {
+                  "motor": "M4",
+                  "position": [
+                    -0.028685,
+                    -0.00518,
+                    0.0176
+                  ],
+                  "rotation": [
+                    -90,
+                    0,
+                    0
+                  ],
+                  "size": [
+                    0.00115,
+                    0.0016
+                  ]
+                }
+              ],
+              "motorColors": {
+                "off": "#15191b",
+                "forward": "#00ff00",
+                "reverse": "#ff0000"
+              }
+            },
+            "ports": [],
+            "kind": "board",
+            "components": [
+              {
+                "id": "main",
+                "name": "PT Atom VX",
+                "kind": "board",
+                "asset": "assets/553600d456e4b5888af5e8096a3fc23adbd1e4f4b452a777c3d696f68767067c.glb",
+                "format": "glb",
+                "unit": "meter",
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ],
+                "assetTransform": {
+                  "unit": "meter",
+                  "rotation": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "scale": [
+                    1,
+                    1,
+                    1
+                  ]
+                },
+                "appearance": {
+                  "materials": [
+                    {
+                      "index": 10,
+                      "name": "Material 11",
+                      "color": "#141414"
+                    }
+                  ],
+                  "surfaces": [
+                    {
+                      "index": 7224,
+                      "color": "#141414"
+                    },
+                    {
+                      "index": 2177,
+                      "color": "#141414"
+                    },
+                    {
+                      "index": 1172,
+                      "color": "#141414"
+                    },
+                    {
+                      "index": 7963,
+                      "color": "#141414"
+                    },
+                    {
+                      "index": 8055,
+                      "color": "#141414"
+                    },
+                    {
+                      "index": 8147,
+                      "color": "#141414"
+                    },
+                    {
+                      "index": 1170,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "index": 7961,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "index": 8053,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "index": 8145,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "index": 8146,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "index": 8054,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "index": 7962,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "index": 1171,
+                      "color": "#ffffff"
+                    },
+                    {
+                      "index": 84,
+                      "color": "#141414"
+                    }
+                  ]
+                },
+                "boardDefinition": {
+                  "schemaVersion": 1,
+                  "id": "atom-vx",
+                  "name": "PT Atom VX",
+                  "version": "1.0.0",
+                  "model": {
+                    "file": "model.glb",
+                    "unit": "meter",
+                    "rotation": [
+                      0,
+                      0,
+                      0
+                    ],
+                    "scale": [
+                      1,
+                      1,
+                      1
+                    ]
+                  },
+                  "appearance": {
+                    "artwork": [
+                      {
+                        "side": "top",
+                        "file": "textures/Top.png",
+                        "position": [
+                          0.00003,
+                          -0.0057,
+                          0
+                        ],
+                        "size": [
+                          0.083,
+                          0.07
+                        ],
+                        "rotation": [
+                          -90,
+                          0,
+                          0
+                        ]
+                      },
+                      {
+                        "side": "bottom",
+                        "file": "textures/Bottom.png",
+                        "position": [
+                          0.000033,
+                          -0.00735,
+                          0
+                        ],
+                        "size": [
+                          0.083,
+                          0.07
+                        ],
+                        "rotation": [
+                          90,
+                          0,
+                          180
+                        ]
+                      }
+                    ],
+                    "materials": [
+                      {
+                        "index": 10,
+                        "name": "Material 11",
+                        "color": "#141414"
+                      }
+                    ],
+                    "surfaces": [
+                      {
+                        "index": 7224,
+                        "color": "#141414"
+                      },
+                      {
+                        "index": 2177,
+                        "color": "#141414"
+                      }
+                    ]
+                  },
+                  "simulation": {
+                    "display": {
+                      "resolution": [
+                        160,
+                        128
+                      ],
+                      "textureScale": 4,
+                      "position": [
+                        0.0029,
+                        0.00979,
+                        -0.0053
+                      ],
+                      "size": [
+                        0.039125,
+                        0.0313
+                      ],
+                      "rotation": [
+                        -90,
+                        0,
+                        0
+                      ]
+                    },
+                    "motorLeds": [
+                      {
+                        "motor": "M1",
+                        "position": [
+                          -0.028685,
+                          -0.00518,
+                          -0.0034
+                        ],
+                        "rotation": [
+                          -90,
+                          0,
+                          0
+                        ],
+                        "size": [
+                          0.00115,
+                          0.0016
+                        ]
+                      },
+                      {
+                        "motor": "M2",
+                        "position": [
+                          -0.028685,
+                          -0.00518,
+                          0.0036
+                        ],
+                        "rotation": [
+                          -90,
+                          0,
+                          0
+                        ],
+                        "size": [
+                          0.00115,
+                          0.0016
+                        ]
+                      },
+                      {
+                        "motor": "M3",
+                        "position": [
+                          -0.028685,
+                          -0.00518,
+                          0.0106
+                        ],
+                        "rotation": [
+                          -90,
+                          0,
+                          0
+                        ],
+                        "size": [
+                          0.00115,
+                          0.0016
+                        ]
+                      },
+                      {
+                        "motor": "M4",
+                        "position": [
+                          -0.028685,
+                          -0.00518,
+                          0.0176
+                        ],
+                        "rotation": [
+                          -90,
+                          0,
+                          0
+                        ],
+                        "size": [
+                          0.00115,
+                          0.0016
+                        ]
+                      }
+                    ],
+                    "motorColors": {
+                      "off": "#15191b",
+                      "forward": "#00ff00",
+                      "reverse": "#ff0000"
+                    }
+                  },
+                  "ports": []
+                },
+                "legacyDevices": true,
+                "physics": {
+                  "mass": 0.04405999999999983,
+                  "friction": 0.6
+                },
+                "mounts": [
+                  {
+                    "id": "mount-mtzjpw5p-u61nz",
+                    "name": "Mount - Screw 1",
+                    "type": "fixed",
+                    "position": [
+                      -0.03846701199222087,
+                      -0.006525000557303429,
+                      -0.03199999978195951
+                    ],
+                    "axis": [
+                      0,
+                      -1,
+                      0
+                    ]
+                  },
+                  {
+                    "id": "mount-mtzjsjph-erpbu",
+                    "name": "Mount - Screw 2",
+                    "type": "fixed",
+                    "position": [
+                      0.03853298789951562,
+                      -0.006525000557303429,
+                      -0.032000001025398815
+                    ],
+                    "axis": [
+                      0,
+                      1,
+                      0
+                    ]
+                  },
+                  {
+                    "id": "mount-mtzju5n4-jq4le",
+                    "name": "Mount - Screw 3",
+                    "type": "fixed",
+                    "position": [
+                      -0.038467014180539355,
+                      -0.006525000557303427,
+                      0.02500000038268258
+                    ],
+                    "axis": [
+                      0,
+                      -1,
+                      0
+                    ]
+                  },
+                  {
+                    "id": "mount-mtzjui5w-8vay1",
+                    "name": "Mount - Screw 4",
+                    "type": "fixed",
+                    "position": [
+                      0.038532989234284054,
+                      -0.006525000557303427,
+                      0.025000000421542032
+                    ],
+                    "axis": [
+                      0,
+                      -1,
+                      0
+                    ]
+                  }
+                ],
+                "preparedAsset": "assets/01b9f40685445aa6d1d1b2e21b3ea1d0da44a241f9b773d40898485615431d59.ptmesh",
+                "ports": [
+                  {
+                    "id": "M1",
+                    "name": "M1",
+                    "type": "motor",
+                    "voltage": 8.4
+                  },
+                  {
+                    "id": "M2",
+                    "name": "M2",
+                    "type": "motor",
+                    "voltage": 8.4
+                  },
+                  {
+                    "id": "M3",
+                    "name": "M3",
+                    "type": "motor",
+                    "voltage": 8.4
+                  },
+                  {
+                    "id": "M4",
+                    "name": "M4",
+                    "type": "motor",
+                    "voltage": 8.4
+                  },
+                  {
+                    "id": "S0",
+                    "name": "S0",
+                    "type": "servo",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "S1",
+                    "name": "S1",
+                    "type": "servo",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "S2",
+                    "name": "S2",
+                    "type": "servo",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "ADC0",
+                    "name": "ADC0",
+                    "type": "analog",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "ADC1",
+                    "name": "ADC1",
+                    "type": "analog",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "ADC2",
+                    "name": "ADC2",
+                    "type": "analog",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "ADC3",
+                    "name": "ADC3",
+                    "type": "analog",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "ADC4",
+                    "name": "ADC4",
+                    "type": "analog",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "ADC5",
+                    "name": "ADC5",
+                    "type": "analog",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "ADC6",
+                    "name": "ADC6",
+                    "type": "analog",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "ADC7",
+                    "name": "ADC7",
+                    "type": "analog",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "IO2",
+                    "name": "IO2",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "IO4",
+                    "name": "IO4",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "IO13",
+                    "name": "IO13",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "IO14",
+                    "name": "IO14",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "IO25",
+                    "name": "IO25",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "IO26",
+                    "name": "IO26",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "IO27",
+                    "name": "IO27",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "IO34",
+                    "name": "IO34",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "IO35",
+                    "name": "IO35",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "IO36",
+                    "name": "IO36",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "IO39",
+                    "name": "IO39",
+                    "type": "digital",
+                    "voltage": 3.3
+                  },
+                  {
+                    "id": "S3",
+                    "name": "S3",
+                    "type": "servo",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "S4",
+                    "name": "S4",
+                    "type": "servo",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "S5",
+                    "name": "S5",
+                    "type": "servo",
+                    "voltage": 5
+                  },
+                  {
+                    "id": "S6",
+                    "name": "S6",
+                    "type": "servo",
+                    "voltage": 5
+                  }
+                ],
+                "boardRole": "main",
+                "connectors": []
+              }
+            ],
+            "artwork": [
+              {
+                "id": "top",
+                "name": "top",
+                "size": [
+                  0.083,
+                  0.07
+                ],
+                "visible": true,
+                "opacity": 1,
+                "lockAspect": true,
+                "side": "top",
+                "file": "textures/top.png",
+                "position": [
+                  0.00003,
+                  -0.0057,
+                  0
+                ],
+                "rotation": [
+                  -90,
+                  0,
+                  0
+                ],
+                "componentId": "main"
+              },
+              {
+                "id": "bottom",
+                "name": "bottom",
+                "size": [
+                  0.083,
+                  0.07
+                ],
+                "visible": true,
+                "opacity": 1,
+                "lockAspect": true,
+                "side": "bottom",
+                "file": "textures/bottom.png",
+                "position": [
+                  0.000033,
+                  -0.00735,
+                  0
+                ],
+                "rotation": [
+                  90,
+                  0,
+                  180
+                ],
+                "componentId": "main"
+              }
+            ],
+            "devices": [
+              {
+                "id": "display",
+                "name": "Display",
+                "type": "display",
+                "driveSide": "none",
+                "wheelRadius": 0.0325,
+                "maxSpeed": 360,
+                "invert": false,
+                "range": 0.5,
+                "resolution": [
+                  160,
+                  128
+                ],
+                "textureScale": 4,
+                "position": [
+                  0.0029,
+                  0.00979,
+                  -0.0053
+                ],
+                "size": [
+                  0.039125,
+                  0.0313
+                ],
+                "rotation": [
+                  -90,
+                  0,
+                  0
+                ],
+                "componentId": "main",
+                "legacyOverlay": "display"
+              },
+              {
+                "id": "led-M1",
+                "name": "M1 LED",
+                "type": "led",
+                "driveSide": "none",
+                "wheelRadius": 0.0325,
+                "maxSpeed": 360,
+                "invert": false,
+                "range": 0.5,
+                "motor": "M1",
+                "position": [
+                  -0.028685,
+                  -0.00518,
+                  -0.0034
+                ],
+                "rotation": [
+                  -90,
+                  0,
+                  0
+                ],
+                "size": [
+                  0.00115,
+                  0.0016
+                ],
+                "componentId": "main",
+                "legacyOverlay": "M1",
+                "offColor": "#15191b",
+                "forwardColor": "#00ff00",
+                "reverseColor": "#ff0000"
+              },
+              {
+                "id": "led-M2",
+                "name": "M2 LED",
+                "type": "led",
+                "driveSide": "none",
+                "wheelRadius": 0.0325,
+                "maxSpeed": 360,
+                "invert": false,
+                "range": 0.5,
+                "motor": "M2",
+                "position": [
+                  -0.028685,
+                  -0.00518,
+                  0.0036
+                ],
+                "rotation": [
+                  -90,
+                  0,
+                  0
+                ],
+                "size": [
+                  0.00115,
+                  0.0016
+                ],
+                "componentId": "main",
+                "legacyOverlay": "M2",
+                "offColor": "#15191b",
+                "forwardColor": "#00ff00",
+                "reverseColor": "#ff0000"
+              },
+              {
+                "id": "led-M3",
+                "name": "M3 LED",
+                "type": "led",
+                "driveSide": "none",
+                "wheelRadius": 0.0325,
+                "maxSpeed": 360,
+                "invert": false,
+                "range": 0.5,
+                "motor": "M3",
+                "position": [
+                  -0.028685,
+                  -0.00518,
+                  0.0106
+                ],
+                "rotation": [
+                  -90,
+                  0,
+                  0
+                ],
+                "size": [
+                  0.00115,
+                  0.0016
+                ],
+                "componentId": "main",
+                "legacyOverlay": "M3",
+                "offColor": "#15191b",
+                "forwardColor": "#00ff00",
+                "reverseColor": "#ff0000"
+              },
+              {
+                "id": "led-M4",
+                "name": "M4 LED",
+                "type": "led",
+                "driveSide": "none",
+                "wheelRadius": 0.0325,
+                "maxSpeed": 360,
+                "invert": false,
+                "range": 0.5,
+                "motor": "M4",
+                "position": [
+                  -0.028685,
+                  -0.00518,
+                  0.0176
+                ],
+                "rotation": [
+                  -90,
+                  0,
+                  0
+                ],
+                "size": [
+                  0.00115,
+                  0.0016
+                ],
+                "componentId": "main",
+                "legacyOverlay": "M4",
+                "offColor": "#15191b",
+                "forwardColor": "#00ff00",
+                "reverseColor": "#ff0000"
+              }
+            ],
+            "connections": [
+              {
+                "id": "wire-led-M1",
+                "boardId": "main",
+                "port": "M1",
+                "deviceId": "led-M1"
+              },
+              {
+                "id": "wire-led-M2",
+                "boardId": "main",
+                "port": "M2",
+                "deviceId": "led-M2"
+              },
+              {
+                "id": "wire-led-M3",
+                "boardId": "main",
+                "port": "M3",
+                "deviceId": "led-M3"
+              },
+              {
+                "id": "wire-led-M4",
+                "boardId": "main",
+                "port": "M4",
+                "deviceId": "led-M4"
+              }
+            ],
+            "controllerBoardId": "atom-vx",
+            "mates": [],
+            "joints": []
+          },
+          "productBaseUrl": "microblock://./products/atom-vx/",
+          "geometryKey": "assembled-product-v1-d0c3728a-1be40e44-8312",
+          "position": [
+            -0.1217249997779727,
+            0.14,
+            0
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ],
+          "size": [
+            0.0860000029206276,
+            0.019449999555945396,
+            0.07000000774860382
+          ],
+          "color": "#ffffff",
+          "faceColors": {},
+          "mateLinks": [
+            "bin"
+          ],
+          "mateTypes": {
+            "bin": "plane"
+          },
+          "mates": [],
+          "deviceBindings": [],
+          "catalogId": "product:atom-vx",
+          "systemRole": "controller-board",
+          "boardId": "atom-vx",
+          "locked": true
+        },
+        {
+          "id": "servo",
+          "name": "MG90S lid servo",
+          "type": "step",
+          "fileName": "servo.glb",
+          "productManifest": {
+            "schemaVersion": 2,
+            "id": "servo_mg90s",
+            "name": "Servo MG90S",
+            "version": "1.0.1",
+            "kind": "component",
+            "category": "Servo",
+            "controllerBoardId": "",
+            "components": [
+              {
+                "id": "housing",
+                "name": "MG90S Housing",
+                "kind": "component",
+                "format": "geometry",
+                "unit": "meter",
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ],
+                "physics": {
+                  "mass": 0.013,
+                  "friction": 0.6
+                },
+                "mounts": [
+                  {
+                    "id": "housing_mount",
+                    "name": "Housing base",
+                    "type": "fixed",
+                    "position": [
+                      0,
+                      -0.016536355018615723,
+                      0
+                    ],
+                    "axis": [
+                      0,
+                      -1,
+                      0
+                    ]
+                  }
+                ],
+                "appearance": {
+                  "materials": [
+                    {
+                      "index": 0,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 1,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 2,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 3,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 4,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 5,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 6,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 7,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 8,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 9,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 10,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 11,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 12,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 13,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 14,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 15,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 16,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 17,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 18,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 19,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 20,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 21,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 22,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 23,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 24,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 25,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 26,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 27,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 28,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 29,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 30,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 31,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 32,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 33,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 34,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 35,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 36,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 37,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 38,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 39,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 40,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 41,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 42,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 43,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 44,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 45,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 46,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 47,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 48,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 49,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 50,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 51,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 52,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 53,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 54,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 55,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 56,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 57,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 58,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 59,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 60,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 61,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 62,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 63,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 64,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    },
+                    {
+                      "index": 65,
+                      "color": "#141414",
+                      "roughness": 0.42,
+                      "metalness": 0,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03
+                    }
+                  ],
+                  "surfaces": []
+                },
+                "connectors": [],
+                "asset": "assets/63415557e21a10a4dff0ad20f54466c2c42c399ba31379a5db5d164770a985e0.geometry.json",
+                "preparedAsset": "assets/9771c5269d372acf03b55faf8510cec1930290212f35a6d458b37d2144a51077.ptmesh"
+              },
+              {
+                "id": "output",
+                "name": "MG90S Output Shaft",
+                "kind": "component",
+                "format": "geometry",
+                "unit": "meter",
+                "position": [
+                  -3.4272670745676137e-7,
+                  0.016335975378751755,
+                  -0.005623191595077515
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ],
+                "physics": {
+                  "mass": 0.0004,
+                  "friction": 0.6
+                },
+                "mounts": [
+                  {
+                    "id": "output_mount",
+                    "name": "Output shaft",
+                    "type": "shaft",
+                    "position": [
+                      0,
+                      0.0002003796398639679,
+                      0
+                    ],
+                    "axis": [
+                      0,
+                      1,
+                      0
+                    ]
+                  }
+                ],
+                "appearance": {
+                  "materials": [
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 0
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 2
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 3
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 4
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 5
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 6
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 7
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 8
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 9
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 10
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 11
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 12
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 13
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 14
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 15
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 16
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 17
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 18
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 19
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 20
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 21
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 22
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 23
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 24
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 25
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 26
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 27
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 28
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 29
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 30
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 31
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 32
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 33
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 34
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 35
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 36
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 37
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 38
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 39
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 40
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 41
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 42
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 43
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 44
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 45
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 46
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 47
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 48
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 49
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 50
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 51
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 52
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 53
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 54
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 55
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 56
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 57
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 58
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 59
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 60
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 61
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 62
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 63
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 64
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 65
+                    }
+                  ],
+                  "surfaces": []
+                },
+                "connectors": [],
+                "asset": "assets/5f7502eebd4815f9b1e6a35d759e2935264f1ab69fdabc1566be90c11a06286f.geometry.json",
+                "preparedAsset": "assets/275f0507babb8e1129cdb555c1e494582c054556cba565a775c3b52cdc9f1d89.ptmesh"
+              }
+            ],
+            "joints": [
+              {
+                "id": "servo_output",
+                "name": "Servo output",
+                "type": "revolute",
+                "position": [
+                  -3.4272670745676137e-7,
+                  0.016335975378751755,
+                  -0.005623191595077515
+                ],
+                "axis": [
+                  0,
+                  1,
+                  0
+                ],
+                "lower": 0,
+                "upper": 180,
+                "home": 0,
+                "parent": "housing",
+                "child": "output",
+                "maxTorque": 0.24516625
+              }
+            ],
+            "devices": [
+              {
+                "id": "servo",
+                "name": "MG90S",
+                "type": "servo",
+                "driveSide": "none",
+                "wheelRadius": 0.0325,
+                "maxSpeed": 600,
+                "invert": false,
+                "range": 0.1,
+                "componentId": "housing",
+                "jointId": "servo_output",
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ],
+                "model": "MG90S",
+                "portType": "servo",
+                "maxAcceleration": 40000,
+                "ratedVoltage": 6
+              }
+            ],
+            "connections": [],
+            "mates": [],
+            "artwork": [],
+            "assemblyPrepared": {
+              "file": "assets/eb285d73a50e1367c81febdfb038301d3918d944582a0a1b10a07057a589b8d6.assembly.ptmesh",
+              "key": "assembled-product-v1-7d59ddb0-9a56340e-14204"
+            }
+          },
+          "productBaseUrl": "microblock://./products/servo_mg90s/",
+          "geometryKey": "example-current-servo-assembled-product-v1-7d59ddb0-9a56340e-14204",
+          "position": [
+            0.15133597537875176,
+            0.2680003427267075,
+            -0.10337680840492249
+          ],
+          "rotation": [
+            0,
+            0,
+            1.5707963267948966
+          ],
+          "size": [
+            0.01199999451637268,
+            0.033072710037231445,
+            0.032524943351745605
+          ],
+          "color": "#ffffff",
+          "faceColors": {},
+          "mateLinks": [
+            "bin",
+            "lid"
+          ],
+          "mateTypes": {
+            "bin": "plane",
+            "lid": "plane"
+          },
+          "mates": [
+            {
+              "id": "servo-lid",
+              "a": "servo",
+              "b": "lid",
+              "type": "plane",
+              "lockRotation": true,
+              "faceA": {
+                "componentId": "output",
+                "center": [
+                  0.135,
+                  0.268,
+                  -0.109
+                ],
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "componentFace": {
+                  "center": [
+                    0,
+                    0,
+                    0
+                  ],
+                  "normal": [
+                    1,
+                    2.220446049250313e-16,
+                    0
+                  ]
+                }
+              },
+              "faceB": {
+                "componentId": "lid",
+                "center": [
+                  0.135,
+                  0.268,
+                  -0.109
+                ],
+                "normal": [
+                  0,
+                  1,
+                  0
+                ],
+                "componentFace": {
+                  "center": [
+                    0.135,
+                    0,
+                    0
+                  ],
+                  "normal": [
+                    0,
+                    1,
+                    0
+                  ]
+                }
+              }
+            }
+          ],
+          "deviceBindings": [
+            {
+              "deviceId": "servo",
+              "name": "MG90S",
+              "boardPartId": "atom",
+              "boardComponentId": "main",
+              "port": "S0",
+              "driveSide": "none",
+              "invert": false
+            }
+          ],
+          "catalogId": "product:servo_mg90s"
+        },
+        {
+          "id": "lid",
+          "name": "Lid and servo horn",
+          "type": "step",
+          "fileName": "lid.glb",
+          "productManifest": {
+            "schemaVersion": 2,
+            "id": "smart-bin-lid",
+            "name": "Lid and servo horn",
+            "kind": "component",
+            "components": [
+              {
+                "id": "lid",
+                "name": "Servo lid",
+                "format": "glb",
+                "unit": "meter",
+                "asset": "lid.glb",
+                "preparedAsset": "lid.ptmesh",
+                "physics": {
+                  "mass": 0.025,
+                  "friction": 0.4,
+                  "collider": "box"
+                },
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ],
+                "kind": "component",
+                "scale": [
+                  1,
+                  1,
+                  1
+                ],
+                "appearance": {
+                  "materials": [],
+                  "surfaces": []
+                },
+                "connectors": [],
+                "mounts": []
+              }
+            ],
+            "version": "1.0.0",
+            "mates": [],
+            "joints": [],
+            "devices": [],
+            "connections": [],
+            "artwork": []
+          },
+          "productBaseUrl": "microblock://./examples/smart-bin/",
+          "geometryKey": "example-current-lid-assembled-product-v1-80230c1f-bb643591-497",
+          "position": [
+            0.010249998420476913,
+            0.27074999998509885,
+            2.4996697906010112e-9
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.25050000101327896,
+            0.017500000074505806,
+            0.230000008828938
+          ],
+          "color": "#ffffff",
+          "faceColors": {},
+          "mateLinks": [
+            "servo"
+          ],
+          "mateTypes": {
+            "servo": "plane"
+          },
+          "mates": [],
+          "deviceBindings": []
+        },
+        {
+          "id": "paper",
+          "name": "Crumpled paper",
+          "type": "step",
+          "fileName": "paper.glb",
+          "productManifest": {
+            "schemaVersion": 2,
+            "id": "smart-bin-paper",
+            "name": "Crumpled paper",
+            "kind": "component",
+            "components": [
+              {
+                "id": "paper",
+                "name": "Paper",
+                "format": "glb",
+                "unit": "meter",
+                "asset": "paper.glb",
+                "preparedAsset": "paper.ptmesh",
+                "physics": {
+                  "mass": 0.005,
+                  "collider": "sphere",
+                  "friction": 0.5,
+                  "drag3D": true
+                },
+                "position": [
+                  0,
+                  0,
+                  0
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ],
+                "kind": "component",
+                "scale": [
+                  1,
+                  1,
+                  1
+                ],
+                "appearance": {
+                  "materials": [],
+                  "surfaces": []
+                },
+                "connectors": [],
+                "mounts": []
+              }
+            ],
+            "version": "1.0.0",
+            "mates": [],
+            "joints": [],
+            "devices": [],
+            "connections": [],
+            "artwork": []
+          },
+          "productBaseUrl": "microblock://./examples/smart-bin/",
+          "geometryKey": "example-current-paper-assembled-product-v1-be70dc4b-a17681d-514",
+          "position": [
+            -0.18,
+            0.036,
+            0.44
+          ],
+          "rotation": [
+            0,
+            0,
+            0
+          ],
+          "size": [
+            0.06181143596768379,
+            0.0667455829679966,
+            0.06829295679926872
+          ],
+          "color": "#ffffff",
+          "faceColors": {},
+          "mateLinks": [],
+          "mateTypes": {},
+          "mates": [],
+          "deviceBindings": []
+        },
+        {
+          "id": "ultrasonic",
+          "name": "Ultrasonic sensor",
+          "type": "step",
+          "fileName": "ultrasonic.glb",
+          "productManifest": {
+            "kind": "component",
+            "id": "buildbot_ultrasonic",
+            "name": "Ultrasonic Sensor",
+            "schemaVersion": 2,
+            "version": "1.0.0",
+            "components": [
+              {
+                "id": "main",
+                "name": "Ultrasonic Sensor",
+                "kind": "component",
+                "format": "geometry",
+                "unit": "meter",
+                "appearance": {
+                  "materials": [],
+                  "surfaces": [
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1568
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1569
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1570
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1571
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1572
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1573
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1574
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1575
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1576
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1577
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1578
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1579
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1580
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1581
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1582
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1583
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1584
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1585
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1586
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1587
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1588
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1589
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1590
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1591
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1592
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1593
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1594
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1595
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1596
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1597
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1598
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1599
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1600
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1601
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1602
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1603
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1604
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1605
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1606
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1607
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1608
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1609
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1610
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1611
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1612
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1613
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1614
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1615
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1616
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1617
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1618
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1619
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1620
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1621
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1622
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1623
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1624
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1625
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1626
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1627
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1628
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1629
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1630
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1631
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1632
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1633
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1634
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1635
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1636
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1637
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1638
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1639
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1640
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1641
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1642
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1643
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1644
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1645
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1646
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1647
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1648
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1649
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1650
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1651
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1652
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1653
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1654
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1655
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1656
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1657
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1658
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1659
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1660
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1661
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1662
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1663
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1664
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1665
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1666
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1667
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1668
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1669
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1670
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1671
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1672
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1673
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1674
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1675
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1676
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1677
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1678
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1679
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1680
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1681
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1682
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1683
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1684
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1685
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1686
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1687
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1688
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1689
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1690
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1691
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1692
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1693
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1694
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1695
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1696
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1697
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1698
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1699
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1700
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1701
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1702
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1703
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1704
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1705
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1706
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1707
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1708
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1709
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1710
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1711
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1712
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1713
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1714
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1715
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1716
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1717
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1718
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1719
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1720
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1721
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1722
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1723
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1724
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1725
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1726
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1727
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1728
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1729
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1730
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1731
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1733
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1734
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1735
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1736
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1737
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1738
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1739
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1740
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1741
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1742
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1743
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1744
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1745
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1746
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1747
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1748
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1749
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1750
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1751
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1752
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1753
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1754
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1755
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1756
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1757
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1758
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1759
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1760
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1761
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1762
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1763
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1764
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1765
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1766
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1767
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1768
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1769
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1770
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1771
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1772
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1773
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1774
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1775
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1776
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1777
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1778
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1779
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1780
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1781
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1782
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1783
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1784
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1785
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1786
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1787
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1788
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1789
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1790
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1791
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1792
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1793
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1794
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1795
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1796
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1797
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1798
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1799
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1800
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1801
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1802
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1803
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1804
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1805
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1806
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1807
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1808
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1809
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1810
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1811
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1812
+                    },
+                    {
+                      "roughness": 0.25,
+                      "metalness": 0,
+                      "clearcoat": 1,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1732
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1067
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 552
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 1068
+                    },
+                    {
+                      "roughness": 0.38,
+                      "metalness": 1,
+                      "clearcoat": 0,
+                      "clearcoatRoughness": 0.03,
+                      "index": 18
+                    }
+                  ]
+                },
+                "physics": {
+                  "mass": 0.0074,
+                  "friction": 0.6
+                },
+                "position": [
+                  0,
+                  0.010000001639127737,
+                  0
+                ],
+                "rotation": [
+                  -1.4033418597069754e-14,
+                  90,
+                  0
+                ],
+                "scale": [
+                  1,
+                  1,
+                  1
+                ],
+                "connectors": [],
+                "mounts": [],
+                "asset": "assets/d8bd862e8ea8f23f007a3a703a0952f88b9eb42f401133bf218fea78f999167a.geometry.json",
+                "preparedAsset": "assets/021759a53bd096f76bcaaa1f419a44b1d967139e7f7e213d389c321b4f625e08.ptmesh",
+                "massEvidence": {
+                  "grams": 7.4,
+                  "photo": "218974_0.jpg",
+                  "status": "measured"
+                }
+              }
+            ],
+            "mates": [],
+            "joints": [],
+            "devices": [
+              {
+                "id": "ultrasonic_distance",
+                "name": "Ultrasonic",
+                "type": "distance-sensor",
+                "driveSide": "none",
+                "wheelRadius": 0.0325,
+                "maxSpeed": 360,
+                "invert": false,
+                "range": 2,
+                "componentId": "main",
+                "portType": "digital",
+                "position": [
+                  0,
+                  -0.0008,
+                  -0.01053
+                ],
+                "rotation": [
+                  0,
+                  0,
+                  0
+                ],
+                "triggerPort": "IO2"
+              }
+            ],
+            "connections": [],
+            "artwork": [],
+            "category": "Sensor",
+            "assemblyPrepared": {
+              "file": "assets/45b817602fb0f0452efd003b2d101d90e3598e83843d7e815b961cff9d671207.assembly.ptmesh",
+              "key": "assembled-product-v1-c1f586c5-7989d29-22456"
+            }
+          },
+          "productBaseUrl": "microblock://./products/buildbot_ultrasonic/",
+          "geometryKey": "example-current-ultrasonic-assembled-product-v1-c1f586c5-7989d29-22456",
+          "position": [
+            -0.063,
+            0.2238,
+            0.12747
+          ],
+          "rotation": [
+            -4.930380657631324e-32,
+            1.5707963267948966,
+            0
+          ],
+          "size": [
+            0.021057050675153743,
+            0.020000003278255473,
+            0.04546240717172624
+          ],
+          "color": "#ffffff",
+          "faceColors": {},
+          "mateLinks": [
+            "bin"
+          ],
+          "mateTypes": {
+            "bin": "plane"
+          },
+          "mates": [],
+          "deviceBindings": [
+            {
+              "deviceId": "ultrasonic_distance",
+              "name": "Ultrasonic",
+              "boardPartId": "atom",
+              "boardComponentId": "main",
+              "port": "IO4",
+              "driveSide": "none",
+              "invert": false,
+              "triggerPort": "IO2"
+            }
+          ],
+          "catalogId": "product:buildbot_ultrasonic"
+        }
+      ]
+    },
+    "assemblyGuide": {
+      "sessions": {}
+    },
+    "fieldLayout": null,
+    "defaultRobotPosition": {
+      "x": 0,
+      "z": 0,
+      "heading": 0
+    }
+  }
+}

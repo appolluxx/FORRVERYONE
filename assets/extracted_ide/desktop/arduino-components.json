@@ -1,0 +1,22 @@
+{
+  "schema": 1,
+  "platform": "win32-x64",
+  "components": {
+    "arduino-cli": {
+      "name": "Arduino CLI",
+      "version": "1.5.1",
+      "url": "https://pt-robotics.com/files/roboblocks/tools/arduino-cli-1.5.1-win32-x64-3443a6bce0b93dc1.zip",
+      "sha256": "3443a6bce0b93dc113be13d72e179bad198d467254ee5a46613acad0d8217dd9",
+      "bytes": 17949008,
+      "executable": "arduino-cli.exe"
+    },
+    "cpp-sim": {
+      "name": "C++ SIM compiler",
+      "version": "0.17.0",
+      "url": "https://pt-robotics.com/files/roboblocks/tools/cpp-sim-0.17.0-win32-x64-617ebe57fbcf1f1e.zip",
+      "sha256": "617ebe57fbcf1f1ee58987ec106ae6947219d7a5a4d0a4cab0cc70eec958617f",
+      "bytes": 100825442,
+      "executable": "zig.exe"
+    }
+  }
+}

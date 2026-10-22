@@ -1,0 +1,95 @@
+================================================================================
+ROBOBLOCKS IDE REVERSE ENGINEERING — SYSTEM CROSS-REFERENCE MATRIX
+================================================================================
+Target: Comprehensive mapping between files, symbols, hardware, blocks, and physics
+Evidence Base: Verified symbols extracted from D:\Workspace\robot\assets\extracted_ide
+================================================================================
+
+1. HARDWARE COMPONENT TO DRIVER & PROFILE MAPPING
+--------------------------------------------------------------------------------
+Hardware Component       | Physical Pins / Bus     | Firmware Driver Module    | Simulator Model
+-------------------------+-------------------------+---------------------------+---------------------------
+ESP32 MCU Core           | Xtensa Dual-Core 240MHz | MicroPython v1.24.1       | Pyodide / Skulpt WebAssembly
+PCA9685 PWM Controller   | I2C 0 (SCL=22, SDA=21)  | atom_vx_python/pca9685.py | physics-control.js (540us)
+Motor 1 (Front Left)     | PCA Ch 12 (Dir), 13(PWM)| atom_vx_python/motor.py   | assembly-physics.js (Cylinder)
+Motor 2 (Front Right)    | PCA Ch 14 (Dir), 15(PWM)| atom_vx_python/motor.py   | assembly-physics.js (Cylinder)
+Motor 3 (Rear Left)      | PCA Ch 10 (Dir), 11(PWM)| atom_vx_python/motor.py   | assembly-physics.js (Cylinder)
+Motor 4 (Rear Right)     | PCA Ch 8 (Dir), 9 (PWM) | atom_vx_python/motor.py   | assembly-physics.js (Cylinder)
+Bosch BNO055 9-DOF IMU   | I2C 0 (Addr 0x28)       | atom_vx_python/bno055.py  | CANNON.Body.quaternion
+VL53L0X Laser ToF Sensor | I2C 1 (User selectable) | atom_vx_python/vl53l0x.py | Raycast distance ping - 50mm
+8-Channel 10-bit ADC     | SPI 1 (SCK=18, MOSI=23, | atom_vx_python/board.py   | field-map.js lineAt(x, z)
+                         | MISO=19, CS=15)         | read_adc() function       | sampling luminance array
+ST7789 128x160 SPI TFT   | SPI 1 (CS=33, DC=12,    | atom_vx_python/display.py | PTBOTAtomVX.h SimTFT class
+                         | SCK=18, MOSI=23)        | display.image(), text()   | WebGL canvas framebuffer
+Potentiometer (Knob)     | Pin 32 (12-bit ADC)     | atom_vx_python/board.py   | Virtual slider / rb_call(13)
+Tactile Switch SW_A      | Knob == 0 (virtual)     | atom_vx_python/board.py   | Button input / rb_call(2, 0)
+Tactile Switch SW_B      | Pin 0 (Active Low, PU)  | atom_vx_python/board.py   | Button input / rb_call(2, 1)
+Piezo Buzzer             | PCA9685 Channel 5       | atom_vx_python/board.py   | AudioContext beep tone
+
+
+2. UI BLOCK TO GENERATED CODE & FIRMWARE FUNCTION MAPPING
+--------------------------------------------------------------------------------
+Block Type Name                  | Block Definition File    | Python Code Generator File   | Generated MicroPython Target Call
+---------------------------------+--------------------------+------------------------------+----------------------------------
+motor_set                        | blocks/blocks_motor.js   | blocks/generators_motor.js   | motor.set_motor_drive(motor.<mode>)
+motor_drive_single               | blocks/blocks_motor.js   | blocks/generators_motor.js   | motor.drive_single(<id>, <spd>)
+motor_drive_all                  | blocks/blocks_motor.js   | blocks/generators_motor.js   | motor.drive_all(s1, s2, s3, s4)
+motor_move                       | blocks/blocks_motor.js   | blocks/generators_motor.js   | motor.move(motor.<dir>, <spd>)
+motor_spin                       | blocks/blocks_motor.js   | blocks/generators_motor.js   | motor.spin(motor.<dir>, <spd>)
+motor_move_forward_degree        | blocks/blocks_motor.js   | blocks/generators_motor.js   | motor.forward_degree(deg, min, max, kp, kd)
+motor_move_backward_degree       | blocks/blocks_motor.js   | blocks/generators_motor.js   | motor.backward_degree(...)
+motor_move_forward_degree_time   | blocks/blocks_motor.js   | blocks/generators_motor.js   | motor.forward_degree_time(...)
+motor_spin_degree                | blocks/blocks_motor.js   | blocks/generators_motor.js   | motor.spin_degree(...)
+motor_stop                       | blocks/blocks_motor.js   | blocks/generators_motor.js   | motor.stop()
+line_follower_calibrate          | blocks_line_follower.js  | generators_line_follower.js  | line_follower.calibrate()
+line_follower_read_line_position | blocks_line_follower.js  | generators_line_follower.js  | line_follower.read_position()
+line_follower_read_sensor        | blocks_line_follower.js  | generators_line_follower.js  | line_follower.read_sensor(...)
+imu_read_angle                   | blocks/blocks_sensor.js  | blocks/generators_sensor.js  | imu.read_angles()[<axis_idx>]
+imu_read_quaternion              | blocks/blocks_sensor.js  | blocks/generators_sensor.js  | imu.read_quaternion()[<q_idx>]
+ultrasonic_read_distance         | blocks/blocks_sensor.js  | blocks/generators_sensor.js  | board.ultrasonic_read(trig, echo)
+vl53L0x_read_distance            | blocks/blocks_sensor.js  | blocks/generators_sensor.js  | board.VL53L0X_read(scl, sda)
+micro_ros_publish_odom           | blocks_micro_ros.js      | generators_micro_ros.js      | ddsm210.move_diff_drive(...)
+
+
+3. MODULE TO CLASS & FUNCTION CROSS-REFERENCE
+--------------------------------------------------------------------------------
+Module Path                                      | Primary Classes Defined    | Exported Key Functions
+-------------------------------------------------+----------------------------+------------------------------------------
+atom_vx_python/motor.py                          | (procedural / module-level)| forward_degree, forward_degree_time,
+                                                 |                            | spin_degree, drive_single, drive_all,
+                                                 |                            | mecanum_move, stop, clamp_speed
+atom_vx_python/board.py                          | (procedural / module-level)| beep, knob_read, switch_read, read_adc,
+                                                 |                            | angle_read, set_angle_offset,
+                                                 |                            | ultrasonic_read, VL53L0X_read
+atom_vx_python/bno055.py                         | BNO055 (extends BASE)      | config, orient, iget, reset
+atom_vx_python/bno055_base.py                    | BNO055_BASE                | scaled_tuple, cal_status, sensor_offsets,
+                                                 |                            | set_offsets, mode, external_crystal
+atom_vx_python/pca9685.py                        | PCA9685                    | freq, duty, reset, write8, read8
+desktop/cpp-sim/include/PTBOTAtomVX.h            | SimTFT                     | motorWrite, motorStop, servoWrite,
+                                                 |                            | adcRead, knobRead, angleRead, initialize
+microBlock-IDE/robot-sim/assembly-physics.js     | (closure / IIFE)           | sweepHeldSphere, lowerHull, lowerColliders,
+                                                 |                            | addMate, runPhysicsLoop
+microBlock-IDE/robot-sim/field-layout.js         | (closure / IIFE)           | structureAccess, validateConnected,
+                                                 |                            | objectCells, placeObject, rescueDefinitions
+microBlock-IDE/robot-sim/field-map.js            | (closure / IIFE)           | createSampler, lineAt, controlSnapshot
+microBlock-IDE/js/serial.js                      | (closure / IIFE)           | connectLegacySerialElectron, writeSerial,
+                                                 |                            | initSerialPortElectron, connectWiFiREPL
+
+
+4. DUPLICATE & SHARED CODE IDENTIFICATION
+--------------------------------------------------------------------------------
+1. SHA-256 Identical Duplicates:
+   - `microBlock-IDE/boards/atom-mini/placeholder.svg` == `boards/strom-mini/placeholder.svg`
+   - `microBlock-IDE/boards/atom-vx/blocks/blocks_advanced.js` == `boards/buildbot/blocks/blocks_advanced.js`
+   - `microBlock-IDE/boards/atom-vx/blocks/generators_avanced.js` == `boards/buildbot/blocks/generators_avanced.js`
+   - `microBlock-IDE/boards/atom-vx/images/connector.png` == `boards/buildbot/images/connector.png`
+   - `microBlock-IDE/boards/atom-vx/images/display.png` == `boards/buildbot/images/display.png`
+   - `microBlock-IDE/boards/atom-vx/images/line_follower.png` == `boards/buildbot/images/line_follower.png`
+
+2. Dead Code / Unreferenced Placeholders:
+   - `Start` (0-byte empty file at root)
+   - `extension/.dummy` (0-byte empty placeholder file)
+   - `microBlock-IDE/blocks/blocks_text.js` (0-byte empty file; string operations handled by core blockly)
+   - `microBlock-IDE/CNAME` (contains 'ide.microblock.org'; relic from online web hosting)
+   - `microBlock-IDE/dev.local+5-key.pem` & `.pem` (local self-signed SSL certs for HTTPS testing)
+================================================================================

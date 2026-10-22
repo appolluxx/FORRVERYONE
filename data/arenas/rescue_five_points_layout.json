@@ -1,0 +1,196 @@
+{
+  "version": 1,
+  "seed": "rescue-pdf-example",
+  "cells": [
+    {
+      "type": "rescue_corner",
+      "rotation": 1,
+      "locked": false
+    },
+    {
+      "type": "rescue_drop",
+      "rotation": 3,
+      "locked": false
+    },
+    {
+      "type": "rescue_open",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 2,
+      "locked": false
+    },
+    {
+      "type": "rescue_corridor",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_corner",
+      "rotation": 2,
+      "locked": false
+    },
+    {
+      "type": "rescue_corner",
+      "rotation": 1,
+      "locked": false
+    },
+    {
+      "type": "rescue_start",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 1,
+      "locked": false
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 2,
+      "locked": false
+    },
+    {
+      "type": "rescue_open",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_pit",
+      "rotation": 1,
+      "locked": false
+    },
+    {
+      "type": "rescue_closed",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 1,
+      "locked": false
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 3,
+      "locked": false
+    },
+    {
+      "type": "rescue_corridor",
+      "rotation": 1,
+      "locked": false
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 1,
+      "locked": false
+    },
+    {
+      "type": "rescue_checkpoint_corner",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_open",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_open",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_open",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_checkpoint_corridor",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 3,
+      "locked": false
+    },
+    {
+      "type": "rescue_finish",
+      "rotation": 1,
+      "locked": false
+    },
+    {
+      "type": "rescue_drop",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_drop",
+      "rotation": 1,
+      "locked": false
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_open",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_open",
+      "rotation": 0,
+      "locked": false
+    },
+    {
+      "type": "rescue_drop",
+      "rotation": 1,
+      "locked": false
+    },
+    {
+      "type": "rescue_corner",
+      "rotation": 3,
+      "locked": false
+    }
+  ],
+  "canColors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "objects": [
+    {
+      "type": "tunnel",
+      "cell": 2,
+      "rotation": 0
+    },
+    {
+      "type": "bridge_platform",
+      "cell": 29,
+      "rotation": 0
+    },
+    {
+      "type": "bridge_ramp",
+      "cell": 28,
+      "rotation": 0
+    },
+    {
+      "type": "bridge_ramp",
+      "cell": 21,
+      "rotation": 1
+    }
+  ]
+}

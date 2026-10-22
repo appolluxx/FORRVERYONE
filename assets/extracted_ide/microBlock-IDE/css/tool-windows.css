@@ -1,0 +1,86 @@
+.ide-tool-window{position:fixed;box-sizing:border-box;margin:0;padding:0;max-width:none;max-height:none;border:1px solid #d6e0e8;border-radius:12px;background:#fff;color:#223344;box-shadow:0 20px 70px #122e4933;overflow:hidden;font:14px system-ui,sans-serif}
+.ide-tool-window[open]{display:flex;flex-direction:column}
+.ide-tool-window::backdrop{background:#182d422e}
+.ide-tool-window.is-maximized{border-radius:0;border:0}
+.ide-tool-titlebar{display:flex;align-items:center;flex:0 0 42px;min-width:0;padding-left:14px;border-bottom:1px solid #e7edf2;background:#fff;touch-action:none;user-select:none;-webkit-user-select:none;cursor:move}
+.ide-tool-titlebar img{width:18px;height:18px;margin-right:9px;pointer-events:none}
+.ide-tool-titlebar strong{flex:1;overflow:hidden;text-overflow:ellipsis;white-space:nowrap;font-size:13px;font-weight:600}
+.ide-tool-controls{display:flex;align-self:stretch;padding-left:16px}
+.ide-tool-controls button{display:grid;place-items:center;border:0;border-radius:0;background:transparent;color:#445464;width:44px;padding:0;cursor:pointer;touch-action:manipulation}
+.ide-tool-controls button:hover{background:#edf3f8}
+.ide-tool-controls button[data-action=close]:hover{background:#e5484d;color:white}
+.ide-tool-controls button:focus-visible,.ide-tool-dock button:focus-visible{outline:2px solid #2999ef;outline-offset:-3px}
+.ide-tool-controls svg{width:16px;height:16px;fill:none;stroke:currentColor;stroke-width:1.5;stroke-linecap:round;stroke-linejoin:round;pointer-events:none}
+.ide-tool-frame{display:block;flex:1;width:100%;min-height:0;border:0;background:white}
+.ide-tool-window.is-adjusting .ide-tool-frame{pointer-events:none}
+.ide-tool-resize{position:absolute;right:0;bottom:0;width:18px;height:18px;cursor:nwse-resize;touch-action:none;background:linear-gradient(135deg,transparent 64%,#9badbf 66%,transparent 72%,transparent 79%,#9badbf 81%,transparent 87%);opacity:.7}
+.ide-tool-window.is-maximized .ide-tool-resize{display:none}
+.ide-tool-dock{position:fixed;z-index:100000;bottom:12px;left:50%;transform:translateX(-50%);display:flex;gap:8px;max-width:calc(100vw - 24px);overflow-x:auto;padding:4px;pointer-events:none}
+.ide-tool-dock:empty{display:none}
+.ide-tool-task{display:flex;flex-shrink:0;align-items:center;border:1px solid #d6e0e8;border-radius:8px;background:#fff;box-shadow:0 3px 16px #122e4920;pointer-events:auto;overflow:hidden}
+.ide-tool-task button{border:0;background:transparent;color:#29465b;font:13px system-ui,sans-serif;padding:10px 14px;cursor:pointer;white-space:nowrap}
+.ide-tool-task button:hover{background:#edf6ff}
+.ide-tool-task button:last-child{padding:10px;border-left:1px solid #eef2f6;font-size:16px}
+@media(pointer:coarse){.ide-tool-titlebar{flex-basis:44px}.ide-tool-controls button{width:46px}.ide-tool-resize{width:26px;height:26px}}
+@media(prefers-reduced-motion:no-preference){.ide-tool-window[open]{animation:ide-tool-appear .12s ease-out}@keyframes ide-tool-appear{from{opacity:.7}to{opacity:1}}}
+
+.ide-tool-content{overflow:hidden;display:flex;flex-direction:column}
+#extension-dialog.extension-window-content{display:flex;position:relative;inset:auto;transform:none;animation:none;opacity:1;width:100%;height:100%;max-width:none;max-height:none;margin:0;border:0;border-radius:0;box-shadow:none;flex:1;min-height:0;background:#f5f8fc}
+#extension-dialog.extension-window-content>header{display:flex;align-items:center;gap:18px;flex:0 0 70px;min-height:70px;padding:12px 22px;background:white;color:#29465b;border-bottom:1px solid #e0e8f0}
+#extension-dialog.extension-window-content>header .title{font-size:20px;font-weight:600}
+#extension-dialog.extension-window-content>header .center{flex:1;min-width:0;position:static;transform:none}
+#extension-dialog.extension-window-content #extension-keyword{box-sizing:border-box;width:100%;max-width:440px;height:38px;padding:8px 12px;border:1px solid #d6e0ea;border-radius:8px;background:#f7f9fc;color:#29465b;font-size:14px}
+#extension-dialog.extension-window-content>header .icon{position:relative;display:flex;align-items:center}
+#extension-dialog.extension-window-content .close-dialog{display:none}
+#extension-dialog.extension-window-content #open-extension-creator{width:36px;height:36px;border:1px solid #d6e0ea;border-radius:8px;background:#edf5ff;color:#2583d2;font-size:16px;padding:0}
+#extension-dialog.extension-window-content .extension-work-box{flex:1;min-height:0;overflow:hidden;padding:0;display:flex}
+#extension-dialog.extension-window-content .extension-category-list{width:190px;flex:0 0 190px;padding:16px 10px;margin:0;background:white;border-right:1px solid #e0e8f0;overflow-y:auto}
+#extension-dialog.extension-window-content .extension-category-list>li{padding:10px 12px;margin:2px 0;border-radius:7px;font-size:13px;color:#526b80}
+#extension-dialog.extension-window-content .extension-category-list>li.active{background:#e8f3ff;color:#1675c2}
+#extension-dialog.extension-window-content .extension-list{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));align-content:start;gap:16px;flex:1;min-width:0;overflow-y:auto;margin:0;padding:20px}
+#extension-dialog.extension-window-content .extension-list>li{width:auto;margin:0;padding:0}
+#extension-dialog.extension-window-content .extension-box{height:100%;box-sizing:border-box;border:1px solid #dce5ee;border-radius:10px;background:white;box-shadow:none;padding:16px;display:flex;flex-direction:column}
+#extension-dialog.extension-window-content .extension-box>.header{padding:0;background:white}
+#extension-dialog.extension-window-content .extension-box>.description{flex:1;font-size:13px;line-height:1.6;color:#62778b;padding:12px 0}
+#extension-dialog.extension-window-content .extension-box>.button{padding:0}
+#extension-dialog.extension-window-content .extension-box>.button>button{border-radius:7px;font-size:13px;padding:8px 14px}
+#extension-dialog.extension-window-content .add-extension-box{z-index:2;right:0;top:48px;width:min(440px,calc(100vw - 70px));box-sizing:border-box;border:1px solid #dce5ee;border-radius:10px;box-shadow:0 12px 36px #183a5b24}
+@media(max-width:700px){#extension-dialog.extension-window-content .extension-category-list{width:145px;flex-basis:145px}#extension-dialog.extension-window-content>header{padding:10px 14px;gap:10px}#extension-dialog.extension-window-content .extension-list{padding:12px;gap:12px}}
+
+#extension-dialog.extension-window-content>header{border-radius:0;box-shadow:none}
+#extension-dialog.extension-window-content>header .title{color:#29465b;text-shadow:none}
+#extension-dialog.extension-window-content .extension-work-box{align-items:stretch}
+#extension-dialog.extension-window-content .extension-category-list{box-shadow:none;border-radius:0}
+#extension-dialog.extension-window-content .extension-category-list>li{border-bottom:0}
+#extension-dialog.extension-window-content .extension-category-list>li.hr{height:1px;padding:0;background:#e0e8f0;margin:10px}
+
+@media(pointer:coarse) and (max-height:500px) and (orientation:landscape){
+ .ide-tool-window{left:0!important;top:0!important;width:100vw!important;height:100dvh!important;border:0;border-radius:0}
+ .ide-tool-titlebar{flex-basis:34px}.ide-tool-controls button{width:42px}.ide-tool-resize{display:none}
+ #extension-dialog.extension-window-content>header{flex-basis:48px;min-height:48px;padding:5px 12px}
+ #extension-dialog.extension-window-content .extension-category-list{flex-basis:150px;width:150px;padding:6px}
+ #extension-dialog.extension-window-content .extension-list{padding:10px;gap:10px;grid-template-columns:repeat(auto-fill,minmax(210px,1fr))}
+}
+
+/* Match Field studio's inner header, palette and typography. */
+#extension-dialog.extension-window-content{font:13px "Segoe UI",Arial,sans-serif;background:#edf1f5;color:#263647}
+#extension-dialog.extension-window-content>header{height:72px;min-height:72px;flex-basis:72px;padding:0 24px;border-bottom:1px solid #dce3eb;gap:24px}
+#extension-dialog.extension-window-content>header .title{display:flex;align-items:center;gap:12px;flex-shrink:0;margin:0;padding:0;line-height:1.3}
+.extension-studio-mark{display:grid;place-items:center;width:36px;height:36px;border-radius:9px;background:#e9f3ff;color:#287fd0;font-size:19px}
+#extension-dialog.extension-window-content>header .title strong{display:block;font-size:19px;font-weight:650;letter-spacing:-.4px;color:#263647}
+#extension-dialog.extension-window-content>header .title small{display:block;font-size:10px;letter-spacing:.3px;font-weight:400;color:#8390a0;margin-top:3px}
+#extension-dialog.extension-window-content #extension-keyword{display:block;margin-left:auto;max-width:340px;text-align:left;height:36px;font-size:13px;border-radius:6px;background:#fff}
+#extension-dialog.extension-window-content .extension-list{background:#edf1f5;padding:20px;grid-template-columns:repeat(auto-fill,minmax(250px,1fr))}
+#extension-dialog.extension-window-content .extension-category-list{border-right:1px solid #dce3eb}
+#extension-dialog.extension-window-content .extension-box{border-color:#dce3eb;border-radius:9px;box-shadow:none}
+#extension-dialog.extension-window-content .extension-box>.header>.cover{border:0;box-shadow:none;background:transparent}
+#extension-dialog.extension-window-content .extension-box>.button>button{border:1px solid #d7e0e9;border-radius:6px;box-shadow:none;background:#fff;color:#3d5165;font-weight:500}
+@media(max-height:500px) and (orientation:landscape){#extension-dialog.extension-window-content>header{height:46px;min-height:46px;flex-basis:46px;padding:0 12px;gap:12px}#extension-dialog.extension-window-content>header .title small{display:none}.extension-studio-mark{width:28px;height:28px;font-size:16px}#extension-dialog.extension-window-content>header .title strong{font-size:15px}}
+
+/* The shared dialog owns the backdrop; never retain the legacy black overlay. */
+#extension-dialog.extension-window-content::before { content:none; display:none; }
+#extension-dialog.extension-window-content { overflow:hidden; }
+#extension-dialog.extension-window-content .extension-box>.button>button.extension-install,
+#extension-dialog.extension-window-content #open-extension-creator { background:#fff; border-color:#d7e0e9; color:#3d5165; box-shadow:none; }
+#extension-dialog.extension-window-content .extension-box>.button>button.extension-install:hover,
+#extension-dialog.extension-window-content #open-extension-creator:hover { background:#f3f6f9; border-color:#c6d3df; }

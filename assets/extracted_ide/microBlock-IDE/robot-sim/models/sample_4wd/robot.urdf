@@ -1,0 +1,56 @@
+<?xml version="1.0"?>
+<robot name="sample_4wd">
+  <link name="base_link">
+    <visual>
+      <origin xyz="0 0.38 0" rpy="0 0 0"/>
+      <geometry><mesh filename="package://sample_4wd/meshes/chassis.stl"/></geometry>
+      <material name="chassis_blue"/>
+    </visual>
+    <visual>
+      <origin xyz="0 0.55 0" rpy="0 0 0"/>
+      <geometry><mesh filename="package://sample_4wd/meshes/deck.stl"/></geometry>
+      <material name="deck_yellow"/>
+    </visual>
+    <visual>
+      <origin xyz="0 0.66 -0.48" rpy="1.57079632679 0 0"/>
+      <geometry><mesh filename="package://sample_4wd/meshes/front_marker.stl"/></geometry>
+      <material name="marker_orange"/>
+    </visual>
+  </link>
+
+  <link name="motor_fl_link"><visual><origin xyz="0 0.08 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/motor.stl"/></geometry><material name="motor_dark"/></visual></link>
+  <link name="motor_bl_link"><visual><origin xyz="0 0.08 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/motor.stl"/></geometry><material name="motor_dark"/></visual></link>
+  <link name="motor_fr_link"><visual><origin xyz="0 0.08 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/motor.stl"/></geometry><material name="motor_dark"/></visual></link>
+  <link name="motor_br_link"><visual><origin xyz="0 0.08 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/motor.stl"/></geometry><material name="motor_dark"/></visual></link>
+
+  <link name="wheel_fl_link">
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/tire.stl"/></geometry><material name="tire_dark"/></visual>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/hub.stl"/></geometry><material name="hub_light"/></visual>
+    <visual><origin xyz="0.17 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/wheel_marker.stl"/></geometry><material name="deck_yellow"/></visual>
+  </link>
+  <link name="wheel_bl_link">
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/tire.stl"/></geometry><material name="tire_dark"/></visual>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/hub.stl"/></geometry><material name="hub_light"/></visual>
+    <visual><origin xyz="0.17 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/wheel_marker.stl"/></geometry><material name="deck_yellow"/></visual>
+  </link>
+  <link name="wheel_fr_link">
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/tire.stl"/></geometry><material name="tire_dark"/></visual>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/hub.stl"/></geometry><material name="hub_light"/></visual>
+    <visual><origin xyz="0.17 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/wheel_marker.stl"/></geometry><material name="deck_yellow"/></visual>
+  </link>
+  <link name="wheel_br_link">
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/tire.stl"/></geometry><material name="tire_dark"/></visual>
+    <visual><origin xyz="0 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/hub.stl"/></geometry><material name="hub_light"/></visual>
+    <visual><origin xyz="0.17 0 0" rpy="0 0 0"/><geometry><mesh filename="package://sample_4wd/meshes/wheel_marker.stl"/></geometry><material name="deck_yellow"/></visual>
+  </link>
+
+  <joint name="motor_fl_joint" type="fixed"><parent link="base_link"/><child link="motor_fl_link"/><origin xyz="-0.58 0.26 -0.48" rpy="0 0 0"/></joint>
+  <joint name="motor_bl_joint" type="fixed"><parent link="base_link"/><child link="motor_bl_link"/><origin xyz="-0.58 0.26 0.48" rpy="0 0 0"/></joint>
+  <joint name="motor_fr_joint" type="fixed"><parent link="base_link"/><child link="motor_fr_link"/><origin xyz="0.58 0.26 -0.48" rpy="0 0 0"/></joint>
+  <joint name="motor_br_joint" type="fixed"><parent link="base_link"/><child link="motor_br_link"/><origin xyz="0.58 0.26 0.48" rpy="0 0 0"/></joint>
+
+  <joint name="wheel_fl_joint" type="continuous"><parent link="base_link"/><child link="wheel_fl_link"/><origin xyz="-0.58 0.26 -0.48" rpy="0 0 1.57079632679"/></joint>
+  <joint name="wheel_bl_joint" type="continuous"><parent link="base_link"/><child link="wheel_bl_link"/><origin xyz="-0.58 0.26 0.48" rpy="0 0 1.57079632679"/></joint>
+  <joint name="wheel_fr_joint" type="continuous"><parent link="base_link"/><child link="wheel_fr_link"/><origin xyz="0.58 0.26 -0.48" rpy="0 0 1.57079632679"/></joint>
+  <joint name="wheel_br_joint" type="continuous"><parent link="base_link"/><child link="wheel_br_link"/><origin xyz="0.58 0.26 0.48" rpy="0 0 1.57079632679"/></joint>
+</robot>

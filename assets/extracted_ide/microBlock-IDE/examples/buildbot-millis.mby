@@ -1,0 +1,9 @@
+{
+  "format": "microBlockProject",
+  "version": 1,
+  "files": {
+    "config.json": "{\"mode\":\"block\",\"github\":null,\"board\":\"buildbot\",\"level\":\"Beginner\"}",
+    "main.xml": "<xml xmlns=\"https://developers.google.com/blockly/xml\"><block type=\"controls_on_start\" x=\"30\" y=\"30\"><statement name=\"block\"><block type=\"controls_repeat_ext\"><value name=\"TIMES\"><shadow type=\"math_number\"><field name=\"NUM\">5</field></shadow></value><statement name=\"DO\"><block type=\"print\"><value name=\"value\"><block type=\"controls_millis\"></block></value><next><block type=\"controls_wait\"><value name=\"time\"><shadow type=\"math_number\"><field name=\"NUM\">1</field></shadow></value></block></next></block></statement></block></statement></block></xml>"
+  },
+  "meta": {}
+}

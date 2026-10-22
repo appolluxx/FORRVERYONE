@@ -1,0 +1,429 @@
+================================================================================
+FILE DOCUMENTATION — SUBSYSTEM 04: ATOM VX BOARD DEFINITIONS & BLOCK CODEGEN
+================================================================================
+Scope: Complete board profile, Blockly visual block definitions, and Python code generators
+Target Platform: PT Atom VX 4WD (ESP32-WROOM-32D)
+Path: D:\Workspace\robot\assets\extracted_ide\microBlock-IDE\boards\atom-vx\
+================================================================================
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/index.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 104,278 bytes
+Lines: 2046
+1. Purpose: Master board configuration manifest and Blockly toolbox loader for Atom VX.
+2. Responsibilities:
+   - Calls addBoard({...}) to register Atom VX in microBlock IDE board manager.
+   - Defines USB Vendor ID (0x10C4) and Product ID (0xEA60) for auto-connecting Silicon Labs CP210x.
+   - Declares official firmware bin paths (MicroPython.for.Atom.VX1.v1.24.1-dirty.bin).
+   - Injects custom block validation handler (Blockly.Events.disableOrphansCustomForAtomVXBoard).
+   - Defines beginner and advanced level toolboxes (Control, Operators, Motor, Sensor, ROS).
+3. Key Properties in addBoard:
+   - id: 'atom-vx', name: 'Atom VX', chip: 'ESP32', showRosTools: true.
+   - simulation: { package: 'package/board.json', model: 'models/PT-BOT_Atom_VX.glb', systemPart: true }.
+   - firmware list: VX1 (v1.24.1-dirty, 2025-05-14) and VX2 (v1.24.1-dirty, 2025-06-24).
+4. Robotics Relevance: Foundational configuration connecting UI to hardware.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/blocks_advanced.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 360 bytes
+Lines: 14
+1. Purpose: Board support file (blocks_advanced.js).
+2. Lines count: 14
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/blocks_display.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 6,794 bytes
+Lines: 306
+1. Purpose: Board support file (blocks_display.js).
+2. Lines count: 306
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/blocks_gamepad.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 7,520 bytes
+Lines: 340
+1. Purpose: Board support file (blocks_gamepad.js).
+2. Lines count: 340
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/blocks_io.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 11,486 bytes
+Lines: 458
+1. Purpose: Board support file (blocks_io.js).
+2. Lines count: 458
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/blocks_line_follower.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 17,878 bytes
+Lines: 596
+1. Purpose: Block visual specs for line tracker array, junction selectors, and threshold editors.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/blocks_micro_ros.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 11,704 bytes
+Lines: 535
+1. Purpose: Visual blocks for ROS 2 topic names, message fields, and publish rates.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/blocks_motor.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 20,513 bytes
+Lines: 895
+1. Purpose: Blockly visual block shape, input field, and color specifications for motors.
+2. Responsibilities: Defines dropdown menus (Forward/Backward, Turn Left/Right), numerical inputs, and snap connectors.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/blocks_sensor.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 10,687 bytes
+Lines: 487
+1. Purpose: Visual block UI for angle reads, gyro/accel axes, and distance sensors.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/blocks_servo.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,067 bytes
+Lines: 38
+1. Purpose: Board support file (blocks_servo.js).
+2. Lines count: 38
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/generators_avanced.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,902 bytes
+Lines: 53
+1. Purpose: Board support file (generators_avanced.js).
+2. Lines count: 53
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/generators_display.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,256 bytes
+Lines: 81
+1. Purpose: Board support file (generators_display.js).
+2. Lines count: 81
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/generators_gamepad.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 4,489 bytes
+Lines: 132
+1. Purpose: Board support file (generators_gamepad.js).
+2. Lines count: 132
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/generators_io.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,977 bytes
+Lines: 173
+1. Purpose: Board support file (generators_io.js).
+2. Lines count: 173
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/generators_line_follower.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 11,053 bytes
+Lines: 214
+1. Purpose: Code generator for analog line tracking and junction recognition.
+2. Key Generators:
+   - Blockly.Python['line_follower_calibrate']: Emits 'line_follower.calibrate()'.
+   - Blockly.Python['line_follower_read_line_position']: Emits 'line_follower.read_position()'.
+   - Blockly.Python['line_follower_read_sensor']: Emits 'line_follower.read_sensor(...)'.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/generators_micro_ros.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 23,362 bytes
+Lines: 507
+1. Purpose: Code generator for micro-ROS pub/sub messaging on ESP32.
+2. Key Generators: micro_ros_publish_string, micro_ros_publish_imu, micro_ros_publish_odom, micro_ros_subscribe_cmd_vel.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/generators_motor.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 14,483 bytes
+Lines: 285
+1. Purpose: Code generator translating visual motor blocks into MicroPython function calls.
+2. Responsibilities: Emits clean, validated MicroPython syntax for motor actions.
+3. Key Generators Defined:
+   - Blockly.Python['motor_set']: Emits 'motor.set_motor_drive(motor.<mode>)'.
+   - Blockly.Python['motor_drive_single']: Emits 'motor.drive_single(<motor>, <speed>)'.
+   - Blockly.Python['motor_drive_all']: Emits 'motor.drive_all(<s1>, <s2>, <s3>, <s4>)'.
+   - Blockly.Python['motor_move_forward_degree']: Emits 'motor.forward_degree(<angle>, <min>, <max>, <KP>, <KD>)'.
+   - Blockly.Python['motor_move_backward_degree']: Emits 'motor.backward_degree(...)'.
+   - Blockly.Python['motor_move_forward_degree_time_ramp']: Emits 'motor.forward_degree_time(angle, start_spd, max_spd, KP, KD, time, ramp_up, ramp_down)'.
+   - Blockly.Python['motor_spin_degree']: Emits 'motor.spin_degree(...)'.
+   - Blockly.Python['ddsm210_diff_drive']: Emits 'ddsm210.move_diff_drive(...)'.
+4. Hardware Target: atom_vx_python/motor.py runtime.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/generators_sensor.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 5,152 bytes
+Lines: 150
+1. Purpose: Code generator for IMU, distance, and ultrasonic sensors.
+2. Key Generators:
+   - Blockly.Python['imu_read_angle']: Emits 'imu.read_angles()[<index>]' (0=roll, 1=pitch, 2=yaw).
+   - Blockly.Python['imu_read_quaternion']: Emits 'imu.read_quaternion()[<index>]'.
+   - Blockly.Python['imu_read_accel']: Emits 'imu.read_accel()[<axis>]'.
+   - Blockly.Python['imu_read_gyro']: Emits 'imu.read_gyro()[<axis>]'.
+   - Blockly.Python['ultrasonic_read_distance']: Emits 'board.ultrasonic_read(trigger_pin, echo_pin)'.
+   - Blockly.Python['vl53L0x_read_distance']: Emits 'board.VL53L0X_read(scl, sda)'.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/blocks/generators_servo.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 412 bytes
+Lines: 10
+1. Purpose: Board support file (generators_servo.js).
+2. Lines count: 10
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/css/field_display.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 2,068 bytes
+Lines: 95
+1. Purpose: Board support file (field_display.css).
+2. Lines count: 95
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/connector.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 999,085 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 999,085 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/cover.jpg
+--------------------------------------------------------------------------------
+Format: .jpg | Size: 55,751 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 55,751 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/display.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 868,684 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 868,684 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/gamepad.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 484,670 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 484,670 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/line_center.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,269 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 6,269 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/line_follower.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 380,218 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 380,218 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/line_left.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,268 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 6,268 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/line_right.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,265 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 6,265 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/micro_ros.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 101,268 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 101,268 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/micro_ros_icon.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 4,471 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 4,471 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/motor.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 101,208 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 101,208 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/images/sensor.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 363,024 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 363,024 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/js/field_display.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 21,495 bytes
+Lines: 305
+1. Purpose: Custom Blockly extension rendering an interactive arena mini-map in the IDE workspace.
+2. Responsibilities: Displays robot live coordinates (X, Y, Heading) overlayed on competition arena tiles.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/models/PT-BOT_Atom_VX.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 6,537,284 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 6,537,284 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/board.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 4,433 bytes
+Lines: 256
+1. Purpose: 3D hardware assembly model mapping and surface material descriptor.
+2. Responsibilities: Defines 3D model path (assets/main.glb), unit scale (meter), surface colors, and decal placement.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/model.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 6,537,284 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 6,537,284 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/product.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 18,335 bytes
+Lines: 950
+1. Purpose: Product specification catalog entry for PT Atom VX robot chassis.
+2. Contents: BOM (Bill of Materials), component weights, wheel dimensions, and mount hole patterns.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/thumbnail.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 26,006 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 26,006 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/assets/553600d456e4b5888af5e8096a3fc23adbd1e4f4b452a777c3d696f68767067c.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 6,537,284 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 6,537,284 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/assets/main.glb
+--------------------------------------------------------------------------------
+Format: .glb | Size: 6,537,284 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 6,537,284 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/textures/Bottom.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 565,583 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 565,583 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/package/textures/Top.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 764,814 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 764,814 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/textures/Bottom.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 565,583 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 565,583 bytes.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-vx/textures/Top.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 764,814 bytes
+1. Purpose: Visual or 3D asset for Atom VX board profile.
+2. Asset Role: UI preview image or Three.js 3D chassis model.
+3. Size: 764,814 bytes.
+

@@ -1,0 +1,7 @@
+/* No automatic focus frames or touch highlight on application controls. */
+*:focus, *:focus-visible { outline:none!important; }
+button:focus, [role=button]:focus, input[type=range]:focus, select:focus, summary:focus { box-shadow:none!important; }
+button, [role=button], input[type=range], select, summary, a { -webkit-tap-highlight-color:transparent; }
+button::-moz-focus-inner { border:0; }
+/* Keyboard users retain a quiet fill change instead of a focus frame. */
+button:focus-visible, [role=button]:focus-visible { filter:brightness(.94); }

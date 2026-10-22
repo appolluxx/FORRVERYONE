@@ -1,0 +1,224 @@
+{
+  "version": 1,
+  "preset": "quick-box-drop",
+  "seed": "quick-box-drop",
+  "cells": [
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "quick_box_0",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "rescue_corner",
+      "rotation": 2,
+      "locked": true
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 2,
+      "locked": true
+    },
+    {
+      "type": "quick_box_3",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "quick_box_4",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "rescue_open",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "quick_box_7",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "quick_box_8",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 3,
+      "locked": true
+    },
+    {
+      "type": "rescue_open",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "quick_box_11",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "quick_box_12",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "rescue_edge",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "quick_box_15",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    },
+    {
+      "type": "blank",
+      "rotation": 0,
+      "locked": true
+    }
+  ],
+  "canColors": [
+    null,
+    null,
+    null,
+    null,
+    null,
+    null
+  ],
+  "name": "Quick Drop Box 4 ENC",
+  "description": "Official 4-Zone Rescue Supply Box Delivery Mission (120x120cm core, 4 Drop Targets: BOX1-4)",
+  "field": {
+    "width": 2.4,
+    "length": 1.2,
+    "rows": 4,
+    "cols": 8,
+    "tileSize": 0.3
+  },
+  "dropZones": [
+    {
+      "id": "BOX1",
+      "name": "Drop Zone 1 (Front Left)",
+      "x": -0.15,
+      "z": -0.45,
+      "cell": 2,
+      "label": "BOX 1 (FL)"
+    },
+    {
+      "id": "BOX2",
+      "name": "Drop Zone 2 (Front Right)",
+      "x": 0.45,
+      "z": -0.45,
+      "cell": 5,
+      "label": "BOX 2 (FR)"
+    },
+    {
+      "id": "BOX3",
+      "name": "Drop Zone 3 (Rear Right)",
+      "x": 0.45,
+      "z": 0.15,
+      "cell": 21,
+      "label": "BOX 3 (B)"
+    },
+    {
+      "id": "BOX4",
+      "name": "Drop Zone 4 (Rear Left)",
+      "x": -0.15,
+      "z": 0.15,
+      "cell": 18,
+      "label": "BOX 4 (F)"
+    }
+  ],
+  "startPose": {
+    "x": 0.45,
+    "y": 0.02,
+    "z": 0.45,
+    "heading": 90
+  }
+}

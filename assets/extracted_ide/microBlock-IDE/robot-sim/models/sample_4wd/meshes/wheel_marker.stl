@@ -1,0 +1,16 @@
+solid wheel_marker
+facet normal 0 0 1
+ outer loop
+  vertex -0.015 -0.13 -0.035
+  vertex 0.015 -0.13 -0.035
+  vertex 0.015 0.13 0.035
+ endloop
+endfacet
+facet normal 0 0 1
+ outer loop
+  vertex -0.015 -0.13 -0.035
+  vertex 0.015 0.13 0.035
+  vertex -0.015 0.13 0.035
+ endloop
+endfacet
+endsolid wheel_marker

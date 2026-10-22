@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <script src="../js/touch-selection-guard.js"></script>
+    <script src="../js/offline-data.js"></script>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Assembly Mode</title>
+    <link rel="stylesheet" href="../fontawesome/css/all.min.css">
+    <link rel="stylesheet" href="assembly-mode.css">
+<link rel="stylesheet" href="../css/control-focus.css">
+<script defer src="../js/styled-select.js"></script></head>
+<body data-assembly-standalone="true">
+    <div id="assembly-mode-modal" class="assembly-mode-modal is-open" aria-hidden="false">
+        <div class="assembly-mode-window">
+            <header class="assembly-mode-header">
+                <div class="assembly-status-banner" aria-hidden="true"><i class="fas fa-cubes"></i></div>
+                <div class="assembly-title-group">
+                    <strong id="assembly-mode-title">Assembly</strong>
+                    <span>Build and connect your robot</span>
+                </div>
+                <div class="assembly-header-right">
+                    <span class="assembly-control-hint"><i class="fas fa-mouse"></i> Orbit / Pan / Zoom</span>
+                    <button id="close-assembly-mode" type="button" aria-label="Close Assembly Mode"><i class="fas fa-times"></i></button>
+                </div>
+            </header>
+            <div class="assembly-mode-body">
+                <aside class="assembly-mode-panel">
+                    <div class="assembly-catalog-header">
+                        <div class="assembly-panel-title"><strong>Equipment</strong><span>Click to add</span></div>
+                        <select id="assembly-equipment-category" aria-label="Equipment category"></select>
+                    </div>
+                    <div class="assembly-equipment-list" id="assembly-equipment-list"></div>
+                    <div class="assembly-panel-title assembly-parts-heading"><strong>Parts</strong><button id="assembly-clear-all" type="button" title="Stop the current import and remove all parts"><i class="fas fa-trash-alt" aria-hidden="true"></i> Clear all</button></div>
+                    <div class="assembly-part-list" id="assembly-part-list"></div>
+                    <div id="assembly-import-message" role="alert" hidden></div>
+                    <div id="assembly-status" class="assembly-status">Select a part to edit</div>
+                </aside>
+                <aside class="assembly-inspector">
+                    <div class="assembly-map-topbar" role="toolbar" aria-label="Assembly tools">
+                        <div class="assembly-icon-group">
+                            <button id="assembly-import-model" class="assembly-icon-button" type="button" title="Import STEP or GLB" aria-label="Import STEP or GLB"><i class="fas fa-file-import" aria-hidden="true"></i></button>
+                            <input id="assembly-step-input" type="file" accept=".step,.stp,.glb" multiple>
+                            <button id="assembly-mate-surface" type="button" title="Mate selected faces" aria-label="Mate selected faces" disabled><i class="fas fa-link" aria-hidden="true"></i></button>
+                            <button id="assembly-undo-mate" type="button" title="Undo Mate" aria-label="Undo Mate" disabled><i class="fas fa-undo-alt" aria-hidden="true"></i></button>
+                        </div>
+                    </div>
+                    <div id="assembly-part-hologram" class="assembly-hologram" aria-hidden="true">
+                    <div class="assembly-properties">
+                        <div class="assembly-section-label"><i class="fas fa-sliders-h" aria-hidden="true"></i>PART PROPERTIES</div>
+                        <label>Part name<input id="assembly-part-name" type="text" placeholder="Select a part"></label>
+                        <div class="assembly-property-grid">
+                            <label id="assembly-legacy-motor-label">Motor<select id="assembly-motor-name"><option value="">-</option><option>M1</option><option>M2</option><option>M3</option><option>M4</option></select></label>
+                            <label id="assembly-color-label">Selected face color<input id="assembly-part-color" type="color" value="#4b6b7c" disabled></label>
+                        </div>
+                        <div id="assembly-imported-physics" hidden>
+                            <div class="assembly-section-label">PHYSICS</div>
+                            <div class="assembly-property-grid">
+                                <label>Mass (g)<input id="assembly-physics-mass" type="number" min="0.01" max="100000" step="any" value="100"></label>
+                                <label>Material<select id="assembly-physics-material"><option value="plastic">Plastic</option><option value="metal">Metal</option><option value="wood">Wood</option><option value="rubber">Rubber</option><option value="glass">Glass</option><option value="paper">Paper</option></select></label>
+                                <label>Collision shape<select id="assembly-physics-collider"><option value="box">Box</option><option value="sphere">Sphere</option><option value="cylinder">Cylinder</option><option value="auto">Automatic</option></select></label>
+                                <label>Motion<select id="assembly-physics-motion"><option value="dynamic">Free / attached by Mate</option><option value="static">Fixed in world</option></select></label>
+                            </div>
+                            <small>Default mass: 100 g. Set the measured mass. Collision shapes approximate the model.</small>
+                        </div>
+                        <div id="assembly-product-devices" class="assembly-product-section" hidden></div>
+                        <div id="assembly-product-mounts" class="assembly-product-section" hidden></div>
+                        <div class="assembly-section-label">POSITION (M)</div>
+                        <div class="assembly-property-grid assembly-position-grid">
+                            <label>X<input id="assembly-pos-x" type="number" step="0.05"></label>
+                            <label>Y<input id="assembly-pos-y" type="number" step="0.001"></label>
+                            <label>Z<input id="assembly-pos-z" type="number" step="0.05"></label>
+                        </div>
+                        <div class="assembly-rotate-heading">
+                            <div class="assembly-section-label">ROTATION</div>
+                            <div class="assembly-rotate-tools" aria-label="Rotate the part by 90 degrees">
+                                <button type="button" data-rotate-axis="x" title="Rotate 90 degrees around X">X&nbsp;90&deg;</button>
+                                <button type="button" data-rotate-axis="y" title="Rotate 90 degrees around Y">Y&nbsp;90&deg;</button>
+                                <button type="button" data-rotate-axis="z" title="Rotate 90 degrees around Z">Z&nbsp;90&deg;</button>
+                            </div>
+                        </div>
+                        <div class="assembly-property-grid assembly-position-grid">
+                            <label>X<input id="assembly-rot-x" type="number" step="1"></label>
+                            <label>Y<input id="assembly-rot-y" type="number" step="1"></label>
+                            <label>Z<input id="assembly-rot-z" type="number" step="1"></label>
+                        </div>
+                        <div class="assembly-property-mates">
+                            <div class="assembly-section-label">MATES</div>
+                            <div id="assembly-mate-list" aria-label="Mates for the selected part"></div>
+                        </div>
+                    </div>
+                    <div class="assembly-panel-footer">
+                        <button id="assembly-unmate" type="button" hidden title="Remove every mate connected to this part">Unmate</button>
+                        <button id="assembly-delete-part" type="button" class="danger" aria-label="Delete part"><i class="fas fa-trash-alt"></i></button>
+                    </div>
+                    </div>
+                </aside>
+                <main class="assembly-viewport">
+                    <canvas id="assembly-canvas"></canvas>
+                    <div class="assembly-view-switch"><span>3D WORKSPACE</span></div>
+                    <div id="assembly-context-hint" class="assembly-help" hidden></div>
+                    <div id="assembly-pointer-position" class="assembly-pointer-position">Mouse -&gt; x: -, y: -</div>
+                </main>
+            </div>
+        </div>
+    </div>
+    <script src="../dashboard/js/three.min.js"></script>
+    <script src="../dashboard/js/GLTFLoader.js"></script>
+    <script src="assembly-catalog.js"></script>
+    <script src="assembly-faces.js"></script>
+    <script src="assembly-constraints.js"></script>
+    <script src="step-import.js"></script>
+    <script src="step-geometry.js"></script>
+    <script src="glb-import.js"></script>
+    <script src="board-package.js"></script>
+    <script src="atom-vx-model.js"></script>
+    <script src="product-assembly-guide.js"></script>
+    <script src="product-schema.js"></script>
+    <script src="product-artwork.js"></script>
+    <script src="prepared-model.js"></script>
+    <script src="product-runtime.js"></script>
+    <script src="studio-environment.js"></script>
+    <script src="surface-occlusion.js"></script>
+    <script src="viewport-style.js"></script>
+    <script src="product-catalog.js"></script>
+    <script src="assembly-product-config.js"></script>
+    <script src="guided-assembly-session.js"></script>
+    <script src="assembly-guide-view.js"></script>
+    <script src="assembly-feedback-audio.js"></script>
+    <script src="assembly-guided-mode.js"></script>
+    <script src="imported-part-physics.js"></script>
+    <script src="assembly-mode.js"></script>
+</body>
+</html>

@@ -1,0 +1,29 @@
+/* Native system cursors shared by the IDE and detached windows. */
+:root {
+    --cursor-text: text;
+    --cursor-grab: grab;
+    --cursor-grabbing: grabbing;
+}
+
+/* Keep the native text cursor across editor layers; appearance follows the OS. */
+input:not([type]), input[type="text"], input[type="search"], input[type="number"],
+input[type="email"], input[type="url"], input[type="password"], input[type="tel"],
+textarea, [contenteditable="true"],
+.monaco-editor .view-lines, .monaco-editor .view-line,
+.monaco-editor .view-lines *, .monaco-editor .inputarea,
+.monaco-editor .lines-content,
+.monaco-editor .view-overlays, .monaco-editor .view-overlays *,
+.monaco-editor .cursors-layer, .monaco-editor .cursors-layer > .cursor,
+.monaco-editor .monaco-mouse-cursor-text,
+.blocklyHtmlInput {
+    cursor: var(--cursor-text) !important;
+}
+
+/* Blockly's bundled .cur images are replaced with native drag/drop feedback. */
+.blocklyDragging.blocklyDraggingDelete,
+.blocklyToolboxDelete, .blocklyToolboxDelete .blocklyTreeLabel {
+    cursor: not-allowed !important;
+}
+.blocklyToolboxGrab {
+    cursor: grabbing !important;
+}

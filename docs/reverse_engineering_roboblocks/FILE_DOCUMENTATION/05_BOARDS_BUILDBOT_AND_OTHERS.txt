@@ -1,0 +1,248 @@
+================================================================================
+FILE DOCUMENTATION — SUBSYSTEM 05: BUILDBOT & AUXILIARY BOARD DEFINITIONS
+================================================================================
+Covers: BuildBot educational robot, Strom Mini, and Atom Mini board packages.
+Target Directory: D:\Workspace\robot\assets\extracted_ide\microBlock-IDE\boards\
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/index.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 207 bytes | Lines: 8
+1. Purpose: Board package or visual placeholder for auxiliary development boards.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-mini/index.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 324 bytes | Lines: 1
+1. Purpose: Board package or visual placeholder for auxiliary development boards.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/atom-mini/placeholder.svg
+--------------------------------------------------------------------------------
+Format: .svg | Size: 548 bytes | Lines: 1
+1. Purpose: Board package or visual placeholder for auxiliary development boards.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/index.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 68,463 bytes | Lines: 1377
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/blocks_advanced.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 360 bytes | Lines: 14
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/blocks_display.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 6,278 bytes | Lines: 279
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/blocks_io.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 8,813 bytes | Lines: 355
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/blocks_line_follower.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 13,632 bytes | Lines: 471
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/blocks_motor.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 14,151 bytes | Lines: 620
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/blocks_sensor.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,519 bytes | Lines: 159
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/blocks_servo.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,035 bytes | Lines: 37
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/generators_avanced.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,902 bytes | Lines: 53
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/generators_display.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 3,796 bytes | Lines: 70
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/generators_io.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 7,281 bytes | Lines: 196
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/generators_line_follower.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 8,657 bytes | Lines: 156
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/generators_motor.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 7,203 bytes | Lines: 131
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/generators_sensor.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 1,505 bytes | Lines: 37
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/blocks/generators_servo.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 351 bytes | Lines: 9
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/css/field_display.css
+--------------------------------------------------------------------------------
+Format: .css | Size: 2,066 bytes | Lines: 95
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/connector.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 999,085 bytes | Lines: 0
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/cover.jpg
+--------------------------------------------------------------------------------
+Format: .jpg | Size: 43,931 bytes | Lines: 0
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/display.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 868,684 bytes | Lines: 0
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/line_center.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,269 bytes | Lines: 0
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/line_follower.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 380,218 bytes | Lines: 0
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/line_left.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,268 bytes | Lines: 0
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/line_right.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 6,265 bytes | Lines: 0
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/motor.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 101,208 bytes | Lines: 0
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/images/sensor.png
+--------------------------------------------------------------------------------
+Format: .png | Size: 363,024 bytes | Lines: 0
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/buildbot/js/field_display.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 22,982 bytes | Lines: 322
+1. Purpose: Hardware profile and block definitions for PT Robotics BuildBot platform.
+2. Features: Differential 2-wheel drive, gripper servos, ultrasonic bracket, analog sensor links.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/strom-mini/index.js
+--------------------------------------------------------------------------------
+Format: .js | Size: 326 bytes | Lines: 1
+1. Purpose: Board package or visual placeholder for auxiliary development boards.
+
+
+--------------------------------------------------------------------------------
+FILE: microBlock-IDE/boards/strom-mini/placeholder.svg
+--------------------------------------------------------------------------------
+Format: .svg | Size: 548 bytes | Lines: 1
+1. Purpose: Board package or visual placeholder for auxiliary development boards.
+

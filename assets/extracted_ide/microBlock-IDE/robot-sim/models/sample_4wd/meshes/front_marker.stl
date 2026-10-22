@@ -1,0 +1,9 @@
+solid front_marker
+facet normal 0 0 1
+ outer loop
+  vertex 0 0.22 0
+  vertex -0.13 -0.14 0
+  vertex 0.13 -0.14 0
+ endloop
+endfacet
+endsolid front_marker

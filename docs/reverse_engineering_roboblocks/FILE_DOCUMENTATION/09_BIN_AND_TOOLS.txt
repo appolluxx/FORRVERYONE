@@ -1,0 +1,41 @@
+================================================================================
+FILE DOCUMENTATION — SUBSYSTEM 09: EMBEDDED TOOLCHAINS & BINARIES
+================================================================================
+Covers: Bundled esptool scripts, clang-format executables, and firmware utilities.
+Target Directory: D:\Workspace\robot\assets\extracted_ide\bin\
+
+--------------------------------------------------------------------------------
+FILE: bin/clang-format/LICENSE.txt
+--------------------------------------------------------------------------------
+Format: .txt | Size: 15,141 bytes | Lines: 279
+
+
+--------------------------------------------------------------------------------
+FILE: bin/clang-format/source.json
+--------------------------------------------------------------------------------
+Format: .json | Size: 246 bytes | Lines: 5
+
+
+--------------------------------------------------------------------------------
+FILE: bin/esptool/esptool
+--------------------------------------------------------------------------------
+Format:  | Size: 3,897,939 bytes | Lines: 0
+1. Purpose: Official Espressif ESP32/ESP8266 serial bootloader ROM utility.
+2. Responsibilities: Writes binary firmware to flash addresses (e.g. 0x1000, 0x8000, 0x10000), reads MAC addresses, and resets chip.
+
+
+--------------------------------------------------------------------------------
+FILE: bin/esptool/esptool-ubuntu-x64
+--------------------------------------------------------------------------------
+Format:  | Size: 5,453,400 bytes | Lines: 0
+1. Purpose: Official Espressif ESP32/ESP8266 serial bootloader ROM utility.
+2. Responsibilities: Writes binary firmware to flash addresses (e.g. 0x1000, 0x8000, 0x10000), reads MAC addresses, and resets chip.
+
+
+--------------------------------------------------------------------------------
+FILE: bin/esptool/esptool.py
+--------------------------------------------------------------------------------
+Format: .py | Size: 135,728 bytes | Lines: 2959
+1. Purpose: Official Espressif ESP32/ESP8266 serial bootloader ROM utility.
+2. Responsibilities: Writes binary firmware to flash addresses (e.g. 0x1000, 0x8000, 0x10000), reads MAC addresses, and resets chip.
+

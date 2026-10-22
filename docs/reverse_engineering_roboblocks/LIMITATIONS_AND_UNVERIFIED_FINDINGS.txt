@@ -1,0 +1,75 @@
+================================================================================
+ROBOBLOCKS IDE REVERSE ENGINEERING — LIMITATIONS & UNVERIFIED FINDINGS
+================================================================================
+Standard: Strict distinction between proven facts, known limitations, and hypotheses
+Evidence Base: Direct extraction analysis of D:\Workspace\robot\assets\extracted_ide
+================================================================================
+
+1. EXTRACTION SCOPE & OMITTED FILES
+--------------------------------------------------------------------------------
+A. Intentionally Omitted Dependencies (node_modules):
+   - Scope: The original `app.asar` archive contains ~10 MB of JavaScript node_modules,
+     and `app.asar.unpacked/node_modules/` contains ~45 MB of native C++ Node addons.
+   - Status: These third-party dependency folders were deliberately excluded during the
+     ASAR extraction script (`extract_asar.py`) to prevent repo bloat and focus 100% on
+     the first-party application source code, firmware, and simulator physics.
+   - Consequence: Running `npx electron D:\Workspace\robot\assets\extracted_ide`
+     fails immediately with `Cannot find module '@electron/remote/main'`.
+   - Resolution: To achieve standalone execution, symlink or copy `node_modules` from
+     `C:\Users\john\AppData\Local\Programs\roboBlocks IDE\resources\app.asar.unpacked\node_modules`.
+
+B. Omitted Large Proprietary 3D Part Meshes (microBlock-IDE/products/):
+   - Scope: The `products/` subdirectory in `app.asar` totals 791.02 MB of proprietary
+     `.ptmesh` files and CAD part assemblies (e.g. `dbm27_w33_chassis.ptmesh`).
+   - Status: Omitted from initial source extraction. The standard GLB 3D robot model
+     (`models/PT-BOT_Atom_VX.glb`, 6.38 MB) was retained and successfully extracted.
+
+C. Omitted WebAssembly Binaries (microBlock-IDE/robot-sim/vendor/):
+   - Scope: `occt-import-js.wasm` (12.3 MB) and `pyodide.asm.wasm` (8.8 MB) were skipped.
+   - Status: These are open-source upstream pre-compiled WebAssembly binaries; their
+     JavaScript bindings (`occt-import-js.js`, `pyodide.asm.js`) are documented.
+
+
+2. VERIFIED FACTS VS. HYPOTHESES & UNVERIFIED CLAIMS
+--------------------------------------------------------------------------------
+A. VERIFIED FACTS (Supported by Direct Code Evidence):
+   1. Fact: Motor driver uses NXP PCA9685 over ESP32 I2C 0 (SCL=22, SDA=21) at 1000 Hz.
+      [Evidence: atom_vx_python/motor.py L4-6, board.py L20-22].
+   2. Fact: Motor channel assignments are M1=12/13, M2=14/15, M3=10/11, M4=8/9.
+      [Evidence: atom_vx_python/motor.py L32-72].
+   3. Fact: Heading lock algorithm uses PD control with [-180, +180] error wrap normalization.
+      [Evidence: atom_vx_python/motor.py L163-172].
+   4. Fact: Official competition bridge height is 50 mm (0.050 m) with 15-degree ramps.
+      [Evidence: microBlock-IDE/robot-sim/field-layout.js L138-140].
+   5. Fact: Speed bump rods are 5.0 mm diameter cylindrical bamboo rods with 0.689 reflectance.
+      [Evidence: microBlock-IDE/robot-sim/field-map.js L74, L141].
+   6. Fact: Simulator models 540 us I2C communication delay per motor write.
+      [Evidence: microBlock-IDE/robot-sim/physics-control.js L10].
+
+B. HYPOTHESES & UNVERIFIED BEHAVIORS:
+   1. Hypothesis: The MicroPython firmware binaries (`MicroPython.for.Atom.VX1.v1.24.1-dirty.bin`)
+      contain custom compiled C modules for IMU fusion and fast SPI ADC sampling.
+      - Evidence: In `board.py`, `import imu` and `import st7789` succeed without local
+        `imu.py` or `st7789.py` files on the filesystem, indicating frozen C modules in firmware.
+      - Status: Unverified at the disassembly level; requires binwalk / Ghidra firmware analysis.
+   2. Hypothesis: DDSM210 direct drive hub motors communicate over UART at 115200 baud on pins 27/14.
+      - Evidence: Mentioned in `blocks_motor.js` (`ddsm210_init`), but default PT Atom VX 4WD uses
+        geared DC motors via PCA9685 PWM. DDSM210 appears to be an optional chassis extension.
+
+
+3. SECURITY & SENSITIVE DATA AUDIT
+--------------------------------------------------------------------------------
+A. TLS Certificates:
+   - Discovered: `microBlock-IDE/dev.local+5.pem` and `dev.local+5-key.pem`.
+   - Inspection: Issued to `CN=dev.local` by a local development Certificate Authority (mkcert).
+   - Finding: These are generic offline self-signed certificates used to test WebSerial / HTTPS
+     in local browser contexts; they contain no private user keys or production credentials.
+
+B. Cloud Account Config:
+   - Discovered: `microBlock-IDE/account-config.json`.
+   - Inspection: Empty object `{}` (42 bytes). No hardcoded API keys or remote endpoints.
+
+C. GitHub Auto-Update Endpoint:
+   - Discovered: `main.js` references `microBlock-IDE/microBlock-IDE-offline` GitHub repo.
+   - Finding: Public open-source distribution repository; no private update tokens embedded.
+================================================================================

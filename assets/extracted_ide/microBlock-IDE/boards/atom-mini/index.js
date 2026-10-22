@@ -1,0 +1,1 @@
+addBoard({id:"atom-mini",name:"ATOM mini",description:'Arduino C++ only',image:'placeholder.svg',arduinoOnly:true,simSupported:false,tags:['PT Robotics','ESP32','Arduino'],chip:'ESP32',script:[],blocks:[],css:[],usb:[{vendorId:'10C4',productId:'EA60'}],autoCompletion:{},level:[{name:'Arduino',description:'',blocks:[]}]});
