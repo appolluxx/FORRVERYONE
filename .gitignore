@@ -10,4 +10,5 @@ temp_*.js
 # IDE & local settings
 .vscode/
 .idea/
-.claude/settings.local.json
+.claude/
+.agents/
