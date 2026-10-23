@@ -2645,16 +2645,17 @@ class PathfindingEngine {
                 const newCost = current.cost + stepCost;
                 const nextStateKey = `${nextIdx}_${nextDir}`;
 
-                if (!bestCost.has(nextStateKey) || newCost < bestCost.get(nextStateKey)) {
-                    bestCost.set(nextStateKey, newCost);
-                    open.push({
-                        idx: nextIdx,
-                        dir: nextDir,
-                        path: [...current.path, nextIdx],
-                        cost: newCost,
-                        f: newCost + h(nextIdx)
-                    });
+                if (bestCost.has(nextStateKey) && bestCost.get(nextStateKey) <= newCost) {
+                    continue;
                 }
+
+                open.push({
+                    idx: nextIdx,
+                    dir: nextDir,
+                    path: [...current.path, nextIdx],
+                    cost: newCost,
+                    f: newCost + h(nextIdx)
+                });
             }
         }
 
