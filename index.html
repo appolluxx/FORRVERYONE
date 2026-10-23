@@ -2585,25 +2585,79 @@ class PathfindingEngine {
 
         return true;
     }
-    static findShortestPathBFS(startIdx, targetIdx, gridManager) {
+    static findShortestPathBFS(startIdx, targetIdx, gridManager, initialDir = null) {
         if (startIdx === targetIdx) return [startIdx];
-        const queue = [[startIdx]];
-        const visited = new Set([startIdx]);
 
-        while (queue.length > 0) {
-            const path = queue.shift();
-            const current = path[path.length - 1];
+        const targetX = gridManager.getCol(targetIdx);
+        const targetY = gridManager.getRow(targetIdx);
 
-            if (current === targetIdx) return path;
+        const open = [];
+        const bestCost = new Map();
 
-            const neighbors = gridManager.getValidNeighbors(current);
-            for (const next of neighbors) {
-                if (!visited.has(next)) {
-                    visited.add(next);
-                    queue.push([...path, next]);
+        const h = (idx) => {
+            const x = gridManager.getCol(idx);
+            const y = gridManager.getRow(idx);
+            return Math.abs(x - targetX) + Math.abs(y - targetY);
+        };
+
+        open.push({
+            idx: startIdx,
+            dir: initialDir,
+            path: [startIdx],
+            cost: 0,
+            f: h(startIdx)
+        });
+
+        while (open.length > 0) {
+            open.sort((a, b) => a.f - b.f);
+            const current = open.shift();
+
+            if (current.idx === targetIdx) {
+                return current.path;
+            }
+
+            const stateKey = `${current.idx}_${current.dir || 'NONE'}`;
+            if (bestCost.has(stateKey) && bestCost.get(stateKey) <= current.cost) {
+                continue;
+            }
+            bestCost.set(stateKey, current.cost);
+
+            const neighbors = gridManager.getValidNeighbors(current.idx);
+            for (const nextIdx of neighbors) {
+                const nextType = gridManager.getCell(nextIdx)?.type || 'empty';
+                const nextDir = this.getPathDirection(current.idx, nextIdx, gridManager.cols);
+
+                let stepCost = 1.0;
+                // Penalize rough obstacles to favor flat corridors when alternative routes exist
+                if (nextType === 'bump') stepCost += 1.8;
+                else if (nextType === 'seesaw') stepCost += 2.2;
+                else if (nextType === 'bridge') stepCost += 1.4;
+
+                // Turn penalty: favor straight continuous momentum, minimize zig-zags
+                if (current.dir && nextDir !== current.dir) {
+                    const isOpposite = (current.dir === 'N' && nextDir === 'S') ||
+                        (current.dir === 'S' && nextDir === 'N') ||
+                        (current.dir === 'E' && nextDir === 'W') ||
+                        (current.dir === 'W' && nextDir === 'E');
+                    stepCost += isOpposite ? 5.0 : 1.5;
+                }
+
+                const newCost = current.cost + stepCost;
+                const nextStateKey = `${nextIdx}_${nextDir}`;
+
+                if (!bestCost.has(nextStateKey) || newCost < bestCost.get(nextStateKey)) {
+                    bestCost.set(nextStateKey, newCost);
+                    open.push({
+                        idx: nextIdx,
+                        dir: nextDir,
+                        path: [...current.path, nextIdx],
+                        cost: newCost,
+                        f: newCost + h(nextIdx)
+                    });
                 }
             }
         }
+
         return null;
     }
 
@@ -2702,8 +2756,16 @@ class PathfindingEngine {
             turnMode: profile.turnMode || 'SPIN_90'
         });
 
-        const unvisited = [...checkpoints, ...drops];
+        // Filter reachable goals
+        const allGoals = [...checkpoints, ...drops];
+        const unvisited = [];
+        for (const g of allGoals) {
+            const path = this.findShortestPathBFS(start.index, g.index, gridManager);
+            if (path) unvisited.push(g);
+        }
+
         let legCounter = 1;
+        let currentDir = null;
 
         while (unvisited.length > 0) {
             let bestPath = null;
@@ -2711,7 +2773,7 @@ class PathfindingEngine {
             let minDistance = Infinity;
 
             for (let i = 0; i < unvisited.length; i++) {
-                const path = this.findShortestPathBFS(currentCellIdx, unvisited[i].index, gridManager);
+                const path = this.findShortestPathBFS(currentCellIdx, unvisited[i].index, gridManager, currentDir);
                 if (path && path.length < minDistance) {
                     minDistance = path.length;
                     bestPath = path;
@@ -2719,7 +2781,10 @@ class PathfindingEngine {
                 }
             }
 
-            if (!bestPath) throw new Error('ROUTE_ERROR: Target unreachable (blocked by walls or black holes)!');
+            if (!bestPath) {
+                // All remaining unvisited goals unreachable from current position; proceed to finish
+                break;
+            }
 
             const targetNode = unvisited[bestTargetIdx];
             const isDropTarget = targetNode.type.startsWith('drop');
@@ -2759,12 +2824,16 @@ class PathfindingEngine {
                 currentCellIdx = targetNode.index;
             }
 
+            if (bestPath.length >= 2) {
+                currentDir = this.getPathDirection(bestPath[bestPath.length - 2], bestPath[bestPath.length - 1], gridManager.cols);
+            }
+
             unvisited.splice(bestTargetIdx, 1);
         }
 
         // Final leg to FINISH
         if (finish) {
-            const path = this.findShortestPathBFS(currentCellIdx, finish.index, gridManager);
+            const path = this.findShortestPathBFS(currentCellIdx, finish.index, gridManager, currentDir);
             if (path) {
                 const segments = this.extractSmoothSegments(path, gridManager);
                 for (const seg of segments) {
@@ -3907,13 +3976,16 @@ class UIController {
     autoCalculateMission(silent = false) {
         try {
             this.stopPreview();
-            const profile = Config.PROFILES[this.currentProfile] || Config.PROFILES.FAST;
+            if (!silent && this.currentMode !== 2) {
+                this.setMode(2); // Auto switch to route planning mode
+            }
+            const profile = Config.PROFILES[this.currentProfile] || Config.PROFILES.NORMAL;
             this.pathNodes = PathfindingEngine.solveMission(this.gridManager, profile);
             this.selectedNodeIdx = this.pathNodes.length - 1;
             this.renderPath();
             this.updateConfigPanel();
             if (!silent) {
-                ToastService.show('⚡ Optimal High-Speed Smooth 100-point route computed!', 'success');
+                ToastService.show('⚡ คำนวณเส้นทาง Smooth Optimal สำเร็จเรียบร้อย!', 'success');
             }
         } catch (err) {
             ToastService.show(err.message, 'warning');
