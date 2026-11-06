@@ -17,19 +17,17 @@ void FF(int speed) {
 }
 
 void FF(int speed, float timer) {
-  // Adaptive start speed: ~50% of target speed to prevent pitch & wheel slip
-  int min_speed = (int)(speed * 0.50f);
-  if (min_speed < 20) min_speed = 20;
-  if (min_speed > 55) min_speed = 55;
+  // สปีดเริ่มต้นนุ่มนวล ไม่กระชากล้อหน้ายก
+  int min_speed = (int)(speed * 0.35f);
+  if (min_speed < 15) min_speed = 15;
+  if (min_speed > 35) min_speed = 35;
   int max_speed = speed;
-  float kp = 3.8;
-  float kd = 18.5;
-  int ramp_up = 120;
-  int ramp_down = 120;
-  if (timer < 240) {
-    ramp_up = (int)(timer * 0.45f);
-    ramp_down = (int)(timer * 0.45f);
-  }
+  float kp = 3.5;
+  float kd = 17.0;
+
+  // ช่วงเร่งและชะลอ
+  int ramp_up = (timer < 200) ? (int)(timer * 0.35f) : 80;
+  int ramp_down = (timer < 200) ? (int)(timer * 0.45f) : 100;
 
   int current_speed = min_speed;
   unsigned long timer_forward = millis();
@@ -37,10 +35,12 @@ void FF(int speed, float timer) {
   while (1) {
     unsigned long elapsed_time = millis() - timer_forward;
     unsigned long remaining_time = (timer > elapsed_time) ? (timer - elapsed_time) : 0;
+    
     if (elapsed_time <= (unsigned long)ramp_up) {
       float s = 0.5f * (1.0f - cosf((float)elapsed_time / (float)ramp_up * 3.14159265f));
       current_speed = min_speed + (int)(s * (max_speed - min_speed));
     } else if (remaining_time <= (unsigned long)ramp_down) {
+      // ชะลอความเร็วก่อนถึงจุดหมาย นุ่มนวล ไม่ให้หน้าทิ่ม
       float s = 0.5f * (1.0f - cosf((float)remaining_time / (float)ramp_down * 3.14159265f));
       current_speed = min_speed + (int)(s * (max_speed - min_speed));
       if (current_speed < min_speed) current_speed = min_speed;
@@ -61,10 +61,7 @@ void FF(int speed, float timer) {
     motorWrite(speed_left, speed_left, speed_right, speed_right);
 
     if (elapsed_time >= timer * power_factor) {
-      // Active dynamic brake counter-pulse (15ms) to kill forward momentum instantly
-      int brake_spd = (current_speed > 40) ? 18 : 10;
-      motorWrite(-brake_spd, -brake_spd, -brake_spd, -brake_spd);
-      delay(15);
+      // หยุดแบบนุ่มนวล (Soft stop) ไม่กระชากถอยหลัง เพื่อไม่ให้หน้าทิ่ม
       motorStop();
       break;
     }
