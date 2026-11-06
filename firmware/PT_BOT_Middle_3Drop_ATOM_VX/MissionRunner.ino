@@ -123,6 +123,30 @@ void executeDynamicMission() {
 }
 
 // Parse single line from Serial stream
+
+// =============================================================================
+// REAL-TIME SERIAL TELEMETRY STREAMER (GYRO YAW & 8-CH ADC SENSORS)
+// =============================================================================
+bool telemetry_stream_enabled = false;
+unsigned long last_telemetry_stream = 0;
+
+void handleTelemetryStreaming() {
+  if (!telemetry_stream_enabled) return;
+  if (millis() - last_telemetry_stream >= 50) { // 20 Hz smooth update
+    last_telemetry_stream = millis();
+
+    float current_yaw = angleRead(YAW);
+    Serial.print("YAW:");
+    Serial.print(current_yaw, 1);
+    Serial.print(";S:");
+    for (byte i = 0; i < 8; i++) {
+      Serial.print(adcRead(i));
+      if (i < 7) Serial.print(",");
+    }
+    Serial.println();
+  }
+}
+
 void processMissionLine(String line) {
   line.trim();
   if (line.length() == 0) return;
