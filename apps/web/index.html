@@ -3020,55 +3020,50 @@ class PathfindingEngine {
 
         const OBSTACLES = ['bump', 'bridge', 'seesaw', 'tunnel'];
         const segments = [];
-        let currentDir = this.getPathDirection(fullPath[0], fullPath[1], gridManager.cols);
+        let currentDir = null;
+        let currentTerrain = 'flat';
         let segStartIdx = fullPath[0];
-        let segTiles = [fullPath[0]];
+        let count = 0;
 
         for (let i = 1; i < fullPath.length; i++) {
-            const prevCell = fullPath[i - 1];
-            const currCell = fullPath[i];
-            const dir = this.getPathDirection(prevCell, currCell, gridManager.cols);
+            const from = fullPath[i - 1];
+            const to = fullPath[i];
+            const dir = this.getPathDirection(from, to, gridManager.cols);
+            const tileType = gridManager.getCell(to)?.type || 'empty';
+            const terrain = OBSTACLES.includes(tileType) ? tileType : 'flat';
 
-            const prevTileType = gridManager.getCell(prevCell)?.type || 'empty';
-            const currTileType = gridManager.getCell(currCell)?.type || 'empty';
-
-            const isObstacleCurr = OBSTACLES.includes(currTileType);
-            const isObstaclePrev = OBSTACLES.includes(prevTileType);
-            const isMissionEnd = currTileType.startsWith('drop') || currTileType === 'checkpoint' || currTileType === 'finish';
-
-            const isDirChange = dir !== currentDir;
-            const isTerrainTransition = (isObstacleCurr !== isObstaclePrev) || (isObstacleCurr && currTileType !== prevTileType);
-            const isSpecialTarget = isMissionEnd && i === fullPath.length - 1;
-
-            if (isDirChange || isTerrainTransition || isSpecialTarget) {
+            if (currentDir === null) {
+                currentDir = dir;
+                currentTerrain = terrain;
+                count = 1;
+            } else if (dir === currentDir && terrain === currentTerrain) {
+                count++;
+            } else {
                 segments.push({
                     from: segStartIdx,
-                    to: prevCell,
-                    tilesCount: segTiles.length - 1,
+                    to: from,
+                    tilesCount: count,
                     direction: currentDir,
-                    terrain: isObstaclePrev ? prevTileType : 'flat'
+                    terrain: currentTerrain
                 });
-
-                segStartIdx = prevCell;
-                segTiles = [prevCell, currCell];
+                segStartIdx = from;
                 currentDir = dir;
-            } else {
-                segTiles.push(currCell);
+                currentTerrain = terrain;
+                count = 1;
             }
         }
 
-        if (segTiles.length > 1) {
-            const lastTileType = gridManager.getCell(fullPath[fullPath.length - 1])?.type || 'empty';
+        if (count > 0) {
             segments.push({
                 from: segStartIdx,
                 to: fullPath[fullPath.length - 1],
-                tilesCount: segTiles.length - 1,
+                tilesCount: count,
                 direction: currentDir,
-                terrain: OBSTACLES.includes(lastTileType) ? lastTileType : 'flat'
+                terrain: currentTerrain
             });
         }
 
-        return segments.filter(s => s.tilesCount > 0);
+        return segments;
     }
 
     static calculateStepTiming(terrain, tilesCount, profile) {
