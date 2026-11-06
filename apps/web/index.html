@@ -3327,7 +3327,7 @@ class CodeGenerator {
             const stepLines = [];
 
             if (curr.fn === 'BB') {
-                stepLines.push(`  BB(${curr.speed || profile.speed}, TIME_FLAT(${dist})); // Retreat straight out of drop zone back to corridor`);
+                stepLines.push(`  BB(${dist}, ${curr.speed || profile.speed}); // Retreat straight ${dist} tile(s) out of drop zone back to corridor`);
             } else {
                 let targetHeading = currentHeading;
                 if (cX > pX) targetHeading = 90;
@@ -3350,7 +3350,7 @@ class CodeGenerator {
                     currentHeading = targetHeading;
                 }
 
-                let moveCmd = `FF(${curr.speed || profile.speed}, TIME_FLAT(${dist}));`;
+                let moveCmd = `FF(${dist}, ${curr.speed || profile.speed}); // Run ${dist} tile(s) at ${curr.speed || profile.speed}% speed`;
                 if (targetTile === 'bridge') moveCmd = `FF(92, ${dist > 1 ? `T_BRIDGE * ${dist}` : 'T_BRIDGE'}); // Ascend 50mm bridge`;
                 else if (targetTile === 'bump') moveCmd = `FF(65, ${dist > 1 ? `T_BUMP * ${dist}` : 'T_BUMP'}); // Cross speed bumps (7 chopsticks)`;
                 else if (targetTile === 'seesaw') moveCmd = `FF(75, ${dist > 1 ? `T_SEESAW * ${dist}` : 'T_SEESAW'}); // Cross seesaw`;
@@ -3416,7 +3416,9 @@ class CodeGenerator {
             `inline void setDegreeStop_TurnRight(float) {}\n` +
             `inline void setAngleOffset() {}\n` +
             `inline void FF(int, int) {}\n` +
+            `inline void FF(int, float) {}\n` +
             `inline void BB(int, int) {}\n` +
+            `inline void BB(int, float) {}\n` +
             `inline void STOP() {}\n` +
             `inline void spinDegree(int) {}\n` +
             `inline void turnDegreeFront(int) {}\n` +
@@ -3448,7 +3450,10 @@ class CodeGenerator {
             `int T_RECOIL      = ${profile.recoilTimerMs};  // Recoil after SetFront black line alignment (Safe 40mm)\n` +
             `// =====================================================\n\n` +
             `// Non-linear physics macro preventing overshoot from ramp acceleration\n` +
-            `#define TIME_FLAT(n) ( (n) == 1 ? T_FLAT_BASE : (T_FLAT_BASE + ((n) - 1) * T_FLAT_CRUISE) )\n\n`;
+            `#define TIME_FLAT(n) ( (n) == 1 ? T_FLAT_BASE : (T_FLAT_BASE + ((n) - 1) * T_FLAT_CRUISE) )\n` +
+            `inline float T_TILE(int tiles, int speed) { float scale = (speed > 0) ? (78.0f / (float)speed) : 1.0f; return TIME_FLAT(tiles) * scale; }\n` +
+            `#define FF(tiles, speed) FF((speed), T_TILE((tiles), (speed)))\n` +
+            `#define BB(tiles, speed) BB((speed), T_TILE((tiles), (speed)))\n\n`;
     }
 }
 

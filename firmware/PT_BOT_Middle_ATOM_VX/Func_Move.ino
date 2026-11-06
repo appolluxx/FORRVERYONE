@@ -1,15 +1,28 @@
 // =============================================================================
 // SMOOTH MOTION KINEMATICS HELPERS (COSINE S-CURVE & FILTERED HEADING LOCK)
 // =============================================================================
+// =============================================================================
+// ADAPTIVE S-CURVE JERK-FREE PROFILER (Starts at ~50% max speed, accelerates to max, decelerates to 50%)
+// Prevents pitching/tipping front & rear upon sudden high torque start/stop.
+// =============================================================================
 inline int calculate_scurve_speed(unsigned long elapsed, unsigned long remaining, int min_spd, int max_spd, int ramp_u, int ramp_d) {
+  // Ensure start speed is comfortably smooth (~50% of target speed, clamped within [25, 60])
+  int smooth_base = (int)(max_spd * 0.50f);
+  if (smooth_base < 25) smooth_base = 25;
+  if (smooth_base > 60) smooth_base = 60;
+  if (min_spd < smooth_base) min_spd = smooth_base;
+  if (min_spd >= max_spd) return max_spd;
+
   if (ramp_u > 0 && elapsed < (unsigned long)ramp_u) {
     float progress = (float)elapsed / (float)ramp_u;
-    float s_factor = 0.5f * (1.0f - cosf(progress * 3.14159265f));
+    // Cosine ease-in factor: 0.0 -> 1.0 (Zero Jerk Derivative)
+    float s_factor = 0.5f * (1.0f - cosf(progress * 3.1415926535f));
     return min_spd + (int)(s_factor * (max_spd - min_spd));
   } else if (ramp_d > 0 && remaining < (unsigned long)ramp_d) {
     float progress = (float)remaining / (float)ramp_d;
     if (progress < 0.0f) progress = 0.0f;
-    float s_factor = 0.5f * (1.0f - cosf(progress * 3.14159265f));
+    // Cosine ease-out factor: 1.0 -> 0.0 (Zero Jerk Derivative)
+    float s_factor = 0.5f * (1.0f - cosf(progress * 3.1415926535f));
     int spd = min_spd + (int)(s_factor * (max_spd - min_spd));
     return (spd < min_spd) ? min_spd : spd;
   }
@@ -534,4 +547,39 @@ void motorTimeDegree(int speed, float timer) {
       break;
     }
   }
+}
+
+// =============================================================================
+// GRID-BASED DISTANCE CALIBRATION (1 tile = 300mm standard rescue arena grid)
+// Overloads: FF(tiles, speed) and BB(tiles, speed)
+// =============================================================================
+#ifndef T_FLAT_BASE
+  #define T_FLAT_BASE 420
+#endif
+#ifndef T_FLAT_CRUISE
+  #define T_FLAT_CRUISE 240
+#endif
+
+// Calculate duration in ms for n grid tiles with non-linear acceleration compensation
+inline float calculate_tile_timer(int tiles, int speed) {
+  if (tiles <= 0) tiles = 1;
+  // Base duration for 1st tile (includes ramp up/down) + Cruise duration for successive tiles
+  float base_ms = (float)T_FLAT_BASE;
+  float cruise_ms = (float)T_FLAT_CRUISE;
+  // Scale with motor speed relative to normal nominal 78% PWM
+  float speed_scale = (speed > 0) ? (78.0f / (float)speed) : 1.0f;
+  float total_timer = (tiles == 1 ? base_ms : (base_ms + (tiles - 1) * cruise_ms)) * speed_scale;
+  return total_timer;
+}
+
+// Drive forward by discrete grid tiles: FF(tiles, speed) -> e.g. FF(1, 100) or FF(2, 78)
+void FF_tiles(int tiles, int speed) {
+  float timer = calculate_tile_timer(tiles, speed);
+  FF(speed, timer);
+}
+
+// Reverse by discrete grid tiles: BB(tiles, speed) -> e.g. BB(1, 78)
+void BB_tiles(int tiles, int speed) {
+  float timer = calculate_tile_timer(tiles, speed);
+  BB(speed, timer);
 }
