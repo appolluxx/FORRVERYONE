@@ -41,51 +41,42 @@ void readLine() {
 void ShowValue_Sensor() {
   lcdClear();
   while (1) {
-    // readLine();
+    readLine();
     int num_sensor = 8;
-    int sensor_values[num_sensor];          // Declare variable type Array To store value Sensor
-    for (int i = 0; i < num_sensor; i++) {  // Read loop values Sensor All 6 units
-      // sensor_values[i] = line_value[i];     // Load values Sensor Each stored in variable
-      sensor_values[i] = adcRead(i);  // Load values Sensor Each stored in variable
+    int sensor_values[num_sensor];          // สร้างตัวแปรแบบ Array เพื่อเก็บค่า Sensor
+    for (int i = 0; i < num_sensor; i++) {  // วนลูปอ่านค่า Sensor ทั้งหมด 6 ตัว
+      // sensor_values[i] = line_value[i];     // นำค่า Sensor แต่ละตัวเก็บไว้ในตัวแปร
+      sensor_values[i] = adcRead(i);  // นำค่า Sensor แต่ละตัวเก็บไว้ในตัวแปร
     }
-    lcdDrawChart(sensor_values, num_sensor);  // Plot sensor values Sensor All 8 Units / usage: lcdDrawChart(Sensor values [Variable type Array], Count Sensor)
+    lcdDrawChart(sensor_values, num_sensor);  // แสดงกราฟค่าของ Sensor ทั้งหมด 8 ตัว การใช้งาน: lcdDrawChart(ค่าเซ็นเซอร์ [ตัวแปรแบบ Array], จำนวน Sensor)
     delay(100);
   }
 }
 
 void config() {
-  servoWrite(CH_SERVO_FRONT_LEFT, ServoFrontLeft_Lock);
-  servoWrite(CH_SERVO_FRONT_RIGHT, ServoFrontRight_Lock);
+  servoWrite(CH_SERVO_FRONT, ServoFront_Lock);
   servoWrite(CH_SERVO_BACK, ServoBack_Lock);
   lcdClear();
 
   lcdSetTextSize(2);
-  lcdPrintText(10, 1, "SERVO VALUE", 0xf800);
+  lcdPrintText(10, 10, "SERVO VALUE", 0xf800);
   lcdSetTextSize(1);
-  lcdPrintText(25, 20, "FrontLeft Lock:", 0xffff);
-  lcdPrintText(25, 40, "FrontLeft Drop:", 0xffff);
-  lcdPrintText(25, 60, "FrontRight Lock:", 0xffff);
-  lcdPrintText(25, 80, "FrontRight Drop:", 0xffff);
-  lcdPrintText(25, 100, "Back Lock:", 0xffff);
-  lcdPrintText(25, 120, "Back Drop:", 0xffff);
-  lcdPrintText(125, 20, "       ", 0xffff);
-  lcdPrintText(125, 20, String(ServoFrontLeft_Lock), 0xffff);
+  lcdPrintText(25, 40, "ServoFront Lock:", 0xffff);
+  lcdPrintText(25, 60, "ServoFront Drop:", 0xffff);
+  lcdPrintText(25, 80, " ServoBack Lock:", 0xffff);
+  lcdPrintText(25, 100, " ServoBack Drop:", 0xffff);
   lcdPrintText(125, 40, "       ", 0xffff);
-  lcdPrintText(125, 40, String(ServoFrontLeft_Drop), 0xffff);
+  lcdPrintText(125, 40, String(ServoFront_Lock), 0xffff);
   lcdPrintText(125, 60, "       ", 0xffff);
-  lcdPrintText(125, 60, String(ServoFrontRight_Lock), 0xffff);
+  lcdPrintText(125, 60, String(ServoFront_Drop), 0xffff);
   lcdPrintText(125, 80, "       ", 0xffff);
-  lcdPrintText(125, 80, String(ServoFrontRight_Drop), 0xffff);
+  lcdPrintText(125, 80, String(ServoBack_Lock), 0xffff);
   lcdPrintText(125, 100, "       ", 0xffff);
-  lcdPrintText(125, 100, String(ServoBack_Lock), 0xffff);
-  lcdPrintText(125, 120, "       ", 0xffff);
-  lcdPrintText(125, 120, String(ServoBack_Drop), 0xffff);
+  lcdPrintText(125, 100, String(ServoBack_Drop), 0xffff);
 }
 
 void STOP() {
   motorStop();
-  while (!switchRead(A) && !switchRead(B)) {
-    checkSerialMission();
-    delay(5);
-  }
+  while (!switchRead(A) && !switchRead(B));
+  delay(500);
 }

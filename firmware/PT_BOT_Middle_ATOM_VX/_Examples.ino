@@ -1,178 +1,178 @@
-// Motor speed 0-100
+// ความเร็วมอเตอร์ 0-100
 void Examples() {
-  motorWrite(50, 50, 50, 50);     /* Drive motors forward motorWrite(Motor speed 1, Motor speed 2, Motor speed 3, Motor speed 4) */
-  motorWrite(-50, -50, -50, -50); /* Drive motors reverse motorWrite(Motor speed 1, Motor speed 2, Motor speed 3, Motor speed 4) */
-  motorWrite(-50, -50, 50, 50);   /* Drive motors spin left motorWrite(Motor speed 1, Motor speed 2, Motor speed 3, Motor speed 4) */
-  motorWrite(50, 50, -50, -50);   /* Drive motors spin right motorWrite(Motor speed 1, Motor speed 2, Motor speed 3, Motor speed 4) */
-  motorWrite(0, 0, 50, 50);       /* Drive motors curve left motorWrite(Motor speed 1, Motor speed 2, Motor speed 3, Motor speed 4) */
-  motorWrite(50, 50, 0, 0);       /* Drive motors curve right motorWrite(Motor speed 1, Motor speed 2, Motor speed 3, Motor speed 4) */
-  motorStop();                    /* Stop all motors 4 units */
-  delay(100);                     /* Delay duration 1000millisecond = 1 seconds */
-  STOP();                         /* To stop, press SW1 or SW2 To proceed with task */
+  motorWrite(50, 50, 50, 50);     /* สั่งมอเตอร์ หมุนเดินหน้า motorWrite(ความเร็วมอเตอร์ 1, ความเร็วมอเตอร์ 2, ความเร็วมอเตอร์ 3, ความเร็วมอเตอร์ 4) */
+  motorWrite(-50, -50, -50, -50); /* สั่งมอเตอร์ หมุนถอยหน้า motorWrite(ความเร็วมอเตอร์ 1, ความเร็วมอเตอร์ 2, ความเร็วมอเตอร์ 3, ความเร็วมอเตอร์ 4) */
+  motorWrite(-50, -50, 50, 50);   /* สั่งมอเตอร์ หมุนซ้าย motorWrite(ความเร็วมอเตอร์ 1, ความเร็วมอเตอร์ 2, ความเร็วมอเตอร์ 3, ความเร็วมอเตอร์ 4) */
+  motorWrite(50, 50, -50, -50);   /* สั่งมอเตอร์ หมุนขวา motorWrite(ความเร็วมอเตอร์ 1, ความเร็วมอเตอร์ 2, ความเร็วมอเตอร์ 3, ความเร็วมอเตอร์ 4) */
+  motorWrite(0, 0, 50, 50);       /* สั่งมอเตอร์ เทิร์นซ้าย motorWrite(ความเร็วมอเตอร์ 1, ความเร็วมอเตอร์ 2, ความเร็วมอเตอร์ 3, ความเร็วมอเตอร์ 4) */
+  motorWrite(50, 50, 0, 0);       /* สั่งมอเตอร์ เทิร์นขวา motorWrite(ความเร็วมอเตอร์ 1, ความเร็วมอเตอร์ 2, ความเร็วมอเตอร์ 3, ความเร็วมอเตอร์ 4) */
+  motorStop();                    /* สั่งมอเตอร์หยุดทั้ง 4 ตัว */
+  delay(100);                     /* หน่วงเวลา 1000millisecond = 1 วินาที */
+  STOP();                         /* สั่งหยุด กด SW1 or SW2 เพื่อทำงานต่อ */
 
-  FF(100); /* Continuous forward straight
-      ^ = Speed of all motors 4 units*/
+  FF(100); /* เดินหน้าตรงเรื่อยๆ
+      ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว*/
 
-  FF(100, 200); /* Move straight by distance
-      |    ^ = Distance timed duration 1000=1seconds
-      ^ = Speed of all motors 4 units */
+  FF(100, 200); /* เดินหน้าตรง นับระยะทาง
+      |    ^ = ระยะทางนับเวลา 1000=1วินาที
+      ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  FF(100, 200, 'L'); /* Move straight by distance, then turn
-      |    |    ^ = Select turn direction (Using Gyro IMU)
-      |    |        - 'L' = In-place spin left then stop
-      |    |        - 'R' = In-place spin right then stop
-      |    |        - 'l' = Curve turn left then stop
-      |    |        - 'r' = Curve turn right then stop
-      |    ^ = Distance timed duration 1000=1seconds
-      ^ = Speed of all motors 4 units */
+  FF(100, 200, 'L'); /* เดินหน้าตรง นับระยะทาง พร้อมเลี้ยว
+      |    |    ^ = เลือกทิศทางเลี้ยว (ใช้เซ็นเซอร์ไจโร)
+      |    |        - 'L' = หมุนเลี้ยวซ้ายแล้วหยุด
+      |    |        - 'R' = หมุนเลี้ยวขวาแล้วหยุด
+      |    |        - 'l' = เทิร์นเลี้ยวซ้ายแล้วหยุด
+      |    |        - 'r' = เทิร์นเลี้ยวขวาแล้วหยุด
+      |    ^ = ระยะทางนับเวลา 1000=1วินาที
+      ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  FF(100, 200, 'R', 110); /* Move straight by distance with timed turn
-      |    |    |    ^ = Turn angle degree (Timed 1000=1seconds)
-      |    |    ^ = Select turn direction
-      |    |        - 'L' = In-place spin left then stop
-      |    |        - 'R' = In-place spin right then stop
-      |    ^ = Distance timed duration 1000=1seconds
-      ^ = Speed of all motors 4 units */
+  FF(100, 200, 'R', 110); /* เดินหน้าตรง นับระยะทาง พร้อมเลียวแบบนับเวลา
+      |    |    |    ^ = ระยะองศาเลี้ยว (นับเวลา 1000=1วินาที)
+      |    |    ^ = เลือกทิศทางเลี้ยว
+      |    |        - 'L' = หมุนเลี้ยวซ้ายแล้วหยุด
+      |    |        - 'R' = หมุนเลี้ยวขวาแล้วหยุด
+      |    ^ = ระยะทางนับเวลา 1000=1วินาที
+      ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  BB(100); /* Continuous reverse straight
-      ^ = Speed of all motors 4 units */
+  BB(100); /* เดินถอยหลังตรงเรื่อยๆ
+      ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  BB(100, 200); /* Reverse straight by distance
-      |    ^ = Distance timed duration 1000=1seconds
-      ^ = Speed of all motors 4 units */
+  BB(100, 200); /* เดินถอยหลังตรง นับระยะทาง
+      |    ^ = ระยะทางนับเวลา 1000=1วินาที
+      ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  BB(100, 200, 'L'); /* Reverse straight by distance, then turn
-      |    |    ^ = Select turn direction (Using Gyro IMU)
-      |    |        - 'L' = In-place spin left then stop
-      |    |        - 'R' = In-place spin right then stop
-      |    |        - 'l' = Curve turn left then stop
-      |    |        - 'r' = Curve turn right then stop
-      |    ^ = Distance timed duration 1000=1seconds
-      ^ = Speed of all motors 4 units */
+  BB(100, 200, 'L'); /* เดินถอยหลังตรง นับระยะทาง พร้อมเลี้ยว
+      |    |    ^ = เลือกทิศทางเลี้ยว (ใช้เซ็นเซอร์ไจโร)
+      |    |        - 'L' = หมุนเลี้ยวซ้ายแล้วหยุด
+      |    |        - 'R' = หมุนเลี้ยวขวาแล้วหยุด
+      |    |        - 'l' = เทิร์นเลี้ยวซ้ายแล้วหยุด
+      |    |        - 'r' = เทิร์นเลี้ยวขวาแล้วหยุด
+      |    ^ = ระยะทางนับเวลา 1000=1วินาที
+      ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  BB(100, 200, 'R', 110); /* Reverse straight by distance with timed turn
-      |    |    |    ^ = Turn angle degree (Timed 1000=1seconds)
-      |    |    ^ = Select turn direction
-      |    |        - 'L' = In-place spin left then stop
-      |    |        - 'R' = In-place spin right then stop
-      |    ^ = Distance timed duration 1000=1seconds
-      ^ = Speed of all motors 4 units */
+  BB(100, 200, 'R', 110); /* เดินถอยหลังตรง นับระยะทาง พร้อมเลียวแบบนับเวลา
+      |    |    |    ^ = ระยะองศาเลี้ยว (นับเวลา 1000=1วินาที)
+      |    |    ^ = เลือกทิศทางเลี้ยว
+      |    |        - 'L' = หมุนเลี้ยวซ้ายแล้วหยุด
+      |    |        - 'R' = หมุนเลี้ยวขวาแล้วหยุด
+      |    ^ = ระยะทางนับเวลา 1000=1วินาที
+      ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  SetFront(15); /* Align front on black line and stop
-            ^ = Speed of all motors 4 units */
+  SetFront(15); /* เช็ตหน้าตรง เจอเส้นดำ จะหยุด
+            ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  SetFront(15, 300); /* Align front on black line, then reverse away from line
-            |   ^ = Timed duration to retreat from black line 1000=1seconds
-            ^ = Speed of all motors 4 units */
+  SetFront(15, 300); /* เช็ตหน้าตรง เมื่อเจอเส้นดำ จะถอยออกจากเส้นดำ
+            |   ^ = ระยะทางนับเวลาถอยออกจากเส้นดำ 1000=1วินาที
+            ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  SetFront(15, 300, 'R'); /* Align front on black line, then reverse away from line and turn
-            |   |    ^ = Select turn direction (Using Gyro IMU)
-            |   |        - 'L' = In-place spin left then stop
-            |   |        - 'R' = In-place spin right then stop
-            |   ^ = Timed duration to retreat from black line 1000=1seconds
-            ^ = Speed of all motors 4 units */
+  SetFront(15, 300, 'R'); /* เช็ตหน้าตรง เมื่อเจอเส้นดำ จะถอยออกจากเส้นดำ พร้อมเลี้ยว
+            |   |    ^ = เลือกทิศทางเลี้ยว (ใช้เซ็นเซอร์ไจโร)
+            |   |        - 'L' = หมุนเลี้ยวซ้ายแล้วหยุด
+            |   |        - 'R' = หมุนเลี้ยวขวาแล้วหยุด
+            |   ^ = ระยะทางนับเวลาถอยออกจากเส้นดำ 1000=1วินาที
+            ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  SetFront(15, 300, 'L', 130); /* Align front on black line, then reverse away from line and turn
-            |   |    |    ^ = Turn angle degree (Timed 1000=1seconds)
-            |   |    ^ = Select turn direction
-            |   |        - 'L' = In-place spin left then stop
-            |   |        - 'R' = In-place spin right then stop
-            |   ^ = Timed duration to retreat from black line 1000=1seconds
-            ^ = Speed of all motors 4 units */
+  SetFront(15, 300, 'L', 130); /* เช็ตหน้าตรง เมื่อเจอเส้นดำ จะถอยออกจากเส้นดำ พร้อมเลี้ยว
+            |   |    |    ^ = ระยะองศาเลี้ยว (นับเวลา 1000=1วินาที)
+            |   |    ^ = เลือกทิศทางเลี้ยว
+            |   |        - 'L' = หมุนเลี้ยวซ้ายแล้วหยุด
+            |   |        - 'R' = หมุนเลี้ยวขวาแล้วหยุด
+            |   ^ = ระยะทางนับเวลาถอยออกจากเส้นดำ 1000=1วินาที
+            ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  SetBack(15); /* Align rear on black line and stop
-           ^ = Speed of all motors 4 units */
+  SetBack(15); /* เช็ตหลังตรง เจอเส้นดำ จะหยุด
+           ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  SetBack(15, 300); /* Align rear on black line, then forward away from line
-           |   ^ = Timed duration to retreat from black line 1000=1seconds
-           ^ = Speed of all motors 4 units */
+  SetBack(15, 300); /* เช็ตหลังตรง เมื่อเจอเส้นดำ จะเดินหน้าออกจากเส้นดำ
+           |   ^ = ระยะทางนับเวลาถอยออกจากเส้นดำ 1000=1วินาที
+           ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  SetBack(15, 300, 'R'); /* Align rear on black line, then forward away from line and turn
-           |   |    ^ = Select turn direction (Using Gyro IMU)
-           |   |        - 'L' = In-place spin left then stop
-           |   |        - 'R' = In-place spin right then stop
-           |   ^ = Timed duration to retreat from black line 1000=1seconds
-           ^ = Speed of all motors 4 units */
+  SetBack(15, 300, 'R'); /* เช็ตหลังตรง เมื่อเจอเส้นดำ จะเดินหน้าออกจากเส้นดำ พร้อมเลี้ยว
+           |   |    ^ = เลือกทิศทางเลี้ยว (ใช้เซ็นเซอร์ไจโร)
+           |   |        - 'L' = หมุนเลี้ยวซ้ายแล้วหยุด
+           |   |        - 'R' = หมุนเลี้ยวขวาแล้วหยุด
+           |   ^ = ระยะทางนับเวลาถอยออกจากเส้นดำ 1000=1วินาที
+           ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  SetBack(15, 300, 'L', 130); /* Align rear on black line, then forward away from line and turn
-           |   |    |    ^ = Turn angle degree (Timed 1000=1seconds)
-           |   |    ^ = Select turn direction
-           |   |        - 'L' = In-place spin left then stop
-           |   |        - 'R' = In-place spin right then stop
-           |   ^ = Timed duration to retreat from black line 1000=1seconds
-           ^ = Speed of all motors 4 units */
+  SetBack(15, 300, 'L', 130); /* เช็ตหลังตรง เมื่อเจอเส้นดำ จะเดินหน้าออกจากเส้นดำ พร้อมเลี้ยว
+           |   |    |    ^ = ระยะองศาเลี้ยว (นับเวลา 1000=1วินาที)
+           |   |    ^ = เลือกทิศทางเลี้ยว
+           |   |        - 'L' = หมุนเลี้ยวซ้ายแล้วหยุด
+           |   |        - 'R' = หมุนเลี้ยวขวาแล้วหยุด
+           |   ^ = ระยะทางนับเวลาถอยออกจากเส้นดำ 1000=1วินาที
+           ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  LL(110); /* Spin left timed
-      ^ = Turn angle degree (Timed 1000=1seconds) */
+  LL(110); /* หมุนซ้าย นับเวลาเลี้ยว
+      ^ = ระยะองศาเลี้ยว (นับเวลา 1000=1วินาที) */
 
-  RR(110); /* Spin right timed
-      ^ = Turn angle degree (Timed 1000=1seconds) */
+  RR(110); /* หมุนขวา นับเวลาเลี้ยว
+      ^ = ระยะองศาเลี้ยว (นับเวลา 1000=1วินาที) */
 
-  TT(15, 70, 300); /* Curve turn left timed
-      |   |   ^ = Turn angle degree (Timed 1000=1seconds)
-      |   ^ = Right motors speed
-      ^ = Left motors speed */
+  TT(15, 70, 300); /* เทิร์นซ้าย นับเวลาเลี้ยว
+      |   |   ^ = ระยะองศาเลี้ยว (นับเวลา 1000=1วินาที)
+      |   ^ = ความเร็วมอเตอร์ขวา
+      ^ = ความเร็วมอเตอร์ซ้าย */
 
-  TT(70, 15, 300); /* Curve turn right timed
-      |   |   ^ = Turn angle degree (Timed 1000=1seconds)
-      |   ^ = Right motors speed
-      ^ = Left motors speed */
+  TT(70, 15, 300); /* เทิร์นขวา นับเวลาเลี้ยว
+      |   |   ^ = ระยะองศาเลี้ยว (นับเวลา 1000=1วินาที)
+      |   ^ = ความเร็วมอเตอร์ขวา
+      ^ = ความเร็วมอเตอร์ซ้าย */
 
-  TTB(15, 70, 300); /* Reverse curve-turn left timed
-       |   |   ^ = Turn angle degree (Timed 1000=1seconds)
-       |   ^ = Left motors speed
-       ^ = Right motors speed */
+  TTB(15, 70, 300); /* ถอยหลัง เทิร์นซ้าย นับเวลาเลี้ยว
+       |   |   ^ = ระยะองศาเลี้ยว (นับเวลา 1000=1วินาที)
+       |   ^ = ความเร็วมอเตอร์ซ้าย
+       ^ = ความเร็วมอเตอร์ขวา */
 
-  TTB(70, 15, 300); /* Reverse curve-turn right timed
-       |   |   ^ = Turn angle degree (Timed 1000=1seconds)
-       |   ^ = Left motors speed
-       ^ = Right motors speed */
+  TTB(70, 15, 300); /* ถอยหลัง เทิร์นขวา นับเวลาเลี้ยว
+       |   |   ^ = ระยะองศาเลี้ยว (นับเวลา 1000=1วินาที)
+       |   ^ = ความเร็วมอเตอร์ซ้าย
+       ^ = ความเร็วมอเตอร์ขวา */
 
-  spinDegree(-90); /* Spin left spinDegree(Turn angle using Gyro IMU) */
+  spinDegree(-90); /* หมุนซ้าย spinDegree(มุมองศาเลี้ยว ใช้เซ็นเซอร์ไจโร) */
 
-  spinDegree(90); /* Spin right spinDegree(Turn angle using Gyro IMU) */
+  spinDegree(90); /* หมุนขวา spinDegree(มุมองศาเลี้ยว ใช้เซ็นเซอร์ไจโร) */
 
-  turnDegreeFront(-90); /* Curve turn left turnDegreeFront(Turn angle using Gyro IMU) */
+  turnDegreeFront(-90); /* เทิร์นซ้าย turnDegreeFront(มุมองศาเลี้ยว ใช้เซ็นเซอร์ไจโร) */
 
-  turnDegreeFront(90); /* Curve turn right turnDegreeFront(Turn angle using Gyro IMU) */
+  turnDegreeFront(90); /* เทิร์นขวา turnDegreeFront(มุมองศาเลี้ยว ใช้เซ็นเซอร์ไจโร) */
 
-  turnDegreeBack(-90); /* Reverse curve left turnDegreeBack(Turn angle using Gyro IMU) */
+  turnDegreeBack(-90); /* ถอยหลัง เทิร์นซ้าย turnDegreeBack(มุมองศาเลี้ยว ใช้เซ็นเซอร์ไจโร) */
 
-  turnDegreeBack(90); /* Reverse curve right turnDegreeBack(Turn angle using Gyro IMU) */
+  turnDegreeBack(90); /* ถอยหลัง เทิร์นขวา turnDegreeBack(มุมองศาเลี้ยว ใช้เซ็นเซอร์ไจโร) */
 
-  FF_turn(100, 200); /* Move straight by distance (No ramp acceleration or deceleration) Recommended for use with command turnDregreeFront
-           |    ^ = Distance timed duration 1000=1seconds
-           ^ = Speed of all motors 4 units */
+  FF_turn(100, 200); /* เดินหน้าตรง นับระยะทาง (ไม่มีการชะลอออกตัว และไม่มีการชะลอจอด) แนะนำใช้ร่วมกับคำสั่ง turnDregreeFront
+           |    ^ = ระยะทางนับเวลา 1000=1วินาที
+           ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  BB_turn(100, 200); /* Reverse straight by distance (No ramp acceleration or deceleration) Recommended for use with command turnDegreeBack
-           |    ^ = Distance timed duration 1000=1seconds
-           ^ = Speed of all motors 4 units */
+  BB_turn(100, 200); /* เดินถอยหลังตรง นับระยะทาง (ไม่มีการชะลอออกตัว และไม่มีการชะลอจอด) แนะนำใช้ร่วมกับคำสั่ง turnDegreeBack
+           |    ^ = ระยะทางนับเวลา 1000=1วินาที
+           ^ = ความเร็วมอเตอร์ทั้ง 4 ตัว */
 
-  turnDegreeFront(15, 70); /* Curve turn left 90 degrees
-                  |   ^ = Right motors speed
-                  ^ = Left motors speed */
+  turnDegreeFront(15, 70); /* เทิร์นซ้าย 90 องศา
+                  |   ^ = ความเร็วมอเตอร์ขวา
+                  ^ = ความเร็วมอเตอร์ซ้าย */
 
-  turnDegreeFront(70, 15); /* Curve turn right 90 degrees
-                  |   ^ = Right motors speed
-                  ^ = Left motors speed */
+  turnDegreeFront(70, 15); /* เทิร์นขวา 90 องศา
+                  |   ^ = ความเร็วมอเตอร์ขวา
+                  ^ = ความเร็วมอเตอร์ซ้าย */
 
-  turnDegreeBack(15, 70); /* Reverse curve left 90 degrees
-                  |   ^ = Left motors speed
-                  ^ = Right motors speed */
+  turnDegreeBack(15, 70); /* ถอยหลัง เทิร์นซ้าย 90 องศา
+                  |   ^ = ความเร็วมอเตอร์ซ้าย
+                  ^ = ความเร็วมอเตอร์ขวา */
 
-  turnDegreeBack(70, 15); /* Reverse curve right 90 degrees
-                  |   ^ = Left motors speed
-                  ^ = Right motors speed */
+  turnDegreeBack(70, 15); /* ถอยหลัง เทิร์นขวา 90 องศา
+                  |   ^ = ความเร็วมอเตอร์ซ้าย
+                  ^ = ความเร็วมอเตอร์ขวา */
 
-  DropF(); /* Drop cube Front */
+  DropF(); /* วางลูกบาศก์ด้านหน้า */
 
-  DropB(); /* Drop cube Rear */
+  DropB(); /* วางลูกบาศก์ด้านหลัง */
 
-  DropF(40); /* Move forward to green target and drop front cube
-         ^ Motor speed 0-100 */
+  DropF(40); /* เดินหน้าไปหาจุดวางสีเขียว พร้อมวางลูกบาศก์ด้านหน้า
+         ^ ความเร็วมอเตอร์ 0-100 */
 
-  DropB(40); /* Move reverse to green target and drop cube Rear
-         ^ Motor speed 0-100 */
+  DropB(40); /* เดินถอยหลังไปหาจุดวางสีเขียว พร้อมวางลูกบาศก์ด้านหลัง
+         ^ ความเร็วมอเตอร์ 0-100 */
 
-  ShowValue_Sensor(); /* Plot sensor values Sensor All 8 units */
+  ShowValue_Sensor(); /* แสดงกราฟค่าของ Sensor ทั้งหมด 8 ตัว */
 }

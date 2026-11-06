@@ -9,15 +9,15 @@ int line_value[] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 float current_degree = 0;
 float previous_error_forward = 0;
 
-//----------Servo calibration values 1 Front----------//
-#define CH_SERVO_FRONT 1   // Servo channel for Front drop
-int ServoFront_Lock = 0;   // Lock cube Front S1
-int ServoFront_Drop = 60;  // Drop cube Front S1
+//----------ค่าเซอร์โว 1 ด้านหน้า----------//
+#define CH_SERVO_FRONT 1   // ช่องที่เสียบเซอร์โว ชุดปล่อยหน้า
+int ServoFront_Lock = 0;   // ล็อคลูกบาศก์หน้า S1
+int ServoFront_Drop = 60;  // ปล่อยลูกบาศก์หน้า S1
 
-//----------Servo calibration values 0 Rear----------//
-#define CH_SERVO_BACK 0   // Servo channel for Rear drop
-int ServoBack_Lock = 0;   // Lock cube Rear S0
-int ServoBack_Drop = 60;  // Drop cube Rear S0
+//----------ค่าเซอร์โว 0 ด้านหลัง----------//
+#define CH_SERVO_BACK 0   // ช่องที่เสียบเซอร์โว ชุดปล่อยหลัง
+int ServoBack_Lock = 0;   // ล็อคลูกบาศก์หลัง S0
+int ServoBack_Drop = 60;  // ปล่อยลูกบาศก์หลัง S0
 
 long delayALL = 0;
 
@@ -25,22 +25,21 @@ void setup() {
   Serial.begin(115200);
   initialize();
   config();
-  // ShowValue_Sensor();  // Show sensor values
+  // ShowValue_Sensor();  // โชว์ค่าเซ็นเซอร์
   // calibrateIMU();
 
-  //---------------Set turn speed and gyro angles Gyro Sensor---------------//
-  setSpeed_spin(100);             // Max in-place spin speed, adjustable 0-100 0-100
-  setSpeed_turn(100);             // Max curve turn speed, adjustable 0-100 0-100
+  //---------------ตั้งค่าความเร็วเลี้ยว และมุมองศาเลี้ยว Gyro Sensor---------------//
+  setSpeed_spin(100);             // ความเร็วสูงสุด เลี้ยวแบบหมุน ปรับได้ตั้งแต่ 0-100
+  setSpeed_turn(100);             // ความเร็วสูงสุด เลี้ยวแบบดีโค้ง ปรับได้ตั้งแต่ 0-100
   
-  //---------(Smaller value causes more overshoot past 90 deg, adjustable 0.0-15.0 0.0-15.0)----------//
-  setDegreeStop_SpinLeft(2.85);   // In-place spin tolerance left (deg)
-  setDegreeStop_SpinRight(2.95);  // In-place spin tolerance right (deg)
+  //---------(เลขยิ่งน้อยมาก หุ่นยนต์ยิ่งเลี้ยวเกินมุมฉาก ปรับได้ตั้งแต่ 0.0-15.0)----------//
+  setDegreeStop_SpinLeft(2.85);   // เลี้ยวแบบหมุน กำหนดความคลาดเคลื่อนที่ยอมรับได้ ซ้าย
+  setDegreeStop_SpinRight(2.95);  // เลี้ยวแบบหมุน กำหนดความคลาดเคลื่อนที่ยอมรับได้ ขวา
 
-  //---------(Smaller value causes more overshoot past 90 deg, adjustable 0.0-15.0 0.0-15.0)----------//
-  setDegreeStop_TurnLeft(4.0);   // Curve turn tolerance left (deg)
-  setDegreeStop_TurnRight(4.0);  // Curve turn tolerance right (deg)
-  // Load any previously uploaded dynamic mission from NVS Flash
-  loadMissionFromNVS();
+  //---------(เลขยิ่งน้อยมาก หุ่นยนต์ยิ่งเลี้ยวเกินมุมฉาก ปรับได้ตั้งแต่ 0.0-15.0)----------//
+  setDegreeStop_TurnLeft(4.0);   // เลี้ยวแบบดีโค้ง กำหนดความคลาดเคลื่อนที่ยอมรับได้ ซ้าย
+  setDegreeStop_TurnRight(4.0);  // เลี้ยวแบบดีโค้ง กำหนดความคลาดเคลื่อนที่ยอมรับได้ ขวา
+  //-----------------------------------------------------------------------//
 }
 
 void loop() {
@@ -48,13 +47,9 @@ void loop() {
   setAngleOffset();
   current_degree = 0;
 
-  if (dynamic_mission_loaded && dynamic_mission_count > 0) {
-    executeDynamicMission();
-  } else {
-    Box1();
-    Box2();
-    Box3();
-    Box4();
-    Endmission();
-  }
+  Box1();
+  Box2();
+  Box3();
+  Box4();
+  Endmission();
 }

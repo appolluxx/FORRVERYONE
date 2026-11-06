@@ -100,10 +100,10 @@ void executeDynamicMission() {
         SetBack(step.param1, step.param2);
         break;
       case OP_DROP_FL:
-        DropFL();
+        DropF();
         break;
       case OP_DROP_FR:
-        DropFR();
+        DropF();
         break;
       case OP_DROP_B:
         DropB();
