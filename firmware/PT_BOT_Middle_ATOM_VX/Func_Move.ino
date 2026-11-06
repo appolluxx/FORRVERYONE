@@ -17,15 +17,17 @@ void FF(int speed) {
 }
 
 void FF(int speed, float timer) {
-  // สปีดต่ำสุดช่วงเริ่มและก่อนหยุด (ปรับเป็น 8 เพื่อให้ผ่อนแรงก่อนแตะพื้น ไม่ทิ่ม)
-  int min_speed = 8;
+  // สปีดเริ่มต้นนุ่มนวล
+  int min_speed = (int)(speed * 0.30f);
+  if (min_speed < 12) min_speed = 12;
+  if (min_speed > 30) min_speed = 30;
   int max_speed = speed;
   float kp = 3.5;
   float kd = 17.0;
 
-  // ปรับ ramp_up / ramp_down ให้สมมาตรและนุ่มนวล
-  int ramp_up = (timer < 250) ? (int)(timer * 0.30f) : 80;
-  int ramp_down = (timer < 250) ? (int)(timer * 0.50f) : 130; // ยืดช่วงชะลอให้นานขึ้น หัวไม่ทิ่ม
+  // ปรับ ramp ให้วิ่งลอยตัวได้เต็มรอบ
+  int ramp_up = (timer < 300) ? (int)(timer * 0.25f) : 70;
+  int ramp_down = (timer < 300) ? (int)(timer * 0.30f) : 90;
 
   int current_speed = min_speed;
   unsigned long timer_forward = millis();
@@ -38,7 +40,7 @@ void FF(int speed, float timer) {
       float s = 0.5f * (1.0f - cosf((float)elapsed_time / (float)ramp_up * 3.14159265f));
       current_speed = min_speed + (int)(s * (max_speed - min_speed));
     } else if (remaining_time <= (unsigned long)ramp_down) {
-      // ชะลอความเร็วแบบ S-Curve ลงมาจนเกือบหยุดที่ min_speed (8)
+      // ชะลออย่างนุ่มนวลลงมาหา min_speed ก่อนตัดหยุด ไม่ทิ่มแน่นอน
       float s = 0.5f * (1.0f - cosf((float)remaining_time / (float)ramp_down * 3.14159265f));
       current_speed = min_speed + (int)(s * (max_speed - min_speed));
       if (current_speed < min_speed) current_speed = min_speed;
@@ -59,7 +61,6 @@ void FF(int speed, float timer) {
     motorWrite(speed_left, speed_left, speed_right, speed_right);
 
     if (elapsed_time >= timer * power_factor) {
-      // มอเตอร์แตะความเร็วต่ำสุดแล้วตัดหยุดอย่างนุ่มนวล หัวไม่ทิ่ม 100%
       motorStop();
       break;
     }
