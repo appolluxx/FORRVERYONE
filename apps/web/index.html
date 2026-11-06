@@ -2203,10 +2203,11 @@
 
     <!-- RIGHT PANEL: Dual-Tab Telemetry & Firmware IDE -->
     <aside class="control-panel config-panel">
-        <!-- Dual Tab Switcher -->
+        <!-- Tri-Deck Tab Switcher -->
         <div class="tab-nav-deck" role="tablist" aria-label="Right panel view selector">
-            <button class="deck-tab-btn active" type="button" role="tab" id="deckTab1Btn" aria-selected="true" onclick="switchRightDeck('INSPECTOR')">🎯 Waypoints & Timeline</button>
-            <button class="deck-tab-btn" type="button" role="tab" id="deckTab2Btn" aria-selected="false" onclick="switchRightDeck('CODE')">⚡ Firmware Engine</button>
+            <button class="deck-tab-btn active" type="button" role="tab" id="deckTab1Btn" aria-selected="true" onclick="switchRightDeck('INSPECTOR')">🎯 Waypoints</button>
+            <button class="deck-tab-btn" type="button" role="tab" id="deckTab2Btn" aria-selected="false" onclick="switchRightDeck('CODE')">⚡ Firmware Code</button>
+            <button class="deck-tab-btn" type="button" role="tab" id="deckTab3Btn" aria-selected="false" onclick="switchRightDeck('TELEMETRY')">📡 Live Robot</button>
         </div>
 
         <!-- TAB 1: WAYPOINT INSPECTOR & TIMELINE -->
@@ -2309,6 +2310,80 @@
                 </div>
                 <pre id="cppOutput" role="tabpanel" aria-labelledby="tab_all" tabindex="0">// Initializing firmware code...</pre>
                 <span id="copyStatus" class="sr-only" aria-live="polite"></span>
+            </div>
+        </div>
+
+        <!-- TAB 3: LIVE ROBOT TELEMETRY & SENSORS -->
+        <div id="deckTabTelemetry" class="deck-tab-content" role="tabpanel" aria-labelledby="deckTab3Btn">
+            <div class="section-eyebrow"><span>HARDWARE_BRIDGE</span><span>WEB SERIAL LIVE TELEMETRY</span></div>
+            <h2 class="section-title">Robot Live Sensors & IMU</h2>
+
+            <div class="live-telemetry-panel">
+                <!-- Serial Connection Status -->
+                <div class="serial-conn-bar">
+                    <div class="conn-status-indicator">
+                        <span id="serialStatusDot" class="status-dot"></span>
+                        <span id="serialStatusText">Disconnected (COM5)</span>
+                    </div>
+                    <button id="serialConnectBtn" class="serial-btn connect" type="button" onclick="toggleSerialConnection()">
+                        🔌 Connect COM
+                    </button>
+                </div>
+
+                <!-- Gyroscope / IMU Card -->
+                <div class="telemetry-card">
+                    <div class="card-header-flex">
+                        <span class="telemetry-card-title">🧭 IMU Heading (Yaw Angle)</span>
+                        <span id="gyroCalibStatus" class="telemetry-card-title" style="color:var(--apple-green);">Gyro: Active</span>
+                    </div>
+                    <div class="gyro-hero-box">
+                        <div class="gyro-compass">
+                            <div id="compassNeedle" class="compass-needle"></div>
+                            <div class="compass-center"></div>
+                        </div>
+                        <div class="gyro-stats">
+                            <div id="telemetryYawDisplay" class="gyro-val-big">0.0°</div>
+                            <div class="gyro-val-sub">Relative Degree: <b id="telemetryRelDegree">0°</b></div>
+                            <div class="gyro-val-sub">Angular Rate: <b id="telemetryYawRate">0.0 °/s</b></div>
+                        </div>
+                    </div>
+                    <div class="telemetry-actions-row">
+                        <button class="tele-quick-btn" type="button" onclick="sendSerialZeroGyro()">🎯 Zero Gyro Angle</button>
+                        <button class="tele-quick-btn" type="button" onclick="sendSerialCalibSensors()">⚡ Calibrate Min/Max</button>
+                    </div>
+                </div>
+
+                <!-- 8-Channel ADC Line Sensor Array -->
+                <div class="telemetry-card">
+                    <div class="card-header-flex">
+                        <span class="telemetry-card-title">📊 8-CH ADC Line Sensors (S0 - S7)</span>
+                        <span id="lineDetectBadge" class="telemetry-card-title" style="color:var(--text-muted);">Line: None</span>
+                    </div>
+                    <div class="sensor-bars-container" id="sensorBarsContainer">
+                        <div class="sensor-channel"><div class="sensor-bar-bg"><div id="sensorBar0" class="sensor-bar-fill"></div></div><span id="sensorVal0" class="sensor-num-val">0</span><span class="sensor-label">S0</span></div>
+                        <div class="sensor-channel"><div class="sensor-bar-bg"><div id="sensorBar1" class="sensor-bar-fill"></div></div><span id="sensorVal1" class="sensor-num-val">0</span><span class="sensor-label">S1</span></div>
+                        <div class="sensor-channel"><div class="sensor-bar-bg"><div id="sensorBar2" class="sensor-bar-fill"></div></div><span id="sensorVal2" class="sensor-num-val">0</span><span class="sensor-label">S2</span></div>
+                        <div class="sensor-channel"><div class="sensor-bar-bg"><div id="sensorBar3" class="sensor-bar-fill"></div></div><span id="sensorVal3" class="sensor-num-val">0</span><span class="sensor-label">S3</span></div>
+                        <div class="sensor-channel"><div class="sensor-bar-bg"><div id="sensorBar4" class="sensor-bar-fill"></div></div><span id="sensorVal4" class="sensor-num-val">0</span><span class="sensor-label">S4</span></div>
+                        <div class="sensor-channel"><div class="sensor-bar-bg"><div id="sensorBar5" class="sensor-bar-fill"></div></div><span id="sensorVal5" class="sensor-num-val">0</span><span class="sensor-label">S5</span></div>
+                        <div class="sensor-channel"><div class="sensor-bar-bg"><div id="sensorBar6" class="sensor-bar-fill"></div></div><span id="sensorVal6" class="sensor-num-val">0</span><span class="sensor-label">S6</span></div>
+                        <div class="sensor-channel"><div class="sensor-bar-bg"><div id="sensorBar7" class="sensor-bar-fill"></div></div><span id="sensorVal7" class="sensor-num-val">0</span><span class="sensor-label">S7</span></div>
+                    </div>
+                </div>
+
+                <!-- Robot Motor Quick Motion Tests -->
+                <div class="telemetry-card">
+                    <div class="card-header-flex">
+                        <span class="telemetry-card-title">🕹️ Quick Motor & Servo Test</span>
+                        <span class="telemetry-card-title" style="color:var(--apple-amber);">Baud: 115200</span>
+                    </div>
+                    <div class="telemetry-actions-row">
+                        <button class="tele-quick-btn" type="button" onclick="sendSerialCmd('TEST_STEP')">👟 Test FF 1 Tile</button>
+                        <button class="tele-quick-btn" type="button" onclick="sendSerialCmd('TEST_SPIN')">🔄 Test Spin 90°</button>
+                        <button class="tele-quick-btn" type="button" onclick="sendSerialCmd('DROP_S1')">📦 Drop Front (S1)</button>
+                        <button class="tele-quick-btn" type="button" onclick="sendSerialCmd('STOP')">🛑 Emergency STOP</button>
+                    </div>
+                </div>
             </div>
         </div>
     </aside>
@@ -3588,7 +3663,7 @@ class CodeGenerator {
             const stepLines = [];
 
             if (curr.fn === 'BB') {
-                stepLines.push(`  BB(${dist}, ${curr.speed || profile.speed}); // Retreat straight ${dist} tile(s) out of drop zone back to corridor`);
+                stepLines.push(`  BB(${curr.speed || profile.speed}, TIME_FLAT(${dist})); // Retreat straight ${dist} tile(s) out of drop zone`);
             } else {
                 let targetHeading = currentHeading;
                 if (cX > pX) targetHeading = 90;
@@ -3611,14 +3686,14 @@ class CodeGenerator {
                     currentHeading = targetHeading;
                 }
 
-                let moveCmd = `FF(${dist}, ${curr.speed || profile.speed}); // Run ${dist} tile(s) at ${curr.speed || profile.speed}% speed`;
+                let moveCmd = `FF(${curr.speed || profile.speed}, TIME_FLAT(${dist})); // Move forward ${dist} tile(s) (${dist * 300}mm)`;
                 if (targetTile === 'bridge') moveCmd = `FF(92, ${dist > 1 ? `T_BRIDGE * ${dist}` : 'T_BRIDGE'}); // Ascend 50mm bridge`;
-                else if (targetTile === 'bump') moveCmd = `FF(65, ${dist > 1 ? `T_BUMP * ${dist}` : 'T_BUMP'}); // Cross speed bumps (7 chopsticks)`;
+                else if (targetTile === 'bump') moveCmd = `FF(65, ${dist > 1 ? `T_BUMP * ${dist}` : 'T_BUMP'}); // Cross speed bumps`;
                 else if (targetTile === 'seesaw') moveCmd = `FF(75, ${dist > 1 ? `T_SEESAW * ${dist}` : 'T_SEESAW'}); // Cross seesaw`;
-                else if (targetTile === 'tunnel') moveCmd = `FF(${curr.speed || profile.speed}, ${dist > 1 ? `T_TUNNEL * ${dist}` : 'T_TUNNEL'}); // Cruise through tunnel (Gyro Lock)`;
+                else if (targetTile === 'tunnel') moveCmd = `FF(${curr.speed || profile.speed}, ${dist > 1 ? `T_TUNNEL * ${dist}` : 'T_TUNNEL'}); // Cruise through tunnel`;
 
-                if (curr.fn === 'SetFront') moveCmd = `SetFront(20, T_RECOIL);`;
-                else if (curr.fn === 'SetBack') moveCmd = `SetBack(20, T_RECOIL);`;
+                if (curr.fn === 'SetFront') moveCmd = `SetFront(20, T_RECOIL); // Line alignment`;
+                else if (curr.fn === 'SetBack') moveCmd = `SetBack(20, T_RECOIL); // Rear line alignment`;
 
                 stepLines.push(`  ${moveCmd}`);
 
@@ -5065,12 +5140,23 @@ class UIController {
     // ================= Deck Tabs & UI Helpers =================
     switchRightDeck(deck) {
         const isInspector = deck === 'INSPECTOR';
-        this.dom.deckTab1Btn.classList.toggle('active', isInspector);
-        this.dom.deckTab2Btn.classList.toggle('active', !isInspector);
-        this.dom.deckTab1Btn.setAttribute('aria-selected', String(isInspector));
-        this.dom.deckTab2Btn.setAttribute('aria-selected', String(!isInspector));
-        this.dom.deckTabInspector.classList.toggle('active', isInspector);
-        this.dom.deckTabCode.classList.toggle('active', !isInspector);
+        const isCode = deck === 'CODE';
+        const isTelemetry = deck === 'TELEMETRY';
+
+        const b1 = document.getElementById('deckTab1Btn');
+        const b2 = document.getElementById('deckTab2Btn');
+        const b3 = document.getElementById('deckTab3Btn');
+        const p1 = document.getElementById('deckTabInspector');
+        const p2 = document.getElementById('deckTabCode');
+        const p3 = document.getElementById('deckTabTelemetry');
+
+        if (b1) { b1.classList.toggle('active', isInspector); b1.setAttribute('aria-selected', String(isInspector)); }
+        if (b2) { b2.classList.toggle('active', isCode); b2.setAttribute('aria-selected', String(isCode)); }
+        if (b3) { b3.classList.toggle('active', isTelemetry); b3.setAttribute('aria-selected', String(isTelemetry)); }
+
+        if (p1) p1.classList.toggle('active', isInspector);
+        if (p2) p2.classList.toggle('active', isCode);
+        if (p3) p3.classList.toggle('active', isTelemetry);
     }
 
     toggleDropdown(id) {
