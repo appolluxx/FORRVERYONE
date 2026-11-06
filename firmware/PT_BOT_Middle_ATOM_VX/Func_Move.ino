@@ -17,35 +17,54 @@ void FF(int speed) {
 }
 
 void FF(int speed, float timer) {
-  int min_speed = 15;     // ความเร็วเริ่มต้น และความเร็วก่อนหยุด
-  int max_speed = speed;  // ความเร็วสูงสุด
-  float kp = 3.5;          // KP
-  float kd = 17.0;         // KD
-  int ramp_up = 200;      // หุ่นยนต์จะเริ่มวิ่งจากความเร็วต่ำสุดไปที่ความเร็วสูงสุดภายในเวลาที่กำหนด
-  int ramp_down = 200;    // หุ่นยนต์จะวิ่งจากความเร็วสูงสุดไปที่ความเร็วต่ำสุดภายในเวลาที่กำหนดก่อนที่จะหยุด
+  // Adaptive start speed: ~50% of target speed to prevent pitch & wheel slip
+  int min_speed = (int)(speed * 0.50f);
+  if (min_speed < 20) min_speed = 20;
+  if (min_speed > 55) min_speed = 55;
+  int max_speed = speed;
+  float kp = 3.8;
+  float kd = 18.5;
+  int ramp_up = 120;
+  int ramp_down = 120;
+  if (timer < 240) {
+    ramp_up = (int)(timer * 0.45f);
+    ramp_down = (int)(timer * 0.45f);
+  }
+
   int current_speed = min_speed;
   unsigned long timer_forward = millis();
   float previous_error = 0;
   while (1) {
     unsigned long elapsed_time = millis() - timer_forward;
-    unsigned long remaining_time = timer - elapsed_time;
-    if (elapsed_time <= ramp_up) {
-      current_speed = min_speed + (float)elapsed_time / ramp_up * (max_speed - min_speed);
-    } else if (remaining_time <= ramp_down) {
-      current_speed = min_speed + (float)remaining_time / ramp_down * (max_speed - min_speed);
+    unsigned long remaining_time = (timer > elapsed_time) ? (timer - elapsed_time) : 0;
+    if (elapsed_time <= (unsigned long)ramp_up) {
+      float s = 0.5f * (1.0f - cosf((float)elapsed_time / (float)ramp_up * 3.14159265f));
+      current_speed = min_speed + (int)(s * (max_speed - min_speed));
+    } else if (remaining_time <= (unsigned long)ramp_down) {
+      float s = 0.5f * (1.0f - cosf((float)remaining_time / (float)ramp_down * 3.14159265f));
+      current_speed = min_speed + (int)(s * (max_speed - min_speed));
       if (current_speed < min_speed) current_speed = min_speed;
-    } else current_speed = max_speed;
+    } else {
+      current_speed = max_speed;
+    }
+
     float error = current_degree - angleRead(YAW);
     if (error > 180) error -= 360;
     else if (error < -180) error += 360;
     float derivative = error - previous_error;
-    int pd_value = (error * kp) + (derivative * kd);
+    int pd_value = (int)((error * kp) + (derivative * kd));
     if (pd_value > max_speed) pd_value = max_speed;
     else if (pd_value < -max_speed) pd_value = -max_speed;
-    int speed_left = current_speed + pd_value;
-    int speed_right = current_speed - pd_value;
+
+    int speed_left = constrain(current_speed + pd_value, -100, 100);
+    int speed_right = constrain(current_speed - pd_value, -100, 100);
     motorWrite(speed_left, speed_left, speed_right, speed_right);
+
     if (elapsed_time >= timer * power_factor) {
+      // Active dynamic brake counter-pulse (15ms) to kill forward momentum instantly
+      int brake_spd = (current_speed > 40) ? 18 : 10;
+      motorWrite(-brake_spd, -brake_spd, -brake_spd, -brake_spd);
+      delay(15);
       motorStop();
       break;
     }

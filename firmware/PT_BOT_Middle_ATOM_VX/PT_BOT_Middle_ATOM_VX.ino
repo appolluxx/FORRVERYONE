@@ -10,17 +10,28 @@ float current_degree = 0;
 float previous_error_forward = 0;
 
 // =============================================================================
-// TIMING MODEL & TILE DISTANCE MACROS (Non-linear Acceleration Compensation)
+// SPEED-INDEPENDENT TIMING & TILE MODEL
+// ปรับเวลาพื้นฐานที่สปีดมาตรฐาน 84% PWM
 // =============================================================================
-int T_FLAT_BASE   = 420;  // 1 ช่องแรก (รวมเวลาเร่ง Ramp-up 120ms + เบรก Ramp-down 120ms)
-int T_FLAT_CRUISE = 240;  // เวลาคงที่ต่อช่องถัดไปเมื่อวิ่งทางตรงยาว
+int T_FLAT_BASE   = 400;  // เวลา 1 ช่อง ที่ความเร็วมาตรฐาน 84% PWM (ปรับลด/เพิ่มตรงนี้)
+int T_FLAT_CRUISE = 230;  // เวลาต่อช่องถัดไป ที่ความเร็วมาตรฐาน 84% PWM
 int T_BRIDGE      = 580;  // ขึ้นสะพาน 50mm
 int T_BUMP        = 680;  // ลูกระนาด 7 อัน
 int T_SEESAW      = 750;  // ไม้กระดก
-int T_TUNNEL      = 240;  // อุโมงค์
+int T_TUNNEL      = 230;  // อุโมงค์
 int T_RECOIL      = 180;  // ถอยหลังหลังจับเส้นดำ
 
-#define TIME_FLAT(n) ( (n) == 1 ? T_FLAT_BASE : (T_FLAT_BASE + ((n) - 1) * T_FLAT_CRUISE) )
+// ฟังก์ชันแปลงช่องเป็นมิลลิวินาที โดยปรับสเกลอัตโนมัติตามความเร็ว (ใช้ได้กับทุกสปีด 10-100!)
+inline float TIME_TILES(int tiles, int speed) {
+  if (tiles <= 0) tiles = 1;
+  float base_time = (tiles == 1) ? (float)T_FLAT_BASE : ((float)T_FLAT_BASE + (float)(tiles - 1) * (float)T_FLAT_CRUISE);
+  // สเกลเวลาผกผันกับความเร็ว (เช่น สปีด 100 ใช้เวลาน้อยลง, สปีด 50 ใช้เวลาเพิ่มขึ้น เพื่อให้ได้ระยะ 300mm เท่ากันเป๊ะ)
+  float speed_scale = (speed > 0) ? (84.0f / (float)speed) : 1.0f;
+  return base_time * speed_scale;
+}
+
+// Macro เพื่อความเข้ากันได้
+#define TIME_FLAT(n) TIME_TILES((n), 84)
 
 //----------ค่าเซอร์โว 1 ด้านหน้า----------//
 #define CH_SERVO_FRONT 1   // ช่องที่เสียบเซอร์โว ชุดปล่อยหน้า
@@ -60,6 +71,6 @@ void loop() {
   setAngleOffset();
   current_degree = 0;
 
-  // ทดสอบวิ่ง 3 ช่อง ด้วยสปีด 84
-  FF(84, TIME_FLAT(3));
+  // ทดสอบวิ่ง 1 ช่อง: ฟังก์ชันจะปรับเวลาให้เองตามความเร็ว!
+  FF(100, TIME_TILES(1, 100));
 }
