@@ -126,12 +126,74 @@ void executeDynamicMission() {
 
 // =============================================================================
 // REAL-TIME SERIAL TELEMETRY STREAMER (GYRO YAW & 8-CH ADC SENSORS)
+// =============================================================================
+bool telemetry_stream_enabled = false;
+unsigned long last_telemetry_stream = 0;
+
+void handleTelemetryStreaming() {
+  if (!telemetry_stream_enabled) return;
+  if (millis() - last_telemetry_stream >= 50) { // 20 Hz smooth update
+    last_telemetry_stream = millis();
+
+    float current_yaw = angleRead(YAW);
+    Serial.print("YAW:");
+    Serial.print(current_yaw, 1);
+    Serial.print(";S:");
+    for (byte i = 0; i < 8; i++) {
+      Serial.print(adcRead(i));
+      if (i < 7) Serial.print(",");
+    }
+    Serial.println();
+  }
+}
+
 void processMissionLine(String line) {
   line.trim();
   if (line.length() == 0) return;
 
   if (line == "PING") {
     Serial.println(F("PONG:ATOM_VX_READY"));
+    return;
+  }
+  if (line == "STREAM_ON") {
+    telemetry_stream_enabled = true;
+    Serial.println(F("[ACK] TELEMETRY:STREAM_ON"));
+    return;
+  }
+  if (line == "STREAM_OFF") {
+    telemetry_stream_enabled = false;
+    Serial.println(F("[ACK] TELEMETRY:STREAM_OFF"));
+    return;
+  }
+  if (line == "ZERO_GYRO") {
+    setAngleOffset();
+    current_degree = 0;
+    Serial.println(F("[ACK] GYRO:ZEROED"));
+    return;
+  }
+  if (line == "CALIB_MINMAX") {
+    calibrateMinMax();
+    Serial.println(F("[ACK] CALIB:DONE"));
+    return;
+  }
+  if (line == "TEST_STEP") {
+    FF(78, 420);
+    Serial.println(F("[ACK] TEST_STEP:DONE"));
+    return;
+  }
+  if (line == "TEST_SPIN") {
+    spinDegree(90);
+    Serial.println(F("[ACK] TEST_SPIN:DONE"));
+    return;
+  }
+  if (line == "DROP_S1") {
+    DropF();
+    Serial.println(F("[ACK] DROP_S1:DONE"));
+    return;
+  }
+  if (line == "STOP") {
+    motorStop();
+    Serial.println(F("[ACK] STOP:DONE"));
     return;
   }
   if (line == "MISSION:CLEAR") {
@@ -205,4 +267,5 @@ void checkSerialMission() {
     String line = Serial.readStringUntil('\n');
     processMissionLine(line);
   }
+  handleTelemetryStreaming();
 }
