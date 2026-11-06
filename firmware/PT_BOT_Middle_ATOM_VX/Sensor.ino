@@ -77,6 +77,9 @@ void config() {
 
 void STOP() {
   motorStop();
-  while (!switchRead(A) && !switchRead(B));
+  while (!switchRead(A) && !switchRead(B)) {
+    checkSerialMission();
+    delay(5);
+  }
   delay(500);
 }
