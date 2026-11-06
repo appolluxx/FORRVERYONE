@@ -9,6 +9,19 @@ int line_value[] = { 0, 0, 0, 0, 0, 0, 0, 0 };
 float current_degree = 0;
 float previous_error_forward = 0;
 
+// =============================================================================
+// TIMING MODEL & TILE DISTANCE MACROS (Non-linear Acceleration Compensation)
+// =============================================================================
+int T_FLAT_BASE   = 420;  // 1 ช่องแรก (รวมเวลาเร่ง Ramp-up 120ms + เบรก Ramp-down 120ms)
+int T_FLAT_CRUISE = 240;  // เวลาคงที่ต่อช่องถัดไปเมื่อวิ่งทางตรงยาว
+int T_BRIDGE      = 580;  // ขึ้นสะพาน 50mm
+int T_BUMP        = 680;  // ลูกระนาด 7 อัน
+int T_SEESAW      = 750;  // ไม้กระดก
+int T_TUNNEL      = 240;  // อุโมงค์
+int T_RECOIL      = 180;  // ถอยหลังหลังจับเส้นดำ
+
+#define TIME_FLAT(n) ( (n) == 1 ? T_FLAT_BASE : (T_FLAT_BASE + ((n) - 1) * T_FLAT_CRUISE) )
+
 //----------ค่าเซอร์โว 1 ด้านหน้า----------//
 #define CH_SERVO_FRONT 1   // ช่องที่เสียบเซอร์โว ชุดปล่อยหน้า
 int ServoFront_Lock = 0;   // ล็อคลูกบาศก์หน้า S1
@@ -47,9 +60,6 @@ void loop() {
   setAngleOffset();
   current_degree = 0;
 
-  Box1();
-  Box2();
-  Box3();
-  Box4();
-  Endmission();
+  // ทดสอบวิ่ง 3 ช่อง ด้วยสปีด 84
+  FF(84, TIME_FLAT(3));
 }
